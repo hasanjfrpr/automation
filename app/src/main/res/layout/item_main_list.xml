@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/McardView_item_main_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:paddingTop="4dp"
+    app:cardElevation="8dp"
+    android:backgroundTint="?viewGroupBackGroundColor"
+    style="@style/materialCardView_diffirent_cornerRadus_appearance"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/parent_itemview_main_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/TV_item_title_mainList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:paddingVertical="8dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            tools:text="پیشخوان مدریت"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RV_subRecycler"
+            android:layout_width="match_parent"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:visibility="gone"
+            android:layout_marginBottom="40dp"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+</com.google.android.material.card.MaterialCardView>

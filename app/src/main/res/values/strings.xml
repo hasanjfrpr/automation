@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">Automation</string>
+    <string name="text_login">لطفا نام کاربری و رمز عبور خود را وارد کنید</string>
+    <string name="title_login">به برنامه اتوماسیون خوش آمدید</string>
+    <string name="username">نام کاربری</string>
+    <string name="password">رمزعبور</string>
+    <string name="login">ورود</string>
+    <string name="home">خانه</string>
+    <string name="exitFromApp">خروج از برنامه</string>
+    <string name="exitFromAccount">خروج از حاب کاربری</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="new_user"> برای ایجاد حساب کلیک کنید</string>
+    <string name="signup">ایجاد حساب</string>
+    <string name="automation">اتوماسیون</string>
+    <string name="setting">تنظیمات</string>
+    <string name="font">فونت</string>
+    <string name="selectFont">فونت مورد نظر خود را انتخاب کنید</string>
+
+    <string name="unknowErro">خطای نامشخص</string>
+
+
+    <string name="hardWareSell">فروش سخت افزار</string>
+    <string name="softWareSell">فروش نرم افزار</string>
+    <string name="tamdidQarardad">تمدید قرارداد</string>
+    <string name="khadamatPoshtibani">خدمات پشتیبانی</string>
+    <string name="hokmKarha">حکم کارها</string>
+    <string name="bazaryabi">بازاریابی</string>
+    <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
+    <string name="sefareshatMoshtariJadid">سفارش های مشتری جدید</string>
+    <string name="vaziatSefaresh">وضعیت سفارش</string>
+    <string name="gozareshKar">گزارش کار</string>
+    <string name="darsadTakhfifAzHarsefaresh">دصد تخفیف از هر سفارش</string>
+    <string name="darsadSefareshat">درصد سفارشات</string>
+    <string name="tedadHokmKarha">تعداد حکم کارها</string>
+    <string name="darsadKharidShahrestan">درصد خرید شهرستان ها</string>
+    <string name="sendInfo">ثبت و بررسی</string>
+
+
+    <string name="tedadKolBazaryabi">تعداد کل بازاریابی</string>
+    <string name="tedadKolTiger">تعداد کل تایگر</string>
+    <string name="tedadKolNovin">تعداد کل نوین</string>
+
+    <string name="tedadbazaryabi">تعداد بازاریابی</string>
+    <string name="joziatBazaryabi">جزِئیات بازاریابی</string>
+
+    <string name="personal">پرسنل</string>
+    <string name="radif">ردیف</string>
+
+    <string name="clientName">نام مشتری</string>
+    <string name="phoneNumber">شماره تلفن</string>
+    <string name="productType">نوع محصول</string>
+    <string name="status">وضعیت</string>
+    <string name="description">توضیحات</string>
+
+
+    <string name="codHesab">کد حساب</string>
+    <string name="client">مشتری</string>
+    <string name="tedadAqlamKol">تعداد اقلام کل</string>
+    <string name="kharidKol">خرید کل</string>
+    <string name="darsadKharidMoshtariAzForooshKol">درصد خرید این مشتری از فروش کل</string>
+    <string name="entekhabPersonel">انتخاب پرسونل</string>
+    <string name="entekhabMahsol">انتخاب محصول</string>
+
+
+    <string name="moqayeseBa">مقایسه با تاریخ...</string>
+
+
+    <string name="nameNarmAfzar"> نام نرم افزار  </string>
+    <string name="tedadForoosh">  تعداد فروش </string>
+    <string name="mianginQaymat">  میانگین ثیمت </string>
+    <string name="jamForoosh">  جمع فروش </string>
+
+
+    <string name="shahr">شهر</string>
+    <string name="tedadKol">تعداد کل</string>
+    <string name="darsad">درصد</string>
+
+
+    <string name="nameMahsool">نام محصول</string>
+    <string name="majmoForoosh">مجموع فروش</string>
+    <string name="darsadThakhfif">درصد تخفیف</string>
+    <string name="majmoThakhfif">مجموع تخفیف</string>
+
+    <string name="entekhabService">انتخاب سرویس</string>
+
+
+
+    <string name="entekhabnoeMahsool">انتخاب نوع محصول</string>
+
+
+
+
+    <string name="noeGharardad">نوع قرارداد</string>
+    <string name="tedadGharardad">تعداد قرارداد</string>
+    <string name="mablaqGharardad">مبلغ قرارداد</string>
+
+
+
+    <string name="all" > همه</string>
+    <string name="tiger" > تایگر</string>
+    <string name="novin" > نوین</string>
+
+    <string name="servicNoghree" >سرویس نقره ای</string>
+    <string name="serviceAbi" >سرویس آبی</string>
+    <string name="serviceTalaee" >سرویس طلایی</string>
+
+
+    <string name="software" > نرم افزار</string>
+    <string name="hardware" > سخت افزار</string>
+
+    <string-array name="fontArray">
+        <item>فونت ایران سنس </item>
+        <item>فونت حکایت </item>
+        <item>فونت وزیر </item>
+    </string-array>
+
+    <string-array name="companyList">
+        <item>نوین</item>
+        <item>تایگر</item>
+        <item>همه</item>
+    </string-array>
+
+    <string-array name="productList">
+        <item>نرم افزار</item>
+        <item>سخت افزار</item>
+        <item>همه</item>
+    </string-array>
+
+    <string-array name="serviceType">
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+    </string-array>
+
+
+
+
+</resources>

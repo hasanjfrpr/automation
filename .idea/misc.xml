@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Automation2/app/src/main/res/drawable/et_background.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_drop.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/drawable/shape_item_list_main.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/font/fonts.xml" value="0.20277777777777778" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_bazaryabi.xml" value="0.22" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_activiy.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_takhfif_az_har_sefaresh.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_takhfifat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_ddarsad_kharid_moshtari.xml" value="0.19010416666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_forosh_narm_afzar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_forosh_sakht_afzar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_gozaresh_kar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_hokm_karha.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_sefaresh_moshtari_jadid.xml" value="0.19010416666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_setting.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_tamdid_gharardad.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_tedad_hokm_karha.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_vaziat_sefaresh.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/custom_toolbar_for_item_pishkhan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_detail_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_activity_pishkhan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_detail_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_darsad_thakhfif_az_har_sefaresh.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_darsadkharid_shahrestan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_main_list_grid.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_moshtarian.xml" value="0.22" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_shahrestan.xml" value="0.18518518518518517" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_darsad_sefareshat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narm_afzar_compare.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narmafzar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/loading_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_header.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/menu/navigation_drawer_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_darsad_khardi_shahrestan.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_darsad_sefareshat.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_darsad_thakfif.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_hokm_karha.xml" value="0.2203125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.dayrayaneh.automation">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".base.App"
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Automation"
+        tools:targetApi="m">
+        <activity
+            android:name=".view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.darsadSefareshat.DarsadSefareshatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.darsadTakhfifAzHarSefaresh.DarsadTakhfifAzHarSefareshActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.gozareshKar.GozareshKarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanActiviy"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.hokmKarha.HokmKarhaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.sefarashMoshtariJadid.SefareshMoshtariJadidActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.bazaryabi.BazaryabiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.foroshSakhtAfzar.ForooshSakhtAfzarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.foroshNarmAfZar.ForooshNarmAfzarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.setting.SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".view.main.MainActivity"
+            android:exported="true"
+            >
+
+        </activity>
+    </application>
+
+</manifest>
