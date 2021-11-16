@@ -24,6 +24,10 @@ import com.dayrayaneh.automation.viewModel.login.LoginViewModelFactory;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
@@ -139,6 +143,8 @@ public class LoginActivity extends BaseActivity {
                             showAccessAnimation(loginModel);
                             ///save token to tokenContainer
               ConstValue.tokenContainer = loginModel.getData().get(0).getToken();
+              ConstValue.accessItemIdList = loginModel.getData().get(0).getAcceccMenuIdArray();
+              ConstValue.isAdminLis = loginModel.getData().get(0).getAcceccGroupIdArray();
 
                         }else{
                             Snackbar.make(LoginActivity.this, username, loginModel.getStatus().getMessage(), Snackbar.LENGTH_LONG).show();
@@ -147,6 +153,8 @@ public class LoginActivity extends BaseActivity {
 
                     }
                 });
+
+
     }
 
 

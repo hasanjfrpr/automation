@@ -33,14 +33,11 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
         if (e instanceof HttpException){
             if (((HttpException) e).code() == 401){
 
+                EventBus.getDefault().post(401);
 
-
-
-            }else if (((HttpException) e).code() == 403.1){
-
-
-
-
+            }else if (((HttpException) e).code() == 403){
+                String unAccess="دسترسی شما به ابن آیتم ممکن نیست.";
+                EventBus.getDefault().post(unAccess);
             }
         }
     }

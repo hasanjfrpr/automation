@@ -89,6 +89,12 @@
     <string name="entekhabnoeMahsool">انتخاب نوع محصول</string>
 
 
+    <string name="unAccess">دسترسی تایید نشد</string>
+    <string name="unAccess_text">امکان مشاهده این صفحه برای شما امکان پذیر نمی باشد.</string>
+    <string name="back">بازگشت</string>
+    <string name="closeTab">بستن</string>
+
+
 
 
     <string name="noeGharardad">نوع قرارداد</string>

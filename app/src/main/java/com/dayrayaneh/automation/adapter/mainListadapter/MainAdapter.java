@@ -105,22 +105,39 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
 
         holder.itemView.setOnClickListener(v->{
-            if (!isShow){
-            holder.subRecyclerView.setVisibility(View.VISIBLE);
-            isShow = true;
-            ConstValue.menuIsOpen=true;
-            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
-            holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
 
-            pishKhanAdapter.event = this;
-            }else {
-                holder.subRecyclerView.setVisibility(View.GONE);
-                isShow = false;
-                ConstValue.menuIsOpen = false;
-                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
-                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+            if (position ==0){
+                if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(1857)){
+
+                    if (!isShow){
+                        holder.subRecyclerView.setVisibility(View.VISIBLE);
+                        isShow = true;
+                        ConstValue.menuIsOpen=true;
+                        holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+                        holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+
+                        pishKhanAdapter.event = this;
+                    }else {
+                        holder.subRecyclerView.setVisibility(View.GONE);
+                        isShow = false;
+                        ConstValue.menuIsOpen = false;
+                        holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+                        holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+
+                    }
+
+                }else {
+                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
+                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
+
+                }
+
 
             }
+
+
+
+
 
         });
 
