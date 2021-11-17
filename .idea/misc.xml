@@ -6,6 +6,7 @@
         <entry key="..\:/Automation2/app/src/main/res/drawable/et_background.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_drop.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/drawable/shae_item_main_list.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/shape_item_list_main.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/font/fonts.xml" value="0.20277777777777778" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_bazaryabi.xml" value="0.22" />
@@ -42,7 +43,9 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_darsad_sefareshat.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narm_afzar_compare.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narmafzar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_sakht_afzar.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad_compare.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/loading_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_header.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_layout.xml" value="0.20416666666666666" />

@@ -17,10 +17,12 @@ import android.widget.TextView;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.forooshNarmAfzar.ForooshNarmAfzarAdapter;
+import com.dayrayaneh.automation.adapter.pishkhan.forooshNarmAfzar.compare.ForooshNarmAfzarCompareAdapter;
 import com.dayrayaneh.automation.adapter.pishkhan.pishkan_darsadKharidMoshtarian.DarsadKharidMoshtarianAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.compare.ForooshNarmAfzarCompareModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.darsadKharidMoshtari.DarsadKharidMoshtariViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.foroshNarmAfzar.ForooshNarmAfzarViewModel;
@@ -39,6 +41,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
     private Toolbar toolbar;
     private RecyclerView rv_main , rv_moqayese;
     private ForooshNarmAfzarAdapter adapter;
+    private ForooshNarmAfzarCompareAdapter adapter_compare;
     private ForooshNarmAfzarViewModel forooshNarmAfzarViewModel;
     private View loadingView;
     private LinearLayout showCompare;
@@ -100,7 +103,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
         sendInfo.setOnClickListener(v -> {
             if (isCheckedd){
                 ///request for compare date
-                viewModelForCompareData();
+                viewModelCompare();
             }else{
                 viewModel();
             }
@@ -114,12 +117,26 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
     }
 
     private void viewModel(){
+        rv_moqayese.setVisibility(View.GONE);
+        rv_main.setVisibility(View.VISIBLE);
         loadingView.setVisibility(View.VISIBLE);
         forooshNarmAfzarViewModel.getForooshNarmAfzar(ConstValue.startDate , ConstValue.endDate);
         forooshNarmAfzarViewModel.forooshNarmAfzarLiveData.observe(this,forooshNarmAfzarModel -> {
             loadingView.setVisibility(View.GONE);
             setRecyclerViewMain(forooshNarmAfzarModel);
         });
+    }
+
+    private void viewModelCompare(){
+        rv_main.setVisibility(View.GONE);
+        rv_moqayese.setVisibility(View.VISIBLE);
+        loadingView.setVisibility(View.VISIBLE);
+        forooshNarmAfzarViewModel.getForooshNarmAfzarCompare(ConstValue.startDate , ConstValue.endDate , fromDateM , toDateM);
+        forooshNarmAfzarViewModel.forooshNarmAfzarCompareLiveData.observe(this,forooshNarmAfzarCompareModel -> {
+            loadingView.setVisibility(View.GONE);
+            setRecyclerViewCompare(forooshNarmAfzarCompareModel);
+        });
+
     }
 
     private void setRecyclerViewMain(ForooshNarmAfzarModel forooshNarmAfzarModel) {
@@ -132,10 +149,19 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
 
     }
 
+    private void setRecyclerViewCompare(ForooshNarmAfzarCompareModel forooshNarmAfzarCompareModel) {
 
-    private void viewModelForCompareData(){
-        rv_main.setVisibility(View.GONE);
+        adapter_compare  = new ForooshNarmAfzarCompareAdapter(  this , forooshNarmAfzarCompareModel.getData());
+        rv_moqayese.setVisibility(View.VISIBLE);
+        rv_moqayese.setAdapter(adapter_compare);
+        rv_moqayese.setLayoutManager(new LinearLayoutManager(this , RecyclerView.VERTICAL , false));
+
+
+
     }
+
+
+
 
 
     private void setCompareDate(){
@@ -146,6 +172,8 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
 
         fromDate_mqayese.setText(currentDate);
         toDate_moqayese.setText(currentDate);
+        fromDateM =  Utils.convertPersianDateToFormatOfServer(mDate.getShYear() ,mDate.getShMonth(), mDate.getShDay());
+        toDateM = Utils.convertPersianDateToFormatOfServer(mDate.getShYear() ,mDate.getShMonth(), mDate.getShDay());
 
 
         com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog datePickerDialog = new com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog();

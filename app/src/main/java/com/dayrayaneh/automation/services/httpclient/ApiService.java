@@ -6,9 +6,12 @@ import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.DarsadKha
 import com.dayrayaneh.automation.model.pishkhan.darsadSefareshat.DarsadSefareshatModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadThakhfifAzHarSefaresh.DarsadTakhfifAzHarSefareshModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.compare.ForooshNarmAfzarCompareModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
+import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
@@ -41,8 +44,17 @@ public interface ApiService {
     @POST("orders/softsell")
     Single<ForooshNarmAfzarModel> getForooshNarmAfzar(@Body JsonObject jsonObject);
 
+    @POST("orders/softsellCompare")
+    Single<ForooshNarmAfzarCompareModel> getForooshNarmAfzarCompare(@Body JsonObject jsonObject);
+
     @POST("services/contractExtension")
     Single<TamdidGharardadModel> getTamdidGharardad(@Body JsonObject jsonObject);
+
+    @POST("services/contractExtensionCompare")
+    Single<TamdidGharardadCompareModel> getTamdidGharardadCompare(@Body JsonObject jsonObject);
+
+    @POST("orders/hardsell")
+    Single<ForooshSakhtAfzarModel> getForooshSakhtAfzar(@Body JsonObject jsonObject);
 
 
 }

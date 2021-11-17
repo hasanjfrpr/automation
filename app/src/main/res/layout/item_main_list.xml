@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/McardView_item_main_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="4dp"
-    android:paddingTop="4dp"
+    app:cardCornerRadius="12dp"
+    android:paddingHorizontal="8dp"
     app:cardElevation="8dp"
+    android:clickable="true"
+    android:layout_marginHorizontal="16dp"
+    android:background="?selectableItemBackground"
     android:backgroundTint="?viewGroupBackGroundColor"
-    style="@style/materialCardView_diffirent_cornerRadus_appearance"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -43,4 +47,4 @@
     </LinearLayout>
 
 
-</com.google.android.material.card.MaterialCardView>
+</androidx.cardview.widget.CardView>

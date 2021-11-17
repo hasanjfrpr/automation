@@ -21,10 +21,12 @@ import android.widget.Toast;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.forooshNarmAfzar.ForooshNarmAfzarAdapter;
 import com.dayrayaneh.automation.adapter.pishkhan.tamdidGharardad.TamdidGharardadAdapter;
+import com.dayrayaneh.automation.adapter.pishkhan.tamdidGharardad.compare.TamdidGharardadCompareAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
+import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.foroshNarmAfzar.ForooshNarmAfzarViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.tamdidQarardad.TamdidGharardadViewModel;
@@ -42,6 +44,7 @@ public class TamdidGharardadActivity extends BaseActivity {
     private Toolbar toolbar;
     private RecyclerView rv_main , rv_moqayese;
     private TamdidGharardadAdapter adapter;
+    private TamdidGharardadCompareAdapter adapter_compare;
     private TamdidGharardadViewModel tamdidGharardadViewModel;
     private View loadingView;
     private LinearLayout showCompare;
@@ -51,6 +54,7 @@ public class TamdidGharardadActivity extends BaseActivity {
     private String fromDateM , toDateM;
     private boolean isCheckedd = false;
     private int item_serviceTypeId=0;
+    private int noeService = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +123,7 @@ public class TamdidGharardadActivity extends BaseActivity {
                 viewModel();
             }
         });
-        
-        
+
         frame_select_service.setOnClickListener(v -> {
             selectCompanyDialog();
         });
@@ -132,6 +135,7 @@ public class TamdidGharardadActivity extends BaseActivity {
         Utils.setDate(fromDate , toDate , this);
         setCompareDate();
     }
+
     private void setCompareDate(){
 
         PersianDate mDate = new PersianDate();
@@ -140,6 +144,8 @@ public class TamdidGharardadActivity extends BaseActivity {
 
         fromDate_mqayese.setText(currentDate);
         toDate_moqayese.setText(currentDate);
+        fromDateM =  Utils.convertPersianDateToFormatOfServer(mDate.getShYear() ,mDate.getShMonth(), mDate.getShDay());
+        toDateM = Utils.convertPersianDateToFormatOfServer(mDate.getShYear() ,mDate.getShMonth(), mDate.getShDay());
 
 
         com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog datePickerDialog = new com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog();
@@ -174,6 +180,8 @@ public class TamdidGharardadActivity extends BaseActivity {
     }
 
     private void viewModel(){
+        rv_main.setVisibility(View.VISIBLE);
+        rv_moqayese.setVisibility(View.GONE);
         loadingView.setVisibility(View.VISIBLE);
         tamdidGharardadViewModel.getTamdidGharardad(ConstValue.startDate , ConstValue.endDate);
         tamdidGharardadViewModel.tamdidGharardadLiveData.observe(this,tamdidGharardadModel -> {
@@ -191,9 +199,29 @@ public class TamdidGharardadActivity extends BaseActivity {
 
 
     }
+
+
     private void viewModelForCompareData(){
         rv_main.setVisibility(View.GONE);
+        rv_moqayese.setVisibility(View.VISIBLE);
+        loadingView.setVisibility(View.VISIBLE);
+        tamdidGharardadViewModel.getTamdidGharardadCompare(ConstValue.startDate , ConstValue.endDate , fromDateM , toDateM , noeService);
+        tamdidGharardadViewModel.tamdidGharardadCompareLiveData.observe(this,tamdidGharardadCompareModel -> {
+            loadingView.setVisibility(View.GONE);
+            setRecyclerViewCompare(tamdidGharardadCompareModel);
+        });
     }
+
+    private void setRecyclerViewCompare(TamdidGharardadCompareModel tamdidGharardadCompareModel) {
+
+        adapter_compare  = new TamdidGharardadCompareAdapter(this , tamdidGharardadCompareModel.getData());
+        rv_moqayese.setAdapter(adapter_compare);
+        rv_moqayese.setLayoutManager(new LinearLayoutManager(this , RecyclerView.VERTICAL , false));
+
+
+    }
+
+
 
     private void selectCompanyDialog() {
 
@@ -205,14 +233,17 @@ public class TamdidGharardadActivity extends BaseActivity {
                     case 0:
                         TV_serviceType.setText(getResources().getString(R.string.serviceAbi));
                         item_serviceTypeId = 0;
+                        noeService =2;
                         break;
                     case 1:
                         TV_serviceType.setText(getResources().getString(R.string.servicNoghree));
                         item_serviceTypeId = 1;
+                        noeService = 3;
                         break;
                     case 2:
                         TV_serviceType.setText(getResources().getString(R.string.serviceTalaee));
                         item_serviceTypeId = 2;
+                        noeService = 4;
                         break;
                 }
                 dialog.dismiss();

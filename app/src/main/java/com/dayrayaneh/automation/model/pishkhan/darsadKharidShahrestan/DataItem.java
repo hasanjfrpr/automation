@@ -17,7 +17,7 @@ public class DataItem{
 	private String city;
 
 	@SerializedName("PercentTotalPriceSell")
-	private int percentTotalPriceSell;
+	private double percentTotalPriceSell;
 
 	public double getPercentPercentOfAll(){
 		return percentPercentOfAll;
@@ -35,7 +35,7 @@ public class DataItem{
 		return city;
 	}
 
-	public int getPercentTotalPriceSell(){
+	public double getPercentTotalPriceSell(){
 		return percentTotalPriceSell;
 	}
 }

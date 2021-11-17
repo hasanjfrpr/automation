@@ -68,8 +68,14 @@
 
     <string name="nameNarmAfzar"> نام نرم افزار  </string>
     <string name="tedadForoosh">  تعداد فروش </string>
-    <string name="mianginQaymat">  میانگین ثیمت </string>
+    <string name="mianginQaymat">  میانگین قیمت </string>
     <string name="jamForoosh">  جمع فروش </string>
+
+
+
+    <string name="tedad">  تعداد </string>
+    <string name="mablaq"> مبلغ </string>
+
 
 
     <string name="shahr">شهر</string>
@@ -83,6 +89,9 @@
     <string name="majmoThakhfif">مجموع تخفیف</string>
 
     <string name="entekhabService">انتخاب سرویس</string>
+
+
+    <string name="modelmahsol">مدل محصول</string>
 
 
 
@@ -100,6 +109,9 @@
     <string name="noeGharardad">نوع قرارداد</string>
     <string name="tedadGharardad">تعداد قرارداد</string>
     <string name="mablaqGharardad">مبلغ قرارداد</string>
+
+
+    <string name="noeService">نوع سرویس</string>
 
 
 
@@ -137,6 +149,37 @@
         <item>آبی</item>
         <item>نقره ای</item>
         <item>طلایی</item>
+    </string-array>
+
+    <string-array name="serviceTypes">
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+        <item>آبی</item>
+        <item>نقره ای</item>
+        <item>طلایی</item>
+
     </string-array>
 
 

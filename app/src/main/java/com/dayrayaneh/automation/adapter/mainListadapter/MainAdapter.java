@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,6 +35,8 @@ import com.dayrayaneh.automation.view.pishkhanItemView.tamdidGharardad.TamdidGha
 import com.dayrayaneh.automation.view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity;
 import com.google.android.material.card.MaterialCardView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,41 +105,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         PishKhanAdapter pishKhanAdapter = new PishKhanAdapter(context, subList);
         holder.subRecyclerView.setLayoutManager(new GridLayoutManager(context,2,RecyclerView.VERTICAL,false));
         holder.subRecyclerView.setAdapter(pishKhanAdapter);
+        pishKhanAdapter.event = this;
+
+
 
 
         holder.itemView.setOnClickListener(v->{
 
-            if (position ==0){
-                if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(1857)){
-
-                    if (!isShow){
-                        holder.subRecyclerView.setVisibility(View.VISIBLE);
-                        isShow = true;
-                        ConstValue.menuIsOpen=true;
-                        holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
-                        holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
-
-                        pishKhanAdapter.event = this;
-                    }else {
-                        holder.subRecyclerView.setVisibility(View.GONE);
-                        isShow = false;
-                        ConstValue.menuIsOpen = false;
-                        holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
-                        holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
-
-                    }
-
-                }else {
-                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
-                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
-
-                }
-
-
-            }
-
-
-
+            checkAccess(position , holder);
 
 
         });
@@ -155,7 +131,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         TextView title;
         RecyclerView subRecyclerView;
         LinearLayout linearLayout;
-        MaterialCardView materialCardView;
+        CardView materialCardView;
 
        public MainViewHolder(@NonNull View itemView) {
            super(itemView);
@@ -245,6 +221,38 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
 
         }
+
+    }
+
+    private void checkAccess(int position , MainViewHolder holder){
+
+            if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(ConstValue.containAccessList[position])){
+
+                if (!isShow){
+                    holder.subRecyclerView.setVisibility(View.VISIBLE);
+                    isShow = true;
+                    ConstValue.menuIsOpen=true;
+                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+
+
+                }else {
+                    holder.subRecyclerView.setVisibility(View.GONE);
+                    isShow = false;
+                    ConstValue.menuIsOpen = false;
+                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+
+                }
+
+            }else {
+                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
+                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
+                EventBus.getDefault().post("unAccess");
+            }
+
+
+
 
     }
 

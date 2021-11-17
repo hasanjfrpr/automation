@@ -24,6 +24,7 @@ import com.dayrayaneh.automation.base.Keys;
 import com.dayrayaneh.automation.model.login.LoginModel;
 import com.dayrayaneh.automation.model.pishKhanModel.PishKhanModel;
 import com.dayrayaneh.automation.model.mainListModel.MainListModel;
+import com.dayrayaneh.automation.view.login.LoginActivity;
 import com.dayrayaneh.automation.view.setting.SettingActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -105,7 +106,18 @@ public class MainActivity extends BaseActivity {
                         break;
 
                     case R.id.exitFromAccount:
-                        Toast.makeText(MainActivity.this, "exitFromAccount", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(MainActivity.this , LoginActivity.class);
+                        ConstValue.tokenContainer = null;
+                        ConstValue.endDate = null;
+                        ConstValue.startDate = null;
+                        ConstValue.accessItemIdList = null;
+                        ConstValue.isAdminLis = null;
+                        ConstValue.endDatePersian = null;
+                        ConstValue.startDatePersian = null;
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(i);
+                        finish();
                         break;
 
                     case R.id.setting:

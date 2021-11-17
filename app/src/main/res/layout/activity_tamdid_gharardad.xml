@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <include layout="@layout/loading_layout"
         android:id="@+id/loading_view"
         android:visibility="gone"/>
@@ -205,6 +206,7 @@
         android:visibility="gone"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
+        android:layout_marginBottom="8dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -217,6 +219,7 @@
         android:visibility="gone"
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
+        android:layout_marginBottom="8dp"
         android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

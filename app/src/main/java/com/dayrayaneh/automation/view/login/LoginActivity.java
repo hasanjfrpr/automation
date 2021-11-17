@@ -129,7 +129,7 @@ public class LoginActivity extends BaseActivity {
 
         successLottie.setAnimation(R.raw.lottie_loading);
         successLottie.setVisibility(View.VISIBLE);
-       successLottie.setRepeatCount(100);
+       successLottie.setRepeatCount(1000);
         successLottie.playAnimation();
         loginViewModel.sendUsername(S_username,S_password)
                 .subscribeOn(Schedulers.io())

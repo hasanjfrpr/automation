@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.dayrayaneh.automation.R;
+import com.dayrayaneh.automation.dialog.ErrorUnAccessDialog;
 import com.dayrayaneh.automation.view.login.LoginActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -51,8 +52,10 @@ public class BaseActivity extends AppCompatActivity {
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void getError403(String unAccess){
-        Toast.makeText(this, unAccess, Toast.LENGTH_SHORT).show();
+    public void showDialogErrorUnAccess(String unAccess){
+        ErrorUnAccessDialog dialog = new ErrorUnAccessDialog();
+        dialog.setCancelable(false);
+        dialog.show(getSupportFragmentManager() , "");
     }
 
 
