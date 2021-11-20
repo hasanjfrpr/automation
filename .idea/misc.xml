@@ -30,6 +30,7 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_detail_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/fragment_hokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_activity_pishkhan.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_detail_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_main_list.xml" value="0.20416666666666666" />
@@ -44,8 +45,12 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narm_afzar_compare.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narmafzar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_sakht_afzar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_sakht_afzar_compare.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_hokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad_compare.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_product_categories_hardware_sell.xml" value="0.2" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/layout_show_product_categories_hardware_sell.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/loading_layout.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_header.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/navigation_drawer_layout.xml" value="0.20416666666666666" />

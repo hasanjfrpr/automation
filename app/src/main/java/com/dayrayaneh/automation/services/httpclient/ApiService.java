@@ -1,6 +1,9 @@
 package com.dayrayaneh.automation.services.httpclient;
 
 import com.dayrayaneh.automation.model.login.LoginModel;
+import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
+import com.dayrayaneh.automation.model.pishkhan.HokmKar.followers.HokmKarFollowersModel;
+import com.dayrayaneh.automation.model.pishkhan.HokmKar.request.HokmKarRequestModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.DarsadKharidShahrestanModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadSefareshat.DarsadSefareshatModel;
@@ -8,6 +11,8 @@ import com.dayrayaneh.automation.model.pishkhan.darsadThakhfifAzHarSefaresh.Dars
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.compare.ForooshNarmAfzarCompareModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.ForooshSakhtAfzarCompareModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
@@ -55,6 +60,22 @@ public interface ApiService {
 
     @POST("orders/hardsell")
     Single<ForooshSakhtAfzarModel> getForooshSakhtAfzar(@Body JsonObject jsonObject);
+
+    @POST("categories/productCategories")
+    Single<ProductCategories> getProductCategories();
+
+    @POST("orders/hardsellCompare")
+    Single<ForooshSakhtAfzarCompareModel> getForooshSakhtAfzarCompare(@Body JsonObject jsonObject);
+
+    @POST("sentence/Details")
+    Single<HokmKarModel> getHokmKar(@Body JsonObject jsonObject);
+
+    @POST("sentence/customerRequest")
+    Single<HokmKarRequestModel> getHokmKarRequestModel(@Body JsonObject jsonObject);
+
+    @POST("sentence/followers")
+    Single<HokmKarFollowersModel> getHokmKarFollowersModel(@Body JsonObject jsonObject);
+
 
 
 }

@@ -17,7 +17,7 @@ public class DataItem{
 	private int fldKindOperationID;
 
 	@SerializedName("TotalPriceSellsoft")
-	private int totalPriceSellsoft;
+	private double totalPriceSellsoft;
 
 	public int getAvgAmount(){
 		return avgAmount;
@@ -35,7 +35,7 @@ public class DataItem{
 		return fldKindOperationID;
 	}
 
-	public int getTotalPriceSellsoft(){
+	public double getTotalPriceSellsoft(){
 		return totalPriceSellsoft;
 	}
 }

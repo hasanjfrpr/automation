@@ -76,8 +76,9 @@ public class Utils {
                     ConstValue.startDatePersian = year + "/" + (monthOfYear + 1) + "/" + dayOfMonth;
                 }
             });
-            datePickerDialog.setThemeDark(true);
+            datePickerDialog.setThemeDark(false);
             datePickerDialog.show(activity.getFragmentManager(), "");
+
 
         });
 

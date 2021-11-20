@@ -72,10 +72,17 @@
     <string name="jamForoosh">  جمع فروش </string>
 
 
+    <string name="shomareHokm"> شماره حکم  </string>
+    <string name="sabtKonande">  ثبت کننده </string>
+    <string name="noeKhadamat">  نوع خدمات </string>
+    <string name="moshtari">  مشتری </string>
+    <string name="serial"> سریال </string>
+
+
+
 
     <string name="tedad">  تعداد </string>
     <string name="mablaq"> مبلغ </string>
-
 
 
     <string name="shahr">شهر</string>
@@ -94,7 +101,6 @@
     <string name="modelmahsol">مدل محصول</string>
 
 
-
     <string name="entekhabnoeMahsool">انتخاب نوع محصول</string>
 
 
@@ -102,8 +108,6 @@
     <string name="unAccess_text">امکان مشاهده این صفحه برای شما امکان پذیر نمی باشد.</string>
     <string name="back">بازگشت</string>
     <string name="closeTab">بستن</string>
-
-
 
 
     <string name="noeGharardad">نوع قرارداد</string>
@@ -114,18 +118,17 @@
     <string name="noeService">نوع سرویس</string>
 
 
+    <string name="all"> همه</string>
+    <string name="tiger"> تایگر</string>
+    <string name="novin"> نوین</string>
 
-    <string name="all" > همه</string>
-    <string name="tiger" > تایگر</string>
-    <string name="novin" > نوین</string>
-
-    <string name="servicNoghree" >سرویس نقره ای</string>
-    <string name="serviceAbi" >سرویس آبی</string>
-    <string name="serviceTalaee" >سرویس طلایی</string>
+    <string name="servicNoghree">سرویس نقره ای</string>
+    <string name="serviceAbi">سرویس آبی</string>
+    <string name="serviceTalaee">سرویس طلایی</string>
 
 
-    <string name="software" > نرم افزار</string>
-    <string name="hardware" > سخت افزار</string>
+    <string name="software"> نرم افزار</string>
+    <string name="hardware"> سخت افزار</string>
 
     <string-array name="fontArray">
         <item>فونت ایران سنس </item>
@@ -181,8 +184,8 @@
         <item>طلایی</item>
 
     </string-array>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

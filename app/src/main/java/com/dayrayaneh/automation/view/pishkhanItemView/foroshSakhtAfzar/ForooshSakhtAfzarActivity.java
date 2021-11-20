@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -20,10 +21,15 @@ import android.widget.TextView;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.forooshNarmAfzar.ForooshNarmAfzarAdapter;
 import com.dayrayaneh.automation.adapter.pishkhan.forooshSakhtAzar.ForooshSakhtAfzarAdapter;
+import com.dayrayaneh.automation.adapter.pishkhan.forooshSakhtAzar.compare.ForooshSakhtAfzarCompareAdaptrer;
+import com.dayrayaneh.automation.adapter.pishkhan.forooshSakhtAzar.productCategories.ProductCategoriesAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.ForooshSakhtAfzarCompareModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.DataItem;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.foroshNarmAfzar.ForooshNarmAfzarViewModel;
@@ -43,6 +49,7 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
     private Toolbar toolbar;
     private RecyclerView rv_main, rv_moqayese;
     private ForooshSakhtAfzarAdapter adapter;
+    private ForooshSakhtAfzarCompareAdaptrer adapter_compare;
     private ForooshSakhtAfzarViewModel viewModel;
     private View loadingView;
     private LinearLayout showCompare;
@@ -51,6 +58,13 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
     private String fromDateM, toDateM;
     private boolean isCheckedd = false;
     private FrameLayout entekhabModelMahsol;
+    private View showCategories;
+    private MaterialButton okCategories;
+    private List<Integer> ids = new ArrayList<>();
+    private String[] productName;
+    private int[] productID;
+    private boolean[] defaultChecked;
+    private ProductCategories productCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +74,7 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         init();
         setDate();
         event();
+        getProductCategoriesViewModel();
 //        viewModel();
 
 
@@ -81,6 +96,8 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         fromDate_mqayese = findViewById(R.id.TV_fromDate_moqayese);
         toDate_moqayese = findViewById(R.id.Tv_toDate_moqayese);
         entekhabModelMahsol = findViewById(R.id.frameLayout_pishkhan_forooshSakhtAfzar_entekhab_modelMahsool);
+        showCategories = findViewById(R.id.layout_show_categories);
+        okCategories = findViewById(R.id.Mbtn_ok_select_ProductCategories);
 
 
         viewModel = new ViewModelProvider(this).get(ForooshSakhtAfzarViewModel.class);
@@ -108,25 +125,23 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         });
 
         sendInfo.setOnClickListener(v -> {
-            if (isCheckedd) {
-                ///request for compare date
-                viewModelForCompareData();
-            } else {
-                viewModel();
-            }
+
+               if (isCheckedd){
+                   viewModelCompare();
+               }else {
+                   viewModel();
+               }
+
         });
 
 
         entekhabModelMahsol.setOnClickListener(v -> {
-            boolean[] isCheck = {true , true,true,true , true,true,true , true,true,true , true,true,true , true,true,true , true,true,true , true,true,true , true,true,true , true,true};
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMultiChoiceItems(R.array.serviceTypes,isCheck , new DialogInterface.OnMultiChoiceClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+            setDialogForProductCategories(productCategories);
 
-                }
-            });
-            builder.create().show();
+        });
+
+        okCategories.setOnClickListener(v -> {
+//            showCategories.setVisibility(View.GONE);
         });
 
 
@@ -138,31 +153,44 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
     private void viewModel() {
 
-        List<Integer> list = new ArrayList<>();
-        list.add(9);
-        list.add(16);
+
         loadingView.setVisibility(View.VISIBLE);
-        viewModel.getForooshSakhtAfzar(ConstValue.startDate, ConstValue.endDate, list);
-        viewModel.forooshSakhtAfzarLiveData.observe(this,forooshSakhtAfzarModel -> {
+        viewModel.getForooshSakhtAfzar(ConstValue.startDate, ConstValue.endDate, ids);
+        viewModel.forooshSakhtAfzarLiveData.observe(this, forooshSakhtAfzarModel -> {
             loadingView.setVisibility(View.GONE);
             setRecyclerViewMain(forooshSakhtAfzarModel);
         });
 
     }
 
+    private void viewModelCompare(){
+
+        loadingView.setVisibility(View.VISIBLE);
+        viewModel.getForooshSakhtAfzarCompare(ConstValue.startDate, ConstValue.endDate, fromDateM ,toDateM , ids);
+        viewModel.forooshSakhtAfzarCompareLiveData.observe(this, forooshSakhtAfzarCompareModel -> {
+            loadingView.setVisibility(View.GONE);
+            setupRecyclerViewCompare(forooshSakhtAfzarCompareModel);
+        });
+    }
+
     private void setRecyclerViewMain(ForooshSakhtAfzarModel forooshSakhtAfzarModel) {
 
-        adapter = new ForooshSakhtAfzarAdapter(this,forooshSakhtAfzarModel.getData());
+        rv_moqayese.setVisibility(View.GONE);
+        rv_main.setVisibility(View.VISIBLE);
+        adapter = new ForooshSakhtAfzarAdapter(this, forooshSakhtAfzarModel.getData());
         rv_main.setVisibility(View.VISIBLE);
         rv_main.setAdapter(adapter);
         rv_main.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
-
     }
 
-    private void viewModelForCompareData() {
+  private void setupRecyclerViewCompare(ForooshSakhtAfzarCompareModel forooshSakhtAfzarCompareModel){
         rv_main.setVisibility(View.GONE);
-    }
+        rv_moqayese.setVisibility(View.VISIBLE);
+        adapter_compare = new ForooshSakhtAfzarCompareAdaptrer(this,forooshSakhtAfzarCompareModel.getData());
+        rv_moqayese.setAdapter(adapter_compare);
+        rv_moqayese.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL ,false));
+  }
 
     private void setCompareDate() {
 
@@ -172,6 +200,8 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
         fromDate_mqayese.setText(currentDate);
         toDate_moqayese.setText(currentDate);
+        fromDateM = Utils.convertPersianDateToFormatOfServer(mDate.getShYear(), mDate.getShMonth(), mDate.getShDay());
+        toDateM = Utils.convertPersianDateToFormatOfServer(mDate.getShYear(), mDate.getShMonth(), mDate.getShDay());
 
 
         com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog datePickerDialog = new com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog();
@@ -205,7 +235,84 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
     }
 
-    private void setDialogSelectProduct() {
+    private void getProductCategoriesViewModel() {
+        viewModel.getProductCategories();
+        viewModel.productCategoriesLiveData.observe(this, productCategories -> {
+//            setDialogForProductCategories(productCategories.getData());
+            productName = new String[productCategories.getData().size()];
+            productID = new int[productCategories.getData().size()];
+            defaultChecked = new boolean[productCategories.getData().size()];
+            this.productCategories = productCategories;
+
+            for (int i = 0; i < productCategories.getData().size(); i++) {
+                ids.add(productCategories.getData().get(i).getId());
+                productName[i] = productCategories.getData().get(i).getName();
+                productID[i] = productCategories.getData().get(i).getId();
+
+            }
+            loadingView.setVisibility(View.VISIBLE);
+            viewModel.getForooshSakhtAfzar(ConstValue.startDate, ConstValue.endDate, ids);
+            viewModel.forooshSakhtAfzarLiveData.observe(this, forooshSakhtAfzarModel -> {
+                loadingView.setVisibility(View.GONE);
+                setRecyclerViewMain(forooshSakhtAfzarModel);
+            });
+
+        });
+    }
+
+
+
+    private void setDialogForProductCategories(ProductCategories productCategories){
+
+//        String[] productName = new String[productCategories.size()];
+//
+//
+//        for (int i = 0; i < productCategories.size(); i++) {
+//            ids.add(productCategories.get(i).getId());
+//        }
+//
+//        for (int i = 0; i < productCategories.size(); i++) {
+//            productName[i] = productCategories.get(i).getName();
+//        }
+//
+//        boolean[] defaultCheckList = new boolean[productCategories.size()];
+
+
+        for (int i = 0; i < ids.size(); i++) {
+            if (ids.get(i) !=null){
+                defaultChecked[i] = true;
+            }
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMultiChoiceItems(productName, defaultChecked, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                if (isChecked && (ids.get(which) == null || ids.get(which) == 0)){
+                    ids.add(productCategories.getData().get(which).getId());
+                }else {
+                    ids.remove(which);
+                }
+
+            }
+        });
+        builder.setPositiveButton(getResources().getString(R.string.mdtp_ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (isCheckedd){
+                    viewModelCompare();
+                }else {
+                    viewModel();
+                }
+
+            }
+        });
+        builder.create().show();
+
 
     }
+
+
+
 }

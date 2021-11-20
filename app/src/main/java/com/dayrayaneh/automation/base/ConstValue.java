@@ -28,4 +28,7 @@ public class ConstValue {
     public static int[] containAccessList = new int[]{ 1857 , 1858  };
 
 
+    public static List<Integer> productCategoriesId = new ArrayList<>();
+
+
 }
