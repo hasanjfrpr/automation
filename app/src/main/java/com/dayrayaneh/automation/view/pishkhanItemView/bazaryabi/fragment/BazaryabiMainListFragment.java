@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.pishkhan_bazaryabi.BazaryabiMainAdapter;
 import com.dayrayaneh.automation.base.BaseFragment;
+import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.base.Keys;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.DataItem;
@@ -33,7 +34,11 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     private RecyclerView recyclerView;
     private BazaryabiMainAdapter adapter;
     private BazaryabiViewModel bazaryabiViewModel ;
+    private int companyId;
 
+    public BazaryabiMainListFragment(int companyId) {
+        this.companyId = companyId;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +51,7 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(view);
+        viewModel();
     }
 
 
@@ -66,6 +72,13 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
 
+    private void viewModel(){
+        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate , ConstValue.endDate ,companyId );
+        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
+            setRecyclerView(bazaryabiMainModel);
+        });
+    }
+
 
     @Override
     public void onStart() {
@@ -84,7 +97,7 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
 
 
 
-        getActivity().getSupportFragmentManager().beginTransaction()
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("bazaryabiMain")
                 .replace(R.id.FrameLayout_bazaryabi,new BazaryabiDetailListFragment(personelCode , personalName),"bazaryabiDetailFragment")
                 .commit();
 

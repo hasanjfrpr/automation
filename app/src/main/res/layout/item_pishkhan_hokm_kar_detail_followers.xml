@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/shomareHokm"
+                android:text="@string/status"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
@@ -43,7 +43,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_hokm_kar_shomareHokm"
+                    android:id="@+id/TV_item_pishkhan_hokm_kar_detail_status"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/sabtKonande"
+                android:text="@string/personal"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
@@ -87,7 +87,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_hokm_kar_sabtKonande"
+                    android:id="@+id/TV_item_pishkhan_hokm_kar_detail_personal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -111,40 +111,49 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/noeKhadamat"
+                android:text="@string/sharhErja"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginVertical="8dp"
                 android:textStyle="bold" />
-            <TextView
+
+            <ImageView
+                android:id="@+id/IV_item_hokmKar_detail_showSharhErja"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=":"
-                android:paddingHorizontal="4dp"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="center_vertical"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:paddingEnd="16dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_hokm_kar_noeKhadamat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
-            </FrameLayout>
-
-
-
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_arrow_drop"
+                android:layout_gravity="center_vertical"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_marginStart="16dp"
+                app:tint="@color/black" />
 
         </LinearLayout>
+        <FrameLayout
+            android:id="@+id/frame_show_sharhErja_hokmKar_detail_followers"
+            android:layout_width="match_parent"
+            android:paddingEnd="16dp"
+            android:background="@color/graylight"
+            android:minHeight="46dp"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/TV_item_pishkhan_hokm_kar_detail_sharheErja"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="?dividerColor"/>
+        </FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -155,83 +164,53 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/moshtari"
+                android:text="@string/description"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginVertical="8dp"
                 android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=":"
-                android:paddingHorizontal="4dp"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="center_vertical"/>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:paddingEnd="16dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_hokm_kar_moshtari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
-            </FrameLayout>
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
+            <ImageView
+                android:id="@+id/IV_item_hokmKar_detail_showDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="start"
-                android:text="@string/serial"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:padding="8dp"
+                app:srcCompat="@drawable/ic_arrow_drop"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"
-                android:layout_marginVertical="8dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=":"
-                android:paddingHorizontal="4dp"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="center_vertical"/>
+                android:background="?selectableItemBackgroundBorderless"
+                app:tint="@color/black" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:paddingEnd="16dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_hokm_kar_serial"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
-            </FrameLayout>
+
 
 
 
         </LinearLayout>
+        <FrameLayout
+            android:id="@+id/frame_show_description_hokmKar_detail_followers"
+            android:layout_width="match_parent"
+            android:paddingEnd="16dp"
+            android:background="@color/graylight"
+            android:minHeight="46dp"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/TV_item_pishkhan_hokm_kar_detail_description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_gravity="bottom"
+                android:background="?dividerColor"/>
+        </FrameLayout>
 
 
 

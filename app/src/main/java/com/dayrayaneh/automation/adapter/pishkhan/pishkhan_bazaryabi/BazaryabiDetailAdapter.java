@@ -39,12 +39,18 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
         holder.productType.setText(bazaryabiDetailModelList.get(position).getNueMahsol());
         holder.clientName.setText(bazaryabiDetailModelList.get(position).getMoshtari());
-        holder.description.setText(bazaryabiDetailModelList.get(position).getDescription());
+
         holder.status.setText(bazaryabiDetailModelList.get(position).getVaziat());
         holder.phoneNumber.setText(bazaryabiDetailModelList.get(position).getTelNumber());
         holder.serviceType.setText(bazaryabiDetailModelList.get(position).getKhadamatType());
 
 
+
+        if (bazaryabiDetailModelList.get(position).getVaziat() == null){
+            holder.status.setText("این آیتم پر نشده است ");
+            holder.status.setTextColor(context.getResources().getColor(R.color.redlight));
+
+        }
 
 
 
@@ -53,6 +59,12 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
                 if (!isShow) {
                     holder.description.setVisibility(View.VISIBLE);
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+                   if (bazaryabiDetailModelList.get(position).getDescription() == null){
+                       holder.description.setText(" ندارد ");
+                       holder.description.setTextColor(context.getResources().getColor(R.color.redlight));
+                   }else{
+                       holder.description.setText(bazaryabiDetailModelList.get(position).getDescription());
+                   }
                     isShow = true;
                 } else {
                     holder.description.setVisibility(View.GONE);

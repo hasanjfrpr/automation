@@ -61,7 +61,7 @@ public class BazaryabiDetailListFragment extends BaseFragment {
         btn_back_to_main = view.findViewById(R.id.IV_bazaryabi_detail_back_to_main);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         sharedPreferences = getContext().getSharedPreferences("date", Context.MODE_PRIVATE);
-        bazaryabiMainListFragment = new BazaryabiMainListFragment();
+
 
     }
     private void setTitleAndPersonalNameInView(){
@@ -70,8 +70,7 @@ public class BazaryabiDetailListFragment extends BaseFragment {
 
     private void events() {
         btn_back_to_main.setOnClickListener(v -> {
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment()).commit();
+           getActivity().getSupportFragmentManager().popBackStack();
         });
     }
 

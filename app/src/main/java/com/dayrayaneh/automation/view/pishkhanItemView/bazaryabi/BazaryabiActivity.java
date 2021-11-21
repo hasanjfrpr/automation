@@ -223,7 +223,7 @@ public class BazaryabiActivity extends BaseActivity {
                 addAmarBazaryabi(bazaryabiMainModel);
             }
         });
-        getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(),"bazaryabiMainFragment")
+        getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
                 .commit();
 
     }
@@ -254,7 +254,7 @@ public class BazaryabiActivity extends BaseActivity {
     public void onBackPressed() {
 
  if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(),"bazaryabiMainFragment")
+            getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
                     .commit();
         }else {
             super.onBackPressed();

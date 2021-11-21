@@ -13,6 +13,8 @@ import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.compare.Foroosh
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.ForooshSakhtAfzarCompareModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
+import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
+import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
@@ -75,6 +77,12 @@ public interface ApiService {
 
     @POST("sentence/followers")
     Single<HokmKarFollowersModel> getHokmKarFollowersModel(@Body JsonObject jsonObject);
+
+    @POST("Services/SupportServiceCount")
+    Single<KhadamatPoshtibaniMainModel> getKhadamatPoshtibaniMain(@Body JsonObject jsonObject);
+
+    @POST("Services/SupportServiceDetails")
+    Single<KhadamatPoshtibaniDetailModel> getKhadamatPoshtibaniDetail(@Body JsonObject jsonObject);
 
 
 

@@ -19,6 +19,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.hokmKar.HokmKarMainAdapter;
 import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.hokmKarha.HokmKarhaActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.HokmKar.HokmKarViewModel;
 
 public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdapter.HokmKarMainEvent {
@@ -28,7 +29,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
     private RecyclerView recyclerView;
     private HokmKarMainAdapter adapter_main;
     private View loadingView;
-    public MutableLiveData<Boolean> loadinLiveData = new MutableLiveData();
+    public  MutableLiveData<Boolean> loadinLiveData = new MutableLiveData();
 
 
     @Override
@@ -47,6 +48,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
     }
 
     private void init(View view) {
+
         thisViewModel = new ViewModelProvider(this).get(HokmKarViewModel.class);
         recyclerView = view.findViewById(R.id.RV_hokmKar_main);
         loadingView = view.findViewById(R.id.loading_view);
@@ -56,7 +58,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
     public void setViewModel(){
         loadinLiveData.setValue(true);
         thisViewModel.getHokmKar(ConstValue.startDate , ConstValue.endDate);
-        thisViewModel.hokmKarLiveData.observe(getViewLifecycleOwner() , hokmKarModel -> {
+        thisViewModel.hokmKarLiveData.observe(getViewLifecycleOwner(), hokmKarModel -> {
             setupRecyclerView(hokmKarModel);
             loadinLiveData.setValue(false);
         });
@@ -70,8 +72,10 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
 
+
     @Override
     public void getHokmKarMainId(int userId) {
-        getFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
+//        getFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("mainFragment").replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
     }
 }

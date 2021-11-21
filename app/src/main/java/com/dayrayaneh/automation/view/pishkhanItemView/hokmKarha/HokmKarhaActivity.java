@@ -13,7 +13,10 @@ import android.widget.TextView;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.darsadSefareshat.DarsadSefareshatAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
+import com.dayrayaneh.automation.base.ConstValue;
+import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
 import com.dayrayaneh.automation.utils.Utils;
+import com.dayrayaneh.automation.view.pishkhanItemView.hokmKarha.fragments.HokmKarDetailFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.hokmKarha.fragments.HokmKarMainFragment;
 import com.dayrayaneh.automation.viewModel.pishkhan.HokmKar.HokmKarViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.darsadSefareshat.DarsadSefareshatViewModel;
@@ -31,6 +34,7 @@ public class HokmKarhaActivity extends BaseActivity {
     private View loadingView;
     private MaterialButton sendInfo;
     private HokmKarMainFragment mainFragment;
+    private HokmKarDetailFragment detailFragment;
 
 
 
@@ -61,6 +65,7 @@ public class HokmKarhaActivity extends BaseActivity {
         loadingView = findViewById(R.id.loading_view);
 
 
+
         //////set fragmentMain
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , mainFragment, "hokmKarMain").commit();
 
@@ -77,7 +82,15 @@ public class HokmKarhaActivity extends BaseActivity {
             }
         });
 
-
+      HokmKarDetailFragment.hideButtonSendIndo.observe(this,hide->{
+          if (hide){
+              sendInfo.setVisibility(View.GONE);
+              findViewById(R.id.include7).setVisibility(View.GONE);
+          }else {
+              sendInfo.setVisibility(View.VISIBLE);
+              findViewById(R.id.include7).setVisibility(View.VISIBLE);
+          }
+      });
 
         sendInfo.setOnClickListener(v -> {
          mainFragment.setViewModel();
