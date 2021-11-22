@@ -9,10 +9,14 @@ public class ConstValue {
     public static String startDatePersian = null;
     public static String endDate = null;
     public static String endDatePersian = null;
+    public static String startTime = "00:00";
+    public static String endTime = "23:59";
 
 
     /////save token
     public static String tokenContainer = null;
+
+    public static int companyId = -1;
 
 
     ///boolean for show or hide item main list in main activity

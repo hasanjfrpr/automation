@@ -16,8 +16,8 @@ public class KhadamatPoshtibaniRepoImpl implements KhadamatPoshtibaniRepo {
     @Override
     public Single<KhadamatPoshtibaniMainModel> getKhadamatPoshtibaniMain(String startDate, String endDate, String startTime, String endTime, int company) {
 
-        jsonObject.addProperty("startDate" , startDate+" "+startTime);
-        jsonObject.addProperty("endDate" , endDate+" "+endTime);
+        jsonObject.addProperty("startDate" , startDate+" "+startTime+":00.000");
+        jsonObject.addProperty("endDate" , endDate+" "+endTime+":59.000");
         jsonObject.addProperty("company" , company);
 
 

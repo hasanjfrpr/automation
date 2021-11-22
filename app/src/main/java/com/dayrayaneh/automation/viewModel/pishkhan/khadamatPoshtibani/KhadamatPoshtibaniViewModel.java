@@ -37,11 +37,13 @@ public class KhadamatPoshtibaniViewModel extends BaseViewModel {
     }
 
 
+
+
     public void getKhadamatPoshtibaniDetail(String startDate, String endDate , String startTime , String endTime , int userId){
         repo.getKhadamatPoshtibaniDetail(startDate , endDate , startTime ,endTime , userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new AutomationSingleObserver<KhadamatPoshtibaniDetailModel>(compositeDisposable {
+                .subscribe(new AutomationSingleObserver<KhadamatPoshtibaniDetailModel>(compositeDisposable) {
                     @Override
                     public void onSuccess(@NonNull KhadamatPoshtibaniDetailModel khadamatPoshtibaniDetailModel) {
                         khadamatPoshtibaniDetaileLiveData.setValue(khadamatPoshtibaniDetailModel);

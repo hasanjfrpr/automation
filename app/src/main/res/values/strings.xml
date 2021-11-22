@@ -59,7 +59,7 @@
     <string name="tedadAqlamKol">تعداد اقلام کل</string>
     <string name="kharidKol">خرید کل</string>
     <string name="darsadKharidMoshtariAzForooshKol">درصد خرید این مشتری از فروش کل</string>
-    <string name="entekhabPersonel">انتخاب پرسونل</string>
+    <string name="entekhabPersonel">انتخاب پرسنل</string>
     <string name="entekhabMahsol">انتخاب محصول</string>
 
 
@@ -81,18 +81,15 @@
     <string name="sharhErja"> شرح ارجاء  </string>
 
 
-
-
-
-
     <string name="customerRequests"> درخواست های مشتری </string>
     <string name="followers"> دنبال کننده ها </string>
 
 
-
-
     <string name="tedad">  تعداد </string>
     <string name="mablaq"> مبلغ </string>
+
+    <string name="startTime"> از ساعت </string>
+    <string name="endTime"> تا ساعت </string>
 
 
     <string name="shahr">شهر</string>
@@ -137,8 +134,22 @@
     <string name="serviceTalaee">سرویس طلایی</string>
 
 
+    <string name="namePoshtiban"> نام پشتیبان</string>
+    <string name="shomareDakheli"> شماره داخلی</string>
+    <string name="tedadTamas">تعداد تماس</string>
+    <string name="modatMokalem"> مدت مکالمه</string>
+    <string name="mianginMokaleme">میانگین مکالمه</string>
+    <string name="mianginEmtiaz"> میانگین امتیاز</string>
+    <string name="tedadKhadamat"> تعداد خدمات</string>
+    <string name="tedadPaygiri"> تعداد پیگیری</string>
+
+
     <string name="software"> نرم افزار</string>
     <string name="hardware"> سخت افزار</string>
+
+
+
+
 
     <string-array name="fontArray">
         <item>فونت ایران سنس </item>
