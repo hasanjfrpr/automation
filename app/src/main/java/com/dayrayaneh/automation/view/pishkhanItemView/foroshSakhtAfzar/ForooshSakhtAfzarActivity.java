@@ -51,14 +51,14 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
     private ForooshSakhtAfzarAdapter adapter;
     private ForooshSakhtAfzarCompareAdaptrer adapter_compare;
     private ForooshSakhtAfzarViewModel viewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
     private LinearLayout showCompare;
     private MaterialButton sendInfo;
     private CheckBox checkBox;
     private String fromDateM, toDateM;
     private boolean isCheckedd = false;
     private FrameLayout entekhabModelMahsol;
-    private View showCategories;
+
     private MaterialButton okCategories;
     private List<Integer> ids = new ArrayList<>();
     private String[] productName;
@@ -96,8 +96,8 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         fromDate_mqayese = findViewById(R.id.TV_fromDate_moqayese);
         toDate_moqayese = findViewById(R.id.Tv_toDate_moqayese);
         entekhabModelMahsol = findViewById(R.id.frameLayout_pishkhan_forooshSakhtAfzar_entekhab_modelMahsool);
-        showCategories = findViewById(R.id.layout_show_categories);
         okCategories = findViewById(R.id.Mbtn_ok_select_ProductCategories);
+        showEmpty = findViewById(R.id.showEmpty);
 
 
         viewModel = new ViewModelProvider(this).get(ForooshSakhtAfzarViewModel.class);
@@ -140,9 +140,6 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
         });
 
-        okCategories.setOnClickListener(v -> {
-//            showCategories.setVisibility(View.GONE);
-        });
 
 
     }
@@ -152,13 +149,17 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
     }
 
     private void viewModel() {
-
-
         loadingView.setVisibility(View.VISIBLE);
         viewModel.getForooshSakhtAfzar(ConstValue.startDate, ConstValue.endDate, ids);
         viewModel.forooshSakhtAfzarLiveData.observe(this, forooshSakhtAfzarModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerViewMain(forooshSakhtAfzarModel);
+            if (forooshSakhtAfzarModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setRecyclerViewMain(forooshSakhtAfzarModel);
+            }
         });
 
     }

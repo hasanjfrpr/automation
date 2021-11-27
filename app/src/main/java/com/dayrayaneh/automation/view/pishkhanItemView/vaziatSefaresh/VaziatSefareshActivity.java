@@ -36,6 +36,7 @@ public class VaziatSefareshActivity extends BaseActivity {
     private VaziatSefareshatViewModel viewModel;
     private View loadingView;
     private MaterialButton sendInfo;
+    private View showEmpty;
 
 
     @Override
@@ -59,6 +60,7 @@ public class VaziatSefareshActivity extends BaseActivity {
         toolbar.setTitle(getResources().getString(R.string.vaziatSefaresh));
         setSupportActionBar(toolbar);
         loadingView = findViewById(R.id.loading_view);
+        showEmpty = findViewById(R.id.showEmpty);
         viewModel = new ViewModelProvider(this).get(VaziatSefareshatViewModel.class);
         recyclerView = findViewById(R.id.RV_vaziatSefareshat);
         sendInfo = findViewById(R.id.Mbtn_pishKhan_vaziatSefareshat_sendInfo);
@@ -72,8 +74,13 @@ public class VaziatSefareshActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         viewModel.getVaziatSefareshat(ConstValue.startDate , ConstValue.endDate);
         viewModel.vaziatSefareshatleLiveData.observe(this,vaziatSefareshatModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerView(vaziatSefareshatModel);
+           if (vaziatSefareshatModel.getData().size() < 1 ){
+               showEmpty.setVisibility(View.VISIBLE);
+           }else {
+               showEmpty.setVisibility(View.GONE);
+               loadingView.setVisibility(View.GONE);
+               setRecyclerView(vaziatSefareshatModel);
+           }
         });
     }
 

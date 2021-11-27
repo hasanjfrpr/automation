@@ -18,15 +18,12 @@
         android:visibility="gone"/>
 
     <include
-        android:id="@+id/layout_show_categories"
-        layout="@layout/layout_show_product_categories_hardware_sell"
+        layout="@layout/layout_empty"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="50dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishkhan_foroosh_sakhtAfzar_sendInfo" />
 

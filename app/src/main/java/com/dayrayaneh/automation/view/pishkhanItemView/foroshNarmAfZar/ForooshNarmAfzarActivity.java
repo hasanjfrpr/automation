@@ -43,7 +43,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
     private ForooshNarmAfzarAdapter adapter;
     private ForooshNarmAfzarCompareAdapter adapter_compare;
     private ForooshNarmAfzarViewModel forooshNarmAfzarViewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
     private LinearLayout showCompare;
     private MaterialButton sendInfo;
     private CheckBox checkBox;
@@ -76,6 +76,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
         sendInfo = findViewById(R.id.Mbtn_pishkhan_foroosh_narmAfzar_sendInfo);
         fromDate_mqayese = findViewById(R.id.TV_fromDate_moqayese);
         toDate_moqayese = findViewById(R.id.Tv_toDate_moqayese);
+        showEmpty = findViewById(R.id.showEmpty);
         forooshNarmAfzarViewModel = new ViewModelProvider(this).get(ForooshNarmAfzarViewModel.class);
 //        selectProductType = findViewById(R.id.Mcv_darsadKharidMoshtari_select_productType);
 //        TV_productType = findViewById(R.id.TV_darsadKharidMoshtari_select_productType);
@@ -122,8 +123,14 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         forooshNarmAfzarViewModel.getForooshNarmAfzar(ConstValue.startDate , ConstValue.endDate);
         forooshNarmAfzarViewModel.forooshNarmAfzarLiveData.observe(this,forooshNarmAfzarModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerViewMain(forooshNarmAfzarModel);
+          if (forooshNarmAfzarModel.getData().size() < 1){
+              showEmpty.setVisibility(View.VISIBLE);
+              loadingView.setVisibility(View.GONE);
+          }else {
+              showEmpty.setVisibility(View.GONE);
+              loadingView.setVisibility(View.GONE);
+              setRecyclerViewMain(forooshNarmAfzarModel);
+          }
         });
     }
 

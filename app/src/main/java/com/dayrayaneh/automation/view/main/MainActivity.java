@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +54,7 @@ public class MainActivity extends BaseActivity {
     private List<PishKhanModel> pishKhanModelList = new ArrayList<>();
     private List<MainListModel> mainListModelList = new ArrayList<>();
     private RecyclerView mainRecyclerView;
+    private FrameLayout frameLayout;
 
 
     @Override
@@ -64,6 +66,7 @@ public class MainActivity extends BaseActivity {
         setDateAndTime();
         setupMainRecyclerView();
         getUsername();
+
 
 
     }
@@ -82,8 +85,10 @@ public class MainActivity extends BaseActivity {
         username_nav = nav_header.findViewById(R.id.TV_username_navDrawer);
         username_bottom = findViewById(R.id.TV_username_bottom_main);
         mainRecyclerView = findViewById(R.id.RV_main);
+        frameLayout = findViewById(R.id.frameLayout);
 
     }
+
 
     private void setupNavigationDrawer() {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -121,7 +126,9 @@ public class MainActivity extends BaseActivity {
                         break;
 
                     case R.id.setting:
-                        startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                        Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                        intent.putExtra(Keys.DATA , "fromMain");
+                        startActivity(intent);
                         break;
 
                 }
@@ -166,7 +173,7 @@ public class MainActivity extends BaseActivity {
 
         mainListModelList = new ArrayList<>();
         mainListModelList.add(new MainListModel("پیشخوان مدیریت"));
-        mainListModelList.add(new MainListModel("گزارش لیدها "));
+
         MainAdapter adapter = new MainAdapter(mainListModelList, this);
         mainRecyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         mainRecyclerView.setAdapter(adapter);

@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.view.View;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.dialog.ErrorUnAccessDialog;
 import com.dayrayaneh.automation.view.login.LoginActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -52,10 +55,14 @@ public class BaseActivity extends AppCompatActivity {
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void showDialogErrorUnAccess(String unAccess){
-        ErrorUnAccessDialog dialog = new ErrorUnAccessDialog();
-        dialog.setCancelable(false);
-        dialog.show(getSupportFragmentManager() , "");
+    public void showDialogErrorUnAccess(String un){
+        if (un.equals("خطای نامشخص")){
+            Snackbar.make(this,getWindow().getDecorView().getRootView(),un , Snackbar.LENGTH_SHORT).show();
+        }else{
+            ErrorUnAccessDialog dialog = new ErrorUnAccessDialog();
+            dialog.setCancelable(false);
+            dialog.show(getSupportFragmentManager() , "");
+        }
     }
 
 

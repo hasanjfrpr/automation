@@ -46,7 +46,7 @@ public class TamdidGharardadActivity extends BaseActivity {
     private TamdidGharardadAdapter adapter;
     private TamdidGharardadCompareAdapter adapter_compare;
     private TamdidGharardadViewModel tamdidGharardadViewModel;
-    private View loadingView;
+    private View loadingView, showEmpty;
     private LinearLayout showCompare;
     private FrameLayout frame_select_service;
     private MaterialButton sendInfo;
@@ -89,6 +89,7 @@ public class TamdidGharardadActivity extends BaseActivity {
         toDate_moqayese = findViewById(R.id.Tv_toDate_moqayese);
         frame_select_service = findViewById(R.id.frameLayout_pishkhan_tamdidQarardad_entekhab_Service);
         TV_serviceType = findViewById(R.id.TV_pishkhan_tamdidQarardad_entekhabService);
+        showEmpty = findViewById(R.id.showEmpty);
 
 
 
@@ -185,8 +186,15 @@ public class TamdidGharardadActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         tamdidGharardadViewModel.getTamdidGharardad(ConstValue.startDate , ConstValue.endDate);
         tamdidGharardadViewModel.tamdidGharardadLiveData.observe(this,tamdidGharardadModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerViewMain(tamdidGharardadModel);
+            if (tamdidGharardadModel.getData().size() < 1 ){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setRecyclerViewMain(tamdidGharardadModel);
+            }
+
         });
     }
 

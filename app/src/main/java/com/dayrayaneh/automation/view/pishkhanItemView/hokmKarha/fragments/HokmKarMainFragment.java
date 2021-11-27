@@ -30,6 +30,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
     private HokmKarMainAdapter adapter_main;
     private View loadingView;
     public  MutableLiveData<Boolean> loadinLiveData = new MutableLiveData();
+    private View showEmpty;
 
 
     @Override
@@ -52,6 +53,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
         thisViewModel = new ViewModelProvider(this).get(HokmKarViewModel.class);
         recyclerView = view.findViewById(R.id.RV_hokmKar_main);
         loadingView = view.findViewById(R.id.loading_view);
+        showEmpty = view.findViewById(R.id.showEmpty);
 
     }
 
@@ -59,8 +61,14 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
         loadinLiveData.setValue(true);
         thisViewModel.getHokmKar(ConstValue.startDate , ConstValue.endDate);
         thisViewModel.hokmKarLiveData.observe(getViewLifecycleOwner(), hokmKarModel -> {
-            setupRecyclerView(hokmKarModel);
-            loadinLiveData.setValue(false);
+            if (hokmKarModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadinLiveData.setValue(false);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                setupRecyclerView(hokmKarModel);
+                loadinLiveData.setValue(false);
+            }
         });
     }
 

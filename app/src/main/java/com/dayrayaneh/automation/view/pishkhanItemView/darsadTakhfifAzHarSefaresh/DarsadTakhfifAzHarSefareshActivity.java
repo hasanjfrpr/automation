@@ -34,7 +34,7 @@ public class DarsadTakhfifAzHarSefareshActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private MaterialButton sendInfo;
     private DarsadTakhfifAzHarSefareshViewModel viewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
 
 
     @Override
@@ -58,6 +58,7 @@ public class DarsadTakhfifAzHarSefareshActivity extends BaseActivity {
         recyclerView = findViewById(R.id.RV_darsadTakhfifAzHarsefaresh);
         sendInfo = findViewById(R.id.Mbtn_darsadTakhfifAzHarsefaresh_sendInfo);
         loadingView = findViewById(R.id.loading_view);
+        showEmpty = findViewById(R.id.showEmpty);
 
         ////viewMode init
         viewModel = new ViewModelProvider(this).get(DarsadTakhfifAzHarSefareshViewModel.class);
@@ -91,8 +92,14 @@ public class DarsadTakhfifAzHarSefareshActivity extends BaseActivity {
         viewModel.getDarsadTakhfifAzHarSefaresh(ConstValue.startDate, ConstValue.endDate);
 
         viewModel.darsadTakhfifAzHarSefareshLiveData.observe(this, darsadTakhfifAzHarSefareshModel  -> {
-            loadingView.setVisibility(View.GONE);
-            setupRecycler(darsadTakhfifAzHarSefareshModel);
+           if (darsadTakhfifAzHarSefareshModel.getData().size() < 1){
+               showEmpty.setVisibility(View.VISIBLE);
+               loadingView.setVisibility(View.GONE);
+           }else {
+               showEmpty.setVisibility(View.GONE);
+               loadingView.setVisibility(View.GONE);
+               setupRecycler(darsadTakhfifAzHarSefareshModel);
+           }
 
         });
     }

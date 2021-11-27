@@ -88,6 +88,6 @@ public interface ApiService {
     @POST("orders/ordersStatus")
     Single<VaziatSefareshatModel> getVaziatSefareshat(@Body JsonObject jsonObject);
 
-    @POST("orders/newCustomersOrders")
-    Single<> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
+//    @POST("orders/newCustomersOrders")
+//    Single<> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
 }

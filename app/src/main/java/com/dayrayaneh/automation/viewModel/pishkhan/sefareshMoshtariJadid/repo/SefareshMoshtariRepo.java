@@ -9,6 +9,6 @@ public interface SefareshMoshtariRepo {
 
 
 
-    Single<> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
+//    Single<> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
 
 }

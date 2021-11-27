@@ -32,7 +32,7 @@ public class DarsadSefareshatActivity extends BaseActivity {
     private DarsadSefareshatAdapter adapter;
     private RecyclerView recyclerView;
     private DarsadSefareshatViewModel viewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
     private MaterialButton sendInfo;
 
 
@@ -56,6 +56,7 @@ public class DarsadSefareshatActivity extends BaseActivity {
         back = findViewById(R.id.IV_back_item_pishkhan);
         loadingView = findViewById(R.id.loading_view);
         sendInfo = findViewById(R.id.Mbtn_pishkhan_darsadSefareshat_sendInfo);
+        showEmpty = findViewById(R.id.showEmpty);
         viewModel = new ViewModelProvider(this).get(DarsadSefareshatViewModel.class);
 
     }
@@ -74,8 +75,14 @@ public class DarsadSefareshatActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         viewModel.getDarsadSefareshat(ConstValue.startDate , ConstValue.endDate);
         viewModel.darsadSefareshatLiveData.observe(this,darsadSefareshatModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerView(darsadSefareshatModel);
+          if (darsadSefareshatModel.getData().size() <1 ){
+              showEmpty.setVisibility(View.VISIBLE);
+              loadingView.setVisibility(View.GONE);
+          }else {
+              showEmpty.setVisibility(View.GONE);
+              loadingView.setVisibility(View.GONE);
+              setRecyclerView(darsadSefareshatModel);
+          }
         });
    }
 

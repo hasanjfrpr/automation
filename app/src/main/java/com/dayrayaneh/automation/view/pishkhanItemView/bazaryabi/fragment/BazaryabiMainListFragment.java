@@ -34,6 +34,7 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     private RecyclerView recyclerView;
     private BazaryabiMainAdapter adapter;
     private BazaryabiViewModel bazaryabiViewModel ;
+    private  View showEmpty;
     private int companyId;
 
     public BazaryabiMainListFragment(int companyId) {
@@ -58,6 +59,7 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     private void init(View view){
         recyclerView = view.findViewById(R.id.RV_bazaryabi_main_list);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
+        showEmpty = view.findViewById(R.id.showEmpty);
 
     }
 
@@ -75,7 +77,12 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     private void viewModel(){
         bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate , ConstValue.endDate ,companyId );
         bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
-            setRecyclerView(bazaryabiMainModel);
+            if (bazaryabiMainModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                setRecyclerView(bazaryabiMainModel);
+            }
         });
     }
 

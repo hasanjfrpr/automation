@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include
+        layout="@layout/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/RV_pishKhan_darsadKharidMoshtarian"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishkhan_darsadKharidMoshtari_saveInfo" />
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/Mcv_darsadKharidMoshtari_select_productType"

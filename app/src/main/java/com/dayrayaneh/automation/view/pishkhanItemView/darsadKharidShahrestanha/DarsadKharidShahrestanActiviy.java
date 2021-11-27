@@ -42,7 +42,7 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity {
     private int checkItems = 2;
     private int productType = -1;
     private DarsadKharidShahrestanViewModel viewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
 
 
 
@@ -67,6 +67,7 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity {
         select_productType = findViewById(R.id.Mcv_darsadKharidshahrestan_select_productType);
         TV_productType = findViewById(R.id.TV_darsadKharidSharestan_select_productType);
         loadingView = findViewById(R.id.loading_view);
+        showEmpty = findViewById(R.id.showEmpty);
         viewModel = new ViewModelProvider(this).get(DarsadKharidShahrestanViewModel.class);
     }
 
@@ -137,8 +138,14 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity {
         viewModel.getDarsadKharidShahrestan(ConstValue.startDate, ConstValue.endDate, productType);
 
         viewModel.darsadKharidShahrestanLiveData.observe(this, darsadKharidShahrestanModel  -> {
-            loadingView.setVisibility(View.GONE);
-            setupRecycler(darsadKharidShahrestanModel);
+            if (darsadKharidShahrestanModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setupRecycler(darsadKharidShahrestanModel);
+            }
 
         });
     }

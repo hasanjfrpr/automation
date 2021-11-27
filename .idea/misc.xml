@@ -25,7 +25,7 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_gozaresh_kar.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_hokm_karha.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_khadamat_poshtibani.xml" value="0.20416666666666666" />
-        <entry key="..\:/Automation2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_main.xml" value="0.19010416666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_sefaresh_moshtari_jadid.xml" value="0.19010416666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_setting.xml" value="0.20416666666666666" />
@@ -33,7 +33,10 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_tedad_hokm_karha.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_vaziat_sefaresh.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/custom_toolbar_for_item_pishkhan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/dialog_error_empty_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_errro_unaccess.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/dialog_restart.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/dialog_setting_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_detail_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_main_list.xml" value="0.20416666666666666" />

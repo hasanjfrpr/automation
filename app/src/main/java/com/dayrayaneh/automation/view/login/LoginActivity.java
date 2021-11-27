@@ -1,10 +1,15 @@
 package com.dayrayaneh.automation.view.login;
 
 import android.animation.Animator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,10 +20,13 @@ import com.dayrayaneh.automation.base.AutomationSingleObserver;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.base.Keys;
+import com.dayrayaneh.automation.dialog.ErrorIpDialog;
+import com.dayrayaneh.automation.dialog.ErrorUnAccessDialog;
 import com.dayrayaneh.automation.model.login.LoginModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.main.MainActivity;
 import com.dayrayaneh.automation.R;
+import com.dayrayaneh.automation.view.setting.SettingActivity;
 import com.dayrayaneh.automation.viewModel.login.LoginViewModel;
 import com.dayrayaneh.automation.viewModel.login.LoginViewModelFactory;
 import com.google.android.material.button.MaterialButton;
@@ -40,7 +48,9 @@ public class LoginActivity extends BaseActivity {
     private String S_password;
     private LoginViewModel loginViewModel;
     private LottieAnimationView successLottie;
+    private LinearLayout setting;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private SharedPreferences sharedPreferences ;
 
 
 
@@ -58,6 +68,8 @@ public class LoginActivity extends BaseActivity {
         password = findViewById(R.id.ET_password);
         login_btn = findViewById(R.id.Mbtn_login);
         successLottie = findViewById(R.id.lottie_success);
+        setting = findViewById(R.id.IV_setting);
+        sharedPreferences= getSharedPreferences("default_setting",MODE_PRIVATE);
         /// init viewModel
         loginViewModel = new ViewModelProvider(this,new LoginViewModelFactory()).get(LoginViewModel.class);
 
@@ -77,11 +89,21 @@ public class LoginActivity extends BaseActivity {
             } else if (S_password.matches("")) {
                 password.setError("این فیلد الزامی است");
                 Toast.makeText(this, "تمامی فیلد ها باید تکمیل شوند", Toast.LENGTH_SHORT).show();
+            }else if (sharedPreferences.getString("ip","").isEmpty() || sharedPreferences.getString("ip","").equals("")){
+                ErrorIpDialog errorIpDialog = new ErrorIpDialog() ;
+                errorIpDialog.show(getSupportFragmentManager() , "");
+
             } else {
                 ////////send username and password to server
                 viewModel();
             }
 
+        });
+
+        setting.setOnClickListener(v -> {
+           Intent intent = new Intent(this, SettingActivity.class);
+           intent.putExtra(Keys.DATA , "fromLogin");
+           startActivity(intent);
         });
 
     }

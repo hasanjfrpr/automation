@@ -93,11 +93,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
         }
 
-        else if (mainListModelList.get(position).getTitle_Main().equals("گزارش لیدها ")){
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadSefareshat),R.drawable.ic_timer));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.tedadHokmKarha),R.drawable.ic_airplan));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan),R.drawable.ic_photo));
-        }
 
 
 

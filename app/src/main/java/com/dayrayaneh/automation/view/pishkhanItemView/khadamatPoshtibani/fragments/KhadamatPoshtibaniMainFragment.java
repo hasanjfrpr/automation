@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.airbnb.lottie.L;
@@ -35,6 +36,8 @@ public class KhadamatPoshtibaniMainFragment extends BaseFragment implements Khad
     private KhadamatPoshtibaniViewModel thisViewModel;
     private KhadamatPoshtibaniMainAdapter adapter;
     public static MutableLiveData<Boolean> showLoadingLiveData = new MutableLiveData<>()  ;
+    private View showEmpty;
+    private LinearLayout row;
 
 
 
@@ -62,6 +65,8 @@ public class KhadamatPoshtibaniMainFragment extends BaseFragment implements Khad
     private void init(View view) {
         rv_main = view.findViewById(R.id.RV_pishKhan_khadamat_poshtibani_main);
         thisViewModel = new ViewModelProvider(this).get(KhadamatPoshtibaniViewModel.class);
+        row = view.findViewById(R.id.linearLayout_main_khadamatPoshtibani);
+        showEmpty = view.findViewById(R.id.showEmpty);
 
     }
 
@@ -71,8 +76,14 @@ public class KhadamatPoshtibaniMainFragment extends BaseFragment implements Khad
 
         thisViewModel.getKhadamatPoshtibaniMain(ConstValue.startDate , ConstValue.endDate , ConstValue.startTime , ConstValue.endTime ,ConstValue.companyId);
         thisViewModel.khadamatPoshtibaniMainLiveData.observe(getViewLifecycleOwner() , khadamatPoshtibaniMainModel -> {
-            setRecycler(khadamatPoshtibaniMainModel);
-            showLoadingLiveData.setValue(false);
+           if (khadamatPoshtibaniMainModel.getData().size() < 1){
+               showEmpty.setVisibility(View.VISIBLE);
+               showLoadingLiveData.setValue(false);
+           }else {
+               showEmpty.setVisibility(View.GONE);
+               setRecycler(khadamatPoshtibaniMainModel);
+               showLoadingLiveData.setValue(false);
+           }
 
         });
     }

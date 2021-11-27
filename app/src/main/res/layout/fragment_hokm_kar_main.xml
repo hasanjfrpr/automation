@@ -12,6 +12,10 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:id="@+id/loading_view"/>
+    <include layout="@layout/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RV_hokmKar_main"
         android:layout_width="match_parent"

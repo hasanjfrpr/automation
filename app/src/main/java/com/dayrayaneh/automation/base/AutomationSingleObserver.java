@@ -38,6 +38,9 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
             }else if (((HttpException) e).code() == 403){
                 String unAccess="دسترسی شما به ابن آیتم ممکن نیست.";
                 EventBus.getDefault().post(unAccess);
+            }else {
+                String unKnowError = "خطای نامشخص";
+                EventBus.getDefault().post(unKnowError);
             }
         }
     }

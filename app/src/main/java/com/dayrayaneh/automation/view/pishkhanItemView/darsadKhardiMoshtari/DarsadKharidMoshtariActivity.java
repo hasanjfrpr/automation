@@ -34,7 +34,7 @@ public class DarsadKharidMoshtariActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private DarsadKharidMoshtarianAdapter adapter;
     private DarsadKharidMoshtariViewModel darsadKharidMoshtariViewModel;
-    private View loadingView;
+    private View loadingView , showEmpty;
     private int productType = -1;
     private MaterialCardView selectProductType;
     private MaterialButton sendInfo;
@@ -65,6 +65,7 @@ public class DarsadKharidMoshtariActivity extends BaseActivity {
         sendInfo = findViewById(R.id.Mbtn_pishkhan_darsadKharidMoshtari_saveInfo);
         selectProductType = findViewById(R.id.Mcv_darsadKharidMoshtari_select_productType);
         TV_productType = findViewById(R.id.TV_darsadKharidMoshtari_select_productType);
+        showEmpty = findViewById(R.id.showEmpty);
         darsadKharidMoshtariViewModel = new ViewModelProvider(this).get(DarsadKharidMoshtariViewModel.class);
 
     }
@@ -136,8 +137,15 @@ public class DarsadKharidMoshtariActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         darsadKharidMoshtariViewModel.getDarsadKharidMoshtari(ConstValue.startDate, ConstValue.endDate, productType);
         darsadKharidMoshtariViewModel.darsadkharidMoshtariLiveData.observe(this, darsadkharidMoshtariModel -> {
-            loadingView.setVisibility(View.GONE);
-            setupRecycler(darsadkharidMoshtariModel);
+
+            if (darsadkharidMoshtariModel.getData().size() <1 ){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setupRecycler(darsadkharidMoshtariModel);
+            }
 
         });
     }

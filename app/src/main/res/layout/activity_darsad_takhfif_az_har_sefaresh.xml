@@ -19,6 +19,16 @@
         android:visibility="gone"
         android:id="@+id/loading_view"/>
 
+    <include
+        layout="@layout/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_darsadTakhfifAzHarsefaresh_sendInfo" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Mbtn_darsadTakhfifAzHarsefaresh_sendInfo"
         android:layout_width="wrap_content"
