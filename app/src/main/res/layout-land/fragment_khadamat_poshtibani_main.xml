@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:scrollbars="horizontal"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".view.pishkhanItemView.khadamatPoshtibani.fragments.KhadamatPoshtibaniMainFragment">
+    android:background="@color/lightYellow"
+    android:layout_gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
 
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:background="@color/lightYellow"
-            android:gravity="center_vertical"
-            android:paddingStart="16sp"
-            android:paddingEnd="16sp">
+            android:weightSum="9"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_vertical">
 
 
 
-                <TextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:gravity="center_horizontal"
-                    android:minLines="2"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/namePoshtiban"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:minLines="2"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                android:text="@string/namePoshtiban"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
 
             <View
@@ -46,9 +40,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/shomareDakheli"
@@ -62,9 +56,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/tedadTamas"
@@ -78,9 +72,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="50dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/modatMokalem"
@@ -94,9 +88,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/mianginMokaleme"
@@ -110,9 +104,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/mianginEmtiaz"
@@ -126,9 +120,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/tedadKhadamat"
@@ -142,9 +136,9 @@
                 android:background="?dividerColor" />
 
             <TextView
-                android:layout_width="60dp"
+                android:layout_width="75dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 android:text="@string/tedadPaygiri"
@@ -152,17 +146,14 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="?dividerColor" />
-        </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RV_pishKhan_khadamat_poshtibani_main"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false" />
+        </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV_pishKhan_khadamat_poshtibani_main"        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+       />
+
     </LinearLayout>
 
-</HorizontalScrollView>
+

@@ -75,7 +75,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
 
     @Override
     public void getHokmKarMainId(int userId) {
-//        getFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
+
         getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("mainFragment").replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
     }
 }

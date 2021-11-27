@@ -19,6 +19,7 @@ import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.Bazarya
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
+import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
@@ -84,6 +85,9 @@ public interface ApiService {
     @POST("Services/SupportServiceDetails")
     Single<KhadamatPoshtibaniDetailModel> getKhadamatPoshtibaniDetail(@Body JsonObject jsonObject);
 
+    @POST("orders/ordersStatus")
+    Single<VaziatSefareshatModel> getVaziatSefareshat(@Body JsonObject jsonObject);
 
-
+    @POST("orders/newCustomersOrders")
+    Single<> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
 }

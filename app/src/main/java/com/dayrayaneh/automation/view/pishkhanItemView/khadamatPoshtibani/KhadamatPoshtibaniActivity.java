@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
 import com.dayrayaneh.automation.utils.Utils;
+import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments.KhadamatPoshtibaniDetailFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments.KhadamatPoshtibaniMainFragment;
 import com.dayrayaneh.automation.viewModel.pishkhan.darsadKharidMoshtari.DarsadKharidMoshtariViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
@@ -40,12 +43,25 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
     private MaterialButton sendInfo;
     private int checkItems = 2;
     private KhadamatPoshtibaniMainFragment khadamatPoshtibaniMainFragment;
+    private KhadamatPoshtibaniDetailFragment khadamatPoshtibaniDetailFragment;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_khadamat_poshtibani);
+
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.activity_khadamat_poshtibani);
+            findViewById(R.id.include2).setVisibility(View.GONE);
+            findViewById(R.id.linearLayout2).setVisibility(View.GONE);
+            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
+            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
+        } else {
+            setContentView(R.layout.activity_khadamat_poshtibani);
+     }
+
+
 
         init();
         event();
@@ -64,16 +80,15 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         fromDate = findViewById(R.id.TV_fromDate);
         toDate = findViewById(R.id.Tv_toDate);
         loadingView = findViewById(R.id.loading_view);
-        startTime = findViewById(R.id.TV_startTime);
-        endTime = findViewById(R.id.TV_endTime);
+        startTime = findViewById(R.id.TV_fromTime);
+        endTime = findViewById(R.id.Tv_toTime);
         sendInfo = findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo);
         selectCompany = findViewById(R.id.Mcv_khadamatPoshtibani_select_company);
         TV_company = findViewById(R.id.TV_khadamatPoshtibani_select_company);
-
-
+        khadamatPoshtibaniDetailFragment = new KhadamatPoshtibaniDetailFragment();
 
         khadamatPoshtibaniMainFragment = new KhadamatPoshtibaniMainFragment();
-        getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment).commit();
 
 
 
@@ -132,9 +147,18 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
 
 
     private void event() {
+
+
+
         ///onclick
+
+
         back.setOnClickListener(v -> {
-            finish();
+            if (getSupportFragmentManager().findFragmentByTag("khadamatDetial") != null){
+                getSupportFragmentManager().popBackStack();
+            }else {
+               finish();
+            }
         });
 
 
@@ -143,7 +167,7 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
 
         });
 
-        khadamatPoshtibaniMainFragment.showLoadingLiveData.observe(this,isShow->{
+        KhadamatPoshtibaniMainFragment.showLoadingLiveData.observe(this,isShow->{
             if (isShow){
                 loadingView.setVisibility(View.VISIBLE);
             }else{
@@ -151,7 +175,30 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
             }
         });
 
+        KhadamatPoshtibaniDetailFragment.isShowLoadin.observe(this,isShow->{
+            if (isShow){
+                loadingView.setVisibility(View.VISIBLE);
+            }else{
+                loadingView.setVisibility(View.GONE);
+            }
+        });
+
+        KhadamatPoshtibaniDetailFragment.hide.observe(this,hide->{
+            if (hide){
+                findViewById(R.id.include2).setVisibility(View.GONE);
+                findViewById(R.id.linearLayout2).setVisibility(View.GONE);
+                findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
+                findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
+            }else{
+                findViewById(R.id.include2).setVisibility(View.VISIBLE);
+                findViewById(R.id.linearLayout2).setVisibility(View.VISIBLE);
+                findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.VISIBLE);
+                findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);
+            }
+        });
+
         sendInfo.setOnClickListener(v -> {
+
             khadamatPoshtibaniMainFragment.viewModel();
         });
 
@@ -186,6 +233,16 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
             }
         });
         builder.create().show();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (getSupportFragmentManager().findFragmentByTag("khadamatDetial") != null){
+            getSupportFragmentManager().popBackStack();
+        }else {
+            super.onBackPressed();
+        }
     }
 
 

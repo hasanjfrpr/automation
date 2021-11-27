@@ -121,6 +121,17 @@
     <string name="tedadGharardad">تعداد قرارداد</string>
     <string name="mablaqGharardad">مبلغ قرارداد</string>
 
+    <string name="nameTamasGirandeh">نام تماس گیرنده</string>
+    <string name="dalilTamasMoshtari">دلیل تماس مشتری</string>
+    <string name="saat">ساعت</string>
+    <string name="emtiaz">امتیاز</string>
+
+
+    <string name="nahveAshnaee">نحوه آشنایی</string>
+    <string name="codeHesabMoshtari">کدحساب مشتری</string>
+    <string name="noeSefaresh">نوع سفارش</string>
+    <string name="shomareSefaresh">شماره سفارش</string>
+    <string name="mablaqSefaresh">مبلغ سفارش</string>
 
     <string name="noeService">نوع سرویس</string>
 

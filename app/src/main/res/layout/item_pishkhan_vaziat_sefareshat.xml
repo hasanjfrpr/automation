@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    android:layout_marginVertical="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/status"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/nahveAshnaee"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_nahveAshnaee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/clientName"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_nameMoshtari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/codeHesabMoshtari"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_codeHesabMoshtari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/noeSefaresh"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_noeSefaresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+                <ImageView
+                    android:id="@+id/IV_showMore_vaziatSefaresh"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_drop"
+                    app:tint="@color/black" />
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:paddingEnd="16dp"
+            android:visibility="gone"
+            android:id="@+id/frame_moreContent_noeSefaresh"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/TV_item_pishkhan_vazatSefaresh_noeSefaresh2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingVertical="8dp"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="26dp"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp"/>
+        </FrameLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/shomareSefaresh"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_shomareSefaresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/mablaqSefaresh"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_mablaqSefaresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
