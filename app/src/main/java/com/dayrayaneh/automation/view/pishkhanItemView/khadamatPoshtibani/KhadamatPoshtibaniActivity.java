@@ -15,12 +15,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.pishkan_darsadKharidMoshtarian.DarsadKharidMoshtarianAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
+import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments.KhadamatPoshtibaniDetailFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments.KhadamatPoshtibaniMainFragment;
@@ -31,6 +33,9 @@ import com.google.android.material.card.MaterialCardView;
 import com.mohamadamin.persianmaterialdatetimepicker.time.RadialPickerLayout;
 import com.mohamadamin.persianmaterialdatetimepicker.time.TimePickerDialog;
 import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class KhadamatPoshtibaniActivity extends BaseActivity {
 
@@ -235,6 +240,19 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         builder.create().show();
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void setTotalInformation(KhadamatPoshtibaniMainModel model){
+
+        int khadamatKol = 0;
+        int khadamatKoltiger = 0;
+        int khadamatKolNovin = 0;
+        int paygiriKol = 0;
+
+        for (int i = 0; i < model.getData().size(); i++) {
+
+        }
+
+    }
 
     @Override
     public void onBackPressed() {

@@ -231,18 +231,13 @@ public class BazaryabiActivity extends BaseActivity {
     private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
          int tedadKolTiger = 0;
          int tedadKolNovin = 0;
-        for (int i = 0; i < bazaryabiMainModel.getData().size() ; i++) {
 
-            switch (bazaryabiMainModel.getData().get(i).getCompany()){
-                case 0:
-                    tedadKolNovin =+ bazaryabiMainModel.getData().get(i).getProformaCount();
-                    break;
-                case 1:
-                     tedadKolTiger =+ bazaryabiMainModel.getData().get(i).getProformaCount();
-                    break;
+        for (int i = 0; i < bazaryabiMainModel.getData().size(); i++) {
+            if (bazaryabiMainModel.getData().get(i).getCompany() == 0){
+                tedadKolNovin += bazaryabiMainModel.getData().get(i).getProformaCount();
+            }else {
+                tedadKolTiger += bazaryabiMainModel.getData().get(i).getProformaCount();
             }
-
-
         }
         tedadKol.setText(String.valueOf(tedadKolNovin+tedadKolTiger));
         tedadTiger.setText(String.valueOf(tedadKolTiger));

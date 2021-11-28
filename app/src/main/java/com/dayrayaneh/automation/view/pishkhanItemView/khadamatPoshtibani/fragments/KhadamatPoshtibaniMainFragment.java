@@ -27,6 +27,8 @@ import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.Objects;
 
 
@@ -82,6 +84,7 @@ public class KhadamatPoshtibaniMainFragment extends BaseFragment implements Khad
            }else {
                showEmpty.setVisibility(View.GONE);
                setRecycler(khadamatPoshtibaniMainModel);
+               EventBus.getDefault().post(khadamatPoshtibaniMainModel);
                showLoadingLiveData.setValue(false);
            }
 

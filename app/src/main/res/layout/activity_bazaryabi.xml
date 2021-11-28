@@ -112,6 +112,7 @@
                 android:layout_gravity="center_vertical|start"
                 android:text="@string/tedadKolBazaryabi"
                 android:textSize="10sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -123,7 +124,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                android:text="13525"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="0"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -144,6 +147,7 @@
                 android:layout_gravity="center_vertical|start"
                 android:text="@string/tedadKolTiger"
                 android:textSize="10sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,7 +159,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                android:text="13525"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -176,6 +182,7 @@
                 android:layout_gravity="center_vertical|start"
                 android:text="@string/tedadKolNovin"
                 android:textSize="10sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -187,7 +194,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                android:text="13525"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:textSize="12sp" />
         </LinearLayout>
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/lightYellow"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="16dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="start"
+            android:text="@string/internetError"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:srcCompat="@drawable/ic_network_check"
+            app:tint="@color/black" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?dividerColor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/internetMessage"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tryAgain_networkCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="12dp"
+            android:layout_marginHorizontal="12dp"
+            android:text="@string/tryAgain"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/close_networkCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="12dp"
+            android:layout_marginHorizontal="12dp"
+            android:text="@string/closeTab"/>
+    </LinearLayout>
+
+</LinearLayout>

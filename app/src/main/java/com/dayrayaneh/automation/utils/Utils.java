@@ -3,10 +3,13 @@ package com.dayrayaneh.automation.utils;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dayrayaneh.automation.base.ConstValue;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
@@ -147,5 +150,13 @@ public class Utils {
             }
         },200);
 
+    }
+
+    public static  boolean checkConnectivity(Context context){
+
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

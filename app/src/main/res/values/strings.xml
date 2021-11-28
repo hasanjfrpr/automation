@@ -113,6 +113,12 @@
     <string name="entekhabnoeMahsool">انتخاب نوع محصول</string>
 
 
+    <string name="tedadKolKhadamt">تعداد کل خدمات</string>
+    <string name="khadamatTiger">خدمات تایگر</string>
+    <string name="khadamatNovin">خدمات نوین</string>
+    <string name="paygiriNovin">کل پیگیری نوین</string>
+
+
     <string name="unAccess">دسترسی تایید نشد</string>
     <string name="unAccess_text">امکان مشاهده این صفحه برای شما امکان پذیر نمی باشد.</string>
     <string name="back">بازگشت</string>
@@ -136,6 +142,12 @@
     <string name="dalilTamasMoshtari">دلیل تماس مشتری</string>
     <string name="saat">ساعت</string>
     <string name="emtiaz">امتیاز</string>
+
+
+    <string name="internetError">مشکل اتصال</string>
+    <string name="tryAgain">تلاش مجدد</string>
+    <string name="بستن">مشکل اتصال</string>
+    <string name="internetMessage">اتصال شما به اینترنت قطع است، لطفا از اتصال اینترنت خود اطمینان حاصل بفرماید و دوباره تلاش کنید.</string>
 
 
     <string name="nahveAshnaee">نحوه آشنایی</string>
