@@ -58,9 +58,12 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
     private String fromDateM, toDateM;
     private boolean isCheckedd = false;
     private FrameLayout entekhabModelMahsol;
+    private boolean clickSendInfo = false;
 
     private MaterialButton okCategories;
     private List<Integer> ids = new ArrayList<>();
+    private List<Integer> idsReplace = new ArrayList<>();
+    private List<Integer> idsFinal = new ArrayList<>();
     private String[] productName;
     private int[] productID;
     private boolean[] defaultChecked;
@@ -125,10 +128,12 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         });
 
         sendInfo.setOnClickListener(v -> {
-
+            clickSendInfo = true;
                if (isCheckedd){
+
                    viewModelCompare();
                }else {
+
                    viewModel();
                }
 
@@ -169,8 +174,15 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         viewModel.getForooshSakhtAfzarCompare(ConstValue.startDate, ConstValue.endDate, fromDateM ,toDateM , ids);
         viewModel.forooshSakhtAfzarCompareLiveData.observe(this, forooshSakhtAfzarCompareModel -> {
-            loadingView.setVisibility(View.GONE);
-            setupRecyclerViewCompare(forooshSakhtAfzarCompareModel);
+
+            if (forooshSakhtAfzarCompareModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setupRecyclerViewCompare(forooshSakhtAfzarCompareModel);
+            }
         });
     }
 
@@ -247,16 +259,20 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
             for (int i = 0; i < productCategories.getData().size(); i++) {
                 ids.add(productCategories.getData().get(i).getId());
+                idsReplace.add(productCategories.getData().get(i).getId());
                 productName[i] = productCategories.getData().get(i).getName();
                 productID[i] = productCategories.getData().get(i).getId();
 
             }
-            loadingView.setVisibility(View.VISIBLE);
-            viewModel.getForooshSakhtAfzar(ConstValue.startDate, ConstValue.endDate, ids);
-            viewModel.forooshSakhtAfzarLiveData.observe(this, forooshSakhtAfzarModel -> {
-                loadingView.setVisibility(View.GONE);
-                setRecyclerViewMain(forooshSakhtAfzarModel);
-            });
+
+            ////setupDefaultCheck for dialog
+            for (int i = 0; i < ids.size(); i++) {
+                if (ids.get(i) !=null ){
+                    defaultChecked[i] = true;
+                }
+            }
+
+            viewModel();
 
         });
     }
@@ -265,54 +281,60 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
     private void setDialogForProductCategories(ProductCategories productCategories){
 
-//        String[] productName = new String[productCategories.size()];
-//
-//
-//        for (int i = 0; i < productCategories.size(); i++) {
-//            ids.add(productCategories.get(i).getId());
-//        }
-//
-//        for (int i = 0; i < productCategories.size(); i++) {
-//            productName[i] = productCategories.get(i).getName();
-//        }
-//
-//        boolean[] defaultCheckList = new boolean[productCategories.size()];
 
-
-        for (int i = 0; i < ids.size(); i++) {
-            if (ids.get(i) !=null){
-                defaultChecked[i] = true;
-            }
-        }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMultiChoiceItems(productName, defaultChecked, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
 
-                if (isChecked && (ids.get(which) == null || ids.get(which) == 0)){
-                    ids.add(productCategories.getData().get(which).getId());
+
+                if (isChecked){
+                    if(clickSendInfo){
+
+                            if (!ids.contains(idsReplace.get(which))){
+//                                ids.add(which,idsReplace.get(which));
+                                ids.set(which , idsReplace.get(which));
+                        }
+
+                    }else {
+                    ids.set(which ,idsReplace.get(which));}
                 }else {
-                    ids.remove(which);
+
+                    ids.set(which , -100);
+
                 }
+                Log.i("which", which+"");
+                Log.i("isCheck", isChecked+"");
+                Log.i("ids", ""+ids.get(which));
+                Log.i("idsReplace", ""+idsReplace.get(which));
+
+
+
+
 
             }
         });
         builder.setPositiveButton(getResources().getString(R.string.mdtp_ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if (isCheckedd){
-                    viewModelCompare();
-                }else {
-                    viewModel();
-                }
+//                if (isCheckedd){
+//                    deleteNullIndexFromIDSList();
+//                    viewModelCompare();
+//                }else {
+//                    deleteNullIndexFromIDSList();
+//                    viewModel();
+//                }
 
+
+                dialog.dismiss();
             }
         });
         builder.create().show();
 
 
     }
+
 
 
 

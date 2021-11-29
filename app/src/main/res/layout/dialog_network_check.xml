@@ -25,6 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:scaleType="center"
+            android:padding="4dp"
             app:srcCompat="@drawable/ic_network_check"
             app:tint="@color/black" />
     </LinearLayout>

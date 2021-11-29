@@ -6,4 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".view.pishkhanItemView.sefarashMoshtariJadid.SefareshMoshtariJadidActivity">
 
+
+    <include
+        android:id="@+id/include7"
+        layout="@layout/custom_toolbar_for_item_pishkhan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <include
+        layout="@layout/layout_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/RV_vaziatSefareshat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_vaziatSefareshat_sendInfo" />
+
+    <include layout="@layout/loading_layout"
+        android:id="@+id/loading_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Mbtn_pishKhan_SefareshMoshtariJadid_sendInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sendInfo"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/include7"
+        app:layout_constraintStart_toStartOf="@+id/include7"
+        app:layout_constraintTop_toBottomOf="@+id/include7" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RV_sefareshMoshtariJadid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_SefareshMoshtariJadid_sendInfo" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
