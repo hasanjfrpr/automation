@@ -23,7 +23,7 @@
             android:layout_gravity="end"
             android:background="?selectableItemBackgroundBorderless"
             android:layout_marginEnd="16dp"
-            app:tint="@color/black" />
+            app:tint="?colorOnPrimary" />
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout

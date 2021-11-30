@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/status"
+                android:text="@string/clientName"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
@@ -43,7 +43,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_status"
+                    android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_nameMoshtari"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/nahveAshnaee"
+                android:text="@string/codHesab"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
@@ -87,7 +87,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_nahveAshnaee"
+                    android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_codeHesab"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/clientName"
+                android:text="@string/status"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"
@@ -131,98 +131,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_nameMoshtari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
-            </FrameLayout>
-
-
-
-        </LinearLayout>
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="start"
-                android:text="@string/codeHesabMoshtari"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:padding="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginVertical="8dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=":"
-                android:paddingHorizontal="4dp"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="center_vertical"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:paddingEnd="16dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_codeHesabMoshtari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
-            </FrameLayout>
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="start"
-                android:text="@string/noeSefaresh"
-                android:textSize="14sp"
-                android:textColor="@color/black"
-                android:padding="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginVertical="8dp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=":"
-                android:paddingHorizontal="4dp"
-                android:layout_gravity="start|center_vertical"
-                android:gravity="center_vertical"/>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:paddingEnd="16dp"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_noeSefaresh"
+                    android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_status"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -231,7 +140,7 @@
                     android:gravity="center_vertical"
                     android:paddingEnd="16dp"/>
                 <ImageView
-                    android:id="@+id/IV_showMore_vaziatSefaresh"
+                    android:id="@+id/IV_showMore_sefareshMoshtarijadid"
                     android:layout_gravity="start|center_vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -247,11 +156,11 @@
             android:layout_width="match_parent"
             android:paddingEnd="16dp"
             android:visibility="gone"
-            android:animateLayoutChanges="true"
-            android:id="@+id/frame_moreContent_noeSefaresh"
+            android:background="@color/graylight"
+            android:id="@+id/frame_moreContent_sefareshmoshtari_status"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/TV_item_pishkhan_vazatSefaresh_noeSefaresh2"
+                android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_status2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="12sp"
@@ -262,7 +171,6 @@
                 android:gravity="center_vertical"
                 android:paddingEnd="16dp"/>
         </FrameLayout>
-
 
 
         <LinearLayout
@@ -295,7 +203,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_shomareSefaresh"
+                    android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_shomareHesab"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -308,6 +216,11 @@
 
 
         </LinearLayout>
+
+
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -325,7 +238,6 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginVertical="8dp"
                 android:textStyle="bold" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -339,7 +251,7 @@
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/TV_item_pishkhan_vazatSefaresh_mablaqSefaresh"
+                    android:id="@+id/TV_item_pishkhan_sefareshMoshtariJadid_mablaqSefaresh"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="12sp"
@@ -352,6 +264,7 @@
 
 
         </LinearLayout>
+
 
     </LinearLayout>
 

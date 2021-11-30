@@ -6,4 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity">
 
+    <include
+        android:id="@+id/include8"
+        layout="@layout/custom_toolbar_for_item_pishkhan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Mbtn_tedadHokmKar_sendInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sendInfo"
+        android:textColor="?colorOnPrimary"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/include8"
+        app:layout_constraintStart_toStartOf="@+id/include8"
+        app:layout_constraintTop_toBottomOf="@+id/include8" />
+
+    <FrameLayout
+        android:id="@+id/frameContainer_tedadHokmKar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_tedadHokmKar_sendInfo" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -75,6 +75,7 @@ public class MainActivity extends BaseActivity {
 
         toolbar = findViewById(R.id.toolbar_main);
         toolbar.setTitle(getResources().getString(R.string.automation));
+        toolbar.setTitleTextColor(getResources().getColor(R.color.design_default_color_on_primary));
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -189,9 +190,14 @@ public class MainActivity extends BaseActivity {
 
            LoginModel loginModel = bundle.getParcelable(Keys.DATA);
             String username = loginModel.getData().get(0).getUserName();
+            String name = loginModel.getData().get(0).getName();
             if (!username.equals("") || username!=null) {
                 username_nav.setText(username);
-                username_bottom.setText(username);
+
+            }
+            if (!name.equals("") || name!=null) {
+                username_bottom.setText(name);
+
             }
         }
 

@@ -130,7 +130,6 @@
                     android:layout_marginRight="-4dp"
                     android:text="@string/login"
                     android:textAllCaps="false"
-                    android:textColor="?colorOnBackground"
                     android:textStyle="bold"
                     app:cornerRadius="28dp" />
 

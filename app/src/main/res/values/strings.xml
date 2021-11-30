@@ -182,15 +182,11 @@
     <string name="hardware"> سخت افزار</string>
 
 
-
     <string name="empty_message">داده ای در این تاریخ وجود ندارد.</string>
 
 
     <string name="typoGraphi">تایپوگرافی</string>
     <string name="ip_setting">تنظیمات IP</string>
-
-
-
 
 
     <string-array name="fontArray">

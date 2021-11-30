@@ -16,6 +16,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.VaziatSefaresh.VaziatSefareshA
 import com.dayrayaneh.automation.adapter.pishkhan.sefareshMoshtariJadid.SefareshMoshtariJadidAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
+import com.dayrayaneh.automation.model.pishkhan.sefareshMoshtariJadid.SefareshMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.sefareshMoshtariJadid.SefareshMoshtariVeiwModel;
@@ -60,6 +61,8 @@ public class SefareshMoshtariJadidActivity extends BaseActivity {
         recyclerView = findViewById(R.id.RV_sefareshMoshtariJadid);
         sendInfo = findViewById(R.id.Mbtn_pishKhan_SefareshMoshtariJadid_sendInfo);
 
+
+
     }
 
     private void setDate(){
@@ -68,12 +71,24 @@ public class SefareshMoshtariJadidActivity extends BaseActivity {
     private void viewModel(){
         loadingView.setVisibility(View.VISIBLE);
         viewModel.getSefareshMoshtariJaid(ConstValue.startDate , ConstValue.endDate);
+        viewModel.sefareshMoshtariLiveData.observe(this,sefareshMoshtariModel -> {
+            if (sefareshMoshtariModel.getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.GONE);
+            }else{
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setRecyclerView(sefareshMoshtariModel);
+            }
+        });
 
     }
 
-    private void setRecyclerView(VaziatSefareshatModel vaziatSefareshatModel) {
+    private void setRecyclerView(SefareshMoshtariModel sefareshMoshtariModel) {
 
-        adapter = new SefareshMoshtariJadidAdapter(this,vaziatSefareshatModel.getData());
+        adapter = new SefareshMoshtariJadidAdapter(this,sefareshMoshtariModel.getData());
+        recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
 

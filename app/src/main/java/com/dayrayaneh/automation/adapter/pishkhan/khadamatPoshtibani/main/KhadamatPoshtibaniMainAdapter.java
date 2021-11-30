@@ -65,18 +65,18 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
 
 
 
-        if (dataItemList.get(position).getKhadamatCount() == null){
+        if (dataItemList.get(position).getKhadamatCount() == 0){
             holder.tedadKhadamat.setText("0");
             holder.tedadKhadamat.setTextColor(context.getResources().getColor(R.color.redlight));
         }else {
-            holder.tedadKhadamat.setText(dataItemList.get(position).getKhadamatCount());
+            holder.tedadKhadamat.setText(String.valueOf(dataItemList.get(position).getKhadamatCount()));
         }
 
-        if (dataItemList.get(position).getSdCount().equals("")){
+        if (dataItemList.get(position).getSdCount() == 0){
             holder.tedadPaygiri.setText("0");
             holder.tedadPaygiri.setTextColor(context.getResources().getColor(R.color.redlight));
         }else {
-            holder.tedadPaygiri.setText(dataItemList.get(position).getSdCount());
+            holder.tedadPaygiri.setText(String.valueOf(dataItemList.get(position).getSdCount()));
         }
 
         if (isEven == 0 ){

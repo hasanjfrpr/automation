@@ -160,6 +160,8 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
             if (forooshSakhtAfzarModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.GONE);
+                rv_main.setVisibility(View.GONE);
+                rv_moqayese.setVisibility(View.GONE);
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);
@@ -178,6 +180,9 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
             if (forooshSakhtAfzarCompareModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.GONE);
+                rv_moqayese.setVisibility(View.GONE);
+                rv_moqayese.setVisibility(View.GONE);
+
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);

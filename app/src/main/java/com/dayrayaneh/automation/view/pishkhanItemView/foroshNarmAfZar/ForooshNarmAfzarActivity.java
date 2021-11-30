@@ -126,6 +126,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
           if (forooshNarmAfzarModel.getData().size() < 1){
               showEmpty.setVisibility(View.VISIBLE);
               loadingView.setVisibility(View.GONE);
+              rv_main.setVisibility(View.GONE);
           }else {
               showEmpty.setVisibility(View.GONE);
               loadingView.setVisibility(View.GONE);

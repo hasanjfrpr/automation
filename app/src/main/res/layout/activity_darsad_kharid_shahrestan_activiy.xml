@@ -48,6 +48,7 @@
             android:layout_marginStart="16dp"
             android:paddingVertical="4dp"
             android:text="@string/entekhabMahsol"
+            android:textColor="?colorOnPrimary"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -60,6 +61,7 @@
             android:paddingVertical="4dp"
             android:text="@string/all"
             android:textSize="16sp"
+            android:textColor="?colorOnPrimary"
             android:textStyle="bold" />
 
         <ImageView
@@ -68,7 +70,7 @@
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="16dp"
             app:srcCompat="@drawable/ic_arrow_drop"
-            app:tint="@color/black" />
+            app:tint="?colorOnPrimary" />
 
 
     </com.google.android.material.card.MaterialCardView>
@@ -78,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ثبت و بررسی"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="@+id/Mcv_darsadKharidshahrestan_select_productType"
         app:layout_constraintStart_toStartOf="@+id/Mcv_darsadKharidshahrestan_select_productType"

@@ -58,6 +58,8 @@ public class VaziatSefareshAdapter extends RecyclerView.Adapter<VaziatSefareshAd
 
         if (dataItemList.get(position).getFldKindKhadamatNameL1().length() > 35){
             holder.shoMore.setVisibility(View.VISIBLE);
+            holder.frameLayout.setVisibility(View.GONE);
+            holder.noeSefaresh.setVisibility(View.GONE);
             holder.shoMore.setOnClickListener(v->{
                 if (isOpen){
                     holder.frameLayout.setVisibility(View.GONE);
@@ -75,6 +77,7 @@ public class VaziatSefareshAdapter extends RecyclerView.Adapter<VaziatSefareshAd
                 }            });
 
         }else {
+            holder.noeSefaresh.setVisibility(View.VISIBLE);
             holder.shoMore.setVisibility(View.GONE);
             holder.frameLayout.setVisibility(View.GONE);
             holder.noeSefaresh.setText(dataItemList.get(position).getFldKindKhadamatNameL1());

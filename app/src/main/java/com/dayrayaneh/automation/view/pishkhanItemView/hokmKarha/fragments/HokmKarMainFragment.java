@@ -64,6 +64,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
             if (hokmKarModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
                 loadinLiveData.setValue(false);
+                recyclerView.setVisibility(View.GONE);
             }else {
                 showEmpty.setVisibility(View.GONE);
                 setupRecyclerView(hokmKarModel);
@@ -76,6 +77,7 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
     private void setupRecyclerView(HokmKarModel hokmKarModel){
         adapter_main = new HokmKarMainAdapter(getContext() , hokmKarModel.getData());
         adapter_main.event = this;
+        recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setAdapter(adapter_main);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }

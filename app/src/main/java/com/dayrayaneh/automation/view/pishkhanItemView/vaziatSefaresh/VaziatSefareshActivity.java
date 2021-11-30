@@ -76,6 +76,7 @@ public class VaziatSefareshActivity extends BaseActivity {
         viewModel.vaziatSefareshatleLiveData.observe(this,vaziatSefareshatModel -> {
            if (vaziatSefareshatModel.getData().size() < 1 ){
                showEmpty.setVisibility(View.VISIBLE);
+               loadingView.setVisibility(View.GONE);
            }else {
                showEmpty.setVisibility(View.GONE);
                loadingView.setVisibility(View.GONE);

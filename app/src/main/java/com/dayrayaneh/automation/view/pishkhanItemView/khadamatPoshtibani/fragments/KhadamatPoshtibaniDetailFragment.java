@@ -72,8 +72,8 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
             getActivity().getSupportFragmentManager().popBackStack();
         });
 
-        startDate.setText(" از تاریخ "+ConstValue.startDatePersian);
-        endDate.setText(" تا تاریخ "+ConstValue.endDatePersian);
+        startDate.setText(" از "+ConstValue.startDatePersian);
+        endDate.setText(" تا  "+ConstValue.endDatePersian);
     }
 
     private void viewModel(){

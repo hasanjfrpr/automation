@@ -189,6 +189,8 @@ public class TamdidGharardadActivity extends BaseActivity {
             if (tamdidGharardadModel.getData().size() < 1 ){
                 showEmpty.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.GONE);
+                rv_main.setVisibility(View.GONE);
+
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);
@@ -215,14 +217,23 @@ public class TamdidGharardadActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         tamdidGharardadViewModel.getTamdidGharardadCompare(ConstValue.startDate , ConstValue.endDate , fromDateM , toDateM , noeService);
         tamdidGharardadViewModel.tamdidGharardadCompareLiveData.observe(this,tamdidGharardadCompareModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerViewCompare(tamdidGharardadCompareModel);
+
+            if (tamdidGharardadCompareModel.getData().size() < 1 ){
+                showEmpty.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.GONE);
+                rv_moqayese.setVisibility(View.GONE);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                loadingView.setVisibility(View.GONE);
+                setRecyclerViewCompare(tamdidGharardadCompareModel);
+            }
         });
     }
 
     private void setRecyclerViewCompare(TamdidGharardadCompareModel tamdidGharardadCompareModel) {
 
         adapter_compare  = new TamdidGharardadCompareAdapter(this , tamdidGharardadCompareModel.getData());
+        rv_moqayese.setVisibility(View.VISIBLE);
         rv_moqayese.setAdapter(adapter_compare);
         rv_moqayese.setLayoutManager(new LinearLayoutManager(this , RecyclerView.VERTICAL , false));
 

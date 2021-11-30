@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,7 +41,7 @@ import org.greenrobot.eventbus.ThreadMode;
 public class KhadamatPoshtibaniActivity extends BaseActivity {
 
     private ImageView back;
-    private TextView fromDate, toDate, TV_company, startTime, endTime;
+    private TextView fromDate, toDate, TV_company, startTime, endTime , khadamatKol , khadamatkolTiger , khadamatKolNovin , paygiriKol;
     private Toolbar toolbar;
     private DarsadKharidMoshtarianAdapter adapter;
     private View loadingView;
@@ -90,6 +91,12 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         sendInfo = findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo);
         selectCompany = findViewById(R.id.Mcv_khadamatPoshtibani_select_company);
         TV_company = findViewById(R.id.TV_khadamatPoshtibani_select_company);
+        khadamatKol = findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat);
+        khadamatkolTiger = findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamatTiger);
+        khadamatKolNovin = findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamatNovin);
+        paygiriKol = findViewById(R.id.TV_khadamatPoshtibani_tedadKolPaygiriNovin);
+
+
         khadamatPoshtibaniDetailFragment = new KhadamatPoshtibaniDetailFragment();
 
         khadamatPoshtibaniMainFragment = new KhadamatPoshtibaniMainFragment();
@@ -248,9 +255,24 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         int khadamatKolNovin = 0;
         int paygiriKol = 0;
 
-        for (int i = 0; i < model.getData().size(); i++) {
 
+
+        for (int i = 0; i < model.getData().size(); i++) {
+            int company = model.getData().get(i).getFldCompany();
+            if(company == 0){
+                khadamatKolNovin += model.getData().get(i).getKhadamatCount();
+                paygiriKol += model.getData().get(i).getSdCount();
+            }else{
+                khadamatKoltiger += model.getData().get(i).getKhadamatCount();
+            }
         }
+
+        khadamatKol = khadamatKolNovin+khadamatKoltiger;
+
+        this.khadamatKol.setText(String.valueOf(khadamatKol));
+        this.khadamatkolTiger.setText(String.valueOf(khadamatKoltiger));
+        this.khadamatKolNovin.setText(String.valueOf(khadamatKolNovin));
+        this.paygiriKol.setText(String.valueOf(paygiriKol));
 
     }
 

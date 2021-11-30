@@ -12,4 +12,13 @@
 </style>
 
 
+    <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@color/white</item>
+    </style>
+
+    <style name="toolbarStyle"  parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextColor">?colorOnPrimary</item>
+    </style>
+
+
 </resources>

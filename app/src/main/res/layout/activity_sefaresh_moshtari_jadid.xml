@@ -20,10 +20,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/RV_vaziatSefareshat"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_vaziatSefareshat_sendInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_SefareshMoshtariJadid_sendInfo" />
 
     <include layout="@layout/loading_layout"
         android:id="@+id/loading_view"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sendInfo"
-        android:textColor="@color/black"
+        android:textColor="?colorOnPrimary"
         android:textStyle="bold"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="@+id/include7"
