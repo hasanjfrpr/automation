@@ -1,6 +1,9 @@
 package com.dayrayaneh.automation.services.httpclient;
 
 import com.dayrayaneh.automation.model.login.LoginModel;
+import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.count.GozareshKarCountModel;
+import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.details.GozareshKarDetailsModel;
+import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.personalName.PersonalListModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.followers.HokmKarFollowersModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.request.HokmKarRequestModel;
@@ -20,6 +23,8 @@ import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.Bazary
 import com.dayrayaneh.automation.model.pishkhan.sefareshMoshtariJadid.SefareshMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
+import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKarCountModel;
+import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.google.gson.JsonObject;
 
@@ -71,10 +76,10 @@ public interface ApiService {
     @POST("orders/hardsellCompare")
     Single<ForooshSakhtAfzarCompareModel> getForooshSakhtAfzarCompare(@Body JsonObject jsonObject);
 
-    @POST("sentence/Details")
+    @POST("sentence/List")
     Single<HokmKarModel> getHokmKar(@Body JsonObject jsonObject);
 
-    @POST("sentence/customerRequest")
+    @POST("sentence/customerRequests")
     Single<HokmKarRequestModel> getHokmKarRequestModel(@Body JsonObject jsonObject);
 
     @POST("sentence/followers")
@@ -91,4 +96,19 @@ public interface ApiService {
 
     @POST("orders/newCustomersOrders")
     Single<SefareshMoshtariModel> getSefareshMoshtariJadid(@Body JsonObject jsonObject);
+
+    @POST("sentence/count")
+    Single<TedadHokmKarCountModel> getTedadHokmKarCount(@Body JsonObject jsonObject);
+
+    @POST("sentence/Details")
+    Single<TedadHokmKarDetailsModel> getTedadHokmKarDetail(@Body JsonObject jsonObject);
+
+    @POST("personely/personelList")
+    Single<PersonalListModel> getPersonaList();
+
+    @POST("workReport/count")
+    Single<GozareshKarCountModel> getGozareshKarCount(@Body JsonObject jsonObject);
+
+    @POST("workReport/Details")
+    Single<GozareshKarDetailsModel> getGozareshKarDetail(@Body JsonObject jsonObject);
 }

@@ -22,6 +22,13 @@
     <string name="unknowErro">خطای نامشخص</string>
 
 
+    <string name="ersalShodeBe">ارسال شده به</string>
+    <string name="noeKar">نوع کار</string>
+    <string name="sharhKar">شرح کار</string>
+    <string name="joziatKar">جزئات کار</string>
+    <string name="zamanGozaresh">زمان گزارش</string>
+
+
     <string name="hardWareSell">فروش سخت افزار</string>
     <string name="softWareSell">فروش نرم افزار</string>
     <string name="tamdidQarardad">تمدید قرارداد</string>
@@ -83,12 +90,19 @@
     <string name="sharhErja"> شرح ارجاء  </string>
 
 
+    <string name="tedaHokmKar"> تعداد حکم کار  </string>
+    <string name="tedadErjashode"> تعداد ارجاع شده  </string>
+
+
     <string name="customerRequests"> درخواست های مشتری </string>
     <string name="followers"> دنبال کننده ها </string>
 
 
     <string name="tedad">  تعداد </string>
     <string name="mablaq"> مبلغ </string>
+
+    <string name="tedadGozareshat">تعداد گزارشات </string>
+    <string name="majmoZaman"> مجموع زمان </string>
 
     <string name="startTime"> از ساعت </string>
     <string name="endTime"> تا ساعت </string>
@@ -155,6 +169,13 @@
     <string name="noeSefaresh">نوع سفارش</string>
     <string name="shomareSefaresh">شماره سفارش</string>
     <string name="mablaqSefaresh">مبلغ سفارش</string>
+
+
+    <string name="time"> زمان</string>
+    <string name="date">تاریخ</string>
+    <string name="sharh">شرح</string>
+    <string name="erjadahande">ارجاع دهنده</string>
+
 
     <string name="noeService">نوع سرویس</string>
 

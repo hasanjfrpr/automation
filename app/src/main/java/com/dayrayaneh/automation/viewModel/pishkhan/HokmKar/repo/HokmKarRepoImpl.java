@@ -23,13 +23,13 @@ public class HokmKarRepoImpl implements HokmKarRepo{
 
     @Override
     public Single<HokmKarRequestModel> getHokmKarRequest(int userId) {
-        jsonObject.addProperty("HokmKarId" , userId);
+        jsonObject.addProperty("Id" , userId);
         return apiService.getHokmKarRequestModel(jsonObject);
     }
 
     @Override
     public Single<HokmKarFollowersModel> getHokmKarFollowers(int userId) {
-        jsonObject.addProperty("HokmKarId" , userId);
+        jsonObject.addProperty("Id" , userId);
         return apiService.getHokmKarFollowersModel(jsonObject);
     }
 }

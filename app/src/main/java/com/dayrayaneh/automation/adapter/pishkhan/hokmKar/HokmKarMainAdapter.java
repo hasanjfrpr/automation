@@ -43,7 +43,7 @@ public class HokmKarMainAdapter extends RecyclerView.Adapter<HokmKarMainAdapter.
         holder.moshtari.setText(dataItems.get(position).getCustomer());
         holder.sabtKonande.setText(dataItems.get(position).getName());
         holder.serial.setText(dataItems.get(position).getSerial());
-        holder.shomareHokm.setText(Utils.formatPersianNumber(dataItems.get(position).getNumber()));
+        holder.shomareHokm.setText(String.valueOf(dataItems.get(position).getNumber()));
 
 
         holder.itemView.setOnClickListener(v -> {

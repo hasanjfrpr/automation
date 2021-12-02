@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="12dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_height="wrap_content">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="12dp"
+           android:visibility="visible"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/ersalShodeBe"
+               android:textSize="16dp"
+               android:padding="6dp"
+               android:layout_marginStart="16dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text=":"
+               android:textSize="16dp"
+               android:layout_marginStart="4dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:paddingEnd="16dp"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/TV_pishkhan_gozareshkar_detail_sendTo"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="16dp"
+                   android:layout_gravity="center_vertical|end"
+                   android:textColor="@color/black"
+                   android:textStyle="bold"/>
+           </FrameLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="12dp"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/noeKar"
+               android:textSize="16dp"
+               android:padding="6dp"
+               android:layout_marginStart="16dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text=":"
+               android:textSize="16dp"
+               android:layout_marginStart="4dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:paddingEnd="16dp"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/TV_pishkhan_gozareshkar_detail_noeKar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="16dp"
+                   android:padding="4dp"
+                   android:layout_gravity="center_vertical|end"
+                   android:textColor="@color/black"
+                   android:textStyle="bold"/>
+           </FrameLayout>
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_marginTop="12dp"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/joziatKar"
+               android:textSize="16dp"
+               android:padding="6dp"
+               android:layout_marginStart="16dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text=":"
+               android:textSize="16dp"
+               android:layout_marginStart="4dp"
+               android:textColor="@color/black"
+               android:textStyle="bold"/>
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:paddingEnd="16dp"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/TV_pishkhan_gozareshkar_detail_joziatKar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="16dp"
+                   android:padding="4dp"
+                   android:layout_gravity="center_vertical|end"
+                   android:textColor="@color/black"
+                   android:textStyle="bold"/>
+           </FrameLayout>
+       </LinearLayout>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:orientation="horizontal"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="start|center_vertical"
+               android:gravity="start"
+               android:text="@string/sharhKar"
+               android:textSize="14sp"
+               android:textColor="@color/black"
+               android:padding="8dp"
+               android:layout_marginStart="16dp"
+               android:layout_marginVertical="8dp"
+               android:textStyle="bold" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:text=":"
+               android:paddingHorizontal="4dp"
+               android:layout_gravity="start|center_vertical"
+               android:gravity="center_vertical"/>
+
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:paddingEnd="16dp"
+               android:layout_height="match_parent">
+               <TextView
+                   android:id="@+id/TV_item_pishkhan_gozareshkar_detail_sharhKar"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:textSize="12sp"
+                   android:textStyle="bold"
+                   android:layout_gravity="center_vertical"
+                   android:gravity="center_vertical"
+                   android:paddingEnd="16dp"/>
+               <ImageView
+                   android:id="@+id/IV_item_pishkhan_gozareshkar_detail_sharh_more"
+                   android:layout_gravity="start|center_vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   app:srcCompat="@drawable/ic_arrow_drop"
+                   app:tint="@color/black" />
+           </FrameLayout>
+
+
+
+       </LinearLayout>
+
+       <FrameLayout
+           android:layout_width="match_parent"
+           android:paddingEnd="16dp"
+           android:visibility="gone"
+           android:animateLayoutChanges="true"
+           android:id="@+id/frame_more_GozareshKar_sharhkar"
+           android:layout_height="wrap_content">
+           <TextView
+               android:id="@+id/TV_item_pishkhan_gozareshKar_detail_sharhKar2"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:textSize="12sp"
+               android:textStyle="bold"
+               android:paddingVertical="8dp"
+               android:layout_gravity="center_vertical|start"
+               android:layout_marginStart="26dp"
+               android:gravity="center_vertical"
+               android:paddingEnd="16dp"/>
+       </FrameLayout>
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="1dp"
+           android:background="?dividerColor"/>
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/zamanGozaresh"
+           android:layout_gravity="center_horizontal"
+           android:textColor="@color/black"
+           android:textStyle="bold"
+           android:paddingHorizontal="8dp"
+           android:background="@color/graylight"
+           android:layout_marginTop="4dp"
+           android:textSize="16sp"/>
+       <LinearLayout
+           android:id="@+id/frameLayout3"
+           android:layout_width="match_parent"
+           android:layout_height="?actionBarSize"
+           android:gravity="center"
+           android:background="@color/graylight"
+           android:layout_marginBottom="4dp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent">
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_gravity="start"
+               android:gravity="center"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical|start"
+                   android:text="@string/startTime"
+                   android:textSize="14sp"
+                   android:textStyle="bold"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/TV_gozareshKar_details_startTime"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="4dp"
+                   android:layout_marginTop="4dp"
+                   android:textStyle="bold"
+                   android:text="0"
+                   android:textSize="12sp" />
+           </LinearLayout>
+
+           <View
+               android:layout_width="36dp"
+               android:layout_height="match_parent" />
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_gravity="center_horizontal"
+               android:gravity="center"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical|start"
+                   android:text="@string/endTime"
+                   android:textSize="14sp"
+                   android:textStyle="bold"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/TV_gozareshKar_details_endTime"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="4dp"
+                   android:layout_marginTop="4dp"
+                   android:text="0"
+                   android:textColor="?colorOnPrimary"
+                   android:textStyle="bold"
+                   android:textSize="12sp" />
+           </LinearLayout>
+
+           <View
+               android:layout_width="36dp"
+               android:layout_height="match_parent" />
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:layout_gravity="end"
+               android:gravity="center"
+               android:orientation="vertical">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical|start"
+                   android:text="@string/majmoZaman"
+                   android:textSize="14sp"
+                   android:textStyle="bold"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent" />
+
+               <TextView
+                   android:id="@+id/TV_gozareshKar_details_totalTime"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginStart="4dp"
+                   android:layout_marginTop="4dp"
+                   android:text="0"
+                   android:textColor="?colorOnPrimary"
+                   android:textStyle="bold"
+                   android:textSize="12sp" />
+           </LinearLayout>
+
+
+       </LinearLayout>
+
+
+   </LinearLayout>
+
+
+
+</com.google.android.material.card.MaterialCardView>

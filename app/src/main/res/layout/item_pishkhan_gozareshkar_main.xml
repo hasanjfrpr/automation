@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp"
+    android:layout_marginTop="8dp"
+    app:cardElevation="4dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardCornerRadius="12dp"
+    android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/TV_pishkhan_gozareshKar_count_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/tedadGozareshat"
+                android:textSize="14sp"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_pishkhan_gozareshKar_count_tedadGozareshat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="16dp"
+                android:gravity="start"
+                android:padding="8dp"
+                android:text="@string/majmoZaman"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_pishkhan_gozareshKar_count_majmoZaman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

@@ -3,20 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?viewGroupBackGroundColor"
-    tools:context=".view.pishkhanItemView.tedadHokmKarha.fragment.TedadHokmKarMainFragment">
+    android:orientation="vertical"
+    tools:context=".view.pishkhanItemView.gozareshKar.Fragment.GozareshkarDetailFragment">
 
-    <include android:layout_height="match_parent"
+    <include layout="@layout/layout_empty"
         android:layout_width="match_parent"
-        layout="@layout/layout_empty"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="4dp"
+        android:id="@+id/RV_gozareshKar_details"
         android:paddingEnd="4dp"
-        android:clipToPadding="false"
-        android:id="@+id/RV_tedadHokmkarha_main"/>
+        android:paddingStart="4dp"
+        android:clipToPadding="false"/>
 
 </LinearLayout>

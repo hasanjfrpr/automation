@@ -145,71 +145,68 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         switch (position){
             case 0:
                 context.startActivity(new Intent(context , ForooshNarmAfzarActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.softWareSell), Toast.LENGTH_SHORT).show();
+
                 break;
             case 1:
                 context.startActivity(new Intent(context , ForooshSakhtAfzarActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.hardWareSell), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 2:
                 context.startActivity(new Intent(context , TamdidGharardadActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.tamdidQarardad), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 3:
                 context.startActivity(new Intent(context , KhadamatPoshtibaniActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.khadamatPoshtibani), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 4:
                 context.startActivity(new Intent(context , HokmKarhaActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.hokmKarha), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 5:
                 context.startActivity(new Intent(context , BazaryabiActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.bazaryabi), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 6:
                 context.startActivity(new Intent(context , SefareshMoshtariJadidActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.sefareshatMoshtariJadid), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 7:
                 context.startActivity(new Intent(context , VaziatSefareshActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.vaziatSefaresh), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 8:
                 context.startActivity(new Intent(context , DarsadKharidMoshtariActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.darsadKharidMoshtari), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 9:
                 context.startActivity(new Intent(context , GozareshKarActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.gozareshKar), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 10:
                 context.startActivity(new Intent(context , DarsadTakhfifAzHarSefareshActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.darsadTakhfifAzHarsefaresh), Toast.LENGTH_SHORT).show();
+
 
                 break;
             case 11:
                 context.startActivity(new Intent(context , DarsadSefareshatActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.darsadSefareshat), Toast.LENGTH_SHORT).show();
 
                 break;
             case 12:
                 context.startActivity(new Intent(context , TedadHokmKarhaActivity.class));
-                Toast.makeText(context,context.getResources().getString(R.string.tedadHokmKarha), Toast.LENGTH_SHORT).show();
 
                 break;
             case 13:
                 context.startActivity(new Intent(context , DarsadKharidShahrestanActiviy.class));
-                Toast.makeText(context,context.getResources().getString(R.string.darsadKharidShahrestan), Toast.LENGTH_SHORT).show();
 
                 break;
 

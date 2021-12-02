@@ -127,6 +127,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
               showEmpty.setVisibility(View.VISIBLE);
               loadingView.setVisibility(View.GONE);
               rv_main.setVisibility(View.GONE);
+              rv_moqayese.setVisibility(View.GONE);
           }else {
               showEmpty.setVisibility(View.GONE);
               loadingView.setVisibility(View.GONE);
@@ -141,8 +142,16 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
         loadingView.setVisibility(View.VISIBLE);
         forooshNarmAfzarViewModel.getForooshNarmAfzarCompare(ConstValue.startDate , ConstValue.endDate , fromDateM , toDateM);
         forooshNarmAfzarViewModel.forooshNarmAfzarCompareLiveData.observe(this,forooshNarmAfzarCompareModel -> {
-            loadingView.setVisibility(View.GONE);
-            setRecyclerViewCompare(forooshNarmAfzarCompareModel);
+         if(forooshNarmAfzarCompareModel.getData().size() < 1){
+             showEmpty.setVisibility(View.VISIBLE);
+             loadingView.setVisibility(View.GONE);
+             rv_main.setVisibility(View.GONE);
+             rv_moqayese.setVisibility(View.GONE);
+         }else {
+             showEmpty.setVisibility(View.GONE);
+             loadingView.setVisibility(View.GONE);
+             setRecyclerViewCompare(forooshNarmAfzarCompareModel);
+         }
         });
 
     }
@@ -151,6 +160,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
 
         adapter  = new ForooshNarmAfzarAdapter(forooshNarmAfzarModel.getData() , this);
         rv_main.setVisibility(View.VISIBLE);
+        rv_moqayese.setVisibility(View.GONE);
         rv_main.setAdapter(adapter);
         rv_main.setLayoutManager(new LinearLayoutManager(this , RecyclerView.VERTICAL , false));
 
@@ -161,6 +171,7 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
 
         adapter_compare  = new ForooshNarmAfzarCompareAdapter(  this , forooshNarmAfzarCompareModel.getData());
         rv_moqayese.setVisibility(View.VISIBLE);
+        rv_main.setVisibility(View.GONE);
         rv_moqayese.setAdapter(adapter_compare);
         rv_moqayese.setLayoutManager(new LinearLayoutManager(this , RecyclerView.VERTICAL , false));
 

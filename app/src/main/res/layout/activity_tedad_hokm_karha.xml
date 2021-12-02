@@ -13,6 +13,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/loading_view1"
+        layout="@layout/loading_layout"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Mbtn_tedadHokmKar_sendInfo"
         android:layout_width="wrap_content"

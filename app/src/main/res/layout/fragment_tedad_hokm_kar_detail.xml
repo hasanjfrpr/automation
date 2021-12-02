@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.pishkhanItemView.tedadHokmKarha.fragment.TedadHokmKarDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+  <include layout="@layout/loading_layout"
+      android:id="@+id/loading_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/toolbar_detail_hokmKar"
+        android:layout_width="match_parent"
+        android:backgroundTint="@color/yellow"
+        app:cardCornerRadius="0dp"
+        android:layout_height="?actionBarSize">
+
+        <TextView
+            android:id="@+id/TV_showEndDate_tedadHokmKar_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?colorOnPrimary"
+            android:layout_marginStart="36dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:text="1400/14/114"/>
+        <TextView
+            android:id="@+id/TV_showStartDate_tedadHokmKar_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="?colorOnPrimary"
+            android:layout_marginStart="16dp"
+            android:layout_gravity="start|center_vertical"
+            android:text="1400/14/114"/>
+        <ImageView
+            android:id="@+id/IV_back_detail_tedadHokmKar"
+            android:layout_width="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_arrow_back"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            app:tint="?colorOnPrimary" />
+
+    </com.google.android.material.card.MaterialCardView>
+    <include layout="@layout/layout_empty"
+        android:layout_height="match_parent" android:layout_width="match_parent"/>
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/RV_tedadHokmkarha_details"
+        android:paddingStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:paddingEnd="4dp"
+        android:clipToPadding="false"/>
 
-</FrameLayout>
+</LinearLayout>
