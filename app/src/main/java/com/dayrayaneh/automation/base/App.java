@@ -16,7 +16,7 @@ public class App  extends Application {
         super.onCreate();
 
        setDefaultFont(this.getSharedPreferences("default_setting" , MODE_PRIVATE).getString("font",null));
-
+       ConstValue.ip = this.getSharedPreferences("default_setting" , MODE_PRIVATE).getString("ip",null);
 
     }
 

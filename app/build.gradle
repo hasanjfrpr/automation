@@ -73,6 +73,10 @@ dependencies {
     ////persianMaterialDatePicker
     implementation 'com.mohamadamin:persianmaterialdatetimepicker:1.2.1'
 
+    ///spinner
+
+    implementation 'com.github.bkhezry:PersianSearchableSpinner:1.4.2'
+    implementation 'com.joanzapata.iconify:android-iconify-material:2.2.2'
 
 
 

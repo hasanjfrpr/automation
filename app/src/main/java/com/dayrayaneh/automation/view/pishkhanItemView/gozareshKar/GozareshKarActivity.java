@@ -1,22 +1,36 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.VaziatSefaresh.VaziatSefareshAdapter;
+import com.dayrayaneh.automation.adapter.pishkhan.gozareshKar.spinnerAdapter.SpinnerAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
+import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.personalName.DataItem;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.Fragment.GozareshKarMainFragment;
-import com.dayrayaneh.automation.viewModel.pishkhan.vaziatSefareshat.VaziatSefareshatViewModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.Fragment.GozareshkarDetailFragment;
+import com.dayrayaneh.automation.viewModel.pishkhan.GozareshKarha.GozareshKarViewModel;
+import com.github.bkhezry.searchablespinner.SearchableSpinner;
+import com.github.bkhezry.searchablespinner.interfaces.IStatusListener;
+import com.github.bkhezry.searchablespinner.interfaces.OnItemSelectedListener;
 import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GozareshKarActivity extends BaseActivity {
 
@@ -25,10 +39,18 @@ public class GozareshKarActivity extends BaseActivity {
     private Toolbar toolbar;
     private VaziatSefareshAdapter adapter;
     private RecyclerView recyclerView;
-    private VaziatSefareshatViewModel viewModel;
+    private GozareshKarViewModel viewModel;
     private View loadingView;
     private MaterialButton sendInfo;
-    private View showEmpty;
+    private View showEmpty ;
+    private CheckBox checkBox;
+    public static int personId =0;
+    public static int personIdHelp =0;
+    private SearchableSpinner searchableSpinner;
+    private List<DataItem> personIdList = new ArrayList<>();
+    private SpinnerAdapter spinnerAdapter;
+    public static boolean isCheck = false;
+    private LinearLayout containerSpinnerAndcheckbox;
 
 
     @Override
@@ -36,9 +58,12 @@ public class GozareshKarActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gozaresh_kar);
         init();
+        viewModel();
         setDate();
         event();
+        spinner();
     }
+
 
 
     private void init() {
@@ -50,10 +75,60 @@ public class GozareshKarActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         loadingView = findViewById(R.id.loading_view);
         sendInfo = findViewById(R.id.Mbtn_gozareshKar_sendInfo);
+        checkBox = findViewById(R.id.checkbox_gozareshKar);
+        searchableSpinner = findViewById(R.id.spinner_gozareshKar);
+        containerSpinnerAndcheckbox = findViewById(R.id.linearLayout3);
+        viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer_gozareshkar , new GozareshKarMainFragment(),"gozareshMain").commit();
 
     }
+    private void viewModel() {
+        viewModel.getPersonalList();
+        viewModel.personalListLiveData.observe(this,personalListModel -> {
+            personIdList.addAll(personalListModel.getData());
+
+        });
+    }
+
+
+
+    private void spinner(){
+        spinnerAdapter = new SpinnerAdapter(this,personIdList);
+        searchableSpinner.setAdapter(spinnerAdapter);
+        searchableSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(View view, int position, long id) {
+                personId = (int) id;
+                personIdHelp = (int)id ;
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+        searchableSpinner.setStatusListener(new IStatusListener() {
+            @Override
+            public void spinnerIsOpening() {
+              searchableSpinner.hideEdit();
+            }
+
+            @Override
+            public void spinnerIsClosing() {
+
+            }
+        });
+
+
+
+
+    }
+
+
+
 
     private void setDate(){
         Utils.setDate(fromDate , toDate , this);
@@ -66,8 +141,57 @@ public class GozareshKarActivity extends BaseActivity {
             }else{
                 finish();
             }
-
         });
+
+
+
+
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    isCheck=true;
+                    searchableSpinner.setClickable(false);
+                    searchableSpinner.setVisibility(View.INVISIBLE);
+                    personId = 0;
+
+                }else {
+                    searchableSpinner.setClickable(true);
+                    searchableSpinner.setVisibility(View.VISIBLE);
+                    isCheck = false;
+
+                }
+            }
+        });
+
+
+        GozareshkarDetailFragment.showAndHide.observe(this,hide->{
+            if (hide){
+                findViewById(R.id.include9).setVisibility(View.GONE);
+                sendInfo.setVisibility(View.GONE);
+                containerSpinnerAndcheckbox.setVisibility(View.GONE);
+
+            }else {
+                findViewById(R.id.include9).setVisibility(View.VISIBLE);
+                sendInfo.setVisibility(View.VISIBLE);
+                containerSpinnerAndcheckbox.setVisibility(View.VISIBLE);
+            }
+        });
+
+        GozareshKarMainFragment.showLoading.observe(this,showLoading->{
+            if (showLoading){
+                loadingView.setVisibility(View.VISIBLE);
+            }else {
+                loadingView.setVisibility(View.GONE);
+            }
+        });
+
+        sendInfo.setOnClickListener(v->{
+            GozareshKarMainFragment mainFragment = (GozareshKarMainFragment) getSupportFragmentManager().findFragmentByTag("gozareshMain");
+            mainFragment.viewModel();
+        });
+
     }
 
     @Override

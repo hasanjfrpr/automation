@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,10 +41,23 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
     public void onBindViewHolder(@NonNull GozareshKarDetailsViewHolder holder, int position) {
         holder.sendTo.setText(dataItems.get(position).getFullName());
         holder.noeKar.setText(dataItems.get(position).getFldKindWorkNameL1());
-        holder.joziatKar.setText(dataItems.get(position).getFldReportSharhKarDetailsNameL1());
+
         holder.starttime.setText(dataItems.get(position).getFldReportTimeStart());
         holder.endTime.setText(dataItems.get(position).getFldReportTimeEnd());
         holder.totaltime.setText(String.valueOf(dataItems.get(position).getTotalTime()));
+
+        if (dataItems.get(position).getFldReportSharhKarDetailsNameL1() == null){
+            holder.joziatKar.setText("ندارد");
+        }else{
+            holder.joziatKar.setText(dataItems.get(position).getFldReportSharhKarDetailsNameL1());
+        }
+
+
+         if(position % 2 == 0 ){
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.lightYellow));
+        }else {
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+        }
 
         if (dataItems.get(position).getFldReportSharhKarNameL1().length() > 35){
             holder.showMore.setVisibility(View.VISIBLE);
@@ -58,7 +72,6 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
 
                 }else {
                     holder.frameLayout.setVisibility(View.VISIBLE);
-                    holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.graylight));
                     holder.sharhKar2.setText(dataItems.get(position).getFldReportSharhKarNameL1());
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
                     isOpen = true;
@@ -83,6 +96,7 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
         TextView sendTo , sharhKar,sharhKar2 , noeKar , starttime, endTime , totaltime , joziatKar;
         ImageView showMore;
         FrameLayout frameLayout;
+        LinearLayout linearLayout;
 
         public GozareshKarDetailsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,6 +111,7 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
             showMore = itemView.findViewById(R.id.IV_item_pishkhan_gozareshkar_detail_sharh_more);
             frameLayout = itemView.findViewById(R.id.frame_more_GozareshKar_sharhkar);
             joziatKar = itemView.findViewById(R.id.TV_pishkhan_gozareshkar_detail_joziatKar);
+            linearLayout = itemView.findViewById(R.id.linearLayout_item_gozareshKar);
 
         }
     }

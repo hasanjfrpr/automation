@@ -20,7 +20,7 @@ public class GozareshkarRepoImpl implements GozareshKarRepo{
     }
 
     @Override
-    public Single<GozareshKarCountModel> getGozareshKarCount(String startDate, String endDate, String personId) {
+    public Single<GozareshKarCountModel> getGozareshKarCount(String startDate, String endDate, int personId) {
         jsonObject.addProperty("startDate" , startDate+" 00:00:00.000");
         jsonObject.addProperty("endDate" , endDate+" 23:59:59.000");
         jsonObject.addProperty("personId" , personId);
@@ -28,7 +28,7 @@ public class GozareshkarRepoImpl implements GozareshKarRepo{
     }
 
     @Override
-    public Single<GozareshKarDetailsModel> getGozareshKarDetail(String startDate, String endDate, String personId, int userCode) {
+    public Single<GozareshKarDetailsModel> getGozareshKarDetail(String startDate, String endDate, int personId, int userCode) {
         jsonObject.addProperty("startDate" , startDate+" 00:00:00.000");
         jsonObject.addProperty("endDate" , endDate+" 23:59:59.000");
         jsonObject.addProperty("personId" , personId);

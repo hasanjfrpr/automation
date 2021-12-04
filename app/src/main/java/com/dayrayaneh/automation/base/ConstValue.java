@@ -35,6 +35,9 @@ public class ConstValue {
     public static List<Integer> productCategoriesId = new ArrayList<>();
 
 
+    public static String ip = "192.168.0.16";
+
+
 
 
 

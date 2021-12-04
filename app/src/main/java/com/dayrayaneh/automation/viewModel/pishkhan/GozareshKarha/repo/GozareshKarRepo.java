@@ -15,8 +15,8 @@ public interface GozareshKarRepo {
     Single<PersonalListModel> getPersonaList();
 
 
-    Single<GozareshKarCountModel> getGozareshKarCount(String startDate , String endDate , String personId);
+    Single<GozareshKarCountModel> getGozareshKarCount(String startDate , String endDate , int personId);
 
 
-    Single<GozareshKarDetailsModel> getGozareshKarDetail(String startDate , String endDate , String personId , int userCode);
+    Single<GozareshKarDetailsModel> getGozareshKarDetail(String startDate , String endDate , int personId , int userCode);
 }

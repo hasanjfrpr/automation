@@ -1,6 +1,9 @@
 package com.dayrayaneh.automation.services.httpclient;
 
+import android.content.SharedPreferences;
+
 import com.dayrayaneh.automation.base.ConstValue;
+import com.dayrayaneh.automation.view.setting.SettingActivity;
 
 import java.io.IOException;
 
@@ -14,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiInstance {
     private static Retrofit retrofit;
+
 
     ////add new header when get token from server
 
@@ -37,6 +41,7 @@ public class ApiInstance {
 
     public static ApiService getApiInstance(){
         if (retrofit == null){
+
             retrofit = new Retrofit.Builder()
                     .baseUrl("http://192.168.0.16:7585/Api/")
                     .addConverterFactory(GsonConverterFactory.create())

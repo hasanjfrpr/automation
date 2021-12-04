@@ -23,7 +23,7 @@ public class GozareshKarViewModel extends BaseViewModel  {
     private GozareshKarRepo repo = new GozareshkarRepoImpl();
 
 
-    public void getGozareshkarCount(String startDate , String endDate , String personId){
+    public void getGozareshkarCount(String startDate , String endDate , int personId){
         repo.getGozareshKarCount(startDate , endDate , personId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -35,7 +35,7 @@ public class GozareshKarViewModel extends BaseViewModel  {
                 });
     }
 
-    public void getGozareshKarDetial(String startDate , String endDate , String personId , int userCode){
+    public void getGozareshKarDetial(String startDate , String endDate , int personId , int userCode){
         repo.getGozareshKarDetail(startDate , endDate , personId , userCode)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

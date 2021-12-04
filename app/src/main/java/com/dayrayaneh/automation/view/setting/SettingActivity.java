@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.provider.FontsContractCompat;
+import androidx.lifecycle.MutableLiveData;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.BaseActivity;
+import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.dialog.IpSettingDialog;
 import com.dayrayaneh.automation.dialog.RestartDialog;
 import com.dayrayaneh.automation.services.httpclient.ApiInstance;
@@ -50,6 +52,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private String comeFrom;
     private IpSettingDialog ipSettingDialog;
     private  TextView ip;
+
 
 
     @Override
@@ -189,6 +192,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         this.ip.setText(ip);
         editor.putString("ip",ip);
         editor.apply();
+        ConstValue.ip = ip;
+
     }
 
     @Override

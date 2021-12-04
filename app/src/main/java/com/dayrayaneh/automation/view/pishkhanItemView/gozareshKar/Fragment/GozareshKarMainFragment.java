@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,6 +18,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.gozareshKar.main.GozareshKarMa
 import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.count.GozareshKarCountModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.GozareshKarActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.GozareshKarha.GozareshKarViewModel;
 
 public class GozareshKarMainFragment extends BaseFragment implements GozareshKarMainAdapter.ClickItemEvent {
@@ -26,6 +27,8 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
     private RecyclerView recyclerView;
     private View emptyShow;
     private GozareshKarMainAdapter adapter;
+    public static MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,10 +50,18 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
         viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
     }
 
-    private void viewModel(){
-        viewModel.getGozareshkarCount(ConstValue.startDate , ConstValue.endDate , "");
+    public void viewModel(){
+        showLoading.setValue(true);
+        viewModel.getGozareshkarCount(ConstValue.startDate , ConstValue.endDate , GozareshKarActivity.isCheck ? GozareshKarActivity.personId :GozareshKarActivity.personIdHelp);
         viewModel.gozareshKarCountLiveData.observe(this , countModel -> {
-            setupRecyclerView(countModel);
+            if(countModel.getData().size() <1){
+                emptyShow.setVisibility(View.VISIBLE);
+            }else{
+                emptyShow.setVisibility(View.GONE);
+                setupRecyclerView(countModel);
+            }
+            showLoading.setValue(false);
+
         });
     }
 
@@ -65,4 +76,6 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
     public void onClickItem(int userCode) {
         getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode),"detailGozareshKar").commit();
     }
+
+
 }

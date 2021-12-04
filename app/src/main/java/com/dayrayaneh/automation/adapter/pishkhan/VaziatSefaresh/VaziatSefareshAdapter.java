@@ -56,6 +56,9 @@ public class VaziatSefareshAdapter extends RecyclerView.Adapter<VaziatSefareshAd
         holder.nahveAhsnaee.setText(dataItemList.get(position).getNahveAshnaye());
 
 
+
+
+
         if (dataItemList.get(position).getFldKindKhadamatNameL1().length() > 35){
             holder.shoMore.setVisibility(View.VISIBLE);
             holder.frameLayout.setVisibility(View.GONE);
