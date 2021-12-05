@@ -14,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.VaziatSefaresh.VaziatSefareshAdapter;
@@ -58,8 +59,8 @@ public class GozareshKarActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gozaresh_kar);
         init();
-        viewModel();
         setDate();
+        viewModel();
         event();
         spinner();
     }
@@ -88,7 +89,6 @@ public class GozareshKarActivity extends BaseActivity {
         viewModel.getPersonalList();
         viewModel.personalListLiveData.observe(this,personalListModel -> {
             personIdList.addAll(personalListModel.getData());
-
         });
     }
 
@@ -100,6 +100,7 @@ public class GozareshKarActivity extends BaseActivity {
         searchableSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(View view, int position, long id) {
+                Toast.makeText(GozareshKarActivity.this, id+"", Toast.LENGTH_SHORT).show();
                 personId = (int) id;
                 personIdHelp = (int)id ;
             }

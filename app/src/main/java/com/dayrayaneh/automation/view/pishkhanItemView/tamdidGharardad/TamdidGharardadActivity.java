@@ -25,6 +25,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.tamdidGharardad.compare.Tamdid
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.DataItem;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
 import com.dayrayaneh.automation.utils.Utils;
@@ -33,6 +34,8 @@ import com.dayrayaneh.automation.viewModel.pishkhan.tamdidQarardad.TamdidGharard
 import com.google.android.material.button.MaterialButton;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 
+import java.util.List;
+
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
 
@@ -40,7 +43,7 @@ public class TamdidGharardadActivity extends BaseActivity {
 
 
     private ImageView back;
-    private TextView fromDate, toDate  , fromDate_mqayese , toDate_moqayese , TV_serviceType;
+    private TextView fromDate, toDate  , fromDate_mqayese , toDate_moqayese , TV_serviceType , mablaqKol, tedadKol;
     private Toolbar toolbar;
     private RecyclerView rv_main , rv_moqayese;
     private TamdidGharardadAdapter adapter;
@@ -90,7 +93,8 @@ public class TamdidGharardadActivity extends BaseActivity {
         frame_select_service = findViewById(R.id.frameLayout_pishkhan_tamdidQarardad_entekhab_Service);
         TV_serviceType = findViewById(R.id.TV_pishkhan_tamdidQarardad_entekhabService);
         showEmpty = findViewById(R.id.showEmpty);
-
+        tedadKol = findViewById(R.id.TV_pishkhan_tamdidQarardad_tedadKol);
+        mablaqKol = findViewById(R.id.TV_pishkhan_tamdidQarardad_mablaqkol);
 
 
         tamdidGharardadViewModel = new ViewModelProvider(this).get(TamdidGharardadViewModel.class);
@@ -194,6 +198,7 @@ public class TamdidGharardadActivity extends BaseActivity {
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);
+                setTotalInfo(tamdidGharardadModel.getData());
                 setRecyclerViewMain(tamdidGharardadModel);
             }
 
@@ -269,6 +274,20 @@ public class TamdidGharardadActivity extends BaseActivity {
             }
         });
         builder.create().show();
+    }
+
+    private void setTotalInfo(List<DataItem> dataItem) {
+        int mablaqKol = 0;
+        int tedadAqlam = 0;
+
+        for (int i = 0; i < dataItem.size(); i++) {
+            mablaqKol += dataItem.get(i).getMablaghGharardad();
+            tedadAqlam += dataItem.get(i).getCountGharardad();
+        }
+
+        this.mablaqKol.setText(Utils.formatPersianNumber(mablaqKol));
+        this.tedadKol.setText(Utils.formatPersianNumber(tedadAqlam));
+
     }
 
 }

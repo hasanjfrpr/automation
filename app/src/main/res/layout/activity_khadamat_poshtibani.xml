@@ -124,6 +124,7 @@
         android:background="?selectableItemBackground"
         android:backgroundTint="@color/yellow"
         android:clickable="true"
+        app:cardCornerRadius="0dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
         app:layout_constraintStart_toStartOf="@+id/linearLayout2"

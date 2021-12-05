@@ -1,5 +1,6 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.Fragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -34,12 +35,14 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_gozaresh_kar_main, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         init(view);
         viewModel();
     }
@@ -77,5 +80,12 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
         getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode),"detailGozareshKar").commit();
     }
 
-
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
 }

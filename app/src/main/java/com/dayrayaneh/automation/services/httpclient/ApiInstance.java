@@ -2,6 +2,7 @@ package com.dayrayaneh.automation.services.httpclient;
 
 import android.content.SharedPreferences;
 
+import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.view.setting.SettingActivity;
 
@@ -43,7 +44,7 @@ public class ApiInstance {
         if (retrofit == null){
 
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.0.16:7585/Api/")
+                    .baseUrl("http://"+ App.sharedPreferences.getString("ip",null) +":7585/Api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)

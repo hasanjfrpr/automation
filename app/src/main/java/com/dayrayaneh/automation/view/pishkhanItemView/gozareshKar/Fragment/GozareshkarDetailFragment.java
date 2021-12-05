@@ -1,5 +1,6 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.Fragment;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -100,4 +101,5 @@ public class GozareshkarDetailFragment extends BaseFragment {
         super.onStop();
         showAndHide.setValue(false);
     }
+
 }

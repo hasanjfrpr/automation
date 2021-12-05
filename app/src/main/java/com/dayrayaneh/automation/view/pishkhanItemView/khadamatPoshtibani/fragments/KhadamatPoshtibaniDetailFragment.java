@@ -1,5 +1,6 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.khadamatPoshtibani.main.Khadam
 import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
 
 public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
@@ -64,7 +66,7 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
         startDate = view.findViewById(R.id.TV_showStartDate_khadamatPoshtibani_detail);
         endDate = view.findViewById(R.id.TV_showEndDate_khadamatPoshtibani_detail);
         back = view.findViewById(R.id.IV_back_detail_khadamatPoshtibani);
-        hide.setValue(true);
+
     }
 
     private void event(){
@@ -91,6 +93,11 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
         rv_detail.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        hide.setValue(true);
+    }
 
     @Override
     public void onStop() {

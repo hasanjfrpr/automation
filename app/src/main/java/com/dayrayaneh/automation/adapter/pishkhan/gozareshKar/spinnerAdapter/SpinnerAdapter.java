@@ -18,7 +18,7 @@ import com.github.bkhezry.searchablespinner.interfaces.ISpinnerSelectedView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpinnerAdapter extends BaseAdapter implements Filterable, ISpinnerSelectedView {
+public class SpinnerAdapter extends BaseAdapter implements Filterable {
 
     private Context context;
     private List<DataItem> personList = new ArrayList<>();
@@ -53,13 +53,7 @@ public class SpinnerAdapter extends BaseAdapter implements Filterable, ISpinnerS
         return view;
     }
 
-    @Override
-    public View getSelectedView(int position) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_view_spinner,null);
-        TextView name = view.findViewById(R.id.display_name_text_view);
-        name.setText(personList.get(position).getName());
-        return view;
-    }
+
 
 
     public class PersonFilter extends Filter {

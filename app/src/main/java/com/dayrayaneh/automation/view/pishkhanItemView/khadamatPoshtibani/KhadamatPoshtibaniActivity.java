@@ -37,6 +37,7 @@ import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.jetbrains.annotations.NotNull;
 
 public class KhadamatPoshtibaniActivity extends BaseActivity {
 
@@ -50,23 +51,29 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
     private int checkItems = 2;
     private KhadamatPoshtibaniMainFragment khadamatPoshtibaniMainFragment;
     private KhadamatPoshtibaniDetailFragment khadamatPoshtibaniDetailFragment;
+    private boolean isPortrait = true;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        int orientation = getResources().getConfiguration().orientation;
+     int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            isPortrait = false;
             setContentView(R.layout.activity_khadamat_poshtibani);
             findViewById(R.id.include2).setVisibility(View.GONE);
             findViewById(R.id.linearLayout2).setVisibility(View.GONE);
             findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
             findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
         } else {
+            isPortrait = true;
             setContentView(R.layout.activity_khadamat_poshtibani);
+            findViewById(R.id.include2).setVisibility(View.VISIBLE);
+            findViewById(R.id.linearLayout2).setVisibility(View.VISIBLE);
+            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.VISIBLE);
+            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);
      }
-
 
 
         init();
@@ -100,8 +107,15 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         khadamatPoshtibaniDetailFragment = new KhadamatPoshtibaniDetailFragment();
 
         khadamatPoshtibaniMainFragment = new KhadamatPoshtibaniMainFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment).commit();
 
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment).commit();
+
+
+
+            if(getSupportFragmentManager().findFragmentByTag("khadamatDetial") != null){
+                getSupportFragmentManager().popBackStack();
+            }
 
 
     }
@@ -171,6 +185,7 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
             }else {
                finish();
             }
+
         });
 
 
@@ -196,21 +211,26 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         });
 
         KhadamatPoshtibaniDetailFragment.hide.observe(this,hide->{
-            if (hide){
+            if (hide ){
                 findViewById(R.id.include2).setVisibility(View.GONE);
                 findViewById(R.id.linearLayout2).setVisibility(View.GONE);
                 findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
                 findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
             }else{
+                if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                    findViewById(R.id.include2).setVisibility(View.GONE);
+                    findViewById(R.id.linearLayout2).setVisibility(View.GONE);
+                    findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
+                    findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
+                }else {
                 findViewById(R.id.include2).setVisibility(View.VISIBLE);
                 findViewById(R.id.linearLayout2).setVisibility(View.VISIBLE);
                 findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.VISIBLE);
-                findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);
+                findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);}
             }
         });
 
         sendInfo.setOnClickListener(v -> {
-
             khadamatPoshtibaniMainFragment.viewModel();
         });
 
@@ -278,12 +298,32 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+
         if (getSupportFragmentManager().findFragmentByTag("khadamatDetial") != null){
             getSupportFragmentManager().popBackStack();
         }else {
             super.onBackPressed();
         }
+
     }
+
+//    @Override
+//    public void onConfigurationChanged(@NotNull Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//
+//        // Checks the orientation of the screen
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//            findViewById(R.id.include2).setVisibility(View.GONE);
+//            findViewById(R.id.linearLayout2).setVisibility(View.GONE);
+//            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
+//            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
+//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+//            findViewById(R.id.include2).setVisibility(View.VISIBLE);
+//            findViewById(R.id.linearLayout2).setVisibility(View.VISIBLE);
+//            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.VISIBLE);
+//            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);
+//        }
+//    }
 
 
 }

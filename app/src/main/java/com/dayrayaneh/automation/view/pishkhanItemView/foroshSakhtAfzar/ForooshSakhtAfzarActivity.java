@@ -26,9 +26,9 @@ import com.dayrayaneh.automation.adapter.pishkhan.forooshSakhtAzar.productCatego
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
+import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.DataItem;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.ForooshSakhtAfzarCompareModel;
-import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.DataItem;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarViewModel;
@@ -45,7 +45,7 @@ import saman.zamani.persiandate.PersianDateFormat;
 public class ForooshSakhtAfzarActivity extends BaseActivity {
 
     private ImageView back;
-    private TextView fromDate, toDate, fromDate_mqayese, toDate_moqayese;
+    private TextView fromDate, toDate, fromDate_mqayese, toDate_moqayese, mablaqKol, tedadKol;
     private Toolbar toolbar;
     private RecyclerView rv_main, rv_moqayese;
     private ForooshSakhtAfzarAdapter adapter;
@@ -101,6 +101,8 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
         entekhabModelMahsol = findViewById(R.id.frameLayout_pishkhan_forooshSakhtAfzar_entekhab_modelMahsool);
         okCategories = findViewById(R.id.Mbtn_ok_select_ProductCategories);
         showEmpty = findViewById(R.id.showEmpty);
+        mablaqKol = findViewById(R.id.TV_pishkhan_forooshSakhtAfzar_mablaqKol);
+        tedadKol = findViewById(R.id.TV_pishkhan_forooshSakhtAfzar_tedadAqlamKol);
 
 
         viewModel = new ViewModelProvider(this).get(ForooshSakhtAfzarViewModel.class);
@@ -165,6 +167,7 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);
+                setTotalInfo(forooshSakhtAfzarModel.getData());
                 setRecyclerViewMain(forooshSakhtAfzarModel);
             }
         });
@@ -340,7 +343,19 @@ public class ForooshSakhtAfzarActivity extends BaseActivity {
 
     }
 
+    private void setTotalInfo(List<DataItem> dataItem) {
+        int mablaqKol = 0;
+        int tedadAqlam = 0;
 
+        for (int i = 0; i < dataItem.size(); i++) {
+            mablaqKol += dataItem.get(i).getTotalPriceSellHard();
+            tedadAqlam += dataItem.get(i).getTotalCountSellHard();
+        }
+
+        this.mablaqKol.setText(Utils.formatPersianNumber(mablaqKol));
+        this.tedadKol.setText(Utils.formatPersianNumber(tedadAqlam));
+
+    }
 
 
 }

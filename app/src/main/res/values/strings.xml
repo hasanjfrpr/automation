@@ -100,9 +100,13 @@
 
     <string name="tedad">  تعداد </string>
     <string name="mablaq"> مبلغ </string>
+    <string name="mablaqKol"> مبلغ کل </string>
 
     <string name="tedadGozareshat">تعداد گزارشات </string>
     <string name="majmoZaman"> مجموع زمان </string>
+
+    <string name="tedadKolAqlam"> تعداد کل اقلام </string>
+    <string name="tedadKolQarardad"> تعداد کل قرارداد </string>
 
     <string name="startTime"> از ساعت </string>
     <string name="endTime"> تا ساعت </string>
@@ -213,7 +217,7 @@
     <string-array name="fontArray">
         <item>فونت ایران سنس </item>
         <item>فونت حکایت </item>
-        <item>فونت وزیر </item>
+        <item>فونت یکان </item>
     </string-array>
 
     <string-array name="companyList">

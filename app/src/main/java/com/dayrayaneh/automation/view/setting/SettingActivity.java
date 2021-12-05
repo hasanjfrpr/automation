@@ -115,8 +115,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                     case 2:
                         font.setText(fontList[2]);
                         editor.putInt("fontId", 2);
-                        editor.putString("font", "fonts/vasir.ttf");
-                        setFont("fonts/vasir.ttf");
+                        editor.putString("font", "fonts/yekan.ttf");
+                        setFont("fonts/yekan.ttf");
                         showDialogForRestart();
                         break;
 

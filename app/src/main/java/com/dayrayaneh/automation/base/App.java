@@ -1,6 +1,7 @@
 package com.dayrayaneh.automation.base;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 
 import com.dayrayaneh.automation.R;
 
@@ -11,12 +12,18 @@ import io.github.inflationx.viewpump.ViewPump;
 
 public class App  extends Application {
 
+    public static SharedPreferences sharedPreferences;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
-       setDefaultFont(this.getSharedPreferences("default_setting" , MODE_PRIVATE).getString("font",null));
-       ConstValue.ip = this.getSharedPreferences("default_setting" , MODE_PRIVATE).getString("ip",null);
+
+
+       sharedPreferences = this.getSharedPreferences("default_setting" , MODE_PRIVATE);
+
+        setDefaultFont(sharedPreferences.getString("font",null));
+        ConstValue.ip = sharedPreferences.getString("ip",null);
 
     }
 

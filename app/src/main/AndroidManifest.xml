@@ -50,6 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity"
+
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity"
