@@ -105,7 +105,6 @@ public class MainActivity extends BaseActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        Toast.makeText(MainActivity.this, "home", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.exitFromApp:

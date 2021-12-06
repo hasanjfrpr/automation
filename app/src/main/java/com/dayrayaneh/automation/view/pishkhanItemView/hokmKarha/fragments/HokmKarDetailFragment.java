@@ -41,6 +41,7 @@ public class HokmKarDetailFragment extends BaseFragment {
     public static MutableLiveData<Boolean> hideButtonSendIndo = new MutableLiveData<Boolean>();
     private TextView startDate, endDate;
     private ImageView back;
+    private TextView emptyText;
 
 
     public HokmKarDetailFragment(int userId) {
@@ -73,6 +74,7 @@ public class HokmKarDetailFragment extends BaseFragment {
         back = view.findViewById(R.id.IV_back_detail_hokmkar);
         startDate = view.findViewById(R.id.TV_showStartDate_hokmKar_detail);
         endDate = view.findViewById(R.id.TV_showEndDate_hokmKar_detail);
+        emptyText = view.findViewById(R.id.TV_hokmKar_request_empty) ;
     }
 
 
@@ -92,8 +94,14 @@ public class HokmKarDetailFragment extends BaseFragment {
         thisViewModel.getHokmKarFollowers(userId);
 
         thisViewModel.hokmKarRequestLiveData.observe(this,hokmKarRequestModel -> {
+            if (hokmKarRequestModel.getData().size() < 1){
+                rv_request.setVisibility(View.GONE);
+                emptyText.setVisibility(View.VISIBLE);
+            }else {
             loadingView.setVisibility(View.GONE);
-            setRecyclerRequest(hokmKarRequestModel);
+                rv_request.setVisibility(View.VISIBLE);
+                emptyText.setVisibility(View.GONE);
+            setRecyclerRequest(hokmKarRequestModel);}
         });
 
         thisViewModel.hokmKarFollowersLiveData.observe(this , hokmKarFollowersModel -> {

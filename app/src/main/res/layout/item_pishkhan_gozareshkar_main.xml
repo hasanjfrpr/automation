@@ -59,7 +59,9 @@
                     android:id="@+id/TV_pishkhan_gozareshKar_count_tedadGozareshat"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_gravity="end"
                     android:gravity="center_vertical"
                     android:paddingEnd="16dp"/>
@@ -102,7 +104,9 @@
                     android:id="@+id/TV_pishkhan_gozareshKar_count_majmoZaman"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_vertical"
                     android:gravity="center_vertical"
                     android:paddingEnd="16dp"/>

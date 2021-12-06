@@ -232,8 +232,8 @@ public class ForooshNarmAfzarActivity extends BaseActivity {
     }
 
     private void setTotalInfo(List<DataItem> dataItem) {
-        int mablaqKol = 0;
-        int tedadAqlam = 0;
+        long mablaqKol = 0;
+        long tedadAqlam = 0;
 
         for (int i = 0; i < dataItem.size(); i++) {
             mablaqKol += dataItem.get(i).getTotalPriceSellsoft();

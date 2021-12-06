@@ -7,7 +7,7 @@
     <string name="login">ورود</string>
     <string name="home">خانه</string>
     <string name="exitFromApp">خروج از برنامه</string>
-    <string name="exitFromAccount">خروج از حاب کاربری</string>
+    <string name="exitFromAccount">خروج از حساب کاربری</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="new_user"> برای ایجاد حساب کلیک کنید</string>
@@ -208,6 +208,7 @@
 
 
     <string name="empty_message">داده ای در این تاریخ وجود ندارد.</string>
+    <string name="empty_request">درخواستی وجود ندارد.</string>
 
 
     <string name="typoGraphi">تایپوگرافی</string>

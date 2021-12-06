@@ -36,6 +36,7 @@
         android:background="?selectableItemBackground"
         android:backgroundTint="@color/yellow"
         android:clickable="true"
+        app:cardCornerRadius="0dp"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="@+id/include3"
         app:layout_constraintStart_toStartOf="@+id/include3"

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     app:cardElevation="4dp"
     android:background="@drawable/shape_item_main_list"
-    android:backgroundTint="@color/whiteYellow"
+    android:backgroundTint="@color/lightYellow"
     android:layout_height="wrap_content">
 
 

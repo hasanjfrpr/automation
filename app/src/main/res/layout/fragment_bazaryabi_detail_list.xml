@@ -11,14 +11,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:paddingVertical="4dp">
-       <ImageView
-           android:id="@+id/IV_bazaryabi_detail_back_to_main"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           app:srcCompat="@drawable/ic_arrow_back"
-           android:layout_marginEnd="16dp"
-           android:layout_gravity="end|center_vertical"
-           app:tint="@color/black" />
+
        <TextView
            android:id="@+id/TV_bazaryabi_detail_title"
            android:layout_width="wrap_content"

@@ -25,6 +25,7 @@ public class PishKhanAdapter extends RecyclerView.Adapter<PishKhanAdapter.PishKh
     private List<PishKhanModel> pishKhanModelList = new ArrayList<>();
     public PishKhanItemEvent event;
     private int positions;
+    private boolean isClicked = false;
 
     public PishKhanAdapter(Context context, List<PishKhanModel> pishKhanModelList) {
         this.context = context;
@@ -46,14 +47,22 @@ public class PishKhanAdapter extends RecyclerView.Adapter<PishKhanAdapter.PishKh
 
 
         holder.itemView.setOnClickListener(v->{
-            Utils.setAnimationClick(v,context);
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    event.onclickItemPishKhan(position);
-                }
-            },400);
+//          if (isClicked){
+//              isClicked=false;
+//          }else {
+//              Utils.setAnimationClick(v,context);
+//              Handler handler = new Handler();
+//              handler.postDelayed(new Runnable() {
+//                  @Override
+//                  public void run() {
+//                      event.onclickItemPishKhan(position);
+//                  }
+//              },300);
+//              isClicked=true;
+//          }
+
+            event.onclickItemPishKhan(position);
+
 
         });
 

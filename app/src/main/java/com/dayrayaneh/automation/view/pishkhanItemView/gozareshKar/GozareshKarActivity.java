@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
@@ -160,6 +161,7 @@ public class GozareshKarActivity extends BaseActivity {
                 }else {
                     searchableSpinner.setClickable(true);
                     searchableSpinner.setVisibility(View.VISIBLE);
+
                     isCheck = false;
 
                 }

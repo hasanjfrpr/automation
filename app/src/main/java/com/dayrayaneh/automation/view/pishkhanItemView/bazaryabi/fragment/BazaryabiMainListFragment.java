@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.pishkhan_bazaryabi.BazaryabiMainAdapter;
@@ -19,6 +20,7 @@ import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.base.Keys;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.DataItem;
+import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.BazaryabiActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.bazaryabi.BazaryabiViewModel;
 
 import org.greenrobot.eventbus.EventBus;
@@ -74,17 +76,39 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
 
-    private void viewModel(){
-        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate , ConstValue.endDate ,companyId );
+    public void viewModel(){
+        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate , ConstValue.endDate , BazaryabiActivity.companyId);
         bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
             if (bazaryabiMainModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
             }else {
                 showEmpty.setVisibility(View.GONE);
                 setRecyclerView(bazaryabiMainModel);
+                addAmarBazaryabi(bazaryabiMainModel);
             }
         });
     }
+    private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
+        int tedadKolTiger = 0;
+        int tedadKolNovin = 0;
+
+        for (int i = 0; i < bazaryabiMainModel.getData().size(); i++) {
+            if (bazaryabiMainModel.getData().get(i).getCompany() == 0){
+                tedadKolNovin += bazaryabiMainModel.getData().get(i).getProformaCount();
+            }else {
+                tedadKolTiger += bazaryabiMainModel.getData().get(i).getProformaCount();
+            }
+        }
+        TextView tedadKol =  getActivity().findViewById(R.id.Tv_bazaryabi_tedadKolBazaryabi);
+        TextView tedadnovin =  getActivity().findViewById(R.id.Tv_bazaryabi_tedadKolNovin);
+        TextView tedadtiger =  getActivity().findViewById(R.id.Tv_bazaryabi_tedadKolTiger);
+        tedadnovin.setText(String.valueOf(tedadKolNovin));
+        tedadtiger.setText(String.valueOf(tedadKolTiger));
+       tedadKol.setText(String.valueOf(tedadKolNovin+tedadKolTiger));
+
+
+    }
+
 
 
     @Override

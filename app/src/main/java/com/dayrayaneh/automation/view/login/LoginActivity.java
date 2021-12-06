@@ -54,6 +54,7 @@ public class LoginActivity extends BaseActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +94,9 @@ public class LoginActivity extends BaseActivity {
                 ErrorIpDialog errorIpDialog = new ErrorIpDialog() ;
                 errorIpDialog.show(getSupportFragmentManager() , "");
 
-            } else {
+            } else if (!ConstValue.ip.equals(ConstValue.ip_base) || !ConstValue.ip.equals(sharedPreferences.getString("ip" , null))){
+              Snackbar.make(login_btn , "آدرس Ip اشتباه است",Snackbar.LENGTH_LONG).show();
+            }else{
                 ////////send username and password to server
                 viewModel();
             }

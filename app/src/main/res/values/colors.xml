@@ -24,7 +24,7 @@
     <color name="yellow">#1D619B</color>
     <color name="yellow700A">#0091EA</color>
     <color name="whiteYellow">#9DB2C3</color>
-<!--    <color name="whiteYellow">#B3E5FC</color>-->
+    <color name="whiteBlue">#B3E5FC</color>
     <color name="mdtp_accent_color_dark">@color/darkYellow</color>
     <color name="mdtp_accent_color">@color/yellow700A</color>
 

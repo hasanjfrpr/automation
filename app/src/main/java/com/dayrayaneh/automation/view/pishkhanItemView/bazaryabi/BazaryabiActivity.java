@@ -52,7 +52,7 @@ public class BazaryabiActivity extends BaseActivity {
     private String startDatePersian ;
     private String endDatePersian;
     private BazaryabiViewModel bazaryabiViewModel;
-    private int companyId = -1;
+    public static int companyId = -1;
     private SharedPreferences sharedPreferences;
 
 
@@ -64,7 +64,6 @@ public class BazaryabiActivity extends BaseActivity {
         init();
         setData();
         event();
-        viewModel();
 
     }
 
@@ -85,12 +84,21 @@ public class BazaryabiActivity extends BaseActivity {
         sendInfo = findViewById(R.id.Mbtn_pishkhan_bazaryabi_saveInfo);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         sharedPreferences = getSharedPreferences("date", MODE_PRIVATE);
+
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
+                .commit();
     }
 
     private void event() {
         ///onclick
         btn_back.setOnClickListener(v -> {
-            finish();
+                if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
+                    getSupportFragmentManager().popBackStack();
+                }else {
+                    super.onBackPressed();
+                }
+
         });
 
 
@@ -100,7 +108,14 @@ public class BazaryabiActivity extends BaseActivity {
         });
 
         sendInfo.setOnClickListener(v -> {
-            viewModel();
+            BazaryabiMainListFragment mainListFragment = (BazaryabiMainListFragment) getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment");
+            if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
+                getSupportFragmentManager().popBackStack();
+                mainListFragment.viewModel();
+            }else{
+                mainListFragment.viewModel();
+            }
+
         });
 
 
@@ -211,22 +226,21 @@ public class BazaryabiActivity extends BaseActivity {
         builder.create().show();
     }
 
-    private void viewModel(){
-        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate, ConstValue.endDate , companyId);
-        loadingView.setVisibility(View.VISIBLE);
-        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
-            if (bazaryabiMainModel.getStatus().isIsError()){
-                Snackbar.make(this,btn_back,getResources().getString(R.string.unknowErro) , Snackbar.LENGTH_LONG);
-            }else {
-                EventBus.getDefault().post(bazaryabiMainModel);
-                loadingView.setVisibility(View.GONE);
-                addAmarBazaryabi(bazaryabiMainModel);
-            }
-        });
-        getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
-                .commit();
-
-    }
+//    private void viewModel(){
+//        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate, ConstValue.endDate , companyId);
+//        loadingView.setVisibility(View.VISIBLE);
+//        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
+//            if (bazaryabiMainModel.getStatus().isIsError()){
+//                Snackbar.make(this,btn_back,getResources().getString(R.string.unknowErro) , Snackbar.LENGTH_LONG);
+//            }else {
+//                EventBus.getDefault().post(bazaryabiMainModel);
+//                loadingView.setVisibility(View.GONE);
+//                addAmarBazaryabi(bazaryabiMainModel);
+//            }
+//        });
+//
+//
+//    }
 
     private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
          int tedadKolTiger = 0;

@@ -6,6 +6,8 @@ import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.view.setting.SettingActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -41,15 +43,22 @@ public class ApiInstance {
             }).build();
 
     public static ApiService getApiInstance(){
-        if (retrofit == null){
 
-            retrofit = new Retrofit.Builder()
-                    .baseUrl("http://"+ App.sharedPreferences.getString("ip",null) +":7585/Api/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .client(client)
-                    .build();
-        }
+
+
+            if (retrofit == null){
+
+                retrofit = new Retrofit.Builder()
+                        .baseUrl("http://"+ App.sharedPreferences.getString("ip",null) +":7585/Api/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .client(client)
+                        .build();
+            }
+
+
+
+
 
         return retrofit.create(ApiService.class);
     }

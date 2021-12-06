@@ -28,6 +28,7 @@ import com.dayrayaneh.automation.dialog.IpSettingDialog;
 import com.dayrayaneh.automation.dialog.RestartDialog;
 import com.dayrayaneh.automation.services.httpclient.ApiInstance;
 import com.dayrayaneh.automation.services.httpclient.ApiService;
+import com.dayrayaneh.automation.view.login.LoginActivity;
 import com.dayrayaneh.automation.view.main.MainActivity;
 import com.google.android.material.card.MaterialCardView;
 

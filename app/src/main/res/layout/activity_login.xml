@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:maxLength="50"
-                    android:text="khademi"
+                    android:text=""
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textColor="@color/black"
@@ -112,7 +112,7 @@
                     android:inputType="textPassword"
                     android:maxLength="50"
                     android:maxLines="1"
-                    android:text="3423"
+                    android:text=""
                     android:singleLine="true"
                     android:textColor="@color/black"
                     android:textStyle="bold" />

@@ -127,11 +127,11 @@ public class Utils {
 
     public static void setAnimationClick(View v , Context context){
         ObjectAnimator animator = ObjectAnimator.ofFloat(v , "scaleX" , 1f , 0.8f);
-        animator.setDuration(200);
+        animator.setDuration(150);
 
 
         ObjectAnimator animatorY = ObjectAnimator.ofFloat(v , "scaleY" , 1f , 0.8f);
-        animatorY.setDuration(200);
+        animatorY.setDuration(150);
         animator.start();
         animatorY.start();
 
@@ -140,15 +140,15 @@ public class Utils {
             @Override
             public void run() {
                 ObjectAnimator animator = ObjectAnimator.ofFloat(v , "scaleX" , 0.8f,1f);
-                animator.setDuration(200);
+                animator.setDuration(150);
 
 
                 ObjectAnimator animatorY = ObjectAnimator.ofFloat(v , "scaleY" , 0.8f,1f);
-                animatorY.setDuration(200);
+                animatorY.setDuration(150);
                 animatorY.start();
                 animator.start();
             }
-        },200);
+        },150);
 
     }
 

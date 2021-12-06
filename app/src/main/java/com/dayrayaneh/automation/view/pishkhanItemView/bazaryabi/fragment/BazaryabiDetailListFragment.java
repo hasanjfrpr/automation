@@ -49,7 +49,6 @@ public class BazaryabiDetailListFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(view);
-        events();
         setupRecyclerView();
         setTitleAndPersonalNameInView();
     }
@@ -58,7 +57,6 @@ public class BazaryabiDetailListFragment extends BaseFragment {
     private void init(View view) {
         recyclerView = view.findViewById(R.id.RV_bazaryabi_detail_list);
         title  = view.findViewById(R.id.TV_bazaryabi_detail_title);
-        btn_back_to_main = view.findViewById(R.id.IV_bazaryabi_detail_back_to_main);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         sharedPreferences = getContext().getSharedPreferences("date", Context.MODE_PRIVATE);
 
@@ -68,11 +66,7 @@ public class BazaryabiDetailListFragment extends BaseFragment {
         title.setText(getResources().getString(R.string.joziatBazaryabi)+" "+ personalName);
     }
 
-    private void events() {
-        btn_back_to_main.setOnClickListener(v -> {
-           getActivity().getSupportFragmentManager().popBackStack();
-        });
-    }
+
 
     private void setupRecyclerView() {
 
