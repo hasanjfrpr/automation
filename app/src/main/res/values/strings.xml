@@ -15,8 +15,11 @@
     <string name="automation">اتوماسیون</string>
     <string name="setting">تنظیمات</string>
     <string name="font">فونت</string>
+    <string name="port">پورت</string>
     <string name="ip">آی پی</string>
     <string name="ip_input">آی پی خود را وارد کنید</string>
+    <string name="port_input">پورت خود را وارد کنید</string>
+    <string name="save">ذخیره</string>
     <string name="selectFont">فونت مورد نظر خود را انتخاب کنید</string>
 
     <string name="unknowErro">خطای نامشخص</string>
@@ -143,7 +146,7 @@
     <string name="closeTab">بستن</string>
 
     <string name="ipError">مشکل IP</string>
-    <string name="ipError_message">لطفا ابتدا در بخش تنظیمات IP خودرا مشخص کنید سپس وارد شوید.</string>
+    <string name="ipError_message">لطفا ابتدا در بخش تنظیمات  IP و Port خودرا مشخص کنید سپس وارد شوید.</string>
 
 
     <string name="restartTitle">شروع مجدد برنامه</string>

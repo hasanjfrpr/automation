@@ -19,15 +19,15 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiInstance {
-    private static Retrofit retrofit;
+    private static Retrofit retrofit = null;
 
 
     ////add new header when get token from server
-
     private static OkHttpClient client = new OkHttpClient.Builder()
             .addInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Chain chain) throws IOException {
+
 
                     Request oldRequest = chain.request();
                     Request.Builder newRequest = oldRequest.newBuilder();
@@ -44,17 +44,17 @@ public class ApiInstance {
 
     public static ApiService getApiInstance(){
 
-
-
             if (retrofit == null){
-
                 retrofit = new Retrofit.Builder()
-                        .baseUrl("http://"+ App.sharedPreferences.getString("ip",null) +":7585/Api/")
+                        .baseUrl("http://"+ConstValue.ip+":"+ConstValue.port+"/Api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .client(client)
                         .build();
             }
+
+
+
 
 
 

@@ -90,13 +90,16 @@ public class LoginActivity extends BaseActivity {
             } else if (S_password.matches("")) {
                 password.setError("این فیلد الزامی است");
                 Toast.makeText(this, "تمامی فیلد ها باید تکمیل شوند", Toast.LENGTH_SHORT).show();
-            }else if (sharedPreferences.getString("ip","").isEmpty() || sharedPreferences.getString("ip","").equals("")){
+            }else if (sharedPreferences.getString("ip","").isEmpty() || sharedPreferences.getString("ip","").equals("")
+            || sharedPreferences.getString("port" , "").isEmpty() || sharedPreferences.getString("port","").equals("")){
                 ErrorIpDialog errorIpDialog = new ErrorIpDialog() ;
                 errorIpDialog.show(getSupportFragmentManager() , "");
 
             } else if (!ConstValue.ip.equals(ConstValue.ip_base) || !ConstValue.ip.equals(sharedPreferences.getString("ip" , null))){
               Snackbar.make(login_btn , "آدرس Ip اشتباه است",Snackbar.LENGTH_LONG).show();
-            }else{
+            }else if (!ConstValue.port.equals(ConstValue.port_base) || !ConstValue.port.equals(sharedPreferences.getString("port", null))){
+                Snackbar.make(login_btn , "آدرس port اشتباه است",Snackbar.LENGTH_LONG).show();
+            }else {
                 ////////send username and password to server
                 viewModel();
             }

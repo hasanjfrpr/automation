@@ -17,6 +17,7 @@ import android.text.format.Formatter;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 public class SettingActivity extends BaseActivity implements View.OnClickListener , IpSettingDialog.EventIpDialog , RestartDialog.EventRestartDialog {
 
     private FrameLayout fontContainer;
-    private MaterialCardView ipContainer;
+    private LinearLayout ipContainer;
     private TextView font;
     private String[] fontList;
     private SharedPreferences sharedPreferences;
@@ -52,7 +53,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private ImageView ic_back;
     private String comeFrom;
     private IpSettingDialog ipSettingDialog;
-    private  TextView ip;
+    private  TextView ip , port;
 
 
 
@@ -87,6 +88,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         fontList = getResources().getStringArray(R.array.fontArray);
         font.setText(fontList[sharedPreferences.getInt("fontId", 0)]);
         ip = findViewById(R.id.TV_setting_ip);
+        port = findViewById(R.id.TV_setting_port);
 
     }
 
@@ -143,6 +145,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private void getDefaultUserIp(){
 
             this.ip.setText(sharedPreferences.getString("ip" , ""));
+            this.port.setText(sharedPreferences.getString("port",""));
+
+
 
     }
 
@@ -188,17 +193,21 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
 
 
 
-    @Override
-    public void event(String ip) {
-        this.ip.setText(ip);
-        editor.putString("ip",ip);
-        editor.apply();
-        ConstValue.ip = ip;
 
-    }
 
     @Override
     public void restartEvent() {
         restartApp(getBaseContext());
+    }
+
+    @Override
+    public void event(String ip, String port) {
+        this.ip.setText(ip);
+        this.port.setText(port);
+        editor.putString("ip",ip);
+        editor.putString("port",port);
+        editor.apply();
+        ConstValue.ip = ip;
+        ConstValue.port = port;
     }
 }

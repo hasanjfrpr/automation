@@ -47,19 +47,6 @@ public class PishKhanAdapter extends RecyclerView.Adapter<PishKhanAdapter.PishKh
 
 
         holder.itemView.setOnClickListener(v->{
-//          if (isClicked){
-//              isClicked=false;
-//          }else {
-//              Utils.setAnimationClick(v,context);
-//              Handler handler = new Handler();
-//              handler.postDelayed(new Runnable() {
-//                  @Override
-//                  public void run() {
-//                      event.onclickItemPishKhan(position);
-//                  }
-//              },300);
-//              isClicked=true;
-//          }
 
             event.onclickItemPishKhan(position);
 

@@ -36,7 +36,10 @@ public class ConstValue {
 
 
     public static String ip = "";
+    public static String port = "";
     public static String ip_base = "192.168.0.16";
+    public static String port_base = "7585";
+
 
 
 

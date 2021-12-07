@@ -28,12 +28,25 @@
         android:textSize="16sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
+    <EditText
+        android:id="@+id/ET_setting_port"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:hint="@string/port_input"
+        android:paddingHorizontal="16dp"
+        android:backgroundTint="@color/yellow"
+        android:gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/Mbtn_ok_ip_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mdtp_ok"
+        android:text="@string/save"
         android:textColor="?colorOnPrimary"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="12dp"

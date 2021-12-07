@@ -21,9 +21,9 @@ public class App  extends Application {
 
 
        sharedPreferences = this.getSharedPreferences("default_setting" , MODE_PRIVATE);
-
         setDefaultFont(sharedPreferences.getString("font",null));
-        ConstValue.ip = sharedPreferences.getString("ip",null);
+        ConstValue.ip = sharedPreferences.getString("ip","");
+        ConstValue.port = sharedPreferences.getString("port","");
 
     }
 

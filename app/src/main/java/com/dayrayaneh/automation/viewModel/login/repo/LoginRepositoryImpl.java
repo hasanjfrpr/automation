@@ -9,13 +9,14 @@ import io.reactivex.Single;
 
 public class LoginRepositoryImpl implements LoginRepository{
 
-   private ApiService apiService = ApiInstance.getApiInstance();
+
    private JsonObject jsonObject = new JsonObject();
 
 
 
    @Override
    public Single<LoginModel> sendUsername(String username, String password) {
+       ApiService apiService = ApiInstance.getApiInstance();
       jsonObject.addProperty("username" , username);
       jsonObject.addProperty("password",password);
       return apiService.sendUsername(jsonObject);
