@@ -53,13 +53,6 @@ public class ApiInstance {
                         .build();
             }
 
-
-
-
-
-
-
-
         return retrofit.create(ApiService.class);
     }
 }

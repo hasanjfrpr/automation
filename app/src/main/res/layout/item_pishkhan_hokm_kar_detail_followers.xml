@@ -123,8 +123,9 @@
 
             <ImageView
                 android:id="@+id/IV_item_hokmKar_detail_showSharhErja"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
                 app:srcCompat="@drawable/ic_arrow_drop"
                 android:layout_gravity="center_vertical"
                 android:background="?selectableItemBackgroundBorderless"
@@ -177,8 +178,9 @@
 
             <ImageView
                 android:id="@+id/IV_item_hokmKar_detail_showDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
                 app:srcCompat="@drawable/ic_arrow_drop"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="16dp"

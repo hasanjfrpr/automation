@@ -39,12 +39,12 @@
     <string name="hokmKarha">حکم کارها</string>
     <string name="bazaryabi">بازاریابی</string>
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
-    <string name="sefareshatMoshtariJadid">سفارش های مشتری جدید</string>
+    <string name="sefareshatMoshtariJadid">سفارش مشتریان جدید</string>
     <string name="vaziatSefaresh">وضعیت سفارش</string>
     <string name="gozareshKar">گزارش کار</string>
     <string name="darsadTakhfifAzHarsefaresh">دصد تخفیف از هر سفارش</string>
     <string name="darsadSefareshat">درصد سفارشات</string>
-    <string name="tedadHokmKarha">تعداد حکم کارها</string>
+    <string name="tedadHokmKarha">گردش حکم کارها</string>
     <string name="darsadKharidShahrestan">درصد خرید شهرستان ها</string>
     <string name="sendInfo">ثبت و بررسی</string>
 
@@ -89,6 +89,8 @@
     <string name="noeKhadamat">  نوع خدمات </string>
     <string name="moshtari">  مشتری </string>
     <string name="serial"> سریال </string>
+
+    <string name="playVoice"> پخش صدا </string>
 
     <string name="sharhErja"> شرح ارجاء  </string>
 

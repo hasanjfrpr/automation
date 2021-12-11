@@ -20,7 +20,7 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     private Context context;
     private List<DataItem> bazaryabiDetailModelList = new ArrayList<>();
-    private boolean isShow = false;
+    private boolean isShow = true;
 
     public BazaryabiDetailAdapter(Context context, List<DataItem> bazaryabiDetailModelList) {
         this.context = context;
@@ -44,6 +44,15 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
         holder.phoneNumber.setText(bazaryabiDetailModelList.get(position).getTelNumber());
         holder.serviceType.setText(bazaryabiDetailModelList.get(position).getKhadamatType());
 
+
+        holder.description.setVisibility(View.VISIBLE);
+        holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+        if (bazaryabiDetailModelList.get(position).getDescription() == null){
+            holder.description.setText(" ندارد ");
+            holder.description.setTextColor(context.getResources().getColor(R.color.redlight));
+        }else{
+            holder.description.setText(bazaryabiDetailModelList.get(position).getDescription());
+        }
 
 
         if (bazaryabiDetailModelList.get(position).getVaziat() == null){

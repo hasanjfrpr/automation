@@ -23,7 +23,7 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isOpen  = false;
+    private boolean isOpen  = true;
 
     public GozareshKarDetailsAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
@@ -63,6 +63,9 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
             holder.showMore.setVisibility(View.VISIBLE);
             holder.frameLayout.setVisibility(View.GONE);
             holder.sharhKar.setVisibility(View.GONE);
+            holder.frameLayout.setVisibility(View.VISIBLE);
+            holder.sharhKar2.setText(dataItems.get(position).getFldReportSharhKarNameL1());
+            holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
             holder.showMore.setOnClickListener(v->{
                 if (isOpen){
                     holder.frameLayout.setVisibility(View.GONE);

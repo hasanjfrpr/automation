@@ -58,6 +58,17 @@
         android:visibility="gone"
         />
 
+    <TextView
+        android:id="@+id/TV_gozareshKar_detail_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        tools:text="slkdjflaskdfj"
+        android:gravity="center_horizontal"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

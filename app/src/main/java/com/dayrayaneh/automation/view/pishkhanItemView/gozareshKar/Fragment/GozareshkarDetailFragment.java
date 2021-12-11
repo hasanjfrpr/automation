@@ -26,6 +26,8 @@ import com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.GozareshKarAc
 import com.dayrayaneh.automation.viewModel.pishkhan.GozareshKarha.GozareshKarViewModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.GozareshKarha.repo.GozareshKarRepo;
 
+import org.w3c.dom.Text;
+
 public class GozareshkarDetailFragment extends BaseFragment {
 
     private int userCode;
@@ -36,9 +38,12 @@ public class GozareshkarDetailFragment extends BaseFragment {
     public static MutableLiveData<Boolean> showAndHide = new MutableLiveData<>();
     private TextView startDate , endDate;
     private ImageView back;
+    private String name;
+    private TextView tv_name;
 
-    public GozareshkarDetailFragment(int userCode) {
+    public GozareshkarDetailFragment(int userCode , String name) {
         this.userCode = userCode;
+        this.name = name;
     }
 
     @Override
@@ -64,6 +69,8 @@ public class GozareshkarDetailFragment extends BaseFragment {
         endDate = view.findViewById(R.id.TV_showEndDate_gozareshkar_detail);
         back = view.findViewById(R.id.IV_back_detail_gozareshKar);
         loadingView = view.findViewById(R.id.loading_view);
+        tv_name = view.findViewById(R.id.TV_gozareshKar_detail_name);
+        tv_name.setText(name);
         viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
 
     }

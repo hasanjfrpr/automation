@@ -21,8 +21,8 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isopenE = false;
-    private boolean isopenD= false;
+    private boolean isopenE = true;
+    private boolean isopenD= true;
 
     public HokmKarFollowersAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
@@ -41,6 +41,23 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
 
         holder.status.setText(dataItems.get(position).getKindName());
         holder.personal.setText(dataItems.get(position).getPersonel());
+
+        holder.shE.setVisibility(View.VISIBLE);
+        holder.showSharhErja.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+        if ( dataItems.get(position).getDoDesc() == null ){
+            holder.sharhErja.setText("ندارد");
+        }else {
+            holder.sharhErja.setText(dataItems.get(position).getDoDesc());
+        }
+
+        holder.shDe.setVisibility(View.VISIBLE);
+        holder.showDescription.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+        if ( dataItems.get(position).getDesc() == null ){
+            holder.description.setText("ندارد");
+        }else {
+            holder.description.setText(dataItems.get(position).getDesc());
+        }
+
 
         holder.showSharhErja.setOnClickListener(v -> {
           if (isopenE){

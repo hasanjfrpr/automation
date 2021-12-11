@@ -76,8 +76,8 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
     }
 
     @Override
-    public void onClickItem(int userCode) {
-        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode),"detailGozareshKar").commit();
+    public void onClickItem(int userCode , String name) {
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode , name),"detailGozareshKar").commit();
     }
 
     @Override

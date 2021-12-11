@@ -236,8 +236,9 @@
                 <ImageView
                     android:id="@+id/IV_item_pishkhan_tedadHokmKar_detail_sharh_more"
                     android:layout_gravity="start|center_vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:scaleType="centerInside"
+                    android:layout_height="match_parent"
                     app:srcCompat="@drawable/ic_arrow_drop"
                     app:tint="@color/black" />
             </FrameLayout>
@@ -250,6 +251,7 @@
             android:layout_width="match_parent"
             android:paddingEnd="16dp"
             android:visibility="gone"
+            android:background="@color/graylight"
             android:animateLayoutChanges="true"
             android:id="@+id/frame_more_tedadHokmkar_sharh"
             android:layout_height="match_parent">

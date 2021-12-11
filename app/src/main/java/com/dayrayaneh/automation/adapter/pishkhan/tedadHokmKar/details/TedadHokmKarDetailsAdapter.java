@@ -21,7 +21,7 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isOpen = false;
+    private boolean isOpen = true;
 
     public TedadHokmKarDetailsAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
@@ -48,31 +48,40 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
         holder.erjadahande.setText(dataItems.get(position).getErjaDahande());
 
 
-        if (dataItems.get(position).getFldHokmFollowSharhErjaL1().length() < 35){
-            holder.sharh.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
-            holder.moreBtn_sharh.setVisibility(View.GONE);
-            holder.showHide_sharh.setVisibility(View.GONE);
-        }else {
-            holder.moreBtn_sharh.setVisibility(View.VISIBLE);
-            holder.moreBtn_sharh.setOnClickListener(v -> {
-                if (isOpen){
 
-                    holder.moreBtn_sharh.setVisibility(View.VISIBLE);
-                    holder.showHide_sharh.setVisibility(View.GONE);
-                    holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-                    isOpen=false;
-                }else {
+            if (dataItems.get(position).getFldHokmFollowSharhErjaL1().length() < 35){
+                holder.sharh.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+                holder.moreBtn_sharh.setVisibility(View.GONE);
+                holder.showHide_sharh.setVisibility(View.GONE);
+            }else {
+                holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+                holder.sharh.setVisibility(View.GONE);
+                holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+                holder.showHide_sharh.setVisibility(View.VISIBLE);
+                holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+                holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+                holder.moreBtn_sharh.setOnClickListener(v -> {
+                    if (isOpen){
+                        holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+                        holder.showHide_sharh.setVisibility(View.GONE);
+                        holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
+                        isOpen=false;
 
-                    holder.moreBtn_sharh.setVisibility(View.VISIBLE);
-                    holder.showHide_sharh.setVisibility(View.VISIBLE);
-                    holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                    holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
-                    isOpen = true;
-                }
-            });
+                    }else{
+
+                        holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+                        holder.showHide_sharh.setVisibility(View.VISIBLE);
+                        holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+                        holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+                        isOpen = true;
+                    }
+                });
 
 
-        }
+            }
+
+
+
 
     }
 

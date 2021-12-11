@@ -42,7 +42,7 @@ public class GozareshKarMainAdapter extends RecyclerView.Adapter<GozareshKarMain
         holder.time.setText(String.valueOf(dataItems.get(position).getTotalTimeWorkReport()));
 
         holder.itemView.setOnClickListener(v -> {
-            event.onClickItem(dataItems.get(position).getUserCode());
+            event.onClickItem(dataItems.get(position).getUserCode() , dataItems.get(position).getFullNameWork());
         });
     }
 
@@ -63,6 +63,6 @@ public class GozareshKarMainAdapter extends RecyclerView.Adapter<GozareshKarMain
     }
 
     public interface ClickItemEvent {
-        void onClickItem(int userCode);
+        void onClickItem(int userCode , String name);
     }
 }

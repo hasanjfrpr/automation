@@ -22,11 +22,12 @@ import com.dayrayaneh.automation.adapter.pishkhan.khadamatPoshtibani.detail.Khad
 import com.dayrayaneh.automation.adapter.pishkhan.khadamatPoshtibani.main.KhadamatPoshtibaniMainAdapter;
 import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
+import com.dayrayaneh.automation.dialog.VoiceDialog;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
 
-public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
+public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements KhadamatPoshtibaniDetailAdapter.Events {
 
 
     private int userId;
@@ -89,6 +90,7 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
 
     private void setRecyclerView(KhadamatPoshtibaniDetailModel khadamatPoshtibaniDetailModel){
         adapter = new KhadamatPoshtibaniDetailAdapter(getContext() , khadamatPoshtibaniDetailModel.getData());
+        adapter.events = this;
         rv_detail.setAdapter(adapter);
         rv_detail.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
@@ -103,5 +105,12 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment {
     public void onStop() {
         hide.setValue(false);
         super.onStop();
+    }
+
+    @Override
+    public void onclickVoicePlay(String uniqueId) {
+        VoiceDialog voiceDialog = new VoiceDialog() ;
+        voiceDialog.show(getActivity().getSupportFragmentManager() , "");
+        voiceDialog.setCancelable(false);
     }
 }

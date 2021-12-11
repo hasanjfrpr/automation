@@ -98,6 +98,7 @@ public class GozareshKarActivity extends BaseActivity {
     private void spinner(){
         spinnerAdapter = new SpinnerAdapter(this,personIdList);
         searchableSpinner.setAdapter(spinnerAdapter);
+
         searchableSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(View view, int position, long id) {
@@ -115,12 +116,14 @@ public class GozareshKarActivity extends BaseActivity {
         searchableSpinner.setStatusListener(new IStatusListener() {
             @Override
             public void spinnerIsOpening() {
-              searchableSpinner.hideEdit();
+                Toast.makeText(GozareshKarActivity.this, "open", Toast.LENGTH_SHORT).show();
+
+
             }
 
             @Override
             public void spinnerIsClosing() {
-
+                Toast.makeText(GozareshKarActivity.this, "close", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -156,6 +159,7 @@ public class GozareshKarActivity extends BaseActivity {
                     isCheck=true;
                     searchableSpinner.setClickable(false);
                     searchableSpinner.setVisibility(View.INVISIBLE);
+                    searchableSpinner.hideEdit();
                     personId = 0;
 
                 }else {

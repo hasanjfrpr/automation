@@ -68,8 +68,6 @@ public class MainActivity extends BaseActivity {
         setupMainRecyclerView();
         getUsername();
 
-
-
     }
 
     private void init() {
@@ -88,7 +86,6 @@ public class MainActivity extends BaseActivity {
         username_bottom = findViewById(R.id.TV_username_bottom_main);
         mainRecyclerView = findViewById(R.id.RV_main);
         frameLayout = findViewById(R.id.frameLayout);
-
     }
 
 

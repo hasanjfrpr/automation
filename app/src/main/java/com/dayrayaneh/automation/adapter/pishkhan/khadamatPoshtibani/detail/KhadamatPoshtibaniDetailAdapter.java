@@ -23,7 +23,8 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
 
     private Context context;
     private List<DataItem>  dataItemList = new ArrayList<>();
-    private boolean isOpen = false;
+    private boolean isOpen = true;
+    public Events events;
 
     public KhadamatPoshtibaniDetailAdapter(Context context, List<DataItem> dataItemList) {
         this.context = context;
@@ -48,7 +49,8 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
         holder.saat.setText(dataItemList.get(position).getTimeSupport());
         holder.serial.setText(dataItemList.get(position).getSerial());
         holder.nameMahsol.setText(dataItemList.get(position).getKindName());
-
+        holder.frameLayout.setVisibility(View.VISIBLE);
+        holder.showDes.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
 
         holder.showDes.setOnClickListener(v -> {
             if (isOpen){
@@ -65,6 +67,14 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
         });
 
 
+        holder.playVoice.setOnClickListener(v -> {
+            events.onclickVoicePlay(dataItemList.get(position).getFldMokalemeID());
+        });
+
+
+
+
+
     }
 
     @Override
@@ -75,7 +85,7 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
     public class KhadamatPoshtianiDetailViewHolder extends RecyclerView.ViewHolder{
 
         TextView nameMoshtari , serial , emtiaz , description , nameTamasGirande , dalilTamasMoshtari , saat , nameMahsol;
-        ImageView showDes;
+        ImageView showDes , playVoice;
         FrameLayout frameLayout;
 
 
@@ -91,7 +101,12 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
             nameMahsol = itemView.findViewById(R.id.TV_item_pishkhan_khadamatPoshtibani_nameMahsol);
             showDes = itemView.findViewById(R.id.IV_item_pishkhan_khadamatPoshtibani_showDes);
             frameLayout = itemView.findViewById(R.id.frame_show_khadamatPoshtibani_detail_des);
+            playVoice = itemView.findViewById(R.id.IV_item_khadamatPoshtibani_playVoice);
         }
+    }
+
+    public interface Events{
+        void onclickVoicePlay(String uniqueId);
     }
 
 }
