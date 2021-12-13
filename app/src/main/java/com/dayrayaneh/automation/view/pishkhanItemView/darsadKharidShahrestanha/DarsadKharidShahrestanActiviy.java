@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,7 +30,7 @@ import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
 
-public class DarsadKharidShahrestanActiviy extends BaseActivity {
+public class DarsadKharidShahrestanActiviy extends BaseActivity implements DarsadKharidShahrestanAdapter.Events{
 
 
     private ImageView back;
@@ -77,6 +78,7 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity {
 
     private void setupRecycler(DarsadKharidShahrestanModel darsadKharidShahrestanModel) {
         adapter = new DarsadKharidShahrestanAdapter(darsadKharidShahrestanModel.getData(), this);
+        adapter.events = this;
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
     }
@@ -150,4 +152,11 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity {
         });
     }
 
+    @Override
+    public void itemEvents(int cityId) {
+    Intent intent = new Intent(this,DarsadKharidShahrestanDetailActivity.class);
+    intent.putExtra("cityId",cityId);
+    intent.putExtra("productType",productType);
+    startActivity(intent);
+    }
 }

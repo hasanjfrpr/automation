@@ -41,6 +41,9 @@ public class ConstValue {
     public static String port_base = "7585";
 
 
+    public static String uniqueIdVoice = "";
+
+
 
 
 

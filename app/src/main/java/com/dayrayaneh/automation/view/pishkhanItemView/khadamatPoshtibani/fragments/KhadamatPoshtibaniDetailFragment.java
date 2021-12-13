@@ -1,6 +1,8 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailAdapter;
@@ -46,6 +49,7 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
 
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -110,7 +114,12 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
     @Override
     public void onclickVoicePlay(String uniqueId) {
         VoiceDialog voiceDialog = new VoiceDialog() ;
-        voiceDialog.show(getActivity().getSupportFragmentManager() , "");
+        voiceDialog.show(getActivity().getSupportFragmentManager() , "voiceDialog");
         voiceDialog.setCancelable(false);
+       if (getActivity().getSupportFragmentManager().findFragmentByTag("voiceDialog") != null){
+           voiceDialog.playVoice(uniqueId);
+       }else {
+           ConstValue.uniqueIdVoice = uniqueId;
+       }
     }
 }

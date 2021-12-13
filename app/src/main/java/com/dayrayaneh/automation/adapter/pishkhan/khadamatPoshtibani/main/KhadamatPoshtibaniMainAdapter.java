@@ -6,15 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.DataItem;
-import com.dayrayaneh.automation.utils.Utils;
-import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,14 +49,14 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
 
 
         if(position%2 == 0){
-            holder.materialCardView.setBackgroundColor(context.getResources().getColor(R.color.graylight));
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.graylight));
         }else {
-            holder.materialCardView.setBackgroundColor(context.getResources().getColor(R.color.white));
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.white));
         }
 
 
 
-        holder.materialCardView.setOnClickListener(v -> {
+        holder.linearLayout.setOnClickListener(v -> {
             event.onclickRecyclerItem(dataItemList.get(position).getUserId());
         });
 
@@ -100,7 +97,7 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
     public class KhadamatPoshtibaniMainViewHolder extends RecyclerView.ViewHolder{
 
         TextView namePoshtiban , tedadTamas , modatMokaleme , mianginEmtiaz  , mianginMokaleme, shomareDakheli,tedadKhadamat , tedadPaygiri;
-        LinearLayout materialCardView;
+        LinearLayout linearLayout;
 
         public KhadamatPoshtibaniMainViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -113,7 +110,7 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
             shomareDakheli = itemView.findViewById(R.id.TV_item_Khadamat_poshtibani_main_shomareDakheli);
             tedadKhadamat = itemView.findViewById(R.id.TV_item_Khadamat_poshtibani_main_tedadKhadamat);
             tedadPaygiri = itemView.findViewById(R.id.TV_item_Khadamat_poshtibani_main_ntedadPaygiri);
-            materialCardView = itemView.findViewById(R.id.item_materialCardView_khadamatDetail_root);
+            linearLayout = itemView.findViewById(R.id.item_materialCardView_khadamatDetail_root);
         }
     }
 

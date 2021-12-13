@@ -8,7 +8,9 @@ import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.followers.HokmKarFollowersModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.request.HokmKarRequestModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
+import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.details.DarsadKharidMoshtariDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.DarsadKharidShahrestanModel;
+import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.details.DarsadKharidShahrestanDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadSefareshat.DarsadSefareshatModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadThakhfifAzHarSefaresh.DarsadTakhfifAzHarSefareshModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshNarmAfzar.ForooshNarmAfzarModel;
@@ -26,6 +28,7 @@ import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGha
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKarCountModel;
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanDetailActivity;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
@@ -46,8 +49,14 @@ public interface ApiService {
     @POST("CustomersPercent/PercentageOfPurchases")
     Single<DarsadkharidMoshtariModel> getDarsadKharidMoshtari(@Body JsonObject jsonObject);
 
+    @POST("CcustomersPercent/percentageOfpurchasesDetails")
+    Single<DarsadKharidMoshtariDetailsModel> getDarsadKharidMoshtariDetails(@Body JsonObject jsonObject);
+
     @POST("citiesPercent/purchasePercentage")
     Single<DarsadKharidShahrestanModel> getDarsadKharidShahrestan(@Body JsonObject jsonObject);
+
+    @POST("citiesPercent/purchasePercentageDetails")
+    Single<DarsadKharidShahrestanDetailsModel> getDarsadKharidShahrestanDetails(@Body JsonObject jsonObject);
 
     @POST("orders/percentOforders")
     Single<DarsadSefareshatModel> getDarsadSefareshat(@Body JsonObject jsonObject);

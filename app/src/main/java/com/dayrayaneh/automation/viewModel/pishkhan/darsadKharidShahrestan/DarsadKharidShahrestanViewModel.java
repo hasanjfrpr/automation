@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dayrayaneh.automation.base.AutomationSingleObserver;
 import com.dayrayaneh.automation.base.BaseViewModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.DarsadKharidShahrestanModel;
+import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.details.DarsadKharidShahrestanDetailsModel;
 import com.dayrayaneh.automation.viewModel.pishkhan.darsadKharidShahrestan.repo.DarsadKharidShahrestanRepo;
 import com.dayrayaneh.automation.viewModel.pishkhan.darsadKharidShahrestan.repo.DarsadKharidShahrestanRepoImpl;
 
@@ -16,6 +17,7 @@ public class DarsadKharidShahrestanViewModel extends BaseViewModel {
 
 
     public MutableLiveData<DarsadKharidShahrestanModel> darsadKharidShahrestanLiveData = new MutableLiveData<>();
+    public MutableLiveData<DarsadKharidShahrestanDetailsModel> darsadKharidShahrestanDetailsLiveData = new MutableLiveData<>();
     private DarsadKharidShahrestanRepo shahrestanRepo = new DarsadKharidShahrestanRepoImpl();
 
 
@@ -32,6 +34,22 @@ public class DarsadKharidShahrestanViewModel extends BaseViewModel {
                 });
 
     }
+
+    public void getDarsadKharidShahrestanDetails(String startDate , String endDate , int productType , int cityId){
+
+        shahrestanRepo.getDarsadKharidShahrestanDetails(startDate , endDate , productType , cityId)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new AutomationSingleObserver<DarsadKharidShahrestanDetailsModel>(compositeDisposable) {
+                    @Override
+                    public void onSuccess(@NonNull DarsadKharidShahrestanDetailsModel darsadKharidShahrestanDetailsModel) {
+                        darsadKharidShahrestanDetailsLiveData.setValue(darsadKharidShahrestanDetailsModel);
+                    }
+                });
+
+    }
+
+
 
 
 }

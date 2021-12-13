@@ -24,6 +24,7 @@ public class DarsadKharidShahrestanAdapter extends RecyclerView.Adapter<DarsadKh
 
     private List<DataItem> dataItemList = new ArrayList<>();
     private Context context ;
+    public Events events;
 
     public DarsadKharidShahrestanAdapter(List<DataItem> dataItemList, Context context) {
         this.dataItemList = dataItemList;
@@ -47,6 +48,11 @@ public class DarsadKharidShahrestanAdapter extends RecyclerView.Adapter<DarsadKh
         holder.kharidKol.setText(Utils.formatPersianNumber(dataItemList.get(position).getPercentTotalPriceSell()));
         holder.shahr.setText(dataItemList.get(position).getCity());
 
+
+        holder.itemView.setOnClickListener(v -> {
+            events.itemEvents(dataItemList.get(position).getCityId());
+        });
+
     }
 
     @Override
@@ -64,6 +70,10 @@ public class DarsadKharidShahrestanAdapter extends RecyclerView.Adapter<DarsadKh
             tedadKol = itemView.findViewById(R.id.TV_item_darsadKharidShahrestan_tedadKol);
             darsadForoosh = itemView.findViewById(R.id.TV_item_darsadKharidShahrestan_darsadKharidMoshtariAzForooshKol);
         }
+    }
+
+    public interface Events{
+        void itemEvents(int cityId);
     }
 
 

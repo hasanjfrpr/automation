@@ -21,6 +21,7 @@ public class DarsadKharidMoshtarianAdapter extends RecyclerView.Adapter<DarsadKh
 
     private List<DataItem> darsadKharidMoshtariModelList = new ArrayList<>();
     private Context context ;
+    public Events events;
 
     public DarsadKharidMoshtarianAdapter(List<DataItem> darsadKharidMoshtariModelList, Context context) {
         this.darsadKharidMoshtariModelList = darsadKharidMoshtariModelList;
@@ -44,6 +45,9 @@ public class DarsadKharidMoshtarianAdapter extends RecyclerView.Adapter<DarsadKh
         holder.tedadAqlamKol.setText(String.valueOf(darsadKharidMoshtariModelList.get(position).getPercentTotalCountSell()));
         holder.darsadForooshMoshtari.setText(Utils.formatPersianNumber(darsadKharidMoshtariModelList.get(position).getPercentPercentOfAll()));
 
+        holder.itemView.setOnClickListener(v -> {
+            events.itemEventClick(darsadKharidMoshtariModelList.get(position).getMoshtarianId());
+        });
     }
 
     @Override
@@ -67,6 +71,10 @@ public class DarsadKharidMoshtarianAdapter extends RecyclerView.Adapter<DarsadKh
             darsadForooshMoshtari = itemView.findViewById(R.id.TV_item_darsadKharidMoshtarian_darsadKharidMoshtariAzForooshKol);
 
         }
+    }
+
+    public interface Events{
+        void itemEventClick(int moshtarianId);
     }
 
 

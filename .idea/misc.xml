@@ -6,17 +6,24 @@
         <entry key="..\:/Automation2/app/src/main/res/drawable/et_background.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_back.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/ic_arrow_drop.xml" value="0.2203125" />
+        <entry key="..\:/Automation2/app/src/main/res/drawable/ic_previous.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/shae_item_main_list.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/drawable/shape_item_list_main.xml" value="0.2203125" />
         <entry key="..\:/Automation2/app/src/main/res/font/fonts.xml" value="0.20277777777777778" />
+        <entry key="..\:/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.22" />
+        <entry key="..\:/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_shahrestan_detail.xml" value="0.21" />
         <entry key="..\:/Automation2/app/src/main/res/layout-land/activity_khadamat_poshtibani.xml" value="0.146875" />
-        <entry key="..\:/Automation2/app/src/main/res/layout-land/fragment_khadamat_poshtibani_main.xml" value="0.14831460674157304" />
+        <entry key="..\:/Automation2/app/src/main/res/layout-land/fragment_khadamat_poshtibani_main.xml" value="0.22" />
+        <entry key="..\:/Automation2/app/src/main/res/layout-land/item_darsad_kharid_moshtarian_details.xml" value="0.14427083333333332" />
+        <entry key="..\:/Automation2/app/src/main/res/layout-land/item_darsadkharid_shahrestan_details.xml" value="0.21" />
         <entry key="..\:/Automation2/app/src/main/res/layout-land/item_pishkhan_khadamat_poshtibani.xml" value="0.146875" />
         <entry key="..\:/Automation2/app/src/main/res/layout-land/item_pishkhan_khadamat_poshtibani_land.xml" value="0.22" />
         <entry key="..\:/Automation2/app/src/main/res/layout-land/item_pishkhan_khadamat_poshtibani_main.xml" value="0.16" />
         <entry key="..\:/Automation2/app/src/main/res/layout-land/pishkhan_khadamat_poshtibani_land.xml" value="0.22" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_bazaryabi.xml" value="0.22" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_activiy.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_takhfif_az_har_sefaresh.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_darsad_takhfifat.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_ddarsad_kharid_moshtari.xml" value="0.19010416666666666" />
@@ -53,8 +60,10 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/item_activity_pishkhan.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_detail_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_bazaryabi_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_darsad_kharid_moshtarian_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_darsad_thakhfif_az_har_sefaresh.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_darsadkharid_shahrestan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_darsadkharid_shahrestan_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_gozareshkar_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_hokm_kar_detail_request.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_main_list.xml" value="0.20416666666666666" />

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,7 +27,7 @@ import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
 
-public class DarsadKharidMoshtariActivity extends BaseActivity {
+public class DarsadKharidMoshtariActivity extends BaseActivity  implements  DarsadKharidMoshtarianAdapter.Events{
 
     private ImageView back;
     private TextView fromDate, toDate, TV_productType;
@@ -78,6 +79,7 @@ public class DarsadKharidMoshtariActivity extends BaseActivity {
 
     private void setupRecycler(DarsadkharidMoshtariModel darsadKharidMoshtariMode) {
         adapter = new DarsadKharidMoshtarianAdapter(darsadKharidMoshtariMode.getData(), this);
+        adapter.events = this;
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
     }
@@ -151,4 +153,11 @@ public class DarsadKharidMoshtariActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void itemEventClick(int moshtarianId) {
+        Intent intent = new Intent(this , DarsadKharidMoshtariDetailsActivity.class);
+        intent.putExtra("productId",productType);
+        intent.putExtra("moshtarianId",moshtarianId );
+        startActivity(intent);
+    }
 }

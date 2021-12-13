@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
     android:layout_gravity="center_horizontal"
     android:gravity="center_vertical"
     android:weightSum="9"
+    android:background="@color/gray"
     android:id="@+id/item_materialCardView_khadamatDetail_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:ignore="MissingDefaultResource">
@@ -14,8 +15,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_namePoshtibani"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
         android:ellipsize="end"
         android:gravity="center"
         android:paddingHorizontal="6dp"
@@ -33,8 +35,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_shomareDakheli"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -50,8 +53,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_tedadTamas"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -67,8 +71,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_modatMokaleme"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -84,8 +89,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_mianginMokaleme"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -101,8 +107,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_mianginEmtiaz"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -118,8 +125,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_tedadKhadamat"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
@@ -135,9 +143,9 @@
 
     <TextView
         android:id="@+id/TV_item_Khadamat_poshtibani_main_ntedadPaygiri"
-
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"

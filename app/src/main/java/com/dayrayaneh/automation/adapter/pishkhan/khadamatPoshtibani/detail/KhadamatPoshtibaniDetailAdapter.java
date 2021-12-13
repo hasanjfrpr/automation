@@ -49,6 +49,7 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
         holder.saat.setText(dataItemList.get(position).getTimeSupport());
         holder.serial.setText(dataItemList.get(position).getSerial());
         holder.nameMahsol.setText(dataItemList.get(position).getKindName());
+
         holder.frameLayout.setVisibility(View.VISIBLE);
         holder.showDes.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
 
