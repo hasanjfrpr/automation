@@ -39,11 +39,13 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_tamdid_gharardad.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_tedad_hokm_karha.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/activity_vaziat_sefaresh.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/activity_voice_poshtibani.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/custom_toolbar_for_item_pishkhan.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_error_empty_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_errro_unaccess.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_network_check.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_restart.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/dialog_search_voice.xml" value="0.22" />
         <entry key="..\:/Automation2/app/src/main/res/layout/dialog_setting_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/fragment_bazaryabi_detail_list.xml" value="0.20416666666666666" />
@@ -90,6 +92,8 @@
         <entry key="..\:/Automation2/app/src/main/res/layout/item_sefaresh_moshtari_jadid.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_tedad_hokmkar_count.xml" value="0.20102564102564102" />
         <entry key="..\:/Automation2/app/src/main/res/layout/item_view_spinner.xml" value="0.20102564102564102" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_voice.xml" value="0.20416666666666666" />
+        <entry key="..\:/Automation2/app/src/main/res/layout/item_voice_poshtibani.xml" value="0.75" />
         <entry key="..\:/Automation2/app/src/main/res/layout/layout_dialog_voice.xml" value="0.22" />
         <entry key="..\:/Automation2/app/src/main/res/layout/layout_empty.xml" value="0.20416666666666666" />
         <entry key="..\:/Automation2/app/src/main/res/layout/layout_show_product_categories_hardware_sell.xml" value="0.20416666666666666" />

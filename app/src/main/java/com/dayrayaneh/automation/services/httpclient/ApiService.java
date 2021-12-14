@@ -28,7 +28,9 @@ import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGha
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKarCountModel;
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
+import com.dayrayaneh.automation.model.pishkhan.voicePoshtibani.VoiceModel;
 import com.dayrayaneh.automation.view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanDetailActivity;
+import com.dayrayaneh.automation.viewModel.pishkhan.Voice.VoiceViewModel;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
@@ -49,7 +51,7 @@ public interface ApiService {
     @POST("CustomersPercent/PercentageOfPurchases")
     Single<DarsadkharidMoshtariModel> getDarsadKharidMoshtari(@Body JsonObject jsonObject);
 
-    @POST("CcustomersPercent/percentageOfpurchasesDetails")
+    @POST("customersPercent/percentageOfpurchasesDetails")
     Single<DarsadKharidMoshtariDetailsModel> getDarsadKharidMoshtariDetails(@Body JsonObject jsonObject);
 
     @POST("citiesPercent/purchasePercentage")
@@ -120,4 +122,7 @@ public interface ApiService {
 
     @POST("workReport/Details")
     Single<GozareshKarDetailsModel> getGozareshKarDetail(@Body JsonObject jsonObject);
+
+    @POST("services/talks")
+    Single<VoiceModel> getVoice(@Body JsonObject jsonObject);
 }

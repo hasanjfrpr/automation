@@ -93,17 +93,13 @@ public class DarsadKharidMoshtariActivity extends BaseActivity  implements  Dars
 
         selectProductType.setOnClickListener(v -> {
             selectCompanyDialog();
-
         });
 
         sendInfo.setOnClickListener(v -> {
             viewModel();
         });
 
-
         //replace fragment
-
-
     }
 
     private void selectCompanyDialog() {

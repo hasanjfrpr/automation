@@ -6,7 +6,7 @@
     android:layout_height="56dp"
     android:weightSum="6"
     android:layout_gravity="center_horizontal"
-    android:gravity="center_vertical"
+    android:gravity="start"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 

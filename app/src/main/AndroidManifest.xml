@@ -17,13 +17,14 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".view.pishkhanItemView.VoicePoshtibani.VoicePoshtibaniActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariDetailsActivity"
-            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanDetailActivity"
-            android:exported="false"
-            android:screenOrientation="landscape" />
+            android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariActivity"
             android:exported="false" />

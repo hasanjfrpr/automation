@@ -40,6 +40,7 @@
     <string name="hokmKarha">حکم کارها</string>
     <string name="bazaryabi">بازاریابی</string>
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
+    <string name="voicePoshtibani">مکالمات</string>
     <string name="sefareshatMoshtariJadid">سفارش مشتریان جدید</string>
     <string name="vaziatSefaresh">وضعیت سفارش</string>
     <string name="gozareshKar">گزارش کار</string>
@@ -48,6 +49,8 @@
     <string name="tedadHokmKarha">گردش حکم کارها</string>
     <string name="darsadKharidShahrestan">درصد خرید شهرستان ها</string>
     <string name="sendInfo">ثبت و بررسی</string>
+
+    <string name="voiceDialogDescription">برای جستوجو مکالمه حداقل تکمیل یک فیلد لازم است.</string>
 
 
     <string name="tedadKolBazaryabi">تعداد کل بازاریابی</string>
@@ -65,6 +68,12 @@
     <string name="productType">نوع محصول</string>
     <string name="status">وضعیت</string>
     <string name="description">توضیحات</string>
+
+
+    <string name="shomaretamas">شماره تماس</string>
+    <string name="mokaleme">مکالمه</string>
+
+
 
 
     <string name="codHesab">کد حساب</string>
@@ -194,6 +203,7 @@
 
 
     <string name="all"> همه</string>
+    <string name="allSearchVoice"> جستوجوی همه ی مکالمه ها در تاریخ انتخاب شده.</string>
     <string name="tiger"> تایگر</string>
     <string name="novin"> نوین</string>
 
@@ -284,6 +294,7 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mobile">موبایل</string>
 
 
 </resources>

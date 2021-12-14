@@ -20,6 +20,7 @@ import com.dayrayaneh.automation.adapter.pishkhan.PishKhanAdapter;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.pishKhanModel.PishKhanModel;
 import com.dayrayaneh.automation.model.mainListModel.MainListModel;
+import com.dayrayaneh.automation.view.pishkhanItemView.VoicePoshtibani.VoicePoshtibaniActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.BazaryabiActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanActiviy;
@@ -90,6 +91,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadSefareshat),R.mipmap.ic_darsad_sefareshat));
             subList.add(new PishKhanModel(context.getResources().getString(R.string.tedadHokmKarha),R.mipmap.ic_tedad_hokm_karha));
             subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan),R.mipmap.ic_darsad_thakfif));
+            subList.add(new PishKhanModel(context.getResources().getString(R.string.voicePoshtibani),R.mipmap.ic_darsad_thakfif));
 
         }
 
@@ -208,6 +210,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             case 13:
                 context.startActivity(new Intent(context , DarsadKharidShahrestanActiviy.class));
 
+                break;
+            case 14:
+                context.startActivity(new Intent(context , VoicePoshtibaniActivity.class));
                 break;
 
 

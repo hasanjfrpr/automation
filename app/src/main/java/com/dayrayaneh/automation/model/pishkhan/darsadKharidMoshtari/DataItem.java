@@ -20,7 +20,7 @@ public class DataItem{
 	private String moshtariName;
 
 	@SerializedName("PercentTotalPriceSell")
-	private int percentTotalPriceSell;
+	private double percentTotalPriceSell;
 
 	public String getCodeHesab(){
 		return codeHesab;
@@ -42,7 +42,7 @@ public class DataItem{
 		return moshtariName;
 	}
 
-	public int getPercentTotalPriceSell(){
+	public double getPercentTotalPriceSell(){
 		return percentTotalPriceSell;
 	}
 }

@@ -8,7 +8,7 @@
     android:layout_gravity="center_horizontal"
     android:orientation="vertical">
     <include
-        android:id="@+id/loading_view"
+        android:id="@+id/loading_viewss"
         layout="@layout/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,14 +16,15 @@
         />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_darsadKharidShahrestanDetail"
+        android:id="@+id/toolbar_darsadKharidMoshtariDetail"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/yellow">
         <ImageView
-            android:id="@+id/ic_back"
+            android:id="@+id/ic_backs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/ic_arrow_back"
             android:layout_gravity="end"
             android:layout_marginEnd="16dp"/>

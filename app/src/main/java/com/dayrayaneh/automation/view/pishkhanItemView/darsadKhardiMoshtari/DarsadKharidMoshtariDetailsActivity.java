@@ -1,12 +1,14 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.darsadKhardiMoshtari;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.pishkan_darsadKharidMoshtarian.DarsadKharidMoshtarianAdapter;
@@ -22,6 +24,8 @@ public class DarsadKharidMoshtariDetailsActivity extends BaseActivity {
     private View loadingView;
     private RecyclerView recyclerView;
     private DarsadKharidMoshtarianDetalisAdapter adapter;
+    private Toolbar toolbar;
+    private ImageView back;
 
 
     @Override
@@ -29,14 +33,25 @@ public class DarsadKharidMoshtariDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_darsad_kharid_moshtari_details_activirty);
         init();
+        event();
         viewModel();
     }
 
 
     private void init() {
-        loadingView = findViewById(R.id.loading_view);
+        loadingView = findViewById(R.id.loading_viewss);
         thisViewModel = new ViewModelProvider(this).get(DarsadKharidMoshtariViewModel.class);
-        recyclerView = findViewById(R.id.RV_pishKhan_darsadKharidShahrestan_detail);
+        recyclerView = findViewById(R.id.RV_pishKhan_darsadKharidMoshtari_detail);
+        toolbar = findViewById(R.id.toolbar_darsadKharidMoshtariDetail);
+        toolbar.setTitle("جزئیات "+getResources().getString(R.string.darsadKharidMoshtari));
+        setSupportActionBar(toolbar);
+        back  = findViewById(R.id.ic_backs);
+    }
+
+    private void event(){
+        back.setOnClickListener(v -> {
+            finish();
+        });
     }
 
     private void viewModel() {

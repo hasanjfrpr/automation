@@ -42,6 +42,9 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
                 String unKnowError = "خطای نامشخص";
                 EventBus.getDefault().post(unKnowError);
             }
+        }else {
+            String unKnowError = "خطای نامشخص";
+            EventBus.getDefault().post(unKnowError);
         }
     }
 
