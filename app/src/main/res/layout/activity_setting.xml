@@ -169,6 +169,88 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ip_setting_for_voice"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"/>
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            app:cardElevation="4dp"
+            android:backgroundTint="@color/graylight"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/setting_ip_frame_voice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="vertical">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center|start"
+                        android:text="@string/ip"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/TV_setting_ip_voice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|end"
+                        android:gravity="center"
+                        tools:text="192.168.1.2"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"
+                    android:layout_marginHorizontal="16dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center|start"
+                        android:text="@string/port"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/TV_setting_port_voice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center|end"
+                        android:gravity="center"
+                        tools:text="sadsad"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
 
 
     </LinearLayout>

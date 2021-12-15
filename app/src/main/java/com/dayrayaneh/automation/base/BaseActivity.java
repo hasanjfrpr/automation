@@ -96,7 +96,8 @@ public class BaseActivity extends AppCompatActivity  {
     public void showDialogErrorUnAccess(String un){
         if (un.equals("خطای نامشخص")){
             Snackbar.make(this,getWindow().getDecorView().getRootView(),un , Snackbar.LENGTH_SHORT).show();
-        }else{
+       }
+       else if (un.equals("دسترسی شما به ابن آیتم ممکن نیست.")){
             ErrorUnAccessDialog dialog = new ErrorUnAccessDialog();
             dialog.setCancelable(false);
             dialog.show(getSupportFragmentManager() , "");

@@ -24,6 +24,8 @@ public class App  extends Application {
         setDefaultFont(sharedPreferences.getString("font",null));
         ConstValue.ip = sharedPreferences.getString("ip","");
         ConstValue.port = sharedPreferences.getString("port","");
+        ConstValue.ip_voice = sharedPreferences.getString("ip_Voice","");
+        ConstValue.port_voice = sharedPreferences.getString("port_Voice","");
 
     }
 

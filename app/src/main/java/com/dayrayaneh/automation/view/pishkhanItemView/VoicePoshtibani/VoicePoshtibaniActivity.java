@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,8 +23,11 @@ import com.dayrayaneh.automation.model.pishkhan.voicePoshtibani.VoiceModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.viewModel.pishkhan.Voice.VoiceViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
-public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapter.Events {
+import java.util.concurrent.ExecutionException;
+
+public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapter.Events,SearchVoiceDialog.VoiceDialogEvent {
 
 
     private FloatingActionButton fab;
@@ -39,6 +44,10 @@ public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_poshtibani);
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         init();
         setDate();
         event();
@@ -66,6 +75,7 @@ public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapte
 
         fab.setOnClickListener(v->{
             SearchVoiceDialog d = new SearchVoiceDialog();
+            d.event = this;
             d.show(getSupportFragmentManager() , "");
         });
     }
@@ -90,10 +100,32 @@ public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapte
         Utils.setDate(startDate,endDate , this);
     }
 
+    private void viewModelFilter(String serial , String mobile){
+        loading.setVisibility(View.VISIBLE);
+        thisViewModel.getVoice(ConstValue.startDate , ConstValue.endDate , serial , mobile);
+        thisViewModel.voiceLiveData.observe(this,voiceModel -> {
+            loading.setVisibility(View.GONE);
+            setupRecyclerView(voiceModel);
+        });
+    }
+
     @Override
     public void itemEvents(String uniqueId) {
         ConstValue.uniqueIdVoice = uniqueId;
         VoiceDialog voiceDialog = new VoiceDialog();
-        voiceDialog.show(getSupportFragmentManager() , ""  );
+        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
+        if (Utils.isURLReachable(this ,urls )){
+            voiceDialog.show(getSupportFragmentManager() , ""  );
+        }else{
+            Snackbar.make(fab , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+        }
+
+
+
+    }
+
+    @Override
+    public void sendInfoClick(String serial, String mobile) {
+        viewModelFilter(serial , mobile);
     }
 }

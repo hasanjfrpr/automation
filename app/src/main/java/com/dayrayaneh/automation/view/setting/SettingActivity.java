@@ -26,6 +26,7 @@ import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.dialog.IpSettingDialog;
+import com.dayrayaneh.automation.dialog.IpSettingDialogVoice;
 import com.dayrayaneh.automation.dialog.RestartDialog;
 import com.dayrayaneh.automation.services.httpclient.ApiInstance;
 import com.dayrayaneh.automation.services.httpclient.ApiService;
@@ -41,10 +42,11 @@ import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 
-public class SettingActivity extends BaseActivity implements View.OnClickListener , IpSettingDialog.EventIpDialog , RestartDialog.EventRestartDialog {
+public class SettingActivity extends BaseActivity implements View.OnClickListener , IpSettingDialog.EventIpDialog , RestartDialog.EventRestartDialog, IpSettingDialogVoice.EventIpDialogVoice {
 
     private FrameLayout fontContainer;
     private LinearLayout ipContainer;
+    private LinearLayout ipContainerVoice;
     private TextView font;
     private String[] fontList;
     private SharedPreferences sharedPreferences;
@@ -53,7 +55,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private ImageView ic_back;
     private String comeFrom;
     private IpSettingDialog ipSettingDialog;
-    private  TextView ip , port;
+    private IpSettingDialogVoice ipSettingDialogVoice;
+    private  TextView ip , port , ip_voice , port_voice;
 
 
 
@@ -79,6 +82,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         fontContainer = findViewById(R.id.setting_font_frame);
         ipContainer = findViewById(R.id.setting_ip_frame);
         ipContainer.setOnClickListener(this);
+        ipContainerVoice = findViewById(R.id.setting_ip_frame_voice);
+        ipContainerVoice.setOnClickListener(this);
         toolbar = findViewById(R.id.toolbar_setting);
         toolbar.setTitle(getResources().getString(R.string.setting));
         setSupportActionBar(toolbar);
@@ -89,6 +94,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         font.setText(fontList[sharedPreferences.getInt("fontId", 0)]);
         ip = findViewById(R.id.TV_setting_ip);
         port = findViewById(R.id.TV_setting_port);
+        ip_voice = findViewById(R.id.TV_setting_ip_voice);
+        port_voice = findViewById(R.id.TV_setting_port_voice);
 
     }
 
@@ -147,6 +154,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             this.ip.setText(sharedPreferences.getString("ip" , ""));
             this.port.setText(sharedPreferences.getString("port",""));
 
+        this.ip_voice.setText(sharedPreferences.getString("ip_Voice" , ""));
+        this.port_voice.setText(sharedPreferences.getString("port_Voice",""));
+
 
 
     }
@@ -163,7 +173,12 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         ipSettingDialog = new IpSettingDialog();
         ipSettingDialog.eventIpDialog = this;
         ipSettingDialog.show(getSupportFragmentManager() , "");
+    }
 
+    private void showAlertDialogIpVoice() {
+        ipSettingDialogVoice = new IpSettingDialogVoice();
+        ipSettingDialogVoice.eventIpDialogvoice= this;
+        ipSettingDialogVoice.show(getSupportFragmentManager() , "");
     }
 
     private void showDialogForRestart() {
@@ -171,6 +186,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         restartDialog.restartDialog = this;
         restartDialog.show(getSupportFragmentManager() , "");
     }
+
+
 
 
 
@@ -187,6 +204,9 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             case R.id.setting_ip_frame:
                 showAlertDialogIp();
                 break;
+            case R.id.setting_ip_frame_voice:
+                showAlertDialogIpVoice();
+                break;
         }
     }
 
@@ -200,6 +220,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         restartApp(getBaseContext());
     }
 
+
     @Override
     public void event(String ip, String port) {
         this.ip.setText(ip);
@@ -209,5 +230,16 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         editor.apply();
         ConstValue.ip = ip;
         ConstValue.port = port;
+    }
+
+    @Override
+    public void eventVoice(String ip, String port) {
+        this.ip_voice.setText(ip);
+        this.port_voice.setText(port);
+        editor.putString("ip_Voice",ip);
+        editor.putString("port_Voice",port);
+        editor.apply();
+        ConstValue.ip_voice = ip;
+        ConstValue.port_voice = port;
     }
 }

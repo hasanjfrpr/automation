@@ -30,18 +30,21 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
 
         Log.i("singleObserverError", e.toString());
 
-        if (e instanceof HttpException){
-            if (((HttpException) e).code() == 401){
+        if (e instanceof HttpException) {
+            if (((HttpException) e).code() == 401) {
 
                 EventBus.getDefault().post(401);
 
-            }else if (((HttpException) e).code() == 403){
-                String unAccess="دسترسی شما به ابن آیتم ممکن نیست.";
+            } else if (((HttpException) e).code() == 403) {
+                String unAccess = "دسترسی شما به ابن آیتم ممکن نیست.";
                 EventBus.getDefault().post(unAccess);
             }else {
                 String unKnowError = "خطای نامشخص";
                 EventBus.getDefault().post(unKnowError);
             }
+        }else if (e instanceof java.net.SocketTimeoutException){
+            String unKnowError = "خطای Ip یا Port";
+            EventBus.getDefault().post(unKnowError);
         }else {
             String unKnowError = "خطای نامشخص";
             EventBus.getDefault().post(unKnowError);

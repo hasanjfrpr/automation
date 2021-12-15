@@ -37,11 +37,14 @@ public class ConstValue {
 
     public static String ip = "";
     public static String port = "";
-    public static String ip_base = "192.168.0.16";
-    public static String port_base = "7585";
+
+    public static String ip_voice = "";
+    public static String port_voice = "";
 
 
     public static String uniqueIdVoice = "";
+
+    public static boolean voiceIpAccess = false;
 
 
 

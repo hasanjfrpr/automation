@@ -159,6 +159,10 @@
     <string name="closeTab">بستن</string>
 
     <string name="ipError">مشکل IP</string>
+
+    <string name="ipErrorVoice">آدرس IP یا Port برای مکالمه اشتباه است.</string>
+
+
     <string name="ipError_message">لطفا ابتدا در بخش تنظیمات  IP و Port خودرا مشخص کنید سپس وارد شوید.</string>
 
 
@@ -235,7 +239,8 @@
 
 
     <string name="typoGraphi">تایپوگرافی</string>
-    <string name="ip_setting">تنظیمات IP</string>
+    <string name="ip_setting_for_voice">تنظیمات IP برای مکالمات</string>
+    <string name="ip_setting">تنظیمات IP </string>
 
 
     <string-array name="fontArray">

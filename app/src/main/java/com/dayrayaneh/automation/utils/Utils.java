@@ -5,7 +5,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
@@ -14,6 +16,9 @@ import android.widget.Toast;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 import saman.zamani.persiandate.PersianDate;
@@ -159,4 +164,34 @@ public class Utils {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
+    static public boolean isURLReachable(Context context , String urls) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnected()) {
+            try {
+                URL url = new URL(urls);   // Change to "http://google.com" for www  test.
+                HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+                urlc.setConnectTimeout(3000);          // 10 s.
+                urlc.connect();
+                if (urlc.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
+                    Log.wtf("Connection", "Success !");
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (MalformedURLException e1) {
+                return false;
+            } catch (Exception e) {
+                return false;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
 }

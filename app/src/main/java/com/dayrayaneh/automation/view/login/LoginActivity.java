@@ -32,6 +32,9 @@ import com.dayrayaneh.automation.viewModel.login.LoginViewModelFactory;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -95,10 +98,10 @@ public class LoginActivity extends BaseActivity {
                 ErrorIpDialog errorIpDialog = new ErrorIpDialog() ;
                 errorIpDialog.show(getSupportFragmentManager() , "");
 
-            } else if (!ConstValue.ip.equals(ConstValue.ip_base) || !ConstValue.ip.equals(sharedPreferences.getString("ip" , null))){
-              Snackbar.make(login_btn , "آدرس Ip اشتباه است",Snackbar.LENGTH_LONG).show();
-            }else if (!ConstValue.port.equals(ConstValue.port_base) || !ConstValue.port.equals(sharedPreferences.getString("port", null))){
-                Snackbar.make(login_btn , "آدرس port اشتباه است",Snackbar.LENGTH_LONG).show();
+//            } else if (!ConstValue.ip.equals(ConstValue.ip_base) || !ConstValue.ip.equals(sharedPreferences.getString("ip" , null))){
+//              Snackbar.make(login_btn , "آدرس Ip اشتباه است",Snackbar.LENGTH_LONG).show();
+//            }else if (!ConstValue.port.equals(ConstValue.port_base) || !ConstValue.port.equals(sharedPreferences.getString("port", null))){
+//                Snackbar.make(login_btn , "آدرس port اشتباه است",Snackbar.LENGTH_LONG).show();
             }else {
                 ////////send username and password to server
                 viewModel();
@@ -155,6 +158,7 @@ public class LoginActivity extends BaseActivity {
 
     private void viewModel(){
 
+        successLottie.setVisibility(View.VISIBLE);
         successLottie.setAnimation(R.raw.lottie_loading);
         successLottie.setVisibility(View.VISIBLE);
        successLottie.setRepeatCount(1000);
@@ -183,6 +187,15 @@ public class LoginActivity extends BaseActivity {
                 });
 
 
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void showErrorIp(String err){
+        if(err.equals("خطای Ip یا Port")){
+            successLottie.cancelAnimation();
+            successLottie.setVisibility(View.INVISIBLE);
+            Snackbar.make(this,setting,"خطای Ip یا Port" , Snackbar.LENGTH_SHORT).show();
+        }
     }
 
 

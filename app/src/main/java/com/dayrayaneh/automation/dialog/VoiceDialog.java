@@ -65,10 +65,12 @@ public class VoiceDialog extends DialogFragment {
 
     }
 
-    public void playVoice(String url) {
+    public void playVoice(String uniqueId) {
         mediaPlayer = new MediaPlayer();
+        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
         try {
-            mediaPlayer.setDataSource("http://192.168.0.7/callreport/getaudio_auto.php?uniq="+url);
+//            mediaPlayer.setDataSource("http://192.168.0.7/callreport/getaudio_auto.php?uniq="+url);
+            mediaPlayer.setDataSource(urls);
             mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (IOException e) {
