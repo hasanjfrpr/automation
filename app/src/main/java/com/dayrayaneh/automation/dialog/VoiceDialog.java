@@ -103,15 +103,21 @@ public class VoiceDialog extends DialogFragment {
                             getActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    if (mediaPlayer.getDuration() >= mediaPlayer.getCurrentPosition()) {
-                                        int mins = (mediaPlayer.getCurrentPosition() / 1000) / 60;
-                                        int seconds = (mediaPlayer.getCurrentPosition() / 1000) % 60;
-                                        if (seconds < 10)
-                                            currentTime.setText(String.valueOf(mins + ":" + "0" + seconds));
-                                        else currentTime.setText(String.valueOf(mins + ":" + seconds));
-                                        seekBar.setProgress(mediaPlayer.getCurrentPosition());
 
+                                    try {
+                                        if (mediaPlayer.getDuration() >= mediaPlayer.getCurrentPosition() ) {
+                                            int mins = (mediaPlayer.getCurrentPosition() / 1000) / 60;
+                                            int seconds = (mediaPlayer.getCurrentPosition() / 1000) % 60;
+                                            if (seconds < 10)
+                                                currentTime.setText(String.valueOf(mins + ":" + "0" + seconds));
+                                            else currentTime.setText(String.valueOf(mins + ":" + seconds));
+                                            seekBar.setProgress(mediaPlayer.getCurrentPosition());
+
+                                        }
+                                    }catch (Exception e){
+                                        Log.e("voiceException",""+e );
                                     }
+
                                 }
                             });
                         }

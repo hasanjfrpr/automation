@@ -36,13 +36,17 @@ import com.google.android.material.card.MaterialCardView;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.lang.reflect.Field;
+
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
+import okhttp3.HttpUrl;
+import retrofit2.Retrofit;
 
 
-public class SettingActivity extends BaseActivity implements View.OnClickListener , IpSettingDialog.EventIpDialog , RestartDialog.EventRestartDialog, IpSettingDialogVoice.EventIpDialogVoice {
+public class SettingActivity extends BaseActivity implements View.OnClickListener, IpSettingDialog.EventIpDialog, RestartDialog.EventRestartDialog, IpSettingDialogVoice.EventIpDialogVoice {
 
     private FrameLayout fontContainer;
     private LinearLayout ipContainer;
@@ -56,8 +60,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     private String comeFrom;
     private IpSettingDialog ipSettingDialog;
     private IpSettingDialogVoice ipSettingDialogVoice;
-    private  TextView ip , port , ip_voice , port_voice;
-
+    private TextView ip, port, ip_voice, port_voice;
 
 
     @Override
@@ -66,10 +69,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         setContentView(R.layout.activity_setting);
         init();
         getDefaultUserIp();
-
-
-
-
 
 
     }
@@ -149,46 +148,43 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     }
 
 
-    private void getDefaultUserIp(){
+    private void getDefaultUserIp() {
 
-            this.ip.setText(sharedPreferences.getString("ip" , ""));
-            this.port.setText(sharedPreferences.getString("port",""));
+        this.ip.setText(sharedPreferences.getString("ip", ""));
+        this.port.setText(sharedPreferences.getString("port", ""));
 
-        this.ip_voice.setText(sharedPreferences.getString("ip_Voice" , ""));
-        this.port_voice.setText(sharedPreferences.getString("port_Voice",""));
+        this.ip_voice.setText(sharedPreferences.getString("ip_Voice", ""));
+        this.port_voice.setText(sharedPreferences.getString("port_Voice", ""));
 
 
+    }
+
+    private void restartApp(Context cnt) {
+        Intent i = cnt.getPackageManager().getLaunchIntentForPackage(cnt.getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        cnt.startActivity(i);
+        finish();
 
     }
 
-    private void restartApp(Context cnt){
-            Intent i = cnt.getPackageManager().getLaunchIntentForPackage(cnt.getPackageName());
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            cnt.startActivity(i);
-            finish();
-
-    }
     private void showAlertDialogIp() {
         ipSettingDialog = new IpSettingDialog();
         ipSettingDialog.eventIpDialog = this;
-        ipSettingDialog.show(getSupportFragmentManager() , "");
+        ipSettingDialog.show(getSupportFragmentManager(), "");
     }
 
     private void showAlertDialogIpVoice() {
         ipSettingDialogVoice = new IpSettingDialogVoice();
-        ipSettingDialogVoice.eventIpDialogvoice= this;
-        ipSettingDialogVoice.show(getSupportFragmentManager() , "");
+        ipSettingDialogVoice.eventIpDialogvoice = this;
+        ipSettingDialogVoice.show(getSupportFragmentManager(), "");
     }
 
     private void showDialogForRestart() {
         RestartDialog restartDialog = new RestartDialog();
         restartDialog.restartDialog = this;
-        restartDialog.show(getSupportFragmentManager() , "");
+        restartDialog.show(getSupportFragmentManager(), "");
     }
-
-
-
 
 
     @Override
@@ -211,10 +207,6 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     }
 
 
-
-
-
-
     @Override
     public void restartEvent() {
         restartApp(getBaseContext());
@@ -225,21 +217,23 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     public void event(String ip, String port) {
         this.ip.setText(ip);
         this.port.setText(port);
-        editor.putString("ip",ip);
-        editor.putString("port",port);
+        editor.putString("ip", ip);
+        editor.putString("port", port);
         editor.apply();
         ConstValue.ip = ip;
         ConstValue.port = port;
+
     }
 
     @Override
     public void eventVoice(String ip, String port) {
         this.ip_voice.setText(ip);
         this.port_voice.setText(port);
-        editor.putString("ip_Voice",ip);
-        editor.putString("port_Voice",port);
+        editor.putString("ip_Voice", ip);
+        editor.putString("port_Voice", port);
         editor.apply();
         ConstValue.ip_voice = ip;
         ConstValue.port_voice = port;
+
     }
 }

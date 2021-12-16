@@ -36,11 +36,12 @@ import com.google.gson.JsonObject;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
+import retrofit2.http.Url;
 
 public interface ApiService {
 
     @POST("Authorization/Login")
-    Single<LoginModel> sendUsername(@Body JsonObject jsonObject);
+    Single<LoginModel> sendUsername(@Body JsonObject jsonObject );
 
     @POST("Marketing/getCount")
     Single<BazaryabiMainModel> getBazaryabiCount(@Body JsonObject jsonObject);

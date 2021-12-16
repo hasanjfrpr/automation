@@ -71,8 +71,5 @@ public class DarsadKharidShahrestanDetailActivity extends BaseActivity {
     }
 
 
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(this , DarsadKharidShahrestanActiviy.class));
-    }
+//
 }

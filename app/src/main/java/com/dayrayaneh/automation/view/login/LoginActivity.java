@@ -77,6 +77,9 @@ public class LoginActivity extends BaseActivity {
         /// init viewModel
         loginViewModel = new ViewModelProvider(this,new LoginViewModelFactory()).get(LoginViewModel.class);
 
+
+
+
     }
 
     private void event() {
