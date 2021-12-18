@@ -20,7 +20,6 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     private Context context;
     private List<DataItem> bazaryabiDetailModelList = new ArrayList<>();
-    private boolean isShow = true;
 
     public BazaryabiDetailAdapter(Context context, List<DataItem> bazaryabiDetailModelList) {
         this.context = context;
@@ -36,6 +35,12 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     @Override
     public void onBindViewHolder(@NonNull BazaryabiDetailViewHolder holder, int position) {
+        final boolean[] isOpen = new boolean[bazaryabiDetailModelList.size()];
+
+        for (int i = 0; i < bazaryabiDetailModelList.size(); i++) {
+            isOpen[i] = true;
+
+        }
 
         holder.productType.setText(bazaryabiDetailModelList.get(position).getNueMahsol());
         holder.clientName.setText(bazaryabiDetailModelList.get(position).getMoshtari());
@@ -65,7 +70,7 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
             holder.showMore.setVisibility(View.VISIBLE);
             holder.showMore.setOnClickListener(v -> {
-                if (!isShow) {
+                if (!isOpen[position]) {
                     holder.description.setVisibility(View.VISIBLE);
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
                    if (bazaryabiDetailModelList.get(position).getDescription() == null){
@@ -74,11 +79,11 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
                    }else{
                        holder.description.setText(bazaryabiDetailModelList.get(position).getDescription());
                    }
-                    isShow = true;
+                    isOpen[position] = true;
                 } else {
                     holder.description.setVisibility(View.GONE);
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-                    isShow = false;
+                    isOpen[position] = false;
                 }
 
             });

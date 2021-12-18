@@ -24,7 +24,6 @@ public class SefareshMoshtariJadidAdapter extends RecyclerView.Adapter<SefareshM
 
     private Context context;
     private List<DataItem> dataItemList = new ArrayList<>();
-    private boolean isOpen =true;
 
     public SefareshMoshtariJadidAdapter(Context context, List<DataItem> dataItemList) {
         this.context = context;
@@ -41,7 +40,12 @@ public class SefareshMoshtariJadidAdapter extends RecyclerView.Adapter<SefareshM
     @Override
     public void onBindViewHolder(@NonNull SefareshMoshtariJadidViewHolder holder, int position) {
 
+        final boolean[] isOpen = new boolean[dataItemList.size()];
 
+        for (int i = 0; i < dataItemList.size(); i++) {
+            isOpen[i] = true;
+
+        }
         holder.nameMoshtari.setText(dataItemList.get(position).getNewCustomerFullName());
         holder.codeHesab.setText(dataItemList.get(position).getNewCustomerMoshtarianCodeHesab());
         holder.mablaqSefaresh.setText(Utils.formatPersianNumber(dataItemList.get(position).getNewCustomerOrderPrice()));
@@ -58,17 +62,18 @@ public class SefareshMoshtariJadidAdapter extends RecyclerView.Adapter<SefareshM
             holder.status2.setText(dataItemList.get(position).getNewCustomerKindKhadamatNameL1());
             holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
             holder.showMore.setOnClickListener(v -> {
-               if (isOpen){
+               if (isOpen[position]){
                    holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
                    holder.frameLayout.setVisibility(View.GONE);
-                   isOpen = false;
+                   isOpen[position] = false;
 
                }else {
                    holder.frameLayout.setVisibility(View.VISIBLE);
                    holder.status2.setText(dataItemList.get(position).getNewCustomerKindKhadamatNameL1());
                    holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                   isOpen = true;
+                   isOpen[position] = true;
                }
+
             });
 
 

@@ -21,7 +21,7 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isOpen = true;
+
 
     public TedadHokmKarDetailsAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
@@ -40,6 +40,11 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
     @Override
     public void onBindViewHolder(@NonNull TedadHokmKarDetailsViewHolder holder, int position) {
 
+        final boolean[] isOpen = new boolean[dataItems.size()];
+        for (int i = 0; i < dataItems.size(); i++) {
+            isOpen[i] = true;
+        }
+
         holder.status.setText(dataItems.get(position).getFldKindOperationNameFarsi());
         holder.shomareHokm.setText(String.valueOf(dataItems.get(position).getFldHokmKarNumber()));
         holder.time.setText(dataItems.get(position).getFldHokmFollowTime());
@@ -49,36 +54,39 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
 
 
 
-            if (dataItems.get(position).getFldHokmFollowSharhErjaL1().length() < 35){
-                holder.sharh.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
-                holder.moreBtn_sharh.setVisibility(View.GONE);
-                holder.showHide_sharh.setVisibility(View.GONE);
-            }else {
-                holder.moreBtn_sharh.setVisibility(View.VISIBLE);
-                holder.sharh.setVisibility(View.GONE);
-                holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+
+
                 holder.showHide_sharh.setVisibility(View.VISIBLE);
                 holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+        holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+
+               try{
+                   if (dataItems.get(position).getFldHokmFollowSharhErjaL1().equals("") || dataItems.get(position).getFldHokmFollowSharhErjaL1().isEmpty()){
+                       holder.sharh2.setText("ندارد");
+                       holder.sharh2.setTextColor(context.getResources().getColor(R.color.redlight));
+                   }else {
+                       holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
+                   }
+               }catch (Exception e){}
+
+
+
                 holder.moreBtn_sharh.setOnClickListener(v -> {
-                    if (isOpen){
-                        holder.moreBtn_sharh.setVisibility(View.VISIBLE);
+                    if (isOpen[position]){
                         holder.showHide_sharh.setVisibility(View.GONE);
                         holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-                        isOpen=false;
+                        isOpen[position] =false;
 
                     }else{
 
-                        holder.moreBtn_sharh.setVisibility(View.VISIBLE);
                         holder.showHide_sharh.setVisibility(View.VISIBLE);
                         holder.moreBtn_sharh.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                        holder.sharh2.setText(dataItems.get(position).getFldHokmFollowSharhErjaL1());
-                        isOpen = true;
+                        isOpen[position] = true;
                     }
                 });
 
 
-            }
+
 
 
 
@@ -104,7 +112,6 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
             date = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_date);
             status = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_status);
             serial = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_serial);
-            sharh = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_sharh);
             sharh2 = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_sharh2);
             erjadahande = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_erjadahande);
             moreBtn_sharh = itemView.findViewById(R.id.IV_item_pishkhan_tedadHokmKar_detail_sharh_more);

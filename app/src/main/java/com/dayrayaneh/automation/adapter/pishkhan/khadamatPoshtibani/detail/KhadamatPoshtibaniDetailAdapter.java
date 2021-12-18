@@ -23,7 +23,6 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
 
     private Context context;
     private List<DataItem>  dataItemList = new ArrayList<>();
-    private boolean isOpen = true;
     public Events events;
 
     public KhadamatPoshtibaniDetailAdapter(Context context, List<DataItem> dataItemList) {
@@ -40,6 +39,12 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
 
     @Override
     public void onBindViewHolder(@NonNull KhadamatPoshtianiDetailViewHolder holder, int position) {
+        final boolean[] isOpen = new boolean[dataItemList.size()];
+
+        for (int i = 0; i < dataItemList.size(); i++) {
+            isOpen[i] = true;
+
+        }
 
         holder.nameMoshtari.setText(dataItemList.get(position).getMoshtariName());
         holder.nameTamasGirande.setText(dataItemList.get(position).getSpeak());
@@ -54,16 +59,16 @@ public class KhadamatPoshtibaniDetailAdapter extends RecyclerView.Adapter<Khadam
         holder.showDes.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
 
         holder.showDes.setOnClickListener(v -> {
-            if (isOpen){
+            if (isOpen[position]){
                 holder.frameLayout.setVisibility(View.GONE);
                 holder.showDes.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-                isOpen = false;
+                isOpen[position] = false;
 
 
             }else {
                 holder.frameLayout.setVisibility(View.VISIBLE);
                 holder.showDes.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                isOpen = true;
+                isOpen[position] = true;
             }
         });
 

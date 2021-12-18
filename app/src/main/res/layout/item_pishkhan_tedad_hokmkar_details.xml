@@ -224,15 +224,7 @@
                 android:layout_width="match_parent"
                 android:paddingEnd="16dp"
                 android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/TV_item_pishkhan_tedadHokmKar_detail_sharh"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="16dp"/>
+
                 <ImageView
                     android:id="@+id/IV_item_pishkhan_tedadHokmKar_detail_sharh_more"
                     android:layout_gravity="start|center_vertical"
@@ -250,7 +242,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:paddingEnd="16dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="@color/graylight"
             android:animateLayoutChanges="true"
             android:id="@+id/frame_more_tedadHokmkar_sharh"

@@ -136,16 +136,17 @@ public class DarsadKharidShahrestanActiviy extends BaseActivity implements Darsa
 
     private void viewModel() {
         loadingView.setVisibility(View.VISIBLE);
-
+        showEmpty.setVisibility(View.GONE);
         viewModel.getDarsadKharidShahrestan(ConstValue.startDate, ConstValue.endDate, productType);
-
         viewModel.darsadKharidShahrestanLiveData.observe(this, darsadKharidShahrestanModel  -> {
             if (darsadKharidShahrestanModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.INVISIBLE);
             }else {
                 showEmpty.setVisibility(View.GONE);
                 loadingView.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
                 setupRecycler(darsadKharidShahrestanModel);
             }
 

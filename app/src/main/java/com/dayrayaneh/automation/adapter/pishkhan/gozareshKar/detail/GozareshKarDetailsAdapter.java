@@ -23,7 +23,7 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isOpen  = true;
+
 
     public GozareshKarDetailsAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
@@ -39,6 +39,12 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
 
     @Override
     public void onBindViewHolder(@NonNull GozareshKarDetailsViewHolder holder, int position) {
+        final boolean[] isOpen = new boolean[dataItems.size()];
+
+        for (int i = 0; i < dataItems.size(); i++) {
+            isOpen[i] = true;
+
+        }
         holder.sendTo.setText(dataItems.get(position).getFullName());
         holder.noeKar.setText(dataItems.get(position).getFldKindWorkNameL1());
 
@@ -67,17 +73,17 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
             holder.sharhKar2.setText(dataItems.get(position).getFldReportSharhKarNameL1());
             holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
             holder.showMore.setOnClickListener(v->{
-                if (isOpen){
+                if (isOpen[position]){
                     holder.frameLayout.setVisibility(View.GONE);
                     holder.sharhKar2.setText(dataItems.get(position).getFldReportSharhKarNameL1());
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-                    isOpen = false;
+                    isOpen[position] = false;
 
                 }else {
                     holder.frameLayout.setVisibility(View.VISIBLE);
                     holder.sharhKar2.setText(dataItems.get(position).getFldReportSharhKarNameL1());
                     holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
-                    isOpen = true;
+                    isOpen[position] = true;
 
                 }            });
 

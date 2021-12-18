@@ -5,16 +5,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.view.View;
-import android.widget.Toast;
-import android.widget.VideoView;
+
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.dialog.ErrorUnAccessDialog;
 import com.dayrayaneh.automation.dialog.InternetDialog;
 import com.dayrayaneh.automation.view.login.LoginActivity;
@@ -23,10 +17,6 @@ import com.google.android.material.snackbar.Snackbar;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import io.github.inflationx.calligraphy3.CalligraphyConfig;
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
-import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class BaseActivity extends AppCompatActivity  {
@@ -91,6 +81,12 @@ public class BaseActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void showErrorIp(String err){
+        if(err.equals("خطای Ip یا Port")){
+            Snackbar.make(this,getWindow().getDecorView().getRootView(),"خطای Ip یا Port" , Snackbar.LENGTH_SHORT).show();
+        }
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void showDialogErrorUnAccess(String un){

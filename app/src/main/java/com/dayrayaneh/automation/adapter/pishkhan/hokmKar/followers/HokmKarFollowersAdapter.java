@@ -21,23 +21,31 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
 
     private Context context;
     private List<DataItem> dataItems = new ArrayList<>();
-    private boolean isopenE = true;
-    private boolean isopenD= true;
+
+
 
     public HokmKarFollowersAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
         this.dataItems = dataItems;
+
     }
 
     @NonNull
     @Override
     public HokmkarFollowerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View view = LayoutInflater.from(context).inflate(R.layout.item_pishkhan_hokm_kar_detail_followers , parent , false);
         return new HokmkarFollowerViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull HokmkarFollowerViewHolder holder, int position) {
+        boolean[] isOpenE = new boolean[dataItems.size()];
+        boolean[] isOpenD = new boolean[dataItems.size()];
+        for (int i = 0; i < dataItems.size(); i++) {
+            isOpenE[i] = true;
+            isOpenD[i] = true;
+        }
 
         holder.status.setText(dataItems.get(position).getKindName());
         holder.personal.setText(dataItems.get(position).getPersonel());
@@ -60,10 +68,10 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
 
 
         holder.showSharhErja.setOnClickListener(v -> {
-          if (isopenE){
+          if (isOpenE[position]){
               holder.shE.setVisibility(View.GONE);
               holder.showSharhErja.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-              isopenE = false;
+              isOpenE[position] = false;
           }else {
 
               holder.shE.setVisibility(View.VISIBLE);
@@ -73,16 +81,15 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
               }else {
                   holder.sharhErja.setText(dataItems.get(position).getDoDesc());
               }
-              isopenE = true;
+              isOpenE[position] = true;
 
           }
         });
         holder.showDescription.setOnClickListener(v -> {
-            if (isopenD){
+            if (isOpenD[position]){
                 holder.shDe.setVisibility(View.GONE);
                 holder.showDescription.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
-
-                isopenD = false;
+                isOpenD[position] = false;
             }else {
 
 
@@ -93,7 +100,7 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
                 }else {
                     holder.description.setText(dataItems.get(position).getDesc());
                 }
-                isopenD = true;
+                isOpenD[position] = true;
 
             }
         });
