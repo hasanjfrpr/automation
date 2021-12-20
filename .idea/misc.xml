@@ -110,10 +110,16 @@
         <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_activiy.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_takhfifat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_gozaresh_kar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_setting.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/dialog_errro_unaccess.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/dialog_setting_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/dialog_setting_ip_voice.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_gozaresh_kar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_gozareshkar_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_khadamat_poshtibani_main.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_gozareshkar_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_khadamat_poshtibani_main.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_tedad_hokmkar_details.xml" value="0.20416666666666666" />
       </map>
     </option>

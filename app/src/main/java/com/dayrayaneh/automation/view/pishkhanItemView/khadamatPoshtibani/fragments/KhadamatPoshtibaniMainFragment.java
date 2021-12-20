@@ -32,7 +32,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.Objects;
 
 
-public class KhadamatPoshtibaniMainFragment extends BaseFragment implements KhadamatPoshtibaniMainAdapter.ClickItemEvent {
+public class KhadamatPoshtibaniMainFragment extends Fragment implements KhadamatPoshtibaniMainAdapter.ClickItemEvent {
 
     private RecyclerView rv_main;
     private KhadamatPoshtibaniViewModel thisViewModel;
@@ -75,20 +75,36 @@ public class KhadamatPoshtibaniMainFragment extends BaseFragment implements Khad
 
     public void viewModel(){
         showLoadingLiveData.setValue(true);
+        if (Objects.requireNonNull(getActivity()).getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE &&
+                thisViewModel.khadamatPoshtibaniMainLiveData.getValue() != null ){
+            if (thisViewModel.khadamatPoshtibaniMainLiveData.getValue().getData().size() < 1){
+                showEmpty.setVisibility(View.VISIBLE);
+                showLoadingLiveData.setValue(false);
+            }else {
+                showEmpty.setVisibility(View.GONE);
+                setRecycler(this.thisViewModel.khadamatPoshtibaniMainLiveData.getValue());
+                showLoadingLiveData.setValue(false);
+                EventBus.getDefault().post(EventBus.getDefault().getStickyEvent(KhadamatPoshtibaniMainModel.class));
 
-        thisViewModel.getKhadamatPoshtibaniMain(ConstValue.startDate , ConstValue.endDate , ConstValue.startTime , ConstValue.endTime ,ConstValue.companyId);
-        thisViewModel.khadamatPoshtibaniMainLiveData.observe(getViewLifecycleOwner() , khadamatPoshtibaniMainModel -> {
-           if (khadamatPoshtibaniMainModel.getData().size() < 1){
-               showEmpty.setVisibility(View.VISIBLE);
-               showLoadingLiveData.setValue(false);
-           }else {
-               showEmpty.setVisibility(View.GONE);
-               setRecycler(khadamatPoshtibaniMainModel);
-               EventBus.getDefault().post(khadamatPoshtibaniMainModel);
-               showLoadingLiveData.setValue(false);
-           }
+            }
 
-        });
+
+        }else{
+            thisViewModel.getKhadamatPoshtibaniMain(ConstValue.startDate , ConstValue.endDate , ConstValue.startTime , ConstValue.endTime ,ConstValue.companyId);
+            thisViewModel.khadamatPoshtibaniMainLiveData.observe(getViewLifecycleOwner() , khadamatPoshtibaniMainModel -> {
+                if (khadamatPoshtibaniMainModel.getData().size() < 1){
+                    showEmpty.setVisibility(View.VISIBLE);
+                    showLoadingLiveData.setValue(false);
+                }else {
+                    showEmpty.setVisibility(View.GONE);
+                    setRecycler(khadamatPoshtibaniMainModel);
+                    EventBus.getDefault().postSticky(khadamatPoshtibaniMainModel);
+                    showLoadingLiveData.setValue(false);
+                }
+
+            });
+        }
+
     }
 
     private void setRecycler(KhadamatPoshtibaniMainModel model){

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/Root_gozareshKarMain"
     android:orientation="vertical"
     tools:context=".view.pishkhanItemView.gozareshKar.Fragment.GozareshKarMainFragment">
 
@@ -14,6 +15,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:scrollbarSize="12dp"
+        android:scrollbarStyle="insideOverlay"
         android:id="@+id/RV_gozareshKar_main"/>
 
 

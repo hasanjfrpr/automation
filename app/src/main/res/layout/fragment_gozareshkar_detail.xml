@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:clickable="false"
+    android:background="@color/white"
     tools:context=".view.pishkhanItemView.gozareshKar.Fragment.GozareshkarDetailFragment">
 
     <com.google.android.material.card.MaterialCardView
@@ -58,6 +60,14 @@
         android:visibility="gone"
         />
 
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
     <TextView
         android:id="@+id/TV_gozareshKar_detail_name"
         android:layout_width="match_parent"
@@ -68,8 +78,6 @@
         android:textColor="@color/black"
         tools:text="slkdjflaskdfj"
         android:gravity="center_horizontal"/>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -77,5 +85,6 @@
         android:paddingEnd="4dp"
         android:paddingStart="4dp"
         android:clipToPadding="false"/>
+</LinearLayout>
 
 </LinearLayout>

@@ -1,18 +1,23 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.gozareshKar.main.GozareshKarMainAdapter;
@@ -28,7 +33,12 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
     private RecyclerView recyclerView;
     private View emptyShow;
     private GozareshKarMainAdapter adapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private Parcelable parcelable;
     public static MutableLiveData<Boolean> showLoading = new MutableLiveData<>();
+    private LinearLayout root;
+    private Bundle mBundleRecyclerViewState;
+
 
 
     @Override
@@ -37,6 +47,7 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
         // Inflate the layout for this fragment
 
         return inflater.inflate(R.layout.fragment_gozaresh_kar_main, container, false);
+
     }
 
     @Override
@@ -51,6 +62,8 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
         recyclerView = view.findViewById(R.id.RV_gozareshKar_main);
         emptyShow = view.findViewById(R.id.showEmpty);
         viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
+        root = view.findViewById(R.id.Root_gozareshKarMain);
+
     }
 
     public void viewModel(){
@@ -68,24 +81,30 @@ public class GozareshKarMainFragment extends BaseFragment implements GozareshKar
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void setupRecyclerView(GozareshKarCountModel countModel){
         adapter = new GozareshKarMainAdapter(getContext() , countModel.getData());
         adapter.event = this;
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
+        mLayoutManager = new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false);
+        recyclerView.setLayoutManager(mLayoutManager);
+
+        GozareshKarActivity.searchTextLiveData.observe(this,text->{
+            adapter.getFilter().filter(text);
+            adapter.notifyDataSetChanged();
+        });
     }
+
 
     @Override
     public void onClickItem(int userCode , String name) {
-        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode , name),"detailGozareshKar").commit();
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("")
+                .add(R.id.frameContainer_gozareshkar , new GozareshkarDetailFragment(userCode , name),"detailGozareshKar")
+                .hide(this)
+                .commit();
+
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
+
+
 }

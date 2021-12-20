@@ -29,7 +29,7 @@
     <string name="noeKar">نوع کار</string>
     <string name="noeMahsol">نوع محصول</string>
     <string name="sharhKar">شرح کار</string>
-    <string name="joziatKar">جزئات کار</string>
+    <string name="joziatKar">جزئیات کار</string>
     <string name="zamanGozaresh">زمان گزارش</string>
 
 
@@ -241,6 +241,9 @@
     <string name="typoGraphi">تایپوگرافی</string>
     <string name="ip_setting_for_voice">تنظیمات IP برای مکالمات</string>
     <string name="ip_setting">تنظیمات IP </string>
+
+
+    <string name="searchName">جستجو براساس نام </string>
 
 
     <string-array name="fontArray">

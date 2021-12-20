@@ -32,21 +32,7 @@
                     android:paddingVertical="6dp"/>
 
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?dividerColor"/>
-                <TextView
-                    android:id="@+id/TV_item_Khadamat_poshtibani_main_shomareDakheli"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="@string/shomareDakheli"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:gravity="center_horizontal"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="6dp"/>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
@@ -92,21 +78,7 @@
                     android:textStyle="bold"
                     android:paddingHorizontal="6dp"
                     android:paddingVertical="6dp"/>
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="?dividerColor"/>
-                <TextView
-                    android:id="@+id/TV_item_Khadamat_poshtibani_main_mianginEmtiaz"
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:text="@string/mianginEmtiaz"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:paddingHorizontal="6dp"
-                    android:paddingVertical="6dp"/>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
@@ -141,6 +113,34 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="?dividerColor"/>
+                <TextView
+                    android:id="@+id/TV_item_Khadamat_poshtibani_main_mianginEmtiaz"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@string/mianginEmtiaz"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="6dp"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="?dividerColor"/>
+                <TextView
+                    android:id="@+id/TV_item_Khadamat_poshtibani_main_shomareDakheli"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:text="@string/shomareDakheli"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="6dp"/>
+
 
             </LinearLayout>
 

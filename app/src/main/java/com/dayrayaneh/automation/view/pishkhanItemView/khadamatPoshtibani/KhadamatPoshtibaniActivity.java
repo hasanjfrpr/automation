@@ -109,7 +109,8 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         khadamatPoshtibaniMainFragment = new KhadamatPoshtibaniMainFragment();
 
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment).commit();
+        if (getSupportFragmentManager().findFragmentByTag("mainKhadamat") == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_khadamatPoshtibani , khadamatPoshtibaniMainFragment,"mainKhadamat").commit();}
 
 
 
@@ -231,7 +232,8 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
         });
 
         sendInfo.setOnClickListener(v -> {
-            khadamatPoshtibaniMainFragment.viewModel();
+            KhadamatPoshtibaniMainFragment mainFragment = (KhadamatPoshtibaniMainFragment) getSupportFragmentManager().findFragmentByTag("mainKhadamat");
+            mainFragment.viewModel();
         });
 
 
@@ -307,23 +309,6 @@ public class KhadamatPoshtibaniActivity extends BaseActivity {
 
     }
 
-//    @Override
-//    public void onConfigurationChanged(@NotNull Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//
-//        // Checks the orientation of the screen
-//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//            findViewById(R.id.include2).setVisibility(View.GONE);
-//            findViewById(R.id.linearLayout2).setVisibility(View.GONE);
-//            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.GONE);
-//            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.GONE);
-//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-//            findViewById(R.id.include2).setVisibility(View.VISIBLE);
-//            findViewById(R.id.linearLayout2).setVisibility(View.VISIBLE);
-//            findViewById(R.id.Mcv_khadamatPoshtibani_select_company).setVisibility(View.VISIBLE);
-//            findViewById(R.id.Mbtn_pishkhan_khadamt_poshtibani_saveInfo).setVisibility(View.VISIBLE);
-//        }
-//    }
 
 
 }

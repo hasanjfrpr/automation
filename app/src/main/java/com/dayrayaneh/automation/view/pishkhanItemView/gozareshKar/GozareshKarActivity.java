@@ -1,12 +1,15 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,6 +22,7 @@ import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.VaziatSefaresh.VaziatSefareshAdapter;
+import com.dayrayaneh.automation.adapter.pishkhan.gozareshKar.main.GozareshKarMainAdapter;
 import com.dayrayaneh.automation.adapter.pishkhan.gozareshKar.spinnerAdapter.SpinnerAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.personalName.DataItem;
@@ -39,7 +43,7 @@ public class GozareshKarActivity extends BaseActivity {
     private ImageView back;
     private TextView fromDate ,toDate ;
     private Toolbar toolbar;
-    private VaziatSefareshAdapter adapter;
+    public static MutableLiveData<String > searchTextLiveData = new MutableLiveData<>();
     private RecyclerView recyclerView;
     private GozareshKarViewModel viewModel;
     private View loadingView;
@@ -53,6 +57,7 @@ public class GozareshKarActivity extends BaseActivity {
     private SpinnerAdapter spinnerAdapter;
     public static boolean isCheck = false;
     private LinearLayout containerSpinnerAndcheckbox;
+    private SearchView searchView;
 
 
     @Override
@@ -63,7 +68,7 @@ public class GozareshKarActivity extends BaseActivity {
         setDate();
         viewModel();
         event();
-        spinner();
+        searchItem();
     }
 
 
@@ -75,36 +80,39 @@ public class GozareshKarActivity extends BaseActivity {
         toolbar = findViewById(R.id.toolbar_item_pishkhan);
         toolbar.setTitle(getResources().getString(R.string.gozareshKar));
         setSupportActionBar(toolbar);
-        loadingView = findViewById(R.id.loading_view);
+        loadingView = findViewById(R.id.loading_view12);
         sendInfo = findViewById(R.id.Mbtn_gozareshKar_sendInfo);
         checkBox = findViewById(R.id.checkbox_gozareshKar);
         searchableSpinner = findViewById(R.id.spinner_gozareshKar);
         containerSpinnerAndcheckbox = findViewById(R.id.linearLayout3);
         viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
+        searchView = findViewById(R.id.searchView_gozareshKar);
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer_gozareshkar , new GozareshKarMainFragment(),"gozareshMain").commit();
 
     }
     private void viewModel() {
+        loadingView.setVisibility(View.VISIBLE);
         viewModel.getPersonalList();
         viewModel.personalListLiveData.observe(this,personalListModel -> {
             personIdList.addAll(personalListModel.getData());
+            spinner(personalListModel.getData());
+            loadingView.setVisibility(View.GONE);
         });
     }
 
 
 
-    private void spinner(){
-        spinnerAdapter = new SpinnerAdapter(this,personIdList);
+    private void spinner(List<DataItem> list){
+        spinnerAdapter = new SpinnerAdapter(this,list);
         searchableSpinner.setAdapter(spinnerAdapter);
-
         searchableSpinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(View view, int position, long id) {
-                Toast.makeText(GozareshKarActivity.this, id+"", Toast.LENGTH_SHORT).show();
                 personId = (int) id;
                 personIdHelp = (int)id ;
+                Log.i("sshh", "id:"+id+"\n"+"pos : "+position);
             }
 
             @Override
@@ -116,20 +124,35 @@ public class GozareshKarActivity extends BaseActivity {
         searchableSpinner.setStatusListener(new IStatusListener() {
             @Override
             public void spinnerIsOpening() {
-                Toast.makeText(GozareshKarActivity.this, "open", Toast.LENGTH_SHORT).show();
 
 
             }
 
             @Override
             public void spinnerIsClosing() {
-                Toast.makeText(GozareshKarActivity.this, "close", Toast.LENGTH_SHORT).show();
+                searchableSpinner.hideEdit();
             }
         });
 
 
 
 
+    }
+
+    private void searchItem(){
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchTextLiveData.setValue(newText);
+                return false;
+            }
+        });
     }
 
 
@@ -158,14 +181,15 @@ public class GozareshKarActivity extends BaseActivity {
                 if (isChecked){
                     isCheck=true;
                     searchableSpinner.setClickable(false);
-                    searchableSpinner.setVisibility(View.INVISIBLE);
+                    searchableSpinner.setVisibility(View.GONE);
+                    searchView.setVisibility(View.VISIBLE);
                     searchableSpinner.hideEdit();
                     personId = 0;
 
                 }else {
                     searchableSpinner.setClickable(true);
                     searchableSpinner.setVisibility(View.VISIBLE);
-
+                    searchView.setVisibility(View.GONE);
                     isCheck = false;
 
                 }

@@ -1,6 +1,7 @@
 package com.dayrayaneh.automation.adapter.pishkhan.pishkhan_bazaryabi;
 
 import android.content.Context;
+import android.icu.text.Edits;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,9 @@ import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.DataItem;
 
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdapter.BazaryabiMainViewHolder> {
@@ -36,6 +39,9 @@ public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdap
 
     @Override
     public void onBindViewHolder(@NonNull BazaryabiMainViewHolder holder, int position) {
+
+
+
 
         holder.personalName.setText(bazaryabiMainModelList.get(position).getPersonel());
         holder.sellNumber.setText(String.valueOf(bazaryabiMainModelList.get(position).getProformaCount()));
