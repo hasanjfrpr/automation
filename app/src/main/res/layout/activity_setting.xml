@@ -18,11 +18,11 @@
         <ImageView
             android:id="@+id/IV_setting_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_arrow_back"
             android:layout_gravity="end"
             android:background="?selectableItemBackgroundBorderless"
-            android:layout_marginEnd="16dp"
+            android:paddingHorizontal="16dp"
             app:tint="?colorOnPrimary" />
     </androidx.appcompat.widget.Toolbar>
 
@@ -243,7 +243,6 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center|end"
                         android:gravity="center"
-                        tools:text="sadsad"
                         android:textSize="14sp" />
                 </FrameLayout>
 

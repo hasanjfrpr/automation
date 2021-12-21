@@ -1,9 +1,8 @@
 package com.dayrayaneh.automation.viewModel.login.repo;
 
-import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.model.login.LoginModel;
-import com.dayrayaneh.automation.services.httpclient.ApiInstance;
-import com.dayrayaneh.automation.services.httpclient.ApiService;
+import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
+import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;

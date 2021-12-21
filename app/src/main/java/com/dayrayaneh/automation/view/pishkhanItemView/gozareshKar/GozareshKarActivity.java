@@ -50,8 +50,8 @@ public class GozareshKarActivity extends BaseActivity {
     private MaterialButton sendInfo;
     private View showEmpty ;
     private CheckBox checkBox;
-    public static int personId =0;
-    public static int personIdHelp =0;
+    public static int personId =92;
+    public static int personIdHelp =92;
     private SearchableSpinner searchableSpinner;
     private List<DataItem> personIdList = new ArrayList<>();
     private SpinnerAdapter spinnerAdapter;

@@ -43,7 +43,10 @@
     <string name="voicePoshtibani">مکالمات</string>
     <string name="sefareshatMoshtariJadid">سفارش مشتریان جدید</string>
     <string name="vaziatSefaresh">وضعیت سفارش</string>
+
     <string name="gozareshKar">گزارش کار</string>
+    <string name="gozareshKarGozareshKar">گزارشکار گزارشکار</string>
+
     <string name="darsadTakhfifAzHarsefaresh">دصد تخفیف از هر سفارش</string>
     <string name="darsadSefareshat">درصد سفارشات</string>
     <string name="tedadHokmKarha">گردش حکم کارها</string>

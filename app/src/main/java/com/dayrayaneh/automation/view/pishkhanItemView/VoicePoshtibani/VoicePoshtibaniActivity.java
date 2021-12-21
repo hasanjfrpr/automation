@@ -113,14 +113,13 @@ public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapte
     public void itemEvents(String uniqueId) {
         ConstValue.uniqueIdVoice = uniqueId;
         VoiceDialog voiceDialog = new VoiceDialog();
+        voiceDialog.setCancelable(false);
         String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
         if (Utils.isURLReachable(this ,urls )){
             voiceDialog.show(getSupportFragmentManager() , ""  );
         }else{
             Snackbar.make(fab , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
         }
-
-
 
     }
 

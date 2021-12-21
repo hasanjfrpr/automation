@@ -1,5 +1,6 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ public class KhadamatPoshtibaniMainFragment extends Fragment implements Khadamat
 
 
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class KhadamatPoshtibaniMainFragment extends Fragment implements Khadamat
 //        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
+        getActivity().setRequestedOrientation(-1);
         return inflater.inflate(R.layout.fragment_khadamat_poshtibani_main, container, false);
     }
 

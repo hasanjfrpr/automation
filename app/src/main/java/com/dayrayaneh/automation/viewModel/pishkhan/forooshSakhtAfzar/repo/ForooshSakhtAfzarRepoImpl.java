@@ -3,8 +3,8 @@ package com.dayrayaneh.automation.viewModel.pishkhan.forooshSakhtAfzar.repo;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.ForooshSakhtAfzarModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.ForooshSakhtAfzarCompareModel;
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
-import com.dayrayaneh.automation.services.httpclient.ApiInstance;
-import com.dayrayaneh.automation.services.httpclient.ApiService;
+import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
+import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 

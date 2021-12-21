@@ -1,11 +1,9 @@
 package com.dayrayaneh.automation.viewModel.pishkhan.darsadKharidMoshtari.repo;
 
-import static com.dayrayaneh.automation.base.ConstValue.endDate;
-
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.details.DarsadKharidMoshtariDetailsModel;
-import com.dayrayaneh.automation.services.httpclient.ApiInstance;
-import com.dayrayaneh.automation.services.httpclient.ApiService;
+import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
+import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;

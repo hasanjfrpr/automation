@@ -1,4 +1,4 @@
-package com.dayrayaneh.automation.services.httpclient;
+package com.dayrayaneh.automation.technology.httpclient;
 
 import com.dayrayaneh.automation.model.login.LoginModel;
 import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.count.GozareshKarCountModel;
@@ -29,14 +29,11 @@ import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKa
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.dayrayaneh.automation.model.pishkhan.voicePoshtibani.VoiceModel;
-import com.dayrayaneh.automation.view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanDetailActivity;
-import com.dayrayaneh.automation.viewModel.pishkhan.Voice.VoiceViewModel;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
-import retrofit2.http.Url;
 
 public interface ApiService {
 

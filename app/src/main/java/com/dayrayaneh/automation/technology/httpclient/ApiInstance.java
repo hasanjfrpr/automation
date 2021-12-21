@@ -1,16 +1,9 @@
-package com.dayrayaneh.automation.services.httpclient;
+package com.dayrayaneh.automation.technology.httpclient;
 
-import android.content.SharedPreferences;
-
-import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.ConstValue;
-import com.dayrayaneh.automation.view.setting.SettingActivity;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 
-import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

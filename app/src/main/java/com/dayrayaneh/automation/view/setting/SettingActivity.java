@@ -1,49 +1,29 @@
 package com.dayrayaneh.automation.view.setting;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.provider.FontsContractCompat;
-import androidx.lifecycle.MutableLiveData;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.fonts.FontFamily;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.text.format.Formatter;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
-import com.dayrayaneh.automation.base.App;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.dialog.IpSettingDialog;
 import com.dayrayaneh.automation.dialog.IpSettingDialogVoice;
 import com.dayrayaneh.automation.dialog.RestartDialog;
-import com.dayrayaneh.automation.services.httpclient.ApiInstance;
-import com.dayrayaneh.automation.services.httpclient.ApiService;
-import com.dayrayaneh.automation.view.login.LoginActivity;
-import com.dayrayaneh.automation.view.main.MainActivity;
-import com.google.android.material.card.MaterialCardView;
-
-import org.greenrobot.eventbus.EventBus;
-
-import java.lang.reflect.Field;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
-import io.github.inflationx.viewpump.ViewPumpContextWrapper;
-import okhttp3.HttpUrl;
-import retrofit2.Retrofit;
 
 
 public class SettingActivity extends BaseActivity implements View.OnClickListener, IpSettingDialog.EventIpDialog, RestartDialog.EventRestartDialog, IpSettingDialogVoice.EventIpDialogVoice {

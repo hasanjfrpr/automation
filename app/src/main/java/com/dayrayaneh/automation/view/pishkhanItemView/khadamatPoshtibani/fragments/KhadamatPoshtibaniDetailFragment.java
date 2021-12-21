@@ -27,8 +27,10 @@ import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.dialog.VoiceDialog;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
+import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements KhadamatPoshtibaniDetailAdapter.Events {
 
@@ -53,6 +55,7 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        getActivity().setRequestedOrientation(Configuration.ORIENTATION_PORTRAIT);
         return inflater.inflate(R.layout.fragment_khadamat_poshtibani_detail, container, false);
     }
 
@@ -105,6 +108,7 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
         hide.setValue(true);
     }
 
+    @SuppressLint("WrongConstant")
     @Override
     public void onStop() {
         hide.setValue(false);
@@ -113,13 +117,20 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
 
     @Override
     public void onclickVoicePlay(String uniqueId) {
+        ConstValue.uniqueIdVoice  = uniqueId;
         VoiceDialog voiceDialog = new VoiceDialog() ;
         voiceDialog.show(getActivity().getSupportFragmentManager() , "voiceDialog");
         voiceDialog.setCancelable(false);
-       if (getActivity().getSupportFragmentManager().findFragmentByTag("voiceDialog") != null){
-           voiceDialog.playVoice(uniqueId);
-       }else {
-           ConstValue.uniqueIdVoice = uniqueId;
-       }
+
+
+//        ConstValue.uniqueIdVoice = uniqueId;
+//        VoiceDialog voiceDialog = new VoiceDialog();
+//        voiceDialog.setCancelable(false);
+//        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
+//        if (Utils.isURLReachable(getContext() ,urls )){
+//            voiceDialog.show(getActivity().getSupportFragmentManager() , ""  );
+//        }else{
+//            Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+//        }
     }
 }

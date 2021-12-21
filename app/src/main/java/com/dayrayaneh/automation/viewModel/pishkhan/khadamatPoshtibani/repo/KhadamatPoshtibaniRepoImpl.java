@@ -2,8 +2,8 @@ package com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.repo;
 
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
-import com.dayrayaneh.automation.services.httpclient.ApiInstance;
-import com.dayrayaneh.automation.services.httpclient.ApiService;
+import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
+import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;

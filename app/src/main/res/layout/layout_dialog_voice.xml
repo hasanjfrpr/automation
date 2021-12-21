@@ -76,53 +76,66 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"/>
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="50dp">
-        <ImageView
-            android:id="@+id/IV_dialog_voice_next"
+        android:layout_height="53dp">
+        <ProgressBar
+            android:id="@+id/progress_voice"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:layout_gravity="start"
-            android:padding="8dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:layout_marginStart="8dp"
-            app:srcCompat="@drawable/ic_next"
-            app:tint="@color/black" />
-        <View
-            android:layout_width="25dp"
-            android:layout_height="match_parent"/>
-        <ImageView
-            android:id="@+id/IV_dialog_voice_play"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:padding="8dp"
-            android:layout_marginStart="8dp"
-            android:background="?selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/ic_pause"
-            app:tint="@color/black" />
-        <View
-            android:layout_width="25dp"
-            android:layout_height="match_parent"/>
-        <ImageView
-            android:id="@+id/IV_dialog_voice_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:scaleType="centerInside"
-            android:layout_gravity="start"
-            android:padding="8dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:layout_marginStart="8dp"
-            app:srcCompat="@drawable/ic_previous"
-            app:tint="@color/black" />
-        <View
-            android:layout_width="25dp"
-            android:layout_height="match_parent"/>
+            android:visibility="visible"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
 
+        <LinearLayout
+            android:id="@+id/lineare_container_voice"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/IV_dialog_voice_next"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/ic_next"
+                app:tint="@color/black" />
+            <View
+                android:layout_width="25dp"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/IV_dialog_voice_play"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:layout_marginStart="8dp"
+                android:background="?selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_pause"
+                app:tint="@color/black" />
+            <View
+                android:layout_width="25dp"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:id="@+id/IV_dialog_voice_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:layout_marginStart="8dp"
+                app:srcCompat="@drawable/ic_previous"
+                app:tint="@color/black" />
+            <View
+                android:layout_width="25dp"
+                android:layout_height="match_parent"/>
 
-    </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
 
 </LinearLayout>

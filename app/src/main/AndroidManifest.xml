@@ -18,6 +18,7 @@
         tools:targetApi="m">
         <activity
             android:name=".view.pishkhanItemView.VoicePoshtibani.VoicePoshtibaniActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariDetailsActivity"
@@ -30,48 +31,61 @@
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity"
+          android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadSefareshat.DarsadSefareshatActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadTakhfifAzHarSefaresh.DarsadTakhfifAzHarSefareshActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.gozareshKar.GozareshKarActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanActiviy"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.hokmKarha.HokmKarhaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.sefarashMoshtariJadid.SefareshMoshtariJadidActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.bazaryabi.BazaryabiActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.foroshSakhtAfzar.ForooshSakhtAfzarActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.foroshNarmAfZar.ForooshNarmAfzarActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.setting.SettingActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".view.login.LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -87,6 +101,7 @@
         <receiver
             android:name=".base.InternetConnection"
             android:exported="false" />
+        <service android:name="com.dayrayaneh.service.VoiceService"/>
     </application>
 
 </manifest>

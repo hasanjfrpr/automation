@@ -21,12 +21,14 @@
             <ImageView
                 android:id="@+id/IV_back_item_pishkhan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:scaleType="centerInside"
+                android:layout_height="match_parent"
                 android:layout_gravity="end"
+                android:paddingHorizontal="16dp"
+                android:paddingStart="20dp"
                 android:background="?selectableItemBackgroundBorderless"
-                android:tint="?colorOnPrimary"
-                app:srcCompat="@drawable/ic_arrow_back" />
+                app:srcCompat="@drawable/ic_arrow_back"
+                app:tint="?colorOnPrimary" />
         </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
