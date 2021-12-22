@@ -80,20 +80,6 @@ public class VoiceDialog extends DialogFragment {
         progressBar.setVisibility(View.VISIBLE);
         linearLayout.setVisibility(View.GONE);
 
-//        VoiceService.isPlayLiveData.observe(this, isPlay -> {
-//            if (isPlay) {
-//                progressBar.setVisibility(View.GONE);
-//                linearLayout.setVisibility(View.VISIBLE);
-//                playPause.setImageDrawable(getContext().getDrawable(R.drawable.ic_pause));
-//
-//            } else {
-//                progressBar.setVisibility(View.GONE);
-//                linearLayout.setVisibility(View.VISIBLE);
-//                playPause.setImageDrawable(getContext().getDrawable(R.drawable.ic_play));
-//            }
-//        });
-
-
 
 
         VoiceService.currentTimeLiveData.observe(this, current -> {
@@ -104,9 +90,9 @@ public class VoiceDialog extends DialogFragment {
                 }else {
                     int min = (voiceService.setDuration() / 1000) / 60;
                     int second = (voiceService.setDuration() / 1000) % 60;
-                    if (second < 10)
+                    if (second < 10 && min>10)
                         totalDuration.setText(String.valueOf(min + ":" + "0" + second));
-                    else if (min<10)
+                    else if (min<10 && second>10)
                         totalDuration.setText(String.valueOf("0"+min + ":" + second));
                     else if (min<10 && second<10)
                         totalDuration.setText(String.valueOf("0"+min + ":" +"0"+ second));

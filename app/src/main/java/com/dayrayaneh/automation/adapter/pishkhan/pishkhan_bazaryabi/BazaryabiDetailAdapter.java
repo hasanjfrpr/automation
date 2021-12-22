@@ -42,6 +42,8 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
         }
 
+
+
         holder.productType.setText(bazaryabiDetailModelList.get(position).getNueMahsol());
         holder.clientName.setText(bazaryabiDetailModelList.get(position).getMoshtari());
 

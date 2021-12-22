@@ -5,6 +5,7 @@ import android.icu.text.Edits;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,6 +42,11 @@ public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdap
     public void onBindViewHolder(@NonNull BazaryabiMainViewHolder holder, int position) {
 
 
+        if(position%2==0){
+            holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+        }else {
+            holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+        }
 
 
         holder.personalName.setText(bazaryabiMainModelList.get(position).getPersonel());
@@ -60,11 +66,13 @@ public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdap
     public class BazaryabiMainViewHolder extends RecyclerView.ViewHolder{
 
         TextView personalName , sellNumber;
+        FrameLayout frameLayout;
 
         public BazaryabiMainViewHolder(@NonNull View itemView) {
             super(itemView);
             personalName = itemView.findViewById(R.id.TV_item_bazaryabi_main_personal);
             sellNumber = itemView.findViewById(R.id.TV_item_bazaryabi_main_tedadBazaryabi);
+            frameLayout = itemView.findViewById(R.id.frame_item_bazaryabi);
         }
     }
 

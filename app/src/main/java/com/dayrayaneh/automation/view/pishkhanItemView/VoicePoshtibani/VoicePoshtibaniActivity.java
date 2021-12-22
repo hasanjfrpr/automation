@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -25,6 +28,9 @@ import com.dayrayaneh.automation.viewModel.pishkhan.Voice.VoiceViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
 public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapter.Events,SearchVoiceDialog.VoiceDialogEvent {
@@ -111,15 +117,50 @@ public class VoicePoshtibaniActivity extends BaseActivity implements VoiceAdapte
 
     @Override
     public void itemEvents(String uniqueId) {
+//        ConstValue.uniqueIdVoice = uniqueId;
+//        VoiceDialog voiceDialog = new VoiceDialog();
+//        voiceDialog.setCancelable(false);
+//        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
+//        if (Utils.isURLReachable(this ,urls )){
+//            voiceDialog.show(getSupportFragmentManager() , ""  );
+//        }else{
+//            Snackbar.make(fab , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+//        }
         ConstValue.uniqueIdVoice = uniqueId;
         VoiceDialog voiceDialog = new VoiceDialog();
         voiceDialog.setCancelable(false);
         String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
-        if (Utils.isURLReachable(this ,urls )){
-            voiceDialog.show(getSupportFragmentManager() , ""  );
-        }else{
-            Snackbar.make(fab , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
-        }
+//        if (Utils.isURLReachable(Objects.requireNonNull(getContext()),urls )){
+//            voiceDialog.show(getActivity().getSupportFragmentManager() , ""  );
+//        }else{
+//            Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+//        }
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                ConnectivityManager cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                if (netInfo != null && netInfo.isConnected()) {
+                    try {
+                        URL url = new URL(urls);
+                        HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+                        urlc.setConnectTimeout(3000);          // 10 s.
+                        urlc.connect();
+                        if (urlc.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
+                            voiceDialog.show(getSupportFragmentManager() , ""  );
+                        } else {
+                            Snackbar.make(findViewById(R.id.fab_voice) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                        }
+                    } catch (MalformedURLException e1) {
+                        Snackbar.make(findViewById(R.id.fab_voice) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Snackbar.make(findViewById(R.id.fab_voice) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                    }
+                }
+                return null;
+
+            }
+        }.execute();
 
     }
 

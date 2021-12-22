@@ -1,8 +1,12 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.fragments;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +35,11 @@ import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity;
 import com.dayrayaneh.automation.viewModel.pishkhan.khadamatPoshtibani.KhadamatPoshtibaniViewModel;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Objects;
 
 public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements KhadamatPoshtibaniDetailAdapter.Events {
 
@@ -117,20 +126,47 @@ public class KhadamatPoshtibaniDetailFragment extends BaseFragment implements Kh
 
     @Override
     public void onclickVoicePlay(String uniqueId) {
-        ConstValue.uniqueIdVoice  = uniqueId;
-        VoiceDialog voiceDialog = new VoiceDialog() ;
-        voiceDialog.show(getActivity().getSupportFragmentManager() , "voiceDialog");
+
+//            ConstValue.uniqueIdVoice  = uniqueId;
+//            VoiceDialog voiceDialog = new VoiceDialog() ;
+//            voiceDialog.show(getActivity().getSupportFragmentManager() , "voiceDialog");
+//            voiceDialog.setCancelable(false);
+
+//
+        ConstValue.uniqueIdVoice = uniqueId;
+        VoiceDialog voiceDialog = new VoiceDialog();
         voiceDialog.setCancelable(false);
-
-
-//        ConstValue.uniqueIdVoice = uniqueId;
-//        VoiceDialog voiceDialog = new VoiceDialog();
-//        voiceDialog.setCancelable(false);
-//        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
-//        if (Utils.isURLReachable(getContext() ,urls )){
+        String urls = "http://"+ConstValue.ip_voice+":"+ConstValue.port_voice+"/callreport/getaudio_auto.php?uniq="+uniqueId;
+//        if (Utils.isURLReachable(Objects.requireNonNull(getContext()),urls )){
 //            voiceDialog.show(getActivity().getSupportFragmentManager() , ""  );
 //        }else{
 //            Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
 //        }
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                ConnectivityManager cm = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo netInfo = cm.getActiveNetworkInfo();
+                if (netInfo != null && netInfo.isConnected()) {
+                    try {
+                        URL url = new URL(urls);
+                        HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
+                        urlc.setConnectTimeout(3000);          // 10 s.
+                        urlc.connect();
+                        if (urlc.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
+                            voiceDialog.show(getActivity().getSupportFragmentManager() , ""  );
+                        } else {
+                            Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                        }
+                    } catch (MalformedURLException e1) {
+                        Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        Snackbar.make(getActivity().findViewById(R.id.TV_khadamatPoshtibani_tedadKolKhadamat) , getResources().getString(R.string.ipErrorVoice),Snackbar.LENGTH_LONG).show();
+                    }
+                }
+                return null;
+
+            }
+        }.execute();
     }
 }
