@@ -48,7 +48,7 @@ public class PishKhanAdapter extends RecyclerView.Adapter<PishKhanAdapter.PishKh
 
         holder.itemView.setOnClickListener(v->{
 
-            event.onclickItemPishKhan(position);
+            event.onclickItemPishKhan(pishKhanModelList.get(position).getId());
 
 
         });
@@ -74,6 +74,6 @@ public class PishKhanAdapter extends RecyclerView.Adapter<PishKhanAdapter.PishKh
     }
 
     public interface PishKhanItemEvent{
-        void onclickItemPishKhan(int position);
+        void onclickItemPishKhan(int id);
     }
 }

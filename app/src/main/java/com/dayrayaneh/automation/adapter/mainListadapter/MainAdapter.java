@@ -47,8 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     private List<MainListModel> mainListModelList = new ArrayList<>();
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private Context context;
-    private Boolean isShow=false;
-
+    private Boolean isShow = false;
 
 
     public MainAdapter(List<MainListModel> mainListModelList, Context context) {
@@ -57,11 +56,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     }
 
 
-
     @NonNull
     @Override
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(context).inflate(R.layout.item_main_list,parent , false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_main_list, parent, false);
         return new MainViewHolder(view);
     }
 
@@ -71,47 +69,73 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         holder.title.setText(mainListModelList.get(position).getTitle_Main());
 
 
+        List<PishKhanModel> subList = new ArrayList<>();
+
+        ////init subList for show in every item
+        if (mainListModelList.get(position).getTitle_Main().equals("پیشخوان مدیریت")) {
 
 
-         List<PishKhanModel> subList = new ArrayList<>();
+            if (ConstValue.accessItemIdList.contains(1905) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.hokmKarha), R.mipmap.ic_sefaresh_jadid,1));
+            }
+            if (ConstValue.accessItemIdList.contains(3937) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.bazaryabi), R.mipmap.ic_marketing,2));
+            }
+            if (ConstValue.accessItemIdList.contains(1904) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.khadamatPoshtibani), R.mipmap.ic_poshtibani,3));
+            }
+            if (ConstValue.accessItemIdList.contains(1917) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.tedadHokmKarha), R.mipmap.ic_tedad_hokm_karha,4));
+            }    if (ConstValue.accessItemIdList.contains(1912) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.gozareshKar), R.mipmap.ic_hokm_karha,5));
+            }
 
-         ////init subList for show in every item
-        if (mainListModelList.get(position).getTitle_Main().equals("پیشخوان مدیریت")){
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.softWareSell),R.mipmap.ic_software));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.hardWareSell),R.mipmap.ic_hardware));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.tamdidQarardad),R.mipmap.ic_tamdid_gharardad));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.khadamatPoshtibani),R.mipmap.ic_poshtibani));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.hokmKarha),R.mipmap.ic_sefaresh_jadid));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.bazaryabi),R.mipmap.ic_marketing));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.sefareshatMoshtariJadid),R.mipmap.ic_sefaresh));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.vaziatSefaresh),R.mipmap.ic_darsad_khardi_shahrestan));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidMoshtari),R.mipmap.ic_kharid));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.gozareshKar),R.mipmap.ic_hokm_karha));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadTakhfifAzHarsefaresh),R.mipmap.ic_kharid2));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadSefareshat),R.mipmap.ic_darsad_sefareshat));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.tedadHokmKarha),R.mipmap.ic_tedad_hokm_karha));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan),R.mipmap.ic_darsad_thakfif));
-            subList.add(new PishKhanModel(context.getResources().getString(R.string.voicePoshtibani),R.mipmap.ic_voice_item));
+            if (ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.softWareSell), R.mipmap.ic_software,6));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.hardWareSell), R.mipmap.ic_hardware,7));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.tamdidQarardad), R.mipmap.ic_tamdid_gharardad,8));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.sefareshatMoshtariJadid), R.mipmap.ic_sefaresh,9));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.vaziatSefaresh), R.mipmap.ic_darsad_khardi_shahrestan,10));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidMoshtari), R.mipmap.ic_kharid,11));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadTakhfifAzHarsefaresh), R.mipmap.ic_kharid2,12));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadSefareshat), R.mipmap.ic_darsad_sefareshat,13));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan), R.mipmap.ic_darsad_thakfif,14));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.voicePoshtibani), R.mipmap.ic_voice_item,15));
+            }
+
+
 
         }
 
 
-
-
         ///setup subRecycler
         PishKhanAdapter pishKhanAdapter = new PishKhanAdapter(context, subList);
-        holder.subRecyclerView.setLayoutManager(new GridLayoutManager(context,2,RecyclerView.VERTICAL,false));
+        holder.subRecyclerView.setLayoutManager(new GridLayoutManager(context, 2, RecyclerView.VERTICAL, false));
         holder.subRecyclerView.setAdapter(pishKhanAdapter);
         pishKhanAdapter.event = this;
 
 
+        holder.itemView.setOnClickListener(v -> {
+
+//            checkAccess(position , holder);
 
 
-        holder.itemView.setOnClickListener(v->{
+            if (!isShow) {
+                holder.subRecyclerView.setVisibility(View.VISIBLE);
+                isShow = true;
+                ConstValue.menuIsOpen = true;
+                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
 
-            checkAccess(position , holder);
 
+            } else {
+                holder.subRecyclerView.setVisibility(View.GONE);
+                isShow = false;
+                ConstValue.menuIsOpen = false;
+                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
 
+            }
         });
 
     }
@@ -122,138 +146,132 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     }
 
 
-
-    public class MainViewHolder extends RecyclerView.ViewHolder{
+    public class MainViewHolder extends RecyclerView.ViewHolder {
 
         TextView title;
         RecyclerView subRecyclerView;
         LinearLayout linearLayout;
         CardView materialCardView;
 
-       public MainViewHolder(@NonNull View itemView) {
-           super(itemView);
+        public MainViewHolder(@NonNull View itemView) {
+            super(itemView);
 
-           title = itemView.findViewById(R.id.TV_item_title_mainList);
-           subRecyclerView = itemView.findViewById(R.id.RV_subRecycler);
-           linearLayout = itemView.findViewById(R.id.parent_itemview_main_list);
-           materialCardView = itemView.findViewById(R.id.McardView_item_main_list);
+            title = itemView.findViewById(R.id.TV_item_title_mainList);
+            subRecyclerView = itemView.findViewById(R.id.RV_subRecycler);
+            linearLayout = itemView.findViewById(R.id.parent_itemview_main_list);
+            materialCardView = itemView.findViewById(R.id.McardView_item_main_list);
 
-       }
-   }
+        }
+    }
 
 
     @Override
-    public void onclickItemPishKhan(int position) {
-        switch (position){
-            case 0:
-                context.startActivity(new Intent(context , ForooshNarmAfzarActivity.class));
-
-                break;
-            case 1:
-                context.startActivity(new Intent(context , ForooshSakhtAfzarActivity.class));
-
-
-                break;
-            case 2:
-                context.startActivity(new Intent(context , TamdidGharardadActivity.class));
-
-
-                break;
-            case 3:
-                context.startActivity(new Intent(context , KhadamatPoshtibaniActivity.class));
-
-
-                break;
-            case 4:
-                context.startActivity(new Intent(context , HokmKarhaActivity.class));
-
-
-                break;
-            case 5:
-                context.startActivity(new Intent(context , BazaryabiActivity.class));
-
-
-                break;
-            case 6:
-                context.startActivity(new Intent(context , SefareshMoshtariJadidActivity.class));
-
+    public void onclickItemPishKhan(int id) {
+        switch (id) {
+            case 6 :
+                context.startActivity(new Intent(context, ForooshNarmAfzarActivity.class));
 
                 break;
             case 7:
-                context.startActivity(new Intent(context , VaziatSefareshActivity.class));
+                context.startActivity(new Intent(context, ForooshSakhtAfzarActivity.class));
 
 
                 break;
             case 8:
-                context.startActivity(new Intent(context , DarsadKharidMoshtariActivity.class));
+                context.startActivity(new Intent(context, TamdidGharardadActivity.class));
+
+
+                break;
+            case 3:
+                context.startActivity(new Intent(context, KhadamatPoshtibaniActivity.class));
+
+
+                break;
+            case 1:
+                context.startActivity(new Intent(context, HokmKarhaActivity.class));
+
+
+                break;
+            case 2:
+                context.startActivity(new Intent(context, BazaryabiActivity.class));
 
 
                 break;
             case 9:
-                context.startActivity(new Intent(context , GozareshKarActivity.class));
+                context.startActivity(new Intent(context, SefareshMoshtariJadidActivity.class));
 
 
                 break;
             case 10:
-                context.startActivity(new Intent(context , DarsadTakhfifAzHarSefareshActivity.class));
+                context.startActivity(new Intent(context, VaziatSefareshActivity.class));
 
 
                 break;
             case 11:
-                context.startActivity(new Intent(context , DarsadSefareshatActivity.class));
+                context.startActivity(new Intent(context, DarsadKharidMoshtariActivity.class));
+
+
+                break;
+            case 5:
+                context.startActivity(new Intent(context, GozareshKarActivity.class));
+
 
                 break;
             case 12:
-                context.startActivity(new Intent(context , TedadHokmKarhaActivity.class));
+                context.startActivity(new Intent(context, DarsadTakhfifAzHarSefareshActivity.class));
+
 
                 break;
             case 13:
-                context.startActivity(new Intent(context , DarsadKharidShahrestanActiviy.class));
+                context.startActivity(new Intent(context, DarsadSefareshatActivity.class));
+
+                break;
+            case 4:
+                context.startActivity(new Intent(context, TedadHokmKarhaActivity.class));
 
                 break;
             case 14:
-                context.startActivity(new Intent(context , VoicePoshtibaniActivity.class));
-                break;
+                context.startActivity(new Intent(context, DarsadKharidShahrestanActiviy.class));
 
+                break;
+            case 15:
+                context.startActivity(new Intent(context, VoicePoshtibaniActivity.class));
+                break;
 
 
         }
 
     }
 
-    private void checkAccess(int position , MainViewHolder holder){
+    private void checkAccess(int position, MainViewHolder holder) {
 
-            if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(ConstValue.containAccessList[position])){
+        if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(ConstValue.containAccessList[position])) {
 
-                if (!isShow){
-                    holder.subRecyclerView.setVisibility(View.VISIBLE);
-                    isShow = true;
-                    ConstValue.menuIsOpen=true;
-                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
-                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+            if (!isShow) {
+                holder.subRecyclerView.setVisibility(View.VISIBLE);
+                isShow = true;
+                ConstValue.menuIsOpen = true;
+                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
 
 
-                }else {
-                    holder.subRecyclerView.setVisibility(View.GONE);
-                    isShow = false;
-                    ConstValue.menuIsOpen = false;
-                    holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
-                    holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+            } else {
+                holder.subRecyclerView.setVisibility(View.GONE);
+                isShow = false;
+                ConstValue.menuIsOpen = false;
+                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
 
-                }
-
-            }else {
-                holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
-                holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
-                EventBus.getDefault().post("unAccess");
             }
 
-
+        } else {
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
+            holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
+            EventBus.getDefault().post("unAccess");
+        }
 
 
     }
-
-
 
 
 }

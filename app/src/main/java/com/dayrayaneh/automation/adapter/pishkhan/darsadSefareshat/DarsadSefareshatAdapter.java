@@ -41,6 +41,8 @@ public class DarsadSefareshatAdapter  extends RecyclerView.Adapter<DarsadSefares
         holder.vaziatSefaresh.setText(dataItemList.get(position).getFldKindOperationNameFarsi());
         holder.darsad.setText(Utils.formatPersianNumber(dataItemList.get(position).getPercentOf()));
 
+
+
     }
 
     @Override

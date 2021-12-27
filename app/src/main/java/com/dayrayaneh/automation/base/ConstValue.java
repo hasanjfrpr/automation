@@ -29,7 +29,7 @@ public class ConstValue {
 
 
     //// item main code for compare to accessItemList for Access or UnAccess
-    public static int[] containAccessList = new int[]{ 1857 , 1858  };
+    public static int[] containAccessList = new int[]{ 1857   };
 
 
     public static List<Integer> productCategoriesId = new ArrayList<>();

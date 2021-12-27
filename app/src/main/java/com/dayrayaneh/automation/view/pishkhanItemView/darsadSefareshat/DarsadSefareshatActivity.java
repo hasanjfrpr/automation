@@ -90,5 +90,6 @@ public class DarsadSefareshatActivity extends BaseActivity {
         adapter = new DarsadSefareshatAdapter(darsadSefareshatModel.getData(),this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL , false));
+
     }
 }
