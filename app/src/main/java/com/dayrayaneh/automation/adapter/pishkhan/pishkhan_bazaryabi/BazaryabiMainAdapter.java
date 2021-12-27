@@ -44,8 +44,9 @@ public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdap
 
         if(position%2==0){
             holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+
         }else {
-            holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+            holder.frameLayout.setBackgroundColor(context.getResources().getColor(R.color.graylight));
         }
 
 

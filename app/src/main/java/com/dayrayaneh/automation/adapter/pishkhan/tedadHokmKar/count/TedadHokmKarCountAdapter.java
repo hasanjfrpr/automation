@@ -41,7 +41,7 @@ public class TedadHokmKarCountAdapter extends RecyclerView.Adapter<TedadHokmKarC
 
 
         holder.itemView.setOnClickListener(v -> {
-            event.clickEvent(dataItems.get(position).getPersonCode());
+            event.clickEvent(dataItems.get(position).getPersonCode() , dataItems.get(position).getFullName());
         });
     }
 
@@ -64,7 +64,7 @@ public class TedadHokmKarCountAdapter extends RecyclerView.Adapter<TedadHokmKarC
 
 
     public interface Event{
-        void clickEvent(int personalCode);
+        void clickEvent(int personalCode , String name);
     }
 
 }

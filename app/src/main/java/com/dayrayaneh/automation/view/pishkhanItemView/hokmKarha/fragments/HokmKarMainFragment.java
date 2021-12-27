@@ -79,13 +79,17 @@ public class HokmKarMainFragment extends BaseFragment implements HokmKarMainAdap
         adapter_main.event = this;
         recyclerView.setVisibility(View.VISIBLE);
         recyclerView.setAdapter(adapter_main);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext() , RecyclerView.VERTICAL , false));
     }
 
 
     @Override
-    public void getHokmKarMainId(int userId) {
+    public void getHokmKarMainId(int userId , String moshtari , String sabtKonande) {
 
-        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("mainFragment").replace(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId) , "hokmKarDetail").commit();
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("")
+                .add(R.id.frameLayout_hokmKar , new HokmKarDetailFragment(userId , moshtari , sabtKonande) , "hokmKarDetail")
+                .hide(this)
+                .commit();
     }
 }

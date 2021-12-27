@@ -123,7 +123,9 @@ public class KhadamatPoshtibaniMainFragment extends Fragment implements Khadamat
 
     @Override
     public void onclickRecyclerItem(int userId) {
-       getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("addMain").replace(R.id.frameLayout_khadamatPoshtibani , new KhadamatPoshtibaniDetailFragment(userId),"khadamatDetial").commit();
+       getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("addMain")
+               .hide(this)
+               .add(R.id.frameLayout_khadamatPoshtibani , new KhadamatPoshtibaniDetailFragment(userId),"khadamatDetial").commit();
 
 
     }

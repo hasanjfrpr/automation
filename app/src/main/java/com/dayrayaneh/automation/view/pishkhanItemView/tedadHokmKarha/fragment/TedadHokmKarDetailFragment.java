@@ -32,11 +32,13 @@ public class TedadHokmKarDetailFragment extends BaseFragment {
     private TedadHokmKarDetailsAdapter adapter;
     public static MutableLiveData<Boolean> mustHide = new MutableLiveData<>();
     private ImageView back;
-    private TextView startDate , endDate;
+    private TextView startDate , endDate , TV_name;
     private View loadingView , emptyLayout;
+    private String name;
 
-    public TedadHokmKarDetailFragment(int personalCode) {
+    public TedadHokmKarDetailFragment(int personalCode ,  String name) {
         this.personalCode = personalCode;
+        this.name = name;
     }
 
     @Override
@@ -65,6 +67,7 @@ public class TedadHokmKarDetailFragment extends BaseFragment {
 
         startDate.setText("از "+ConstValue.startDatePersian);
         endDate.setText("تا "+ConstValue.endDatePersian);
+        TV_name.setText(name);
     }
 
     private void init(View view) {
@@ -75,7 +78,11 @@ public class TedadHokmKarDetailFragment extends BaseFragment {
         viewModel = new ViewModelProvider(this).get(TedadHokmKarViewModel.class);
         loadingView = view.findViewById(R.id.loading_view);
         emptyLayout = view.findViewById(R.id.showEmpty);
+        TV_name = view.findViewById(R.id.Tv_tedadHokmKar_name);
     }
+
+
+
 
     public void viewModel() {
         loadingView.setVisibility(View.VISIBLE);

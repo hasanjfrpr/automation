@@ -112,7 +112,6 @@ public class GozareshKarActivity extends BaseActivity {
             public void onItemSelected(View view, int position, long id) {
                 personId = (int) id;
                 personIdHelp = (int)id ;
-                Log.i("sshh", "id:"+id+"\n"+"pos : "+position);
             }
 
             @Override
@@ -169,6 +168,8 @@ public class GozareshKarActivity extends BaseActivity {
             }else{
                 finish();
             }
+            personIdHelp = 92;
+            personId = 92;
         });
 
 
@@ -232,5 +233,9 @@ public class GozareshKarActivity extends BaseActivity {
         }else{
             super.onBackPressed();
         }
+
+        personIdHelp = 92;
+        personId = 92;
+
     }
 }

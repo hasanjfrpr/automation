@@ -16,4 +16,5 @@
         app:lottie_colorFilter="@color/yellow"
         app:lottie_rawRes="@raw/lottie_loading" />
 
+
 </FrameLayout>

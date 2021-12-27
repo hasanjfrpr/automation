@@ -111,6 +111,7 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/ip_shape_et.xml" value="0.21203703703703702" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_shahrestan_detail.xml" value="0.14739583333333334" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/item_darsad_kharid_moshtarian_details.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_activiy.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_detail.xml" value="0.20416666666666666" />
@@ -129,14 +130,31 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_khadamat_poshtibani_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_khadamat_poshtibani_main.xml" value="0.20364583333333333" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_tedad_hokm_kar_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_tedad_hokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_bazaryabi_detail_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_bazaryabi_main_list.xml" value="0.25" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_darsad_kharid_moshtarian_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_darsad_thakhfif_az_har_sefaresh.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_gozareshkar_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_hokm_kar_detail_request.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_moshtarian.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_shahrestan.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_darsad_sefareshat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narm_afzar_compare.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_narmafzar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_foroosh_sakht_afzar.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_gozareshkar_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_hokm_kar_detail_followers.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_hokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_khadamat_poshtibani_main.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_tamdid_gharardad.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_tedad_hokmkar_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_vaziat_sefareshat.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_sefaresh_moshtari_jadid.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/layout_dialog_voice.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/loading_layout.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

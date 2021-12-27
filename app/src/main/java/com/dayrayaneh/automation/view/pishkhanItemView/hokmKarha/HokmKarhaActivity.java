@@ -67,7 +67,7 @@ public class HokmKarhaActivity extends BaseActivity {
 
 
         //////set fragmentMain
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , mainFragment, "hokmKarMain").commit();
+        getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameLayout_hokmKar , mainFragment, "hokmKarMain").commit();
 
 
     }
@@ -76,7 +76,7 @@ public class HokmKarhaActivity extends BaseActivity {
 
         back.setOnClickListener(v -> {
             if (getSupportFragmentManager().findFragmentByTag("hokmKarDetail") !=null){
-                getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , mainFragment, "hokmKarMain").commit();
+                getSupportFragmentManager().popBackStack();
             }else {
                finish();
             }
@@ -119,7 +119,9 @@ public class HokmKarhaActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().findFragmentByTag("hokmKarDetail") !=null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout_hokmKar , mainFragment, "hokmKarMain").commit();
+            getSupportFragmentManager().popBackStack();
+        }else if (getSupportFragmentManager().findFragmentByTag("hokmKarMain") != null){
+         finish();
         }else {
             super.onBackPressed();
         }

@@ -128,8 +128,9 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
 
 
 
-        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("bazaryabiMain")
-                .replace(R.id.FrameLayout_bazaryabi,new BazaryabiDetailListFragment(personelCode , personalName),"bazaryabiDetailFragment")
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("")
+                .hide(this)
+                .add(R.id.FrameLayout_bazaryabi,new BazaryabiDetailListFragment(personelCode , personalName),"bazaryabiDetailFragment")
                 .commit();
 
     }

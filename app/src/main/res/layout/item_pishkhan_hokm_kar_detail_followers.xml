@@ -5,12 +5,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="4dp"
     android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="16dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:id="@+id/lin_item_hokmKar_follower"
         android:layout_height="match_parent">
 
         <LinearLayout

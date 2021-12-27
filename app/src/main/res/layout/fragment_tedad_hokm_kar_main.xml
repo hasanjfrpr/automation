@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="?viewGroupBackGroundColor"
     tools:context=".view.pishkhanItemView.tedadHokmKarha.fragment.TedadHokmKarMainFragment">
 
@@ -17,6 +18,7 @@
         android:paddingStart="4dp"
         android:paddingEnd="4dp"
         android:clipToPadding="false"
+        android:layout_marginBottom="16dp"
         android:id="@+id/RV_tedadHokmkarha_main"/>
 
 </LinearLayout>

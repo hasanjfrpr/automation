@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,13 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
         for (int i = 0; i < dataItems.size(); i++) {
             isOpenE[i] = true;
             isOpenD[i] = true;
+        }
+
+        if (position%2==0){
+            holder.lin_follower.setBackgroundColor(context.getResources().getColor(R.color.lightYellow));
+        }else {
+            holder.lin_follower.setBackgroundColor(context.getResources().getColor(R.color.gray));
+
         }
 
         holder.status.setText(dataItems.get(position).getKindName());
@@ -117,6 +125,7 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
         TextView status , personal , sharhErja , description;
         ImageView showSharhErja , showDescription;
         FrameLayout shE , shDe;
+        LinearLayout lin_follower;
 
         public HokmkarFollowerViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -128,6 +137,7 @@ public class HokmKarFollowersAdapter extends RecyclerView.Adapter<HokmKarFollowe
             showSharhErja = itemView.findViewById(R.id.IV_item_hokmKar_detail_showSharhErja);
             shE  = itemView.findViewById(R.id.frame_show_sharhErja_hokmKar_detail_followers);
             shDe = itemView.findViewById(R.id.frame_show_description_hokmKar_detail_followers);
+            lin_follower = itemView.findViewById(R.id.lin_item_hokmKar_follower);
         }
     }
 }

@@ -32,6 +32,7 @@ import com.dayrayaneh.automation.viewModel.pishkhan.HokmKar.HokmKarViewModel;
 public class HokmKarDetailFragment extends BaseFragment {
 
     private int userId;
+    private String moshtari , sabtkonande;
     private HokmKarViewModel thisViewModel;
     private RecyclerView rv_request;
     private View loadingView;
@@ -39,13 +40,15 @@ public class HokmKarDetailFragment extends BaseFragment {
     private HokmKarFollowersAdapter followersAdapter;
     private RecyclerView rv_followers;
     public static MutableLiveData<Boolean> hideButtonSendIndo = new MutableLiveData<Boolean>();
-    private TextView startDate, endDate;
+    private TextView startDate, endDate , TV_moshatari , TV_sabtkonande;
     private ImageView back;
     private TextView emptyText;
 
 
-    public HokmKarDetailFragment(int userId) {
+    public HokmKarDetailFragment(int userId  , String moshtari , String sabtKonande) {
         this.userId = userId;
+        this.moshtari = moshtari;
+        this.sabtkonande = sabtKonande;
     }
 
 
@@ -75,6 +78,8 @@ public class HokmKarDetailFragment extends BaseFragment {
         startDate = view.findViewById(R.id.TV_showStartDate_hokmKar_detail);
         endDate = view.findViewById(R.id.TV_showEndDate_hokmKar_detail);
         emptyText = view.findViewById(R.id.TV_hokmKar_request_empty) ;
+        TV_sabtkonande = view.findViewById(R.id.TV_pishkhan_hokm_kar_detial_sabtKonande);
+        TV_moshatari = view.findViewById(R.id.TV_pishkhan_hokm_kar_detial_moshtari);
     }
 
 
@@ -84,6 +89,8 @@ public class HokmKarDetailFragment extends BaseFragment {
         });
         startDate.setText(" از "+ConstValue.startDatePersian);
         endDate.setText( " تا  "+ConstValue.endDatePersian );
+        TV_moshatari.setText(moshtari);
+        TV_sabtkonande.setText(sabtkonande);
     }
 
 

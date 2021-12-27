@@ -56,6 +56,15 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         android:layout_width="match_parent"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        tools:text="sdfsfs"
+        android:textColor="@color/black"
+        android:paddingVertical="10dp"
+        android:id="@+id/Tv_tedadHokmKar_name"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

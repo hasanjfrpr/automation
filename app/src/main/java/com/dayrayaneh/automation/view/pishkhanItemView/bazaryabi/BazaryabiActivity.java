@@ -93,11 +93,14 @@ public class BazaryabiActivity extends BaseActivity {
     private void event() {
         ///onclick
         btn_back.setOnClickListener(v -> {
-                if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-                    getSupportFragmentManager().popBackStack();
-                }else {
-                    super.onBackPressed();
-                }
+
+            if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
+                getSupportFragmentManager().popBackStack();
+            }else if (getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment") !=null){
+                finish();
+            }else{
+                super.onBackPressed();
+            }
 
         });
 
@@ -225,48 +228,49 @@ public class BazaryabiActivity extends BaseActivity {
         });
         builder.create().show();
     }
-
-//    private void viewModel(){
-//        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate, ConstValue.endDate , companyId);
-//        loadingView.setVisibility(View.VISIBLE);
-//        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
-//            if (bazaryabiMainModel.getStatus().isIsError()){
-//                Snackbar.make(this,btn_back,getResources().getString(R.string.unknowErro) , Snackbar.LENGTH_LONG);
+//
+////    private void viewModel(){
+////        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate, ConstValue.endDate , companyId);
+////        loadingView.setVisibility(View.VISIBLE);
+////        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
+////            if (bazaryabiMainModel.getStatus().isIsError()){
+////                Snackbar.make(this,btn_back,getResources().getString(R.string.unknowErro) , Snackbar.LENGTH_LONG);
+////            }else {
+////                EventBus.getDefault().post(bazaryabiMainModel);
+////                loadingView.setVisibility(View.GONE);
+////                addAmarBazaryabi(bazaryabiMainModel);
+////            }
+////        });
+////
+////
+////    }
+//
+//    private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
+//         int tedadKolTiger = 0;
+//         int tedadKolNovin = 0;
+//
+//        for (int i = 0; i < bazaryabiMainModel.getData().size(); i++) {
+//            if (bazaryabiMainModel.getData().get(i).getCompany() == 0){
+//                tedadKolNovin += bazaryabiMainModel.getData().get(i).getProformaCount();
 //            }else {
-//                EventBus.getDefault().post(bazaryabiMainModel);
-//                loadingView.setVisibility(View.GONE);
-//                addAmarBazaryabi(bazaryabiMainModel);
+//                tedadKolTiger += bazaryabiMainModel.getData().get(i).getProformaCount();
 //            }
-//        });
-//
-//
+//        }
+//        tedadKol.setText(String.valueOf(tedadKolNovin+tedadKolTiger));
+//        tedadTiger.setText(String.valueOf(tedadKolTiger));
+//        tedadNovin.setText(String.valueOf(tedadKolNovin));
 //    }
-
-    private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
-         int tedadKolTiger = 0;
-         int tedadKolNovin = 0;
-
-        for (int i = 0; i < bazaryabiMainModel.getData().size(); i++) {
-            if (bazaryabiMainModel.getData().get(i).getCompany() == 0){
-                tedadKolNovin += bazaryabiMainModel.getData().get(i).getProformaCount();
-            }else {
-                tedadKolTiger += bazaryabiMainModel.getData().get(i).getProformaCount();
-            }
-        }
-        tedadKol.setText(String.valueOf(tedadKolNovin+tedadKolTiger));
-        tedadTiger.setText(String.valueOf(tedadKolTiger));
-        tedadNovin.setText(String.valueOf(tedadKolNovin));
-    }
 
 
     @Override
     public void onBackPressed() {
 
  if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-            getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
-                    .commit();
-        }else {
-            super.onBackPressed();
-        }
+            getSupportFragmentManager().popBackStack();
+        }else if (getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment") !=null){
+            finish();
+        }else{
+     super.onBackPressed();
+ }
     }
 }

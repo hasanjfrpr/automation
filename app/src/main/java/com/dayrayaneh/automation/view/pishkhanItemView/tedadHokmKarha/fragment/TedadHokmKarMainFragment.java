@@ -86,8 +86,10 @@ public class TedadHokmKarMainFragment extends BaseFragment implements TedadHokmK
 
 
     @Override
-    public void clickEvent(int personalCode) {
-        getFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frameContainer_tedadHokmKar , new TedadHokmKarDetailFragment(personalCode),"detailsTedad").commit();
+    public void clickEvent(int personalCode , String name ) {
+        getFragmentManager().beginTransaction().addToBackStack("")
+                .hide(this)
+                .add(R.id.frameContainer_tedadHokmKar , new TedadHokmKarDetailFragment(personalCode , name),"detailsTedad").commit();
     }
 
     @Override

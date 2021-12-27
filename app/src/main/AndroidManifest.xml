@@ -28,6 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKhardiMoshtari.DarsadKharidMoshtariActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity"
@@ -47,6 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanActiviy"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity"

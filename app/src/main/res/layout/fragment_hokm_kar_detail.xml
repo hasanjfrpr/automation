@@ -16,6 +16,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/toolbar_detail_hokmKar"
         android:layout_width="match_parent"
+        app:cardCornerRadius="0dp"
         android:backgroundTint="@color/yellow"
         android:layout_height="?actionBarSize">
 
@@ -54,20 +55,113 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:orientation="vertical"
         android:minHeight="46dp"
         android:layout_weight="0.5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/yellow"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/moshtari"
+                android:textSize="14sp"
+                android:textColor="?colorOnPrimary"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:textColor="?colorOnPrimary"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_pishkhan_hokm_kar_detial_moshtari"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnPrimary"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@color/yellow"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="start"
+                android:text="@string/sabtKonande"
+                android:textSize="14sp"
+                android:textColor="?colorOnPrimary"
+                android:padding="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginVertical="8dp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text=":"
+                android:textColor="?colorOnPrimary"
+                android:paddingHorizontal="4dp"
+                android:layout_gravity="start|center_vertical"
+                android:gravity="center_vertical"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:paddingEnd="16dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/TV_pishkhan_hokm_kar_detial_sabtKonande"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?colorOnPrimary"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp"/>
+            </FrameLayout>
+
+
+
+        </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="@string/customerRequests"
-            android:background="@color/lightYellow"
+            android:background="@color/whiteYellow"
             android:textStyle="bold"
             android:paddingStart="16dp"
             android:paddingVertical="6dp"
-            android:layout_marginTop="16dp"
+
             android:textColor="@color/black"
             android:textSize="18sp"/>
 
@@ -109,7 +203,7 @@
             android:textStyle="bold"
             android:paddingStart="16dp"
             android:paddingVertical="6dp"
-            android:background="@color/lightYellow"
+            android:background="@color/whiteYellow"
             android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="18sp"/>

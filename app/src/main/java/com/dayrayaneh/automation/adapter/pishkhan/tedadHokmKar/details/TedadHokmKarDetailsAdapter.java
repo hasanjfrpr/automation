@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,12 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
         final boolean[] isOpen = new boolean[dataItems.size()];
         for (int i = 0; i < dataItems.size(); i++) {
             isOpen[i] = true;
+        }
+
+        if (position%2==0){
+            holder.lin_item.setBackgroundColor(context.getResources().getColor(R.color.lightYellow));
+        }else{
+            holder.lin_item.setBackgroundColor(context.getResources().getColor(R.color.gray));
         }
 
         holder.status.setText(dataItems.get(position).getFldKindOperationNameFarsi());
@@ -103,6 +110,7 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
         TextView shomareHokm , time , date , status ,serial, sharh , sharh2 , erjadahande ;
         ImageView moreBtn_sharh ;
         FrameLayout showHide_sharh;
+        LinearLayout lin_item;
 
         public TedadHokmKarDetailsViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -116,6 +124,7 @@ public class TedadHokmKarDetailsAdapter extends RecyclerView.Adapter<TedadHokmKa
             erjadahande = itemView.findViewById(R.id.TV_item_pishkhan_tedadHokmKar_detail_erjadahande);
             moreBtn_sharh = itemView.findViewById(R.id.IV_item_pishkhan_tedadHokmKar_detail_sharh_more);
             showHide_sharh = itemView.findViewById(R.id.frame_more_tedadHokmkar_sharh);
+            lin_item = itemView.findViewById(R.id.lin_item_tedadHokmKar_detail);
         }
     }
 }
