@@ -7,12 +7,122 @@
     android:background="?viewGroupBackGroundColor"
     tools:context=".view.pishkhanItemView.gozareshKar.GozareshKarActivity">
 
-    <include
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/include9"
-        layout="@layout/custom_toolbar_for_item_pishkhan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?viewGroupBackGroundColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".view.pishkhanItemView.bazaryabi.BazaryabiActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_item_pishkhan"
+                android:layout_width="match_parent"
+                app:menu="@menu/menu_gozaresh_kar"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:layout_height="?actionBarSize"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="از تاریخ :"
+                    android:textColor="?colorOnPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/TV_fromDate"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:background="?viewGroupBackGroundColor"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="@+id/textView"
+                    tools:text="1400/14/14" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="تا تاریخ :"
+                    android:textColor="?colorOnPrimary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/guideline2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Tv_toDate"
+                    android:layout_width="105dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:background="?viewGroupBackGroundColor"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView1"
+                    app:layout_constraintStart_toEndOf="@+id/textView1"
+                    app:layout_constraintTop_toTopOf="@+id/textView1"
+                    tools:text="1400/55/16" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/TV_fromDate"
+                    app:layout_constraintEnd_toEndOf="@+id/TV_fromDate"
+                    app:layout_constraintStart_toEndOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/TV_fromDate"
+                    app:srcCompat="@drawable/ic_arrow_drop"
+                    app:tint="@color/black" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="190dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/Tv_toDate"
+                    app:layout_constraintEnd_toEndOf="@+id/Tv_toDate"
+                    app:layout_constraintStart_toEndOf="@+id/textView1"
+                    app:layout_constraintTop_toBottomOf="@+id/Tv_toDate"
+                    app:srcCompat="@drawable/ic_arrow_drop"
+                    app:tint="@color/black" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include layout="@layout/loading_layout"
         android:layout_width="match_parent"
@@ -51,16 +161,6 @@
                 app:spinner_expand_height="0dp"
                 app:reveal_view_background_color="@color/white"
                 app:search_view_background_color="@color/whiteBlue" />
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/searchView_gozareshKar"
-                android:layout_width="match_parent"
-                android:visibility="gone"
-                app:queryHint="@string/searchName"
-                android:layout_height="match_parent"
-                android:layout_margin="0dp"
-                android:elevation="0dp"
-                android:padding="0dp"
-                />
         </FrameLayout>
 
 

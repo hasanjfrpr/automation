@@ -53,12 +53,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:orientation="vertical"
-        android:minHeight="46dp"
-        android:layout_weight="0.5">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="horizontal"
@@ -152,49 +147,61 @@
 
 
         </LinearLayout>
-        <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="6">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:text="@string/customerRequests"
-            android:background="@color/whiteYellow"
-            android:textStyle="bold"
-            android:paddingStart="16dp"
-            android:paddingVertical="6dp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/customerRequests"
+                android:background="@color/whiteYellow"
+                android:textStyle="bold"
+                android:paddingStart="16dp"
+                android:paddingVertical="6dp"
 
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
+                android:textColor="@color/black"
+                android:textSize="18sp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingStart="4dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="16dp"
-            android:layout_marginTop="8dp"
-            android:clipToPadding="false"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/RV_hokmKar_request"/>
-        <TextView
-            android:id="@+id/TV_hokmKar_request_empty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/empty_request"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:textColor="@color/redlight"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"
+                android:id="@+id/RV_hokmKar_request"/>
+            <TextView
+                android:id="@+id/TV_hokmKar_request_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_request"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/redlight"/>
+
+        </LinearLayout>
 
 
 
-    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="2">
+        android:layout_weight="4">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,7 +211,6 @@
             android:paddingStart="16dp"
             android:paddingVertical="6dp"
             android:background="@color/whiteYellow"
-            android:layout_marginTop="16dp"
             android:textColor="@color/black"
             android:textSize="18sp"/>
         <androidx.recyclerview.widget.RecyclerView
@@ -216,6 +222,8 @@
             android:layout_marginBottom="16dp"
             android:clipToPadding="false"
             android:id="@+id/RV_hokmKar_followers"/>
+    </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

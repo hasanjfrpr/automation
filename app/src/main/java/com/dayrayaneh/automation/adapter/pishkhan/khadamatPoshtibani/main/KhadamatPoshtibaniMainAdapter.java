@@ -39,6 +39,13 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
     @Override
     public void onBindViewHolder(@NonNull KhadamatPoshtibaniMainViewHolder holder, int position) {
 
+        if(position % 2 == 0){
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.graylight));
+        }else {
+            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.white));
+        }
+
+
         holder.namePoshtiban.setText(dataItemList.get(position).getName());
         holder.tedadTamas.setText((dataItemList.get(position).getCallCount()));
         holder.mianginMokaleme.setText(dataItemList.get(position).getAvgTime());
@@ -48,11 +55,6 @@ public class KhadamatPoshtibaniMainAdapter extends RecyclerView.Adapter<Khadamat
 
 
 
-        if(position%2 == 0){
-            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.graylight));
-        }else {
-            holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.white));
-        }
 
 
 

@@ -1,8 +1,10 @@
 package com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
@@ -57,7 +61,6 @@ public class GozareshKarActivity extends BaseActivity {
     private SpinnerAdapter spinnerAdapter;
     public static boolean isCheck = false;
     private LinearLayout containerSpinnerAndcheckbox;
-    private SearchView searchView;
 
 
     @Override
@@ -68,7 +71,7 @@ public class GozareshKarActivity extends BaseActivity {
         setDate();
         viewModel();
         event();
-        searchItem();
+//        searchItem();
     }
 
 
@@ -86,7 +89,7 @@ public class GozareshKarActivity extends BaseActivity {
         searchableSpinner = findViewById(R.id.spinner_gozareshKar);
         containerSpinnerAndcheckbox = findViewById(R.id.linearLayout3);
         viewModel = new ViewModelProvider(this).get(GozareshKarViewModel.class);
-        searchView = findViewById(R.id.searchView_gozareshKar);
+
 
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameContainer_gozareshkar , new GozareshKarMainFragment(),"gozareshMain").commit();
@@ -138,8 +141,30 @@ public class GozareshKarActivity extends BaseActivity {
 
     }
 
-    private void searchItem(){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+       switch (item.getItemId()){
 
+           case R.id.backss:
+                   if (getSupportFragmentManager().findFragmentByTag("detailGozareshKar") != null){
+                       getSupportFragmentManager().popBackStack();
+                   }else{
+                       finish();
+                   }
+                   personIdHelp = 92;
+                   personId = 92;
+               return true;
+
+
+       }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_gozaresh_kar,menu);
+        final MenuItem searchItem = menu.findItem(R.id.searchss);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -149,10 +174,13 @@ public class GozareshKarActivity extends BaseActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 searchTextLiveData.setValue(newText);
-                return false;
+                return true;
             }
         });
+
+        return true;
     }
+
 
 
 
@@ -162,18 +190,6 @@ public class GozareshKarActivity extends BaseActivity {
     }
 
     private void event() {
-        back.setOnClickListener(v->{
-            if (getSupportFragmentManager().findFragmentByTag("detailGozareshKar") != null){
-                getSupportFragmentManager().popBackStack();
-            }else{
-                finish();
-            }
-            personIdHelp = 92;
-            personId = 92;
-        });
-
-
-
 
 
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -183,14 +199,12 @@ public class GozareshKarActivity extends BaseActivity {
                     isCheck=true;
                     searchableSpinner.setClickable(false);
                     searchableSpinner.setVisibility(View.GONE);
-                    searchView.setVisibility(View.VISIBLE);
                     searchableSpinner.hideEdit();
                     personId = 0;
 
                 }else {
                     searchableSpinner.setClickable(true);
                     searchableSpinner.setVisibility(View.VISIBLE);
-                    searchView.setVisibility(View.GONE);
                     isCheck = false;
 
                 }
