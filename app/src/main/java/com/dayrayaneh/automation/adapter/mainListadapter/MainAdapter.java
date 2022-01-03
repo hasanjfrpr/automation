@@ -34,6 +34,7 @@ import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.Khadam
 import com.dayrayaneh.automation.view.pishkhanItemView.sefarashMoshtariJadid.SefareshMoshtariJadidActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity;
+import com.dayrayaneh.automation.view.pishkhanItemView.ticket.TicketActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity;
 import com.google.android.material.card.MaterialCardView;
 
@@ -101,6 +102,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadSefareshat), R.mipmap.ic_darsad_sefareshat,13));
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan), R.mipmap.ic_darsad_thakfif,14));
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.voicePoshtibani), R.mipmap.ic_voice_item,15));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.ticket), R.mipmap.ic_ticket,16));
             }
 
 
@@ -236,6 +238,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                 break;
             case 15:
                 context.startActivity(new Intent(context, VoicePoshtibaniActivity.class));
+                break;
+            case 16:
+                context.startActivity(new Intent(context, TicketActivity.class));
                 break;
 
 

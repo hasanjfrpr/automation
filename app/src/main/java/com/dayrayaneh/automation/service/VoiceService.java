@@ -1,4 +1,4 @@
-package com.dayrayaneh.service;
+package com.dayrayaneh.automation.service;
 
 import android.app.Service;
 import android.content.Intent;

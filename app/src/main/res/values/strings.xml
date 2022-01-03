@@ -41,6 +41,7 @@
     <string name="bazaryabi">بازاریابی</string>
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
     <string name="voicePoshtibani">مکالمات</string>
+    <string name="ticket">تیکت ها</string>
     <string name="sefareshatMoshtariJadid">سفارش مشتریان جدید</string>
     <string name="vaziatSefaresh">وضعیت سفارش</string>
 
@@ -304,6 +305,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="mobile">موبایل</string>
+    <string name="unCkecked">بررسی نشده</string>
+    <string name="doingCheck">درحال بررسی</string>
+    <string name="inLine">در صف انجام</string>
+    <string name="doing">درحال انجام</string>
+    <string name="stoptemp">توقف موقت</string>
+    <string name="sabtTicketman">ثبت شده توسط من</string>
+    <string name="bayganiShode">بایگانی شده</string>
+    <string name="endTask">خاتمه یافته</string>
+    <string name="onvan">عنوان</string>
+    <string name="clearFilter">پاک کردن فیترها</string>
+    <string name="doFilter">اعمال فیلتر</string>
+    <string name="currentTicket"> در دست من</string>
 
 
 </resources>

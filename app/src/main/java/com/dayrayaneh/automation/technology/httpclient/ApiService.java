@@ -27,6 +27,7 @@ import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadMo
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKarCountModel;
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
+import com.dayrayaneh.automation.model.pishkhan.tickets.TicketModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.dayrayaneh.automation.model.pishkhan.voicePoshtibani.VoiceModel;
 import com.google.gson.JsonObject;
@@ -123,4 +124,7 @@ public interface ApiService {
 
     @POST("services/talks")
     Single<VoiceModel> getVoice(@Body JsonObject jsonObject);
+
+    @POST("Ticket/Master")
+    Single<TicketModel> getTickets(@Body JsonObject jsonObject);
 }

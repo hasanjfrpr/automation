@@ -76,10 +76,6 @@ public class LoginActivity extends BaseActivity {
         sharedPreferences= getSharedPreferences("default_setting",MODE_PRIVATE);
         /// init viewModel
         loginViewModel = new ViewModelProvider(this,new LoginViewModelFactory()).get(LoginViewModel.class);
-
-
-
-
     }
 
     private void event() {

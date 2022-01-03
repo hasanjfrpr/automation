@@ -18,7 +18,6 @@ import io.reactivex.schedulers.Schedulers;
 public class KhadamatPoshtibaniViewModel extends BaseViewModel {
 
 
-
     public MutableLiveData<KhadamatPoshtibaniMainModel> khadamatPoshtibaniMainLiveData = new MutableLiveData<>() ;
     public MutableLiveData<KhadamatPoshtibaniDetailModel> khadamatPoshtibaniDetaileLiveData = new MutableLiveData<>() ;
     private KhadamatPoshtibaniRepo repo = new KhadamatPoshtibaniRepoImpl();

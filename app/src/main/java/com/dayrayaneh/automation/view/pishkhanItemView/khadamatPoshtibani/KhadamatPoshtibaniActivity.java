@@ -48,6 +48,7 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
     private boolean isPortrait = true;
 
 
+
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +94,6 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
         paygiriKol = findViewById(R.id.TV_khadamatPoshtibani_tedadKolPaygiriNovin);
         thisViewModel = new ViewModelProvider(this).get(KhadamatPoshtibaniViewModel.class);
         rv_main = findViewById(R.id.RV_pishKhan_khadamat_poshtibani_main);
-
-
-
-
-
 
 
 
@@ -158,10 +154,11 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
 
     private void viewModel() {
       loadingView.setVisibility(View.VISIBLE);
-        if (thisViewModel.khadamatPoshtibaniMainLiveData.getValue() != null ){
+        if (thisViewModel.khadamatPoshtibaniMainLiveData.getValue() != null && getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE ){
             if (thisViewModel.khadamatPoshtibaniMainLiveData.getValue().getData().size() < 1){
                 empty_layout.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.GONE);
+                setTotalInformation(null);
             }else {
                 empty_layout.setVisibility(View.GONE);
                 setRecycler(thisViewModel.khadamatPoshtibaniMainLiveData.getValue());
@@ -175,9 +172,12 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
             thisViewModel.khadamatPoshtibaniMainLiveData.observe(this , khadamatPoshtibaniMainModel -> {
                 if (khadamatPoshtibaniMainModel.getData().size() < 1){
                     empty_layout.setVisibility(View.VISIBLE);
+                    rv_main.setVisibility(View.INVISIBLE);
                     loadingView.setVisibility(View.GONE);
+                    setTotalInformation(null);
                 }else {
                     empty_layout.setVisibility(View.GONE);
+                    rv_main.setVisibility(View.VISIBLE);
                     setRecycler(khadamatPoshtibaniMainModel);
                     loadingView.setVisibility(View.GONE);
                     setTotalInformation(khadamatPoshtibaniMainModel);
@@ -188,11 +188,14 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
 
     }
 
+
+
     private void setRecycler(KhadamatPoshtibaniMainModel model) {
         adapter = new KhadamatPoshtibaniMainAdapter(this , model.getData());
         adapter.event = this;
         rv_main.setAdapter(adapter);
         rv_main.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+
     }
 
 
@@ -217,6 +220,8 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
 
 
         sendInfo.setOnClickListener(v -> {
+
+
            viewModel();
         });
 
@@ -260,22 +265,30 @@ public class KhadamatPoshtibaniActivity extends BaseActivity implements Khadamat
         int paygiriKol = 0;
 
 
-        for (int i = 0; i < model.getData().size(); i++) {
-            int company = model.getData().get(i).getFldCompany();
-            if (company == 0) {
-                khadamatKolNovin += model.getData().get(i).getKhadamatCount();
-                paygiriKol += model.getData().get(i).getSdCount();
-            } else {
-                khadamatKoltiger += model.getData().get(i).getKhadamatCount();
+        if (model != null) {
+            for (int i = 0; i < model.getData().size(); i++) {
+                int company = model.getData().get(i).getFldCompany();
+                if (company == 0) {
+                    khadamatKolNovin += model.getData().get(i).getKhadamatCount();
+                    paygiriKol += model.getData().get(i).getSdCount();
+                } else {
+                    khadamatKoltiger += model.getData().get(i).getKhadamatCount();
+                }
             }
+            khadamatKol = khadamatKolNovin + khadamatKoltiger;
+
+            this.khadamatKol.setText(String.valueOf(khadamatKol));
+            this.khadamatkolTiger.setText(String.valueOf(khadamatKoltiger));
+            this.khadamatKolNovin.setText(String.valueOf(khadamatKolNovin));
+            this.paygiriKol.setText(String.valueOf(paygiriKol));
+        }else {
+            this.khadamatKol.setText(String.valueOf(0));
+            this.khadamatkolTiger.setText(String.valueOf(0));
+            this.khadamatKolNovin.setText(String.valueOf(0));
+            this.paygiriKol.setText(String.valueOf(0));
         }
 
-        khadamatKol = khadamatKolNovin + khadamatKoltiger;
 
-        this.khadamatKol.setText(String.valueOf(khadamatKol));
-        this.khadamatkolTiger.setText(String.valueOf(khadamatKoltiger));
-        this.khadamatKolNovin.setText(String.valueOf(khadamatKolNovin));
-        this.paygiriKol.setText(String.valueOf(paygiriKol));
 
     }
 

@@ -17,9 +17,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
-            android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivityDetails"
-            android:screenOrientation="portrait"
+            android:name=".view.pishkhanItemView.ticket.TicketActivity"
             android:exported="false" />
+        <activity
+            android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivityDetails"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.pishkhanItemView.VoicePoshtibani.VoicePoshtibaniActivity"
             android:exported="false"
@@ -108,7 +111,7 @@
             android:name=".base.InternetConnection"
             android:exported="false" />
 
-        <service android:name="com.dayrayaneh.service.VoiceService" />
+        <service android:name=".service.VoiceService" />
     </application>
 
 </manifest>

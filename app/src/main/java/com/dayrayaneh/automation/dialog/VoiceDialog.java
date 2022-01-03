@@ -1,6 +1,5 @@
 package com.dayrayaneh.automation.dialog;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
@@ -8,14 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.speech.tts.Voice;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,17 +21,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.MutableLiveData;
 
 import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.base.ConstValue;
-import com.dayrayaneh.service.VoiceService;
-
-import java.io.IOException;
-import java.util.Objects;
-import java.util.Timer;
-import java.util.TimerTask;
+import com.dayrayaneh.automation.service.VoiceService;
 
 public class VoiceDialog extends DialogFragment {
 
