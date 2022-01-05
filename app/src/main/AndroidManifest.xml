@@ -18,6 +18,7 @@
         tools:targetApi="m">
         <activity
             android:name=".view.pishkhanItemView.ticket.TicketActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivityDetails"

@@ -194,32 +194,12 @@ public class Utils {
 
             }
         };
-
-
-
-//        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-//        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-//        if (netInfo != null && netInfo.isConnected()) {
-//            try {
-//                URL url = new URL(urls);
-//                HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
-//                urlc.setConnectTimeout(3000);          // 10 s.
-//                urlc.connect();
-//                if (urlc.getResponseCode() == 200) {        // 200 = "OK" code (http connection is fine).
-//                    return true;
-//                } else {
-//                    return false;
-//                }
-//            } catch (MalformedURLException e1) {
-//                return false;
-//            } catch (Exception e) {
-//                return false;
-//            }
-//        }
-//       return asyncTask.execute();
         return isUrlReachable[0];
     }
 
+
+
+    
 
 
 

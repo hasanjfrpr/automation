@@ -1,437 +1,504 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    android:clickable="true"
-    android:layout_height="match_parent">
-
-
-<LinearLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#B2F5F5F5"
-    android:animateLayoutChanges="true"
-    tools:context=".view.pishkhanItemView.ticket.fragment.FilterTicketFragment">
+    android:background="#E6F5F5F5">
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="wrap_content"
-        app:cardCornerRadius="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardElevation="8dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/date"
-            android:paddingHorizontal="8dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
         android:layout_width="match_parent"
-        app:cardElevation="8dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardCornerRadius="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-            <LinearLayout
-                android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+
+            android:orientation="vertical"
+            tools:context=".view.pishkhanItemView.ticket.fragment.FilterTicketFragment">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_weight="1"
                 android:layout_marginHorizontal="16dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="از:"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="8dp"
+                    android:text="@string/date"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:layout_marginEnd="6dp"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/TV_startDate_filter_ticket"
-                    android:layout_width="match_parent"
-                    android:gravity="center_horizontal"
-                    android:layout_height="wrap_content"
-                    android:text="1400/12/25"
-                    android:paddingVertical="4dp"
-                    android:background="?selectableItemBackground"
-                    android:textColor="@color/yellow"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
                 android:layout_marginHorizontal="16dp"
-                android:orientation="horizontal">
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:text="از:"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            app:cardElevation="-14dp"
+                            android:backgroundTint="#E6F5F5F5"
+                            app:cardCornerRadius="6dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/TV_startDate_filter_ticket"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?selectableItemBackground"
+                                android:elevation="8dp"
+                                android:gravity="center_horizontal"
+                                android:paddingVertical="4dp"
+                                android:text="1400/12/25"
+                                android:paddingHorizontal="8dp"
+                                android:textColor="@color/yellow"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="6dp"
+                            android:text="تا:"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            app:cardElevation="-14dp"
+                            android:backgroundTint="#E6F5F5F5"
+                            app:cardCornerRadius="6dp"
+                            android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/TV_endDate_filter_ticket"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:gravity="center_horizontal"
+                            android:paddingVertical="4dp"
+                            android:text="1400/12/25"
+                            android:paddingHorizontal="8dp"
+                            android:textColor="@color/yellow"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="تا:"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/status"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:layout_marginEnd="6dp"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/TV_endDate_filter_ticket"
-                    android:layout_width="match_parent"
-                    android:gravity="center_horizontal"
-                    android:layout_height="wrap_content"
-                    android:paddingVertical="4dp"
-                    android:background="?selectableItemBackground"
-                    android:text="1400/12/25"
-                    android:textColor="@color/yellow"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:paddingVertical="8dp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
 
-            </LinearLayout>
-        </LinearLayout>
-
-
-
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="wrap_content"
-        app:cardCornerRadius="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardElevation="8dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/status"
-            android:paddingHorizontal="8dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        app:cardElevation="8dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardCornerRadius="0dp"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="4dp"
-                android:layout_weight="1"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:orientation="horizontal">
-               <CheckBox
-                   android:id="@+id/checkbox_unChecked"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:text="@string/unCkecked"
-                   android:textStyle="bold"
-                   android:checked="true"
-                   android:textColor="@color/yellow"/>
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
 
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="16dp"
-                android:layout_weight="1"
-                android:layout_marginHorizontal="4dp"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/checkbox_checking"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/doingCheck"
-                    android:textStyle="bold"
-                    android:checked="true"
-                    android:textColor="@color/yellow"/>
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_unChecked"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/unCkecked"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_checking"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/doingCheck"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_inline"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/inLine"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_doing"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/doing"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_stopped"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/stoptemp"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_finish"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/endTask"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_archive"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="@string/bayganiShode"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:text="@string/ticket"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:paddingVertical="8dp"
+                    android:textStyle="bold" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_myTicket"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sabtTicketman"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="4dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_currentTicket"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/currentTicket"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="25dp"
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkbox_allTicket"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="همه ی تیکت ها"
+                                android:textColor="@color/yellow"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <EditText
+                android:id="@+id/ET_ticket_title"
+                style="@style/et_filter_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/onvan"
+                android:inputType="text"
+                android:lineHeight="28dp"
+                android:minLines="2" />
+
+            <EditText
+                android:id="@+id/ET_ticket_description"
+                style="@style/et_filter_ticket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="start|top"
+                android:hint="@string/description"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:lineHeight="28dp"
+                android:maxLines="5"
+                android:paddingVertical="8dp"
+                tools:targetApi="p" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/Mbtn_ticket_filter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/doFilter"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/Mbtn_ticket_removeFilter"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_weight="1"
+                    android:text="@string/clearFilter"
+                    android:textColor="@color/yellow" />
+
 
             </LinearLayout>
+
+
         </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_inline"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/inLine"
-                        android:textStyle="bold"
-                        android:checked="true"
-                        android:textColor="@color/yellow"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_doing"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/doing"
-                        android:checked="true"
-                        android:textStyle="bold"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_stopped"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/stoptemp"
-                        android:textStyle="bold"
-                        android:checked="true"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_finish"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/endTask"
-                        android:textStyle="bold"
-                        android:checked="true"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_archive"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bayganiShode"
-                        android:textStyle="bold"
-                        android:checked="true"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="wrap_content"
-        app:cardCornerRadius="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardElevation="8dp"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ticket"
-            android:paddingHorizontal="8dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:textSize="18sp"/>
-    </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        app:cardElevation="8dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardCornerRadius="0dp"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_myTicket"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/sabtTicketman"
-                        android:textStyle="bold"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="4dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_currentTicket"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/currentTicket"
-                        android:textStyle="bold"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="16dp"
-                    android:orientation="horizontal">
-                    <CheckBox
-                        android:id="@+id/checkbox_allTicket"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="همه ی تیکت ها"
-                        android:textStyle="bold"
-                        android:textColor="@color/yellow"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <EditText
-        android:id="@+id/ET_ticket_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:inputType="text"
-        android:hint="@string/onvan"
-        style="@style/et_filter_ticket"
-        android:minLines="2"/>
-
-    <EditText
-        android:id="@+id/ET_ticket_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:inputType="text"
-        android:minHeight="100dp"
-        android:gravity="start|top"
-        android:paddingVertical="8dp"
-        android:hint="@string/description"
-        style="@style/et_filter_ticket"
-        android:minLines="2"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_height="wrap_content">
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Mbtn_ticket_filter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/doFilter"
-            app:cornerRadius="12dp"
-            android:layout_marginHorizontal="12dp"
-            android:layout_weight="1"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Mbtn_ticket_removeFilter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="12dp"
-            android:text="@string/clearFilter"
-            android:textColor="@color/yellow"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_weight="1"/>
-
-
-    </LinearLayout>
-
-
-
-
-</LinearLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.core.widget.NestedScrollView>

@@ -269,8 +269,10 @@ public class BazaryabiActivity extends BaseActivity {
             getSupportFragmentManager().popBackStack();
         }else if (getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment") !=null){
             finish();
+
         }else{
      super.onBackPressed();
+
  }
     }
 }

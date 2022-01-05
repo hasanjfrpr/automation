@@ -30,7 +30,15 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
 
         Log.i("singleObserverError", e.toString());
 
-        if (e instanceof HttpException) {
+        if (e instanceof java.net.SocketTimeoutException || e instanceof java.net.ConnectException || e instanceof java.net.UnknownHostException){
+            String unKnowError;
+            if (e.getMessage().trim().equals("timeout")){
+                 unKnowError = "عدم دریافت پاسخ";
+            }else {
+                 unKnowError = "خطای Ip یا Port";
+            }
+            EventBus.getDefault().post(unKnowError);
+        }else if (e instanceof HttpException) {
             if (((HttpException) e).code() == 401) {
 
                 EventBus.getDefault().post(401);
@@ -42,10 +50,7 @@ public abstract class AutomationSingleObserver<T> implements SingleObserver<T> {
                 String unKnowError = "خطای نامشخص";
                 EventBus.getDefault().post(unKnowError);
             }
-        }else if (e instanceof java.net.SocketTimeoutException){
-            String unKnowError = "خطای Ip یا Port";
-            EventBus.getDefault().post(unKnowError);
-        }else {
+        } else {
             String unKnowError = "خطای نامشخص";
             EventBus.getDefault().post(unKnowError);
         }

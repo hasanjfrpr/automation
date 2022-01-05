@@ -3,6 +3,7 @@ package com.dayrayaneh.automation.technology.httpclient;
 import com.dayrayaneh.automation.base.ConstValue;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -36,7 +37,8 @@ public class ApiInstance {
 
                     return chain.proceed(newRequest.build());
                 }
-            }).build();
+            }).connectTimeout(1, TimeUnit.MINUTES).readTimeout(30, TimeUnit.SECONDS)
+        .writeTimeout(15, TimeUnit.SECONDS).build();
 
     public static ApiService getApiInstance() {
 

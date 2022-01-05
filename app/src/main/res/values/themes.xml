@@ -19,6 +19,7 @@
         <item name="viewGroupBackGroundColor">@color/whiteDark</item>
         <item name="drawerArrowStyle">@style/DrawerIcon</item>
         <item name="toolbarStyle">@style/toolbarStyle</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
 
 
     </style>

@@ -57,11 +57,6 @@ public class GozareshKarDetailsAdapter extends RecyclerView.Adapter<GozareshKarD
         holder.endTime.setText(dataItems.get(position).getFldReportTimeEnd());
         holder.totaltime.setText(String.valueOf(dataItems.get(position).getTotalTime()));
 
-//        if (dataItems.get(position).getFldReportSharhKarDetailsNameL1() == null) {
-//            holder.joziatKar.setText("ندارد");
-//        } else {
-//            holder.joziatKar.setText(dataItems.get(position).getFldReportSharhKarDetailsNameL1());
-//        }
 
 
         if (position % 2 == 0) {

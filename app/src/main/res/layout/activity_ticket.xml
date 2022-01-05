@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.pishkhanItemView.ticket.TicketActivity">
+    <include layout="@layout/loading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/loading_view_ticket"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_ticket"
@@ -22,6 +27,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="end"
             android:paddingHorizontal="16dp"
+            android:background="?selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_arrow_back" />
     </androidx.appcompat.widget.Toolbar>

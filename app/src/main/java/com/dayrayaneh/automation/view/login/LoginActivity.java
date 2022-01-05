@@ -176,6 +176,7 @@ public class LoginActivity extends BaseActivity {
               ConstValue.tokenContainer = loginModel.getData().get(0).getToken();
               ConstValue.accessItemIdList = loginModel.getData().get(0).getAcceccMenuIdArray();
               ConstValue.isAdminLis = loginModel.getData().get(0).getAcceccGroupIdArray();
+              ConstValue.userCode = loginModel.getData().get(0).getCode();
 
                         }else{
                             Snackbar.make(LoginActivity.this, username, loginModel.getStatus().getMessage(), Snackbar.LENGTH_LONG).show();

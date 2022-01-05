@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/home" android:title="@string/home"/>
-        <item android:id="@+id/setting" android:title="@string/setting"/>
-        <item android:id="@+id/exitFromApp" android:title="@string/exitFromApp"/>
+    <group android:checkableBehavior="single" android:id="@+id/group1">
+        <item android:id="@+id/home" android:icon="@drawable/ic_home" android:title="@string/home"/>
+        <item android:id="@+id/setting" android:icon="@drawable/ic_setting" android:title="@string/setting"/>
+        <item android:id="@+id/exitFromAccount" android:icon="@drawable/ic_exit_account" android:title="@string/exitFromAccount"/>
+
     </group>
-    <group android:checkableBehavior="single">
-        <item android:id="@+id/exitFromAccount" android:title="@string/exitFromAccount"/>
+    <group android:checkableBehavior="single" android:id="@+id/group2">
+        <item android:id="@+id/exitFromApp" android:icon="@drawable/ic_exit_app" android:title="@string/exitFromApp"/>
     </group>
 
 </menu>

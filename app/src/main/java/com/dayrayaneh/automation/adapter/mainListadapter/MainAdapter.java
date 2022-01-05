@@ -1,5 +1,6 @@
 package com.dayrayaneh.automation.adapter.mainListadapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -48,7 +49,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     private List<MainListModel> mainListModelList = new ArrayList<>();
     private RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
     private Context context;
-    private Boolean isShow = false;
+    public OnclickItemSubRecycler onclickItemSubRecycler;
+
 
 
     public MainAdapter(List<MainListModel> mainListModelList, Context context) {
@@ -117,25 +119,41 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         pishKhanAdapter.event = this;
 
 
+
+        boolean[] isShow = new boolean[mainListModelList.size()];
+        for (int i = 0; i < mainListModelList.size(); i++) {
+            isShow[i]=false;
+        }
         holder.itemView.setOnClickListener(v -> {
 
 //            checkAccess(position , holder);
 
 
-            if (!isShow) {
+            if (!isShow[position]) {
+                holder.subRecyclerView.animate().scaleY(1f);
+                holder.subRecyclerView.animate().scaleX(1f);
+                holder.subRecyclerView.animate().alpha(1);
                 holder.subRecyclerView.setVisibility(View.VISIBLE);
-                isShow = true;
+
+
+                isShow[position] = true;
                 ConstValue.menuIsOpen = true;
                 holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
                 holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
 
 
             } else {
+                holder.subRecyclerView.animate().scaleY(0f);
+                holder.subRecyclerView.animate().scaleX(0f);
+                holder.subRecyclerView.animate().alpha(0);
                 holder.subRecyclerView.setVisibility(View.GONE);
-                isShow = false;
+
+
+                isShow[position] = false;
                 ConstValue.menuIsOpen = false;
                 holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteDark));
                 holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteDark));
+
 
             }
         });
@@ -169,88 +187,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     @Override
     public void onclickItemPishKhan(int id) {
-        switch (id) {
-            case 6 :
-                context.startActivity(new Intent(context, ForooshNarmAfzarActivity.class));
+        onclickItemSubRecycler.onclick(id);
 
-                break;
-            case 7:
-                context.startActivity(new Intent(context, ForooshSakhtAfzarActivity.class));
+    }
 
-
-                break;
-            case 8:
-                context.startActivity(new Intent(context, TamdidGharardadActivity.class));
-
-
-                break;
-            case 3:
-                context.startActivity(new Intent(context, KhadamatPoshtibaniActivity.class));
-
-
-                break;
-            case 1:
-                context.startActivity(new Intent(context, HokmKarhaActivity.class));
-
-
-                break;
-            case 2:
-                context.startActivity(new Intent(context, BazaryabiActivity.class));
-
-
-                break;
-            case 9:
-                context.startActivity(new Intent(context, SefareshMoshtariJadidActivity.class));
-
-
-                break;
-            case 10:
-                context.startActivity(new Intent(context, VaziatSefareshActivity.class));
-
-
-                break;
-            case 11:
-                context.startActivity(new Intent(context, DarsadKharidMoshtariActivity.class));
-
-
-                break;
-            case 5:
-                context.startActivity(new Intent(context, GozareshKarActivity.class));
-
-
-                break;
-            case 12:
-                context.startActivity(new Intent(context, DarsadTakhfifAzHarSefareshActivity.class));
-
-
-                break;
-            case 13:
-                context.startActivity(new Intent(context, DarsadSefareshatActivity.class));
-
-                break;
-            case 4:
-                context.startActivity(new Intent(context, TedadHokmKarhaActivity.class));
-
-                break;
-            case 14:
-                context.startActivity(new Intent(context, DarsadKharidShahrestanActiviy.class));
-
-                break;
-            case 15:
-                context.startActivity(new Intent(context, VoicePoshtibaniActivity.class));
-                break;
-            case 16:
-                context.startActivity(new Intent(context, TicketActivity.class));
-                break;
-
-
-        }
-
+    public interface  OnclickItemSubRecycler{
+        void onclick(int id);
     }
 
     private void checkAccess(int position, MainViewHolder holder) {
 
-        if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(ConstValue.containAccessList[position])) {
+    /*    if (ConstValue.isAdminLis.contains(1) || ConstValue.accessItemIdList.contains(ConstValue.containAccessList[position])) {
 
             if (!isShow) {
                 holder.subRecyclerView.setVisibility(View.VISIBLE);
@@ -273,7 +220,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.redlight));
             holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.redlight));
             EventBus.getDefault().post("unAccess");
-        }
+        }*/
 
 
     }

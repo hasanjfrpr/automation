@@ -16,6 +16,8 @@ public class ConstValue {
     /////save token
     public static String tokenContainer = null;
 
+    public static int userCode=-1;
+
     public static int companyId = -1;
 
 

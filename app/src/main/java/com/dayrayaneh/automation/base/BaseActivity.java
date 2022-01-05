@@ -83,9 +83,9 @@ public class BaseActivity extends AppCompatActivity  {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void showErrorIp(String err){
-        if(err.equals("خطای Ip یا Port")){
-            Snackbar.make(this,getWindow().getDecorView().getRootView(),"خطای Ip یا Port" , Snackbar.LENGTH_SHORT).show();
-        }
+
+            Snackbar.make(this,getWindow().getDecorView().getRootView(),err , Snackbar.LENGTH_SHORT).show();
+
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

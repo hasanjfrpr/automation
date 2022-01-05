@@ -42,6 +42,9 @@
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
     <string name="voicePoshtibani">مکالمات</string>
     <string name="ticket">تیکت ها</string>
+    <string name="ticketDetails">جزئیات تیکت</string>
+    <string name="filterTicket">فیلتر تیکت ها</string>
+
     <string name="sefareshatMoshtariJadid">سفارش مشتریان جدید</string>
     <string name="vaziatSefaresh">وضعیت سفارش</string>
 
@@ -62,7 +65,7 @@
     <string name="tedadKolNovin">تعداد کل نوین</string>
 
     <string name="tedadbazaryabi">تعداد بازاریابی</string>
-    <string name="joziatBazaryabi">جزِئیات بازاریابی</string>
+    <string name="joziatBazaryabi">جزئیات بازاریابی</string>
 
     <string name="personal">پرسنل</string>
     <string name="radif">ردیف</string>
@@ -314,9 +317,16 @@
     <string name="bayganiShode">بایگانی شده</string>
     <string name="endTask">خاتمه یافته</string>
     <string name="onvan">عنوان</string>
-    <string name="clearFilter">پاک کردن فیترها</string>
+    <string name="clearFilter">پاک کردن فیلترها</string>
     <string name="doFilter">اعمال فیلتر</string>
     <string name="currentTicket"> در دست من</string>
+    <string name="registrar">ثبت کننده:</string>
+    <string name="currentUser">کاربرجاری:</string>
+    <string name="ticketType">نوع تیکت:</string>
+    <string name="importance">اهمیت:</string>
+    <string name="dateTicket">تاریخ:</string>
+    <string name="statusTicket">وضعیت:</string>
+    <string name="user">کاربر</string>
 
 
 </resources>

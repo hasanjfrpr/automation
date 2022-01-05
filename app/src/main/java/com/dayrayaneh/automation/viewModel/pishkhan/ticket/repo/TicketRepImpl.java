@@ -1,6 +1,7 @@
 package com.dayrayaneh.automation.viewModel.pishkhan.ticket.repo;
 
 import com.dayrayaneh.automation.model.pishkhan.tickets.TicketModel;
+import com.dayrayaneh.automation.model.pishkhan.tickets.detilas.TicketDetailsModel;
 import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
 import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonObject;
@@ -34,5 +35,11 @@ public class TicketRepImpl implements TicketRep {
        jsonObject.addProperty("CurrentTicket" , currentTicket);
        jsonObject.addProperty("AllTicket" , allTicket);
         return apiService.getTickets(jsonObject);
+    }
+
+    @Override
+    public Single<TicketDetailsModel> getTicketDetails(int id) {
+        apiService =ApiInstance.getApiInstance();
+        return apiService.getTicketDetails(id);
     }
 }

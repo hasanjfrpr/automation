@@ -28,13 +28,16 @@ import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGha
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.count.TedadHokmKarCountModel;
 import com.dayrayaneh.automation.model.pishkhan.tedadHokmKarha.details.TedadHokmKarDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.tickets.TicketModel;
+import com.dayrayaneh.automation.model.pishkhan.tickets.detilas.TicketDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.vaziatSefareshat.VaziatSefareshatModel;
 import com.dayrayaneh.automation.model.pishkhan.voicePoshtibani.VoiceModel;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
 
@@ -127,4 +130,7 @@ public interface ApiService {
 
     @POST("Ticket/Master")
     Single<TicketModel> getTickets(@Body JsonObject jsonObject);
+
+    @POST("Ticket/Details/{id}")
+    Single<TicketDetailsModel> getTicketDetails(@Path("id") int id);
 }
