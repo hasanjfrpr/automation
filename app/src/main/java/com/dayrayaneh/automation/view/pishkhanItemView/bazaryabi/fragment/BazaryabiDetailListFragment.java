@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,6 +34,7 @@ public class BazaryabiDetailListFragment extends BaseFragment {
     private TextView title;
     private int id;
     private String personalName;
+    public static MutableLiveData<Boolean> showEmpty = new MutableLiveData<>();
 
     public BazaryabiDetailListFragment(int id , String personalName) {
         this.id = id;
@@ -71,9 +73,11 @@ public class BazaryabiDetailListFragment extends BaseFragment {
     private void setupRecyclerView() {
 
 
+        showEmpty.setValue(true);
         int personelCode = id;
         bazaryabiViewModel.getBazarYabiDetail(ConstValue.startDate, ConstValue.endDate, personelCode);
         bazaryabiViewModel.bazaryabiDetailLiveData.observe(this, bazaryabiDetailModel -> {
+            showEmpty.setValue(false);
             adapter = new BazaryabiDetailAdapter(getContext(), bazaryabiDetailModel.getData());
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setAdapter(adapter);

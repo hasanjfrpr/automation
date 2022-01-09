@@ -122,8 +122,10 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
         boolean[] isShow = new boolean[mainListModelList.size()];
         for (int i = 0; i < mainListModelList.size(); i++) {
-            isShow[i]=false;
+            isShow[i]=true;
         }
+        holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+        holder.materialCardView.setCardBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
         holder.itemView.setOnClickListener(v -> {
 
 //            checkAccess(position , holder);

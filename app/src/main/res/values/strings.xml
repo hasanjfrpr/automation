@@ -327,6 +327,7 @@
     <string name="dateTicket">تاریخ:</string>
     <string name="statusTicket">وضعیت:</string>
     <string name="user">کاربر</string>
+    <string name="des_erja">توضیحات ارجاع کننده</string>
 
 
 </resources>

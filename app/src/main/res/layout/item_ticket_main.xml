@@ -278,10 +278,10 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:paddingEnd="16dp"
-
+                android:id="@+id/IV_item_ticket_description_showMore"
                 android:layout_height="match_parent">
                 <ImageView
-                    android:id="@+id/IV_item_ticket_description_showMore"
+                    android:id="@+id/IV_item_ticket_description_showMoreImage"
                     android:layout_gravity="start|center_vertical"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"

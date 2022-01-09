@@ -36,7 +36,7 @@ public class TicketActivity extends BaseActivity {
         getSupportFragmentManager().beginTransaction().addToBackStack("").replace(R.id.frame_ticket, new FilterTicketFragment(), "filterTicket").commit();
         thisViewModel = new ViewModelProvider(this).get(TicketViewModel.class);
         toolbar = findViewById(R.id.toolbar_ticket);
-        toolbar.setTitle(getResources().getString(R.string.ticket));
+        toolbar.setTitle("فیلتر تیکت ها");
         setSupportActionBar(toolbar);
         back = findViewById(R.id.IV_back_ticket);
         loadingView = findViewById(R.id.loading_view_ticket);

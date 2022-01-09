@@ -37,6 +37,10 @@ public class Utils {
         }
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }
 
 
     public static String convertPersianDateToFormatOfServer(int year , int month , int day){
@@ -45,6 +49,10 @@ public class Utils {
         return gregorian[0]+"-"+gregorian[1]+"-"+gregorian[2]+" ";
     }
 
+    public static int px2dip(Context context, float pxValue) {
+        final float scale =  context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
 
     public static void setDate(TextView fromDate , TextView toDate , Activity activity){
         ///set default date

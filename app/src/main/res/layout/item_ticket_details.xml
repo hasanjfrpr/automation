@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:gravity="start"
-                android:text="@string/description"
+                android:text="@string/des_erja"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:padding="8dp"

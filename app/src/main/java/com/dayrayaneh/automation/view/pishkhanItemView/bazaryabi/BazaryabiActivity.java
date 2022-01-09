@@ -22,6 +22,7 @@ import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.base.Keys;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.utils.Utils;
+import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiDetailListFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiMainListFragment;
 import com.dayrayaneh.automation.viewModel.pishkhan.bazaryabi.BazaryabiViewModel;
 import com.google.android.material.button.MaterialButton;
@@ -108,6 +109,14 @@ public class BazaryabiActivity extends BaseActivity {
         selectCompany.setOnClickListener(v -> {
             selectCompanyDialog();
 
+        });
+
+        BazaryabiDetailListFragment.showEmpty.observe(this,showEmpty->{
+            if (showEmpty){
+                loadingView.setVisibility(View.VISIBLE);
+            }else {
+                loadingView.setVisibility(View.GONE);
+            }
         });
 
         sendInfo.setOnClickListener(v -> {

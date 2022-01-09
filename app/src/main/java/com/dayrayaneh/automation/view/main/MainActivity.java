@@ -305,15 +305,12 @@ public class MainActivity extends BaseActivity implements MainAdapter.OnclickIte
                 break;
             case 14:
                 startActivity(new Intent(this, DarsadKharidShahrestanActiviy.class));
-
                 break;
             case 15:
                 startActivity(new Intent(this, VoicePoshtibaniActivity.class));
-
                 break;
             case 16:
                 startActivity(new Intent(this, TicketActivity.class));
-
                 break;
 
 

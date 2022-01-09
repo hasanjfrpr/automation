@@ -62,11 +62,11 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
         holder.showMore.setOnClickListener(v->{
             if (isShow[position]){
                 holder.frame_showMore.setVisibility(View.GONE);
-                holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
+                holder.showMore_Image.setImageDrawable(context.getDrawable(R.drawable.ic_arrow_drop));
                 isShow[position]=false;
             }else {
                 holder.frame_showMore.setVisibility(View.VISIBLE);
-                holder.showMore.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
+                holder.showMore_Image.setImageDrawable(context.getDrawable(R.drawable.ic_top_arrow));
                 isShow[position]=true;
             }
         });
@@ -84,8 +84,8 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
     public class TicketViewHolder extends RecyclerView.ViewHolder{
         TextView registrar , currentUser , status , ticketType , date , importance,title,description;
-        FrameLayout frame_showMore;
-        ImageView showMore;
+        FrameLayout frame_showMore , showMore;
+        ImageView showMore_Image;
         LinearLayout linearLayout;
         public TicketViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +99,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
             title = itemView.findViewById(R.id.TV_title_ticket);
             description = itemView.findViewById(R.id.TV_item_ticket_description);
             showMore = itemView.findViewById(R.id.IV_item_ticket_description_showMore);
+            showMore_Image = itemView.findViewById(R.id.IV_item_ticket_description_showMoreImage);
             frame_showMore = itemView.findViewById(R.id.frame_more_ticket_description);
             linearLayout = itemView.findViewById(R.id.ticket_item_root);
         }
