@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -39,6 +41,7 @@ import com.github.bkhezry.searchablespinner.interfaces.IStatusListener;
 import com.github.bkhezry.searchablespinner.interfaces.OnItemSelectedListener;
 import com.google.android.material.button.MaterialButton;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -177,7 +180,6 @@ public class GozareshKarActivity extends BaseActivity {
                 return true;
             }
         });
-
         return true;
     }
 

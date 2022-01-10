@@ -8,8 +8,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?selectableItemBackground"
     android:clickable="true"
+    android:background="?selectableItemBackground"
     android:layout_marginHorizontal="12dp"
     android:layout_marginTop="8dp"
     app:cardCornerRadius="8dp"
@@ -48,6 +48,7 @@
             app:layout_constraintStart_toStartOf="@+id/IV_icon_mainList"
             app:layout_constraintTop_toBottomOf="@+id/IV_icon_mainList"
             tools:text="slack" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
 

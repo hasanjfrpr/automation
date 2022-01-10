@@ -51,7 +51,7 @@
     <string name="gozareshKar">گزارش کار</string>
     <string name="gozareshKarGozareshKar">گزارشکار گزارشکار</string>
 
-    <string name="darsadTakhfifAzHarsefaresh">دصد تخفیف از هر سفارش</string>
+    <string name="darsadTakhfifAzHarsefaresh">درصد تخفیف از هر سفارش</string>
     <string name="darsadSefareshat">درصد سفارشات</string>
     <string name="tedadHokmKarha">گردش حکم کارها</string>
     <string name="darsadKharidShahrestan">درصد خرید شهرستان ها</string>
@@ -328,6 +328,9 @@
     <string name="statusTicket">وضعیت:</string>
     <string name="user">کاربر</string>
     <string name="des_erja">توضیحات ارجاع کننده</string>
+    <string name="crashTitle">خطا در اجرای برنامه</string>
+    <string name="crashMessage">برنامه دچار خطای زیر شده است برای ارسال خطا به ما لطفا گزینه ارسال خطا را فشار دهید در غیر اینصورت با زدن بازگشت به صفحه لاگین برگردید</string>
+    <string name="sendCrash">ارسال خطا</string>
 
 
 </resources>

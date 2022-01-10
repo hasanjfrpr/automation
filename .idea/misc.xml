@@ -110,8 +110,10 @@
         <entry key="..\:/Automation2/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2111111111111111" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/et_filter.xml" value="0.1" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/et_shape.xml" value="0.1" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/gradient_item_pishkhan.xml" value="0.2203125" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/ic_search.xml" value="0.2203125" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/ip_shape_et.xml" value="0.21203703703703702" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/drawable/shape_cursor_search_view.xml" value="0.2203125" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/activity_darsad_kharid_shahrestan_detail.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/activity_khadamat_poshtibani.xml" value="0.21" />
@@ -119,6 +121,7 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/item_darsad_kharid_moshtarian_details.xml" value="0.14739583333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout-land/item_pishkhan_khadamat_poshtibani_main.xml" value="0.109375" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_bazaryabi.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_ctash_handler.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_moshtari_details_activirty.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_activiy.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/activity_darsad_kharid_shahrestan_detail.xml" value="0.20416666666666666" />

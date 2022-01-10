@@ -3,6 +3,8 @@ package com.dayrayaneh.automation.base;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import com.dayrayaneh.automation.R;
 
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
@@ -26,9 +28,10 @@ public class App  extends Application {
         ConstValue.port = sharedPreferences.getString("port","");
         ConstValue.ip_voice = sharedPreferences.getString("ip_Voice","");
         ConstValue.port_voice = sharedPreferences.getString("port_Voice","");
+        Thread.setDefaultUncaughtExceptionHandler(new CrashHandling(getApplicationContext()));
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
     }
-
 
     public void setDefaultFont(String font){
         ViewPump.init(ViewPump.builder()
