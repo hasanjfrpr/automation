@@ -7,6 +7,7 @@ import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.personalName.Persona
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.followers.HokmKarFollowersModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.request.HokmKarRequestModel;
+import com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar.UnDoneHokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.details.DarsadKharidMoshtariDetailsModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidShahrestan.DarsadKharidShahrestanModel;
@@ -133,4 +134,8 @@ public interface ApiService {
 
     @POST("Ticket/Details/{id}")
     Single<TicketDetailsModel> getTicketDetails(@Path("id") int id);
+
+    @POST("sentence/notclosed")
+    Single<UnDoneHokmKarModel> getUnDoneHokmKar(@Body JsonObject jsonObject);
+
 }

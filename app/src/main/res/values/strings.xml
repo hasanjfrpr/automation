@@ -42,6 +42,7 @@
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
     <string name="voicePoshtibani">مکالمات</string>
     <string name="ticket">تیکت ها</string>
+    <string name="unDoneHokmKar">حکم کارهای باز</string>
     <string name="ticketDetails">جزئیات تیکت</string>
     <string name="filterTicket">فیلتر تیکت ها</string>
 
@@ -331,6 +332,8 @@
     <string name="crashTitle">خطا در اجرای برنامه</string>
     <string name="crashMessage">برنامه دچار خطای زیر شده است برای ارسال خطا به ما لطفا گزینه ارسال خطا را فشار دهید در غیر اینصورت با زدن بازگشت به صفحه لاگین برگردید</string>
     <string name="sendCrash">ارسال خطا</string>
+    <string name="erjaShode">ارجاع شده به</string>
+    <string name="request">درخواست</string>
 
 
 </resources>

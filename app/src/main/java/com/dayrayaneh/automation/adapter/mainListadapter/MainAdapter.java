@@ -106,6 +106,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.darsadKharidShahrestan), R.mipmap.ic_darsad_thakfif,14));
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.voicePoshtibani), R.mipmap.ic_voice_item,15));
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.ticket), R.mipmap.ic_ticket,16));
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.unDoneHokmKar), R.mipmap.ic_undonehokmkar,17));
             }
 
 

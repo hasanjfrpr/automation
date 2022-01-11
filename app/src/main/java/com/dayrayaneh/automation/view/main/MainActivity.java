@@ -43,6 +43,7 @@ import com.dayrayaneh.automation.view.pishkhanItemView.sefarashMoshtariJadid.Sef
 import com.dayrayaneh.automation.view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.ticket.TicketActivity;
+import com.dayrayaneh.automation.view.pishkhanItemView.unDoneHokmKar.UnDoneHokmKarActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.vaziatSefaresh.VaziatSefareshActivity;
 import com.dayrayaneh.automation.view.setting.SettingActivity;
 import com.google.android.material.navigation.NavigationView;
@@ -311,6 +312,9 @@ public class MainActivity extends BaseActivity implements MainAdapter.OnclickIte
                 break;
             case 16:
                 startActivity(new Intent(this, TicketActivity.class));
+                break;
+            case 17:
+                startActivity(new Intent(this, UnDoneHokmKarActivity.class));
                 break;
 
 

@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".view.pishkhanItemView.unDoneHokmKar.UnDoneHokmKarActivity"
+            android:exported="false" />
+        <activity
             android:name=".base.CrashHandlerActivity"
             android:exported="false" />
         <activity
