@@ -334,6 +334,8 @@
     <string name="sendCrash">ارسال خطا</string>
     <string name="erjaShode">ارجاع شده به</string>
     <string name="request">درخواست</string>
+    <string name="undoneHokmKar_count">تعداد حکم باز</string>
+    <string name="unDoneHokmKarDetails">جزئیات حکم کارهای باز</string>
 
 
 </resources>

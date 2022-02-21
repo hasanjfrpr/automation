@@ -60,6 +60,7 @@ public class Utils {
         PersianDateFormat format = new PersianDateFormat("Y/m/d");
         String currentDate = format.format(mDate);
 
+
         if (ConstValue.endDatePersian ==null && ConstValue.startDatePersian ==null) {
             fromDate.setText(currentDate);
             toDate.setText(currentDate);

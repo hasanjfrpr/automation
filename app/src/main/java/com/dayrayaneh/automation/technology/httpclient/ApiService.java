@@ -7,6 +7,7 @@ import com.dayrayaneh.automation.model.pishkhan.Gozareshkar.personalName.Persona
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.HokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.followers.HokmKarFollowersModel;
 import com.dayrayaneh.automation.model.pishkhan.HokmKar.request.HokmKarRequestModel;
+import com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar.Count.UnDoneHokmkarCountMode;
 import com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar.UnDoneHokmKarModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.DarsadkharidMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.darsadKharidMoshtari.details.DarsadKharidMoshtariDetailsModel;
@@ -36,7 +37,6 @@ import com.google.gson.JsonObject;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -135,7 +135,9 @@ public interface ApiService {
     @POST("Ticket/Details/{id}")
     Single<TicketDetailsModel> getTicketDetails(@Path("id") int id);
 
-    @POST("sentence/notclosed")
+    @POST("sentence/notclosedDetails")
     Single<UnDoneHokmKarModel> getUnDoneHokmKar(@Body JsonObject jsonObject);
 
+    @POST("sentence/notclosedCount")
+    Single<UnDoneHokmkarCountMode> getUndonHokmKarCount(@Body JsonObject jsonObject);
 }

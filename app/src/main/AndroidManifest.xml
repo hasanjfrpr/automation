@@ -18,6 +18,7 @@
         tools:targetApi="m">
         <activity
             android:name=".view.pishkhanItemView.unDoneHokmKar.UnDoneHokmKarActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".base.CrashHandlerActivity"

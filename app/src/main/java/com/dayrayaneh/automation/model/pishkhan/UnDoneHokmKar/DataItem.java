@@ -7,6 +7,9 @@ public class DataItem{
 	@SerializedName("Moshtari")
 	private String moshtari;
 
+	@SerializedName("DateShamsi")
+	private String dateShamsi;
+
 	@SerializedName("Serial")
 	private String serial;
 
@@ -26,10 +29,14 @@ public class DataItem{
 	private int id;
 
 	@SerializedName("Requests")
-	private Object requests;
+	private String requests;
 
 	public String getMoshtari(){
 		return moshtari;
+	}
+
+	public String getDateShamsi(){
+		return dateShamsi;
 	}
 
 	public String getSerial(){
@@ -56,7 +63,7 @@ public class DataItem{
 		return id;
 	}
 
-	public Object getRequests(){
+	public String getRequests(){
 		return requests;
 	}
 }

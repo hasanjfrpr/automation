@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/RV_pishkhan_undoneHokmKar"
+        app:layout_constraintBottom_toBottomOf="@+id/frame_undone_hokmkar"
         app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_UnDonehokmKar_sendInfo" />
 
     <com.google.android.material.button.MaterialButton
@@ -40,15 +40,11 @@
         app:layout_constraintStart_toStartOf="@+id/include7"
         app:layout_constraintTop_toBottomOf="@+id/include7" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RV_pishkhan_undoneHokmKar"
+    <FrameLayout
+        android:id="@+id/frame_undone_hokmkar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_UnDonehokmKar_sendInfo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishKhan_UnDonehokmKar_sendInfo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

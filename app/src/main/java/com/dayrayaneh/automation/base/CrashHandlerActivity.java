@@ -40,6 +40,7 @@ public class CrashHandlerActivity extends AppCompatActivity {
             setIntent.addCategory(Intent.CATEGORY_HOME);
             setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(setIntent);
+            finish();
         });
         sendCrash.setOnClickListener(view -> {
 //            Intent intent = new Intent(Intent.ACTION_SEND);

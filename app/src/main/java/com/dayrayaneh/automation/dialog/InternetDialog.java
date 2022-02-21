@@ -16,6 +16,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.MutableLiveData;
 
 import com.dayrayaneh.automation.R;
+import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.base.InternetConnection;
 import com.dayrayaneh.automation.utils.Utils;
 import com.google.android.material.button.MaterialButton;
@@ -41,6 +42,7 @@ public class InternetDialog extends DialogFragment {
 
         close.setOnClickListener(v -> {
             dismiss();
+            ConstValue.isDialogShown=false;
         });
 
         tryAgain.setOnClickListener(v -> {

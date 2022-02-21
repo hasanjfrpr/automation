@@ -57,7 +57,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.TicketView
 
          boolean[] isShow = new boolean[modelList.size()];
         for (int i = 0; i < modelList.size(); i++) {
-            isShow[i] = false;
+            isShow[i] = true;
         }
         holder.showMore.setOnClickListener(v->{
             if (isShow[position]){

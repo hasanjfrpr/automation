@@ -86,7 +86,7 @@ public class FilterTicketFragment extends BaseFragment {
         b_canceled =true;
         b_myTicket=false;
         b_currentTicket = false;
-        b_allTicket=false;
+        b_allTicket=true;
     }
 
     private void setDate(){
@@ -174,7 +174,7 @@ public class FilterTicketFragment extends BaseFragment {
         finished.setChecked(true);
         doing.setChecked(true);
         queue.setChecked(true);
-        allTicket.setChecked(false);
+        allTicket.setChecked(true);
         currentTicket.setChecked(false);
         myTicket.setChecked(false);
         stopped.setChecked(true);

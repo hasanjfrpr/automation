@@ -1,9 +1,9 @@
-package com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar;
+package com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar.Count;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class UnDoneHokmKarModel {
+public class UnDoneHokmkarCountMode{
 
 	@SerializedName("data")
 	private List<DataItem> data;

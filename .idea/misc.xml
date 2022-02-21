@@ -139,12 +139,15 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/dialog_setting_ip.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/dialog_setting_ip_voice.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_bazaryabi_detail_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_bazaryabi_main_list.xml" value="0.18645833333333334" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_details_un_done_hokm_kar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_filter_ticket.xml" value="0.25" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_gozaresh_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_gozareshkar_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_hokm_kar_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_khadamat_poshtibani_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_khadamat_poshtibani_main.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_main_un_done_hokm_kar.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_tedad_hokm_kar_detail.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_tedad_hokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/fragment_ticket_details.xml" value="0.20416666666666666" />
@@ -156,6 +159,7 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_gozareshkar_details.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_hokm_kar_detail_request.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_main_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_main_undon_hokm_kar_count.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_moshtarian.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_darsad_kharid_shahrestan.xml" value="0.20416666666666666" />
@@ -172,7 +176,7 @@
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_undonehokm_kar_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_pishkhan_vaziat_sefareshat.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_sefaresh_moshtari_jadid.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_ticket_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_ticket_details.xml" value="0.25" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/item_ticket_main.xml" value="0.33" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/layout_dialog_voice.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/jafarpoor/Desktop/Automation2/app/src/main/res/layout/layout_empty.xml" value="0.20416666666666666" />

@@ -58,6 +58,7 @@ public class BazaryabiActivity extends BaseActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +76,7 @@ public class BazaryabiActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         fromDate = findViewById(R.id.TV_fromDate);
         toDate = findViewById(R.id.Tv_toDate);
-       btn_back = findViewById(R.id.IV_back_item_pishkhan);
+     btn_back = findViewById(R.id.IV_back_item_pishkhan);
         tedadKol = findViewById(R.id.Tv_bazaryabi_tedadKolBazaryabi);
         tedadTiger = findViewById(R.id.Tv_bazaryabi_tedadKolTiger);
         tedadNovin = findViewById(R.id.Tv_bazaryabi_tedadKolNovin);
@@ -92,6 +93,7 @@ public class BazaryabiActivity extends BaseActivity {
     }
 
     private void event() {
+
         ///onclick
         btn_back.setOnClickListener(v -> {
 

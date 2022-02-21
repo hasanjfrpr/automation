@@ -191,7 +191,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="start|center_vertical"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/ic_arrow_drop"
+                    app:srcCompat="@drawable/ic_top_arrow"
                     app:tint="@color/black" />
             </FrameLayout>
 
@@ -202,7 +202,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:paddingEnd="16dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="@color/graylight"
             android:animateLayoutChanges="true"
             android:id="@+id/frame_ticketDetail_more"

@@ -36,7 +36,11 @@ public class BaseActivity extends AppCompatActivity  {
         internetConnection.connectedLiveData.observe(this,connected->{
             if (!connected){
 
-                dialog.show(getSupportFragmentManager() , "");
+                if(!ConstValue.isDialogShown){
+                    dialog.show(getSupportFragmentManager() , "");
+                    ConstValue.isDialogShown = true;
+                }
+
             }
         });
 
@@ -61,10 +65,9 @@ public class BaseActivity extends AppCompatActivity  {
     }
 
     @Override
-    protected void onPause() {
+    protected void onStop() {
         unregisterReceiver(internetConnection);
-
-        super.onPause();
+        super.onStop();
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.dayrayaneh.automation.adapter.pishkhan.UndoneHokmKar;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,25 +17,16 @@ import com.dayrayaneh.automation.model.pishkhan.UnDoneHokmKar.DataItem;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class UnDoneHokmKarAdapter extends RecyclerView.Adapter<UnDoneHokmKarAdapter.UndoneHokmkarViewHolder> {
 
     private Context context;
     private List<DataItem> itemList = new ArrayList<>();
-    private List<Double> hokmKarNumberList = new ArrayList<>();
-    private List<Double> sameList = new ArrayList<>();
-    double j = 1;
-    double i;
 
     public UnDoneHokmKarAdapter(Context context, List<DataItem> itemList) {
         this.context = context;
         this.itemList = itemList;
-        for (DataItem d :
-                itemList) {
-            hokmKarNumberList.add(d.getHokmNumber());
-        }
-        j = itemList.get(0).getHokmNumber();
+
     }
 
     @NonNull
@@ -49,22 +39,10 @@ public class UnDoneHokmKarAdapter extends RecyclerView.Adapter<UnDoneHokmKarAdap
     public void onBindViewHolder(@NonNull UndoneHokmkarViewHolder holder, int position) {
 
 
-//        for (int i = 0; i < hokmKarNumberList.size(); i++) {
-//            for (int j = i+1; j < hokmKarNumberList.size(); j++) {
-//                if (hokmKarNumberList.get(i) == hokmKarNumberList.get(j)){
-//                    sameList.add(hokmKarNumberList.get(i));
-//                }
-//            }
-//
-//        }
-        i =itemList.get(position).getHokmNumber();
 
-        if (i != j){
-            Random rnd = new Random();
-            int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-            holder.linearLayout.setBackgroundColor(color);
-            j = i;
-        }
+        if (position %2 == 0) holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.gray));
+        else holder.linearLayout.setBackgroundColor(context.getResources().getColor(R.color.whiteYellow));
+
 
         holder.khadamatType.setText(itemList.get(position).getKhadamatType());
         holder.sabtKonande.setText(itemList.get(position).getSabtKonande());
@@ -73,11 +51,13 @@ public class UnDoneHokmKarAdapter extends RecyclerView.Adapter<UnDoneHokmKarAdap
         holder.moshtari.setText(itemList.get(position).getMoshtari());
         holder.hokmNum.setText(String.valueOf(itemList.get(position).getHokmNumber()));
         holder.request.setText(String.valueOf(itemList.get(position).getRequests()));
+        holder.date.setText(itemList.get(position).getDateShamsi());
 
         boolean[] show = new boolean[itemList.size()];
         for (int i = 0; i < itemList.size(); i++) {
-            show[i] = false;
+            show[i] = true;
         }
+      
 
         holder.imageView.setOnClickListener(view -> {
             if (show[position]) {
@@ -107,7 +87,7 @@ public class UnDoneHokmKarAdapter extends RecyclerView.Adapter<UnDoneHokmKarAdap
 
     class UndoneHokmkarViewHolder extends RecyclerView.ViewHolder {
 
-        TextView hokmNum, sabtKonande, erjaShode, moshtari, serial, khadamatType, request;
+        TextView hokmNum, sabtKonande, erjaShode, moshtari, serial, khadamatType, request,date;
         LinearLayout linearLayout;
         FrameLayout frameLayout;
         ImageView imageView;
@@ -119,6 +99,7 @@ public class UnDoneHokmKarAdapter extends RecyclerView.Adapter<UnDoneHokmKarAdap
             sabtKonande = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_sabtKonande);
             erjaShode = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_erjashodeBe);
             moshtari = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_moshtari);
+            date = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_date);
             serial = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_serial);
             khadamatType = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmKar_kar_noeKhadamat);
             request = itemView.findViewById(R.id.TV_item_pishkhan_undoneHokmkar_request);

@@ -21,6 +21,10 @@ public class ConstValue {
     public static int companyId = -1;
 
 
+    ///for check dialog is shown or not
+    public static boolean isDialogShown=false;
+
+
     ///boolean for show or hide item main list in main activity
     public static boolean menuIsOpen=false;
 
