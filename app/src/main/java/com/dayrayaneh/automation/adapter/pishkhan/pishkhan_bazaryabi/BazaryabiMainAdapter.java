@@ -51,7 +51,7 @@ public class BazaryabiMainAdapter extends RecyclerView.Adapter<BazaryabiMainAdap
 
 
         holder.personalName.setText(bazaryabiMainModelList.get(position).getPersonel());
-        holder.sellNumber.setText(String.valueOf(bazaryabiMainModelList.get(position).getProformaCount()));
+        holder.sellNumber.setText(String.valueOf(bazaryabiMainModelList.get(position).getProformaCount())+" / "+String.valueOf(bazaryabiMainModelList.get(position).getDetailsCount()));
 
         holder.itemView.setOnClickListener(v -> {
             event.onclickItemMainBazaryabi(bazaryabiMainModelList.get(position).getPersonCode() , bazaryabiMainModelList.get(position).getPersonel());

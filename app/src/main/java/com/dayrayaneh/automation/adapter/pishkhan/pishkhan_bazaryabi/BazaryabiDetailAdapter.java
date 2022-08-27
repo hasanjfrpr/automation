@@ -1,13 +1,16 @@
 package com.dayrayaneh.automation.adapter.pishkhan.pishkhan_bazaryabi;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dayrayaneh.automation.R;
@@ -20,10 +23,14 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     private Context context;
     private List<DataItem> bazaryabiDetailModelList = new ArrayList<>();
+    public EventClickPygiri eventClickPygiri;
 
     public BazaryabiDetailAdapter(Context context, List<DataItem> bazaryabiDetailModelList) {
         this.context = context;
         this.bazaryabiDetailModelList = bazaryabiDetailModelList;
+    }
+    public BazaryabiDetailAdapter() {
+
     }
 
     @NonNull
@@ -34,7 +41,7 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BazaryabiDetailViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BazaryabiDetailViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final boolean[] isOpen = new boolean[bazaryabiDetailModelList.size()];
 
         for (int i = 0; i < bazaryabiDetailModelList.size(); i++) {
@@ -50,6 +57,14 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
         holder.status.setText(bazaryabiDetailModelList.get(position).getVaziat());
         holder.phoneNumber.setText(bazaryabiDetailModelList.get(position).getTelNumber());
         holder.serviceType.setText(bazaryabiDetailModelList.get(position).getKhadamatType());
+        holder.paygiri.setText(String.valueOf(bazaryabiDetailModelList.get(position).getDetailsCount()));
+
+        holder.itemPaygiriClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                eventClickPygiri.onClick(bazaryabiDetailModelList.get(position).getProformaCode());
+            }
+        });
 
 
         holder.description.setVisibility(View.VISIBLE);
@@ -100,8 +115,9 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     public class BazaryabiDetailViewHolder extends RecyclerView.ViewHolder{
 
-        TextView serviceType , clientName , phoneNumber , status , description , productType;
+        TextView serviceType , clientName , phoneNumber , status , description , productType,paygiri;
         ImageView showMore;
+        CardView itemPaygiriClick;
 
         public BazaryabiDetailViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -113,8 +129,14 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
             description = itemView.findViewById(R.id.TV_item_bazaryabi_detail_description);
             productType = itemView.findViewById(R.id.TV_item_bazaryabi_detail_productType);
             showMore = itemView.findViewById(R.id.IV_item_bazaryabi_detail_showMore);
+            paygiri = itemView.findViewById(R.id.TV_item_bazaryabi_detail_paygiri);
+            itemPaygiriClick = itemView.findViewById(R.id.linear_paygiri_item);
 
         }
+    }
+
+    public interface EventClickPygiri{
+        void onClick(int id);
     }
 
 }

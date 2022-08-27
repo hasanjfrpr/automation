@@ -32,7 +32,8 @@
           android:textSize="16sp"
           android:textStyle="bold"
           android:layout_marginEnd="16dp"
-          android:text="@string/tedadbazaryabi"/>
+          android:text="تعدادبازاریابی/تعدادپیگیری"/>
+
    </FrameLayout>
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/RV_bazaryabi_main_list"

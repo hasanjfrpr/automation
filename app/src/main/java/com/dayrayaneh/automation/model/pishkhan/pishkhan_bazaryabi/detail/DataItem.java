@@ -25,6 +25,12 @@ public class DataItem{
 	@SerializedName("NueMahsol")
 	private String nueMahsol;
 
+	@SerializedName("DetailsCount")
+	private int detailsCount;
+
+	@SerializedName("ProformaCode")
+	private int proformaCode;
+
 	public String getMoshtari(){
 		return moshtari;
 	}
@@ -51,5 +57,13 @@ public class DataItem{
 
 	public String getNueMahsol(){
 		return nueMahsol;
+	}
+
+	public int getDetailsCount(){
+		return detailsCount;
+	}
+
+	public int getProformaCode(){
+		return proformaCode;
 	}
 }

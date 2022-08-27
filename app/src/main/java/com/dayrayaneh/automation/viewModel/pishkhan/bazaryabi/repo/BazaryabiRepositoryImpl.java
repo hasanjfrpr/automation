@@ -3,6 +3,7 @@ package com.dayrayaneh.automation.viewModel.pishkhan.bazaryabi.repo;
 
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
+import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.paygiri.PaygiriModel;
 import com.dayrayaneh.automation.technology.httpclient.ApiInstance;
 import com.dayrayaneh.automation.technology.httpclient.ApiService;
 import com.google.gson.JsonObject;
@@ -31,5 +32,12 @@ public class BazaryabiRepositoryImpl implements BazaryabiRepository{
         jsonObject.addProperty("endDate" , toDate+" 23:59:59.000");
         jsonObject.addProperty("UserCode" , personalCode);
         return apiService.getBazaryabiDetail(jsonObject);
+    }
+
+    @Override
+    public Single<PaygiriModel> getPaygiri(int id) {
+        jsonObject = new JsonObject();
+        jsonObject.addProperty("proformaCode" , id);
+        return apiService.getPaygiri(jsonObject);
     }
 }

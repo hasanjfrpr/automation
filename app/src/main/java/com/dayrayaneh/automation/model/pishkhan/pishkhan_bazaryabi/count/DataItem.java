@@ -19,11 +19,15 @@ public class DataItem implements Parcelable {
 	@SerializedName("PersonCode")
 	private int personCode;
 
+	@SerializedName("DetailsCount")
+	private int detailsCount;
+
 	protected DataItem(Parcel in) {
 		proformaCount = in.readInt();
 		company = in.readInt();
 		personel = in.readString();
 		personCode = in.readInt();
+		detailsCount = in.readInt();
 	}
 
 	public static final Creator<DataItem> CREATOR = new Creator<DataItem>() {
@@ -54,6 +58,10 @@ public class DataItem implements Parcelable {
 		return personCode;
 	}
 
+	public int getDetailsCount(){
+		return detailsCount;
+	}
+
 	@Override
 	public int describeContents() {
 		return 0;
@@ -65,5 +73,6 @@ public class DataItem implements Parcelable {
 		dest.writeInt(company);
 		dest.writeString(personel);
 		dest.writeInt(personCode);
+		dest.writeInt(detailsCount);
 	}
 }

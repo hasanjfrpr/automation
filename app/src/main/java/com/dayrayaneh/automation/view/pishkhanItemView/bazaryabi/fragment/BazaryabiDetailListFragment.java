@@ -23,7 +23,7 @@ import com.dayrayaneh.automation.base.BaseFragment;
 import com.dayrayaneh.automation.base.ConstValue;
 import com.dayrayaneh.automation.viewModel.pishkhan.bazaryabi.BazaryabiViewModel;
 
-public class BazaryabiDetailListFragment extends BaseFragment {
+public class BazaryabiDetailListFragment extends BaseFragment implements BazaryabiDetailAdapter.EventClickPygiri {
 
     private RecyclerView recyclerView;
     private ImageView btn_back_to_main;
@@ -61,7 +61,8 @@ public class BazaryabiDetailListFragment extends BaseFragment {
         title  = view.findViewById(R.id.TV_bazaryabi_detail_title);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         sharedPreferences = getContext().getSharedPreferences("date", Context.MODE_PRIVATE);
-
+        adapter = new BazaryabiDetailAdapter();
+        adapter.eventClickPygiri = this;
 
     }
     private void setTitleAndPersonalNameInView(){
@@ -79,6 +80,7 @@ public class BazaryabiDetailListFragment extends BaseFragment {
         bazaryabiViewModel.bazaryabiDetailLiveData.observe(this, bazaryabiDetailModel -> {
             showEmpty.setValue(false);
             adapter = new BazaryabiDetailAdapter(getContext(), bazaryabiDetailModel.getData());
+            adapter.eventClickPygiri = this;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setAdapter(adapter);
 
@@ -87,7 +89,11 @@ public class BazaryabiDetailListFragment extends BaseFragment {
     }
 
 
-
-
-
+    @Override
+    public void onClick(int id) {
+        getActivity().getSupportFragmentManager().beginTransaction().addToBackStack("s")
+                .hide(this)
+                .add(R.id.FrameLayout_bazaryabi,new PaygiriFragment(id),"paygiriFragment")
+                .commit();
+    }
 }

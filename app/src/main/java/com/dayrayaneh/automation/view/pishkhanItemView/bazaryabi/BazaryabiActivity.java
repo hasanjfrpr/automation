@@ -87,7 +87,6 @@ public class BazaryabiActivity extends BaseActivity {
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         sharedPreferences = getSharedPreferences("date", MODE_PRIVATE);
 
-
         getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
                 .commit();
     }
@@ -123,12 +122,24 @@ public class BazaryabiActivity extends BaseActivity {
 
         sendInfo.setOnClickListener(v -> {
             BazaryabiMainListFragment mainListFragment = (BazaryabiMainListFragment) getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment");
-            if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-                getSupportFragmentManager().popBackStack();
-                mainListFragment.viewModel();
-            }else{
-                mainListFragment.viewModel();
-            }
+   //         if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
+//                getSupportFragmentManager().popBackStack();
+//                mainListFragment.viewModel();
+//            }else if(getSupportFragmentManager().findFragmentByTag("paygiriFragment") !=null){
+//
+//                for (int i=0 ; i<2 ; i++){
+//                    getSupportFragmentManager().popBackStack();
+//                }
+//                mainListFragment.viewModel();
+//            }else {
+//                mainListFragment.viewModel();
+//            }
+
+            for (int i=0 ; i<getSupportFragmentManager().getBackStackEntryCount() ; i++){
+                    getSupportFragmentManager().popBackStack();
+                }
+            mainListFragment.viewModel();
+
 
         });
 

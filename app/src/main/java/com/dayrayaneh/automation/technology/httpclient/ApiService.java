@@ -24,6 +24,7 @@ import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.Khadam
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
+import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.paygiri.PaygiriModel;
 import com.dayrayaneh.automation.model.pishkhan.sefareshMoshtariJadid.SefareshMoshtariModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.TamdidGharardadModel;
 import com.dayrayaneh.automation.model.pishkhan.tamdidQarardad.compare.TamdidGharardadCompareModel;
@@ -140,4 +141,7 @@ public interface ApiService {
 
     @POST("sentence/notclosedCount")
     Single<UnDoneHokmkarCountMode> getUndonHokmKarCount(@Body JsonObject jsonObject);
+
+    @POST("marketing/getproformaDetails")
+    Single<PaygiriModel> getPaygiri(@Body JsonObject jsonObject);
 }
