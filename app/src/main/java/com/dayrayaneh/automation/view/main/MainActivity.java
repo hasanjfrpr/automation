@@ -39,6 +39,7 @@ import com.dayrayaneh.automation.view.pishkhanItemView.foroshSakhtAfzar.ForooshS
 import com.dayrayaneh.automation.view.pishkhanItemView.gozareshKar.GozareshKarActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.hokmKarha.HokmKarhaActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.khadamatPoshtibani.KhadamatPoshtibaniActivity;
+import com.dayrayaneh.automation.view.pishkhanItemView.lidha.LidhaActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.sefarashMoshtariJadid.SefareshMoshtariJadidActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.tamdidGharardad.TamdidGharardadActivity;
 import com.dayrayaneh.automation.view.pishkhanItemView.tedadHokmKarha.TedadHokmKarhaActivity;
@@ -315,6 +316,9 @@ public class MainActivity extends BaseActivity implements MainAdapter.OnclickIte
                 break;
             case 17:
                 startActivity(new Intent(this, UnDoneHokmKarActivity.class));
+                break;
+            case 18:
+                startActivity(new Intent(this , LidhaActivity.class));
                 break;
 
 

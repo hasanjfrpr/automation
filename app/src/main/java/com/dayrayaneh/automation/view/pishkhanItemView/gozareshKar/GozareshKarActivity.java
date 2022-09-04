@@ -246,12 +246,13 @@ public class GozareshKarActivity extends BaseActivity {
     public void onBackPressed() {
         if (getSupportFragmentManager().findFragmentByTag("detailGozareshKar") != null){
             getSupportFragmentManager().popBackStack();
+
         }else{
+
             super.onBackPressed();
         }
 
-        personIdHelp = 92;
-        personId = 92;
+
 
     }
 }

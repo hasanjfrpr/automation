@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <HorizontalScrollView
+
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/item_back_lid"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:weightSum="17.75">
+
+
+            <TextView
+                android:id="@+id/TV_lid_item_nahveAshenaei"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.75"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/nahveAshenaei"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_areFactor"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/areFactor"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_present"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/present"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_darEntezarTaeedMoshtari"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/darEntezarTaeedMoshtari"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_paygiryTelfoni"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/paygiryTelfoni"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_paygiryNashode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/paygiryNashode"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_KharidAzsherkatDigar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/KharidAzsherkatDigar"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_demo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/demo"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_adamMojoodi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/adamMojoodi"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_moshtariQayrMortabet"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/moshtariQayrMortabet"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_monjarBeforoosh"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/monjarBeforoosh"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_monsarefAzKharid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/monsarefAzKharid"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="?dividerColor" />
+
+            <TextView
+                android:id="@+id/TV_lid_item_tedadKol"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="6dp"
+                tools:text="@string/tedadKol"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

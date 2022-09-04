@@ -1,113 +1,100 @@
-package com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi;
+package com.dayrayaneh.automation.view.pishkhanItemView.lidha;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dayrayaneh.automation.R;
+import com.dayrayaneh.automation.adapter.pishkhan.lid.LidAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
-import com.dayrayaneh.automation.base.Keys;
-import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiDetailListFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiMainListFragment;
 import com.dayrayaneh.automation.viewModel.pishkhan.bazaryabi.BazaryabiViewModel;
+import com.dayrayaneh.automation.viewModel.pishkhan.lidha.LidhaViewModel;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.type.DateTime;
 import com.mohamadamin.persianmaterialdatetimepicker.date.DatePickerDialog;
-import com.mohamadamin.persianmaterialdatetimepicker.utils.PersianCalendar;
-
-import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.Console;
 
 import saman.zamani.persiandate.PersianDate;
 import saman.zamani.persiandate.PersianDateFormat;
 
-public class BazaryabiActivity extends BaseActivity {
+public class LidhaActivity extends BaseActivity {
+
 
     private Toolbar toolbar;
-    private TextView fromDate, toDate, tedadKol, tedadTiger, tedadNovin, company;
+    private TextView fromDate, toDate,  company;
     private ImageView btn_back;
     public View loadingView;
     private MaterialCardView selectCompany;
     private int checkItems=2;
     private MaterialButton sendInfo;
-    private String startDate ;
-    private String endDate;
-    private String startDatePersian ;
-    private String endDatePersian;
-    private BazaryabiViewModel bazaryabiViewModel;
+    private LidhaViewModel lidhaViewModel;
     public static int companyId = -1;
+    private LidAdapter adapter;
     private SharedPreferences sharedPreferences;
-
+    private RecyclerView recyclerView;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bazaryabi);
+        setContentView(R.layout.activity_lidha);
         init();
-        setData();
         event();
-
-
-
+        setData();
+        viewModel();
     }
-
 
     private void init() {
         toolbar = findViewById(R.id.toolbar_item_pishkhan);
-        toolbar.setTitle(getResources().getString(R.string.lidha));
+        toolbar.setTitle(getResources().getString(R.string.bazaryabi));
         setSupportActionBar(toolbar);
         fromDate = findViewById(R.id.TV_fromDate);
         toDate = findViewById(R.id.Tv_toDate);
-     btn_back = findViewById(R.id.IV_back_item_pishkhan);
-        tedadKol = findViewById(R.id.Tv_bazaryabi_tedadKolBazaryabi);
-        tedadTiger = findViewById(R.id.Tv_bazaryabi_tedadKolTiger);
-        tedadNovin = findViewById(R.id.Tv_bazaryabi_tedadKolNovin);
-        loadingView = findViewById(R.id.loading_bazaryabi);
-        selectCompany = findViewById(R.id.Mcv_bazaryabi_select_company);
-        company = findViewById(R.id.TV_Bazaryabi_select_company);
-        sendInfo = findViewById(R.id.Mbtn_pishkhan_bazaryabi_saveInfo);
-        bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
+        btn_back = findViewById(R.id.IV_back_item_pishkhan);
+        loadingView = findViewById(R.id.loading_Lidha);
+        selectCompany = findViewById(R.id.Mcv_Lidha_select_company);
+        company = findViewById(R.id.TV_Lidha_select_company);
+        sendInfo = findViewById(R.id.Mbtn_pishkhan_Lidha_saveInfo);
+        recyclerView = findViewById(R.id.RV_pishKhan_lid);
+        lidhaViewModel = new ViewModelProvider(this).get(LidhaViewModel.class);
         sharedPreferences = getSharedPreferences("date", MODE_PRIVATE);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout_bazaryabi, new BazaryabiMainListFragment(companyId),"bazaryabiMainFragment")
-                .commit();
+    }
+
+    private void viewModel(){
+        loadingView.setVisibility(View.VISIBLE);
+        lidhaViewModel.getLid(ConstValue.startDate ,ConstValue.endDate ,companyId );
+        lidhaViewModel.lidModelMutableLiveData.observe(this , lidModel -> {
+            loadingView.setVisibility(View.GONE);
+            adapter = new LidAdapter(lidModel , this);
+            recyclerView.setAdapter(adapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this ,RecyclerView.VERTICAL , false));
+
+        });
     }
 
     private void event() {
 
         ///onclick
-        btn_back.setOnClickListener(v -> {
 
-            if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-                getSupportFragmentManager().popBackStack();
-            }else if (getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment") !=null){
-                finish();
-            }else{
-                super.onBackPressed();
-            }
-
+        btn_back.setOnClickListener(view -> {
+            finish();
         });
 
 
@@ -116,36 +103,10 @@ public class BazaryabiActivity extends BaseActivity {
 
         });
 
-        BazaryabiDetailListFragment.showEmpty.observe(this,showEmpty->{
-            if (showEmpty){
-                loadingView.setVisibility(View.VISIBLE);
-            }else {
-                loadingView.setVisibility(View.GONE);
-            }
-        });
 
         sendInfo.setOnClickListener(v -> {
-           // loadingView.setVisibility(View.VISIBLE);
-            BazaryabiMainListFragment mainListFragment = (BazaryabiMainListFragment) getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment");
-   //         if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-//                getSupportFragmentManager().popBackStack();
-//                mainListFragment.viewModel();
-//            }else if(getSupportFragmentManager().findFragmentByTag("paygiriFragment") !=null){
-//
-//                for (int i=0 ; i<2 ; i++){
-//                    getSupportFragmentManager().popBackStack();
-//                }
-//                mainListFragment.viewModel();
-//            }else {
-//                mainListFragment.viewModel();
-//            }
-
-            for (int i=0 ; i<getSupportFragmentManager().getBackStackEntryCount() ; i++){
-                    getSupportFragmentManager().popBackStack();
-                }
-            mainListFragment.viewModel();
-
-
+            loadingView.setVisibility(View.VISIBLE);
+            viewModel();
         });
 
 
@@ -154,7 +115,6 @@ public class BazaryabiActivity extends BaseActivity {
 
 
     }
-
     private void setData() {
         ///set default date
         PersianDate mDate = new PersianDate();
@@ -226,7 +186,6 @@ public class BazaryabiActivity extends BaseActivity {
 
 
     }
-
     private void selectCompanyDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -254,54 +213,5 @@ public class BazaryabiActivity extends BaseActivity {
             }
         });
         builder.create().show();
-    }
-//
-////    private void viewModel(){
-////        bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate, ConstValue.endDate , companyId);
-////        loadingView.setVisibility(View.VISIBLE);
-////        bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
-////            if (bazaryabiMainModel.getStatus().isIsError()){
-////                Snackbar.make(this,btn_back,getResources().getString(R.string.unknowErro) , Snackbar.LENGTH_LONG);
-////            }else {
-////                EventBus.getDefault().post(bazaryabiMainModel);
-////                loadingView.setVisibility(View.GONE);
-////                addAmarBazaryabi(bazaryabiMainModel);
-////            }
-////        });
-////
-////
-////    }
-//
-//    private void addAmarBazaryabi(BazaryabiMainModel bazaryabiMainModel){
-//         int tedadKolTiger = 0;
-//         int tedadKolNovin = 0;
-//
-//        for (int i = 0; i < bazaryabiMainModel.getData().size(); i++) {
-//            if (bazaryabiMainModel.getData().get(i).getCompany() == 0){
-//                tedadKolNovin += bazaryabiMainModel.getData().get(i).getProformaCount();
-//            }else {
-//                tedadKolTiger += bazaryabiMainModel.getData().get(i).getProformaCount();
-//            }
-//        }
-//        tedadKol.setText(String.valueOf(tedadKolNovin+tedadKolTiger));
-//        tedadTiger.setText(String.valueOf(tedadKolTiger));
-//        tedadNovin.setText(String.valueOf(tedadKolNovin));
-//    }
-
-
-
-
-    @Override
-    public void onBackPressed() {
-
- if (getSupportFragmentManager().findFragmentByTag("bazaryabiDetailFragment") !=null){
-            getSupportFragmentManager().popBackStack();
-        }else if (getSupportFragmentManager().findFragmentByTag("bazaryabiMainFragment") !=null){
-            finish();
-
-        }else{
-     super.onBackPressed();
-
- }
     }
 }

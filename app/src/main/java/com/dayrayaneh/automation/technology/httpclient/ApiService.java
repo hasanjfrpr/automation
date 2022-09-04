@@ -22,6 +22,7 @@ import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.compare.Foroos
 import com.dayrayaneh.automation.model.pishkhan.forooshSakhtAfzar.productCategories.ProductCategories;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.detail.KhadamatPoshtibaniDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.khadamatPoshtibani.mian.KhadamatPoshtibaniMainModel;
+import com.dayrayaneh.automation.model.pishkhan.lidModel.LidModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.count.BazaryabiMainModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail.BazaryabiDetailModel;
 import com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.paygiri.PaygiriModel;
@@ -144,4 +145,7 @@ public interface ApiService {
 
     @POST("marketing/getproformaDetails")
     Single<PaygiriModel> getPaygiri(@Body JsonObject jsonObject);
+
+    @POST("marketing/getProformaLeads")
+    Single<LidModel> getLid(@Body JsonObject jsonObject);
 }

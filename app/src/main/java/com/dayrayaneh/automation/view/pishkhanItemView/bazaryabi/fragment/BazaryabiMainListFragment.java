@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,7 +38,9 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     private BazaryabiMainAdapter adapter;
     private BazaryabiViewModel bazaryabiViewModel ;
     private  View showEmpty;
+    private  View loading_bazaryabi;
     private int companyId;
+    BazaryabiActivity activity;
 
     public BazaryabiMainListFragment(int companyId) {
         this.companyId = companyId;
@@ -62,6 +65,7 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
         recyclerView = view.findViewById(R.id.RV_bazaryabi_main_list);
         bazaryabiViewModel = new ViewModelProvider(this).get(BazaryabiViewModel.class);
         showEmpty = view.findViewById(R.id.showEmpty);
+        loading_bazaryabi = getActivity().findViewById(R.id.loading_bazaryabi);
 
     }
 
@@ -77,8 +81,10 @@ public class BazaryabiMainListFragment extends BaseFragment implements Bazaryabi
     }
 
     public void viewModel(){
+        loading_bazaryabi.setVisibility(View.VISIBLE);
         bazaryabiViewModel.getBazarYabiMainCount(ConstValue.startDate , ConstValue.endDate , BazaryabiActivity.companyId);
         bazaryabiViewModel.bazaryabiMainLiveData.observe(this,bazaryabiMainModel -> {
+                loading_bazaryabi.setVisibility(View.GONE);
             if (bazaryabiMainModel.getData().size() < 1){
                 showEmpty.setVisibility(View.VISIBLE);
             }else {

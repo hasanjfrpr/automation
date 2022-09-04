@@ -12,6 +12,11 @@
       android:layout_width="match_parent"
       layout="@layout/layout_empty"
       android:visibility="gone"/>
+   <include layout="@layout/loading_layout"
+       android:id="@+id/showLoadings"
+       android:visibility="gone"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent"/>
 
    <FrameLayout
        android:layout_width="match_parent"

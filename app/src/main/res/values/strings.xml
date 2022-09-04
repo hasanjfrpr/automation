@@ -39,6 +39,7 @@
     <string name="khadamatPoshtibani">خدمات پشتیبانی</string>
     <string name="hokmKarha">حکم کارها</string>
     <string name="bazaryabi">بازاریابی</string>
+    <string name="lidha">گزارش لیدها</string>
     <string name="darsadKharidMoshtari">درصد خرید مشتری</string>
     <string name="voicePoshtibani">مکالمات</string>
     <string name="ticket">تیکت ها</string>
@@ -201,6 +202,20 @@
     <string name="mablaqSefaresh">مبلغ سفارش</string>
     <string name="tarikhSefaresh">تاریخ سفارش </string>
     <string name="daste">دسته</string>
+
+    <string name="nahveAshenaei">نحوه آشنایی</string>
+    <string name="areFactor">ارائه فاکتور</string>
+    <string name="present">پرزنت</string>
+    <string name="darEntezarTaeedMoshtari">درانتظار مشتری</string>
+    <string name="paygiryTelfoni">پیگیری تلفنی</string>
+    <string name="paygiryNashode">پیگیری نشده</string>
+    <string name="KharidAzsherkatDigar">خرید از شرکت دیگر</string>
+    <string name="demo">دمو</string>
+    <string name="adamMojoodi">عدم موجودی</string>
+    <string name="moshtariQayrMortabet">مشتری غیر مرتبط</string>
+    <string name="monjarBeforoosh">منجر به فروش</string>
+    <string name="monsarefAzKharid">منصرف از خرید</string>
+    <string name="jedadKol">تعداد کل</string>
 
 
     <string name="time"> زمان</string>

@@ -31,11 +31,6 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fillViewport="true">
 
 
     <LinearLayout
@@ -146,10 +141,9 @@
         android:id="@+id/RV_pishKhan_darsadKharidMoshtari_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
         />
 
     </LinearLayout>
-    </HorizontalScrollView>
+
 
 </LinearLayout>

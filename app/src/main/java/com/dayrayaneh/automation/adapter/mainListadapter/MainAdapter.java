@@ -85,6 +85,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
             if (ConstValue.accessItemIdList.contains(3937) || ConstValue.isAdminLis.contains(1)) {
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.bazaryabi), R.mipmap.ic_marketing,2));
             }
+            if (ConstValue.accessItemIdList.contains(3937) || ConstValue.isAdminLis.contains(1)) {
+                subList.add(new PishKhanModel(context.getResources().getString(R.string.lidha), R.mipmap.ic_lidha,18));
+            }
             if (ConstValue.accessItemIdList.contains(1904) || ConstValue.isAdminLis.contains(1)) {
                 subList.add(new PishKhanModel(context.getResources().getString(R.string.khadamatPoshtibani), R.mipmap.ic_poshtibani,3));
             }

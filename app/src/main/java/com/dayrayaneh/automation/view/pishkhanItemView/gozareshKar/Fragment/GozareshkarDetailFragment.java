@@ -80,7 +80,6 @@ public class GozareshkarDetailFragment extends BaseFragment {
 
         back.setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().popBackStack();
-
         });
     }
 
