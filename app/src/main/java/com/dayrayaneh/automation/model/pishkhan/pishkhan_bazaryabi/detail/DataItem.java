@@ -2,68 +2,100 @@ package com.dayrayaneh.automation.model.pishkhan.pishkhan_bazaryabi.detail;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataItem{
+public class DataItem {
 
-	@SerializedName("Moshtari")
-	private String moshtari;
 
-	@SerializedName("Description")
-	private String description;
+    @SerializedName("Moshtari")
+    private String moshtari;
 
-	@SerializedName("FullName")
-	private String fullName;
+    @SerializedName("Description")
+    private String description;
 
-	@SerializedName("khadamatType")
-	private String khadamatType;
+    @SerializedName("FullName")
+    private String fullName;
 
-	@SerializedName("TelNumber")
-	private String telNumber;
+    @SerializedName("khadamatType")
+    private String khadamatType;
 
-	@SerializedName("Vaziat")
-	private String vaziat;
+    @SerializedName("TelNumber")
+    private String telNumber;
 
-	@SerializedName("NueMahsol")
-	private String nueMahsol;
+    @SerializedName("Vaziat")
+    private String vaziat;
 
-	@SerializedName("DetailsCount")
-	private int detailsCount;
+    @SerializedName("NueMahsol")
+    private String nueMahsol;
 
-	@SerializedName("ProformaCode")
-	private int proformaCode;
+    @SerializedName("DetailsCount")
+    private int detailsCount;
 
-	public String getMoshtari(){
-		return moshtari;
-	}
+    @SerializedName("ProformaCode")
+    private int proformaCode;
 
-	public String getDescription(){
-		return description;
-	}
+    @SerializedName("Date")
+    private String date;
 
-	public String getFullName(){
-		return fullName;
-	}
+    @SerializedName("Golden")
+    private boolean golden;
 
-	public String getKhadamatType(){
-		return khadamatType;
-	}
+    @SerializedName("Today")
+    private boolean today;
 
-	public String getTelNumber(){
-		return telNumber;
-	}
+    @SerializedName("New")
+    private boolean new_;
 
-	public String getVaziat(){
-		return vaziat;
-	}
 
-	public String getNueMahsol(){
-		return nueMahsol;
-	}
+    public String getMoshtari() {
+        return moshtari;
+    }
 
-	public int getDetailsCount(){
-		return detailsCount;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public int getProformaCode(){
-		return proformaCode;
-	}
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getKhadamatType() {
+        return khadamatType;
+    }
+
+    public String getTelNumber() {
+        return telNumber;
+    }
+
+    public String getVaziat() {
+        return vaziat;
+    }
+
+    public String getNueMahsol() {
+        return nueMahsol;
+    }
+
+
+    public int getDetailsCount() {
+        return detailsCount;
+    }
+
+    public int getProformaCode() {
+        return proformaCode;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public boolean isGolden() {
+        return golden;
+    }
+
+    public boolean isToday() {
+        return today;
+    }
+
+    public boolean isNew_() {
+        return new_;
+    }
+
 }

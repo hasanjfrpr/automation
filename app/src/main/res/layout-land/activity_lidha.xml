@@ -18,6 +18,7 @@
         android:id="@+id/include"
         layout="@layout/custom_toolbar_for_item_pishkhan"
         app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +29,7 @@
         android:background="?selectableItemBackground"
         android:clickable="true"
         app:cardCornerRadius="0dp"
+        android:visibility="gone"
         android:backgroundTint="@color/yellow"
         app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,19 +77,12 @@
         android:layout_height="wrap_content"
         android:text="ثبت و بررسی"
         app:cornerRadius="12dp"
+        android:visibility="gone"
         android:textColor="?colorOnPrimary"
         app:layout_constraintEnd_toEndOf="@+id/Mcv_Lidha_select_company"
         app:layout_constraintStart_toStartOf="@+id/Mcv_Lidha_select_company"
         app:layout_constraintTop_toBottomOf="@+id/Mcv_Lidha_select_company" />
 
-    <HorizontalScrollView
-
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mbtn_pishkhan_Lidha_saveInfo"
-        tools:context=".view.pishkhanItemView.darsadKharidShahrestanha.DarsadKharidShahrestanDetailActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -336,6 +331,6 @@
                 />
 
         </LinearLayout>
-    </HorizontalScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

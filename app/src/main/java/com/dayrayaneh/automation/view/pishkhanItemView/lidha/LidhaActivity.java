@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.dayrayaneh.automation.R;
 import com.dayrayaneh.automation.adapter.pishkhan.lid.LidAdapter;
 import com.dayrayaneh.automation.base.BaseActivity;
 import com.dayrayaneh.automation.base.ConstValue;
+import com.dayrayaneh.automation.model.pishkhan.lidModel.LidModel;
 import com.dayrayaneh.automation.utils.Utils;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiDetailListFragment;
 import com.dayrayaneh.automation.view.pishkhanItemView.bazaryabi.fragment.BazaryabiMainListFragment;
@@ -62,7 +64,7 @@ public class LidhaActivity extends BaseActivity {
 
     private void init() {
         toolbar = findViewById(R.id.toolbar_item_pishkhan);
-        toolbar.setTitle(getResources().getString(R.string.bazaryabi));
+        toolbar.setTitle(getResources().getString(R.string.lidha));
         setSupportActionBar(toolbar);
         fromDate = findViewById(R.id.TV_fromDate);
         toDate = findViewById(R.id.Tv_toDate);
@@ -76,17 +78,39 @@ public class LidhaActivity extends BaseActivity {
         sharedPreferences = getSharedPreferences("date", MODE_PRIVATE);
 
     }
+    private void setRecyclerView(LidModel lidModel){
+        adapter = new LidAdapter(lidModel , this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this ,RecyclerView.VERTICAL , false));
+
+    }
 
     private void viewModel(){
-        loadingView.setVisibility(View.VISIBLE);
-        lidhaViewModel.getLid(ConstValue.startDate ,ConstValue.endDate ,companyId );
-        lidhaViewModel.lidModelMutableLiveData.observe(this , lidModel -> {
-            loadingView.setVisibility(View.GONE);
-            adapter = new LidAdapter(lidModel , this);
-            recyclerView.setAdapter(adapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this ,RecyclerView.VERTICAL , false));
 
-        });
+
+        ///////////////////
+        loadingView.setVisibility(View.VISIBLE);
+        if (lidhaViewModel.lidModelMutableLiveData.getValue() != null && getResources().getConfiguration().orientation==Configuration.ORIENTATION_LANDSCAPE ){
+            if (lidhaViewModel.lidModelMutableLiveData.getValue().getData().size() < 1){
+                loadingView.setVisibility(View.GONE);
+            }else {
+
+                setRecyclerView(lidhaViewModel.lidModelMutableLiveData.getValue());
+                loadingView.setVisibility(View.GONE);
+
+            }
+
+        }else{
+            loadingView.setVisibility(View.VISIBLE);
+            lidhaViewModel.getLid(ConstValue.startDate ,ConstValue.endDate ,companyId );
+            lidhaViewModel.lidModelMutableLiveData.observe(this , lidModel -> {
+                loadingView.setVisibility(View.GONE);
+                adapter = new LidAdapter(lidModel , this);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this ,RecyclerView.VERTICAL , false));
+
+            });
+        }
     }
 
     private void event() {

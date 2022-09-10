@@ -18,7 +18,7 @@
             android:id="@+id/item_back_lid"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:weightSum="17.75">
+            android:weightSum="17.25">
 
 
             <TextView
@@ -248,6 +248,7 @@
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="6dp"
                 tools:text="@string/tedadKol"
+                android:background="@color/greenLighter"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />

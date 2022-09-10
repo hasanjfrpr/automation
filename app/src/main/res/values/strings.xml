@@ -76,6 +76,7 @@
     <string name="phoneNumber">شماره تلفن</string>
     <string name="productType">نوع محصول</string>
     <string name="status">وضعیت</string>
+    <string name="insertDate">تاریخ ثبت</string>
     <string name="description">توضیحات</string>
 
 

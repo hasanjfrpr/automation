@@ -88,6 +88,11 @@ public class BazaryabiDetailListFragment extends BaseFragment implements Bazarya
         });
     }
 
+    @Override
+    public void onStop() {
+        showEmpty.setValue(false);
+        super.onStop();
+    }
 
     @Override
     public void onClick(int id) {

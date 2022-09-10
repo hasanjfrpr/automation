@@ -1,228 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="12dp"
+    android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginTop="8dp"
-    android:layout_height="wrap_content">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_new"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            app:cardElevation="4dp"
+            android:rotation="45"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="16dp">
+            <TextView
+                android:id="@+id/TV_item_bazaryabi_detail_new"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="جدید"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@color/greenLighter"
+                android:textSize="14sp"
+                android:textColor="@color/black"/>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:weightSum="7.5">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:padding="2dp">
+
+                   <FrameLayout
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1">
+
+                   </FrameLayout>
+                    <TextView
+                        android:id="@+id/TV_item_bazaryabi_detail_serviceType"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/IV_bazaryabi_detail_goldenStar"
+                            android:layout_width="36dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_star"
+                            android:layout_weight="1"
+                            android:layout_gravity="left"
+                            android:tint="@color/golden"
+                            android:visibility="visible"
+                            android:textSize="14sp"
+                            android:textColor="@color/darkYellow"/>
+                    </FrameLayout>
 
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical"
-       android:paddingHorizontal="16dp"
-       android:layout_marginTop="8dp"
-       android:weightSum="7.5">
+
+                </LinearLayout>
 
 
 
-       <TextView
-           android:id="@+id/TV_item_bazaryabi_detail_serviceType"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:textSize="14sp"
-           android:layout_weight="0.5"
-           android:layout_marginBottom="8dp"
-           android:textColor="@color/black"
-           android:layout_gravity="center_horizontal"
-           android:textStyle="bold"/>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:minHeight="46dp"
-           android:layout_weight="1">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/clientName"
-               android:textSize="16sp"
-               android:layout_marginEnd="16dp"
-               android:textColor="@color/black"
-               android:layout_gravity="center_vertical|start"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="16dp"
+            android:minHeight="46dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginEnd="16dp"
+                android:text="@string/clientName"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
 
-          <FrameLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-              <TextView
-                  android:id="@+id/TV_item_bazaryabi_detail_clientName"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="@color/black"
-                  android:ellipsize="end"
-                  android:textStyle="bold"
-                  android:layout_gravity="center_vertical|end"
-                  />
-          </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:minHeight="46dp"
-           android:layout_weight="1">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/phoneNumber"
-               android:textSize="16sp"
-               android:textColor="@color/black"
-               android:layout_gravity="center_vertical|start"/>
+                <TextView
+                    android:id="@+id/TV_item_bazaryabi_detail_clientName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:ellipsize="end"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
 
-          <FrameLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-              <TextView
-                  android:id="@+id/TV_item_bazaryabi_detail_phoneNumber"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"
-                  android:layout_gravity="center_vertical|end"
-                  />
-          </FrameLayout>
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:minHeight="46dp"
-           android:layout_weight="1">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/productType"
-               android:textSize="16sp"
-               android:textColor="@color/black"
-               android:layout_gravity="center_vertical|start"/>
+        </LinearLayout>
 
-           <FrameLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <TextView
-                   android:id="@+id/TV_item_bazaryabi_detail_productType"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:textSize="14sp"
-                   android:textColor="@color/black"
-                   android:textStyle="bold"
-                   android:layout_gravity="center_vertical|end"
-                   />
-           </FrameLayout>
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:minHeight="46dp"
-           android:layout_weight="1">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/status"
-               android:textSize="16sp"
-               android:textColor="@color/black"
-               android:layout_gravity="center_vertical|start"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="46dp">
 
-          <FrameLayout
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-              <TextView
-                  android:id="@+id/TV_item_bazaryabi_detail_status"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:textSize="14sp"
-                  android:textColor="@color/black"
-                  android:textStyle="bold"
-                  android:layout_gravity="center_vertical|end"
-                  />
-          </FrameLayout>
-       </LinearLayout>
-       <androidx.cardview.widget.CardView
-           android:id="@+id/linear_paygiri_item"
-           android:layout_width="match_parent"
-           app:cardCornerRadius="12dp"
-           app:cardElevation="8dp"
-           android:layout_height="wrap_content">
-           <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:text="@string/phoneNumber"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:minHeight="46dp"
-               android:paddingHorizontal="8dp"
-               android:background="@color/gray"
-               android:layout_weight="1">
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="تعداد پیگیری"
-                   android:textSize="16sp"
-                   android:textColor="@color/black"
-                   android:layout_gravity="center_vertical|start"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-               <FrameLayout
-                   android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/TV_item_bazaryabi_detail_phoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
 
-                   android:layout_height="match_parent">
-                   <TextView
-                       android:id="@+id/TV_item_bazaryabi_detail_paygiri"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:textSize="14sp"
-                       android:textColor="@color/black"
-                       android:textStyle="bold"
-                       android:layout_gravity="center_vertical|end"
-                       />
-               </FrameLayout>
-           </LinearLayout>
-       </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="46dp">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginBottom="12dp"
-           android:gravity="center_vertical">
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="@string/description"
-               android:textSize="16sp"
-               android:paddingVertical="8dp"
-               android:layout_marginEnd="16dp"
-               android:textColor="@color/black"
-               android:layout_gravity="center_vertical|start"/>
-           <ImageView
-               android:id="@+id/IV_item_bazaryabi_detail_showMore"
-               android:layout_width="50dp"
-               android:scaleType="centerInside"
-               android:background="?selectableItemBackgroundBorderless"
-               android:layout_height="match_parent"
-               android:visibility="invisible"
-               app:srcCompat="@drawable/ic_arrow_drop"
-               app:tint="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:text="@string/productType"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-       </LinearLayout>
-       <TextView
-           android:id="@+id/TV_item_bazaryabi_detail_description"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:textSize="14sp"
-           android:ellipsize="end"
-           android:layout_marginTop="8dp"
-           android:visibility="gone"
-           android:textColor="@color/black"
-           android:layout_marginBottom="8dp"
-           android:paddingBottom="8dp"
-           android:layout_marginHorizontal="16dp"
-           android:textStyle="bold"
-           android:layout_gravity="center_vertical|start" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-   </LinearLayout>
+                <TextView
+                    android:id="@+id/TV_item_bazaryabi_detail_productType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="46dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:text="@string/status"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/TV_item_bazaryabi_detail_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_back_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="8dp"
+            android:minHeight="46dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:text="@string/insertDate"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/TV_item_bazaryabi_detail_insertDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/linear_paygiri_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/gray"
+                android:minHeight="46dp"
+                android:paddingHorizontal="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:text="تعداد پیگیری"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/TV_item_bazaryabi_detail_paygiri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|end"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginEnd="16dp"
+                android:paddingVertical="8dp"
+                android:text="@string/description"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/IV_item_bazaryabi_detail_showMore"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackgroundBorderless"
+                android:scaleType="centerInside"
+                android:visibility="invisible"
+                app:srcCompat="@drawable/ic_arrow_drop"
+                app:tint="@color/black" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/TV_item_bazaryabi_detail_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:paddingBottom="8dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
 
 </com.google.android.material.card.MaterialCardView>

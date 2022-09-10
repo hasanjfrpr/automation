@@ -40,9 +40,12 @@ public class LidAdapter extends RecyclerView.Adapter<LidAdapter.LidViewHolder> {
             holder.item_back_lid.setBackground(context.getDrawable(R.color.gray));
         }
 
-        if(lidModel.getData().get(position).getFldProformaKindName().equals("مجموع") || lidModel.getData().get(position).getFldProformaKindName().equals("مجموع(vip)") ||
-                lidModel.getData().get(position).getFldProformaKindName().equals("مجموع هردو")){
+                        if( lidModel.getData().get(position).getFldProformaKindName().equals("مجموع هردو")){
             holder.item_back_lid.setBackground(context.getDrawable(R.color.greenLighter));
+        }
+        if(lidModel.getData().get(position).getFldProformaKindName().equals("مجموع")
+                || lidModel.getData().get(position).getFldProformaKindName().equals("مجموع(vip)")){
+            holder.item_back_lid.setBackground(context.getDrawable(R.color.redlight));
         }
 
 
@@ -72,7 +75,7 @@ public class LidAdapter extends RecyclerView.Adapter<LidAdapter.LidViewHolder> {
         if (lidModel.getData().get(position).getMonsarefAzKharid() != null)
         holder.monsarefAzKharid.setText(lidModel.getData().get(position).getMonsarefAzKharid().toString());
         if (lidModel.getData().get(position).getTedadKol() != null)
-        holder.tedadKol.setText(lidModel.getData().get(position).getTedadKol().toString());
+        holder.tedadKol.setText(lidModel.getData().get(position).getTedadKol());
 
     }
 
@@ -83,7 +86,10 @@ public class LidAdapter extends RecyclerView.Adapter<LidAdapter.LidViewHolder> {
 
     class LidViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nahveAshenaei,areFactor,present,darEntezarTaeedMoshtari,paygiryTelfoni,paygiryNashode,KharidAzsherkatDigar,demo,adamMojoodi,moshtariQayrMortabet,
+        TextView nahveAshenaei,areFactor,present,darEntezarTaeedMoshtari
+                ,paygiryTelfoni
+                ,paygiryNashode,KharidAzsherkatDigar
+                ,demo,adamMojoodi,moshtariQayrMortabet,
                 monjarBeforoosh,monsarefAzKharid,tedadKol;
         LinearLayout item_back_lid;
 
@@ -102,8 +108,6 @@ public class LidAdapter extends RecyclerView.Adapter<LidAdapter.LidViewHolder> {
             monjarBeforoosh = itemView.findViewById(R.id.TV_lid_item_monjarBeforoosh);
             monsarefAzKharid = itemView.findViewById(R.id.TV_lid_item_monsarefAzKharid);
             tedadKol = itemView.findViewById(R.id.TV_lid_item_tedadKol);
-
-
             item_back_lid = itemView.findViewById(R.id.item_back_lid);
         }
     }

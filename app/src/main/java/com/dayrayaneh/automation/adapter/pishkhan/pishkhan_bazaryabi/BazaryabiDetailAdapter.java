@@ -58,6 +58,8 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
         holder.phoneNumber.setText(bazaryabiDetailModelList.get(position).getTelNumber());
         holder.serviceType.setText(bazaryabiDetailModelList.get(position).getKhadamatType());
         holder.paygiri.setText(String.valueOf(bazaryabiDetailModelList.get(position).getDetailsCount()));
+        holder.insertDate.setText(bazaryabiDetailModelList.get(position).getDate());
+
 
         holder.itemPaygiriClick.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,24 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
                 eventClickPygiri.onClick(bazaryabiDetailModelList.get(position).getProformaCode());
             }
         });
+
+        if(bazaryabiDetailModelList.get(position).isToday()){
+            holder.linear_back_date.setBackgroundColor(context.getResources().getColor(R.color.greenLighter));
+        }else {
+            holder.linear_back_date.setBackgroundColor(context.getResources().getColor(R.color.white));
+        }
+
+        if (bazaryabiDetailModelList.get(position).isGolden()){
+            holder.goldenStar.setVisibility(View.VISIBLE);
+        }else {
+            holder.goldenStar.setVisibility(View.INVISIBLE);
+        }
+        if (bazaryabiDetailModelList.get(position).isNew_()){
+            holder.cardView_new.setVisibility(View.VISIBLE);
+        }else {
+            holder.cardView_new.setVisibility(View.INVISIBLE);
+        }
+
 
 
         holder.description.setVisibility(View.VISIBLE);
@@ -115,9 +135,10 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
 
     public class BazaryabiDetailViewHolder extends RecyclerView.ViewHolder{
 
-        TextView serviceType , clientName , phoneNumber , status , description , productType,paygiri;
-        ImageView showMore;
-        CardView itemPaygiriClick;
+        TextView serviceType , clientName , phoneNumber , status , description , productType,paygiri , new_ , insertDate;
+        ImageView showMore, goldenStar;
+        CardView itemPaygiriClick,cardView_new;
+        LinearLayout linear_back_date;
 
         public BazaryabiDetailViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -131,6 +152,12 @@ public class BazaryabiDetailAdapter extends RecyclerView.Adapter<BazaryabiDetail
             showMore = itemView.findViewById(R.id.IV_item_bazaryabi_detail_showMore);
             paygiri = itemView.findViewById(R.id.TV_item_bazaryabi_detail_paygiri);
             itemPaygiriClick = itemView.findViewById(R.id.linear_paygiri_item);
+            cardView_new = itemView.findViewById(R.id.cardView_new);
+            linear_back_date = itemView.findViewById(R.id.linear_back_date);
+            new_ = itemView.findViewById(R.id.TV_item_bazaryabi_detail_new);
+            insertDate = itemView.findViewById(R.id.TV_item_bazaryabi_detail_insertDate);
+            goldenStar = itemView.findViewById(R.id.IV_bazaryabi_detail_goldenStar);
+
 
         }
     }
